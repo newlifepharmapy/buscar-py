@@ -1,0 +1,15 @@
+{
+  "name": "buscar-py",
+  "version": "0.2.0",
+  "description": "Comparador de preços do Paraguai com busca por imagem",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "catalogo": "python3 scripts/make_catalog.py",
+    "indexar": "npm --prefix scripts install && node scripts/build_index.js",
+    "artifact": "python3 scripts/build_artifact.py"
+  }
+}

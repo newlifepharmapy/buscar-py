@@ -1,0 +1,12 @@
+{
+  "name": "buscar-py-tools",
+  "private": true,
+  "description": "Ferramentas para gerar o índice visual do catálogo",
+  "scripts": {
+    "indexar": "node build_index.js"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0",
+    "@tensorflow/tfjs-node": "^4.22.0"
+  }
+}

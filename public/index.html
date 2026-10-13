@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Compare preços de lojas do Paraguai em Ciudad del Este, Pedro Juan Caballero, Salto del Guairá e Asunción. Busque por nome ou por foto do produto.">
+<meta name="theme-color" content="#0038a8">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Buscar PY · Compare preços no Paraguai">
+<meta property="og:description" content="Busque por nome ou por foto e veja em qual loja do Paraguai o produto está mais barato.">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://buscarpy.com/">
+<!-- ARTIFACT:START -->
+<title>Buscar PY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<a class="skip" href="#resultados">Pular para os resultados</a>
+
+<div class="utilbar">
+  <div class="container utilbar-inner">
+    <span class="util-msg">Preços de <b id="nStores">12 lojas</b> em Ciudad del Este, Pedro Juan Caballero, Salto del Guairá e Asunción</span>
+    <span class="fx" title="Cotação de referência usada nas conversões">
+      Cotação: US$ 1 = <b id="fxBrl">R$ 5,45</b> · <b id="fxPyg">₲ 7.900</b>
+    </span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="logo" href="#" id="logo" aria-label="Buscar PY, página inicial">
+      <svg class="logo-mark" viewBox="0 0 40 40" width="38" height="38" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#0038a8"/>
+        <circle cx="17.5" cy="17.5" r="8.5" fill="none" stroke="#fff" stroke-width="3.6"/>
+        <path d="M24 24l7.5 7.5" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+        <rect x="6" y="33" width="28" height="3" rx="1.5" fill="#d52b1e"/>
+      </svg>
+      <span class="logo-text">Buscar<span class="logo-py">PY</span></span>
+    </a>
+    <form class="search" id="searchForm" role="search">
+      <label for="q" class="sr-only">Buscar produto</label>
+      <svg class="search-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Buscar produto, marca ou cor">
+      <button type="button" class="cam-btn" id="camBtn" aria-pressed="false" title="Buscar por foto">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" d="M4 8h3l1.6-2.4h6.8L17 8h3v11H4z"/><circle cx="12" cy="13.2" r="3.5" fill="none" stroke="currentColor" stroke-width="1.9"/></svg>
+        <span class="cam-label">Buscar por foto</span>
+      </button>
+      <button type="submit" class="search-btn">Buscar</button>
+    </form>
+  </div>
+  <nav class="catnav" aria-label="Categorias">
+    <div class="container catnav-wrap">
+      <button type="button" class="catnav-arrow prev" id="catPrev" tabindex="-1" aria-hidden="true" hidden>
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="catnav-track" id="catbar"></div>
+      <button type="button" class="catnav-arrow next" id="catNext" tabindex="-1" aria-hidden="true" hidden>
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <input id="file" type="file" accept="image/*" class="sr-only" tabindex="-1" aria-hidden="true">
+  <section class="hero" id="hero" aria-labelledby="heroTitle">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Comparador de preços do Paraguai</p>
+        <h1 id="heroTitle">Encontre o menor preço antes de cruzar a ponte</h1>
+        <p class="lead">Compare o mesmo produto em várias lojas, veja o valor em dólar, real e guarani e acompanhe o histórico de preço.</p>
+        <dl class="stats">
+          <div><dt>Produtos</dt><dd id="stProducts">342</dd></div>
+          <div><dt>Ofertas</dt><dd id="stOffers">1.424</dd></div>
+          <div><dt>Lojas</dt><dd id="stStores">12</dd></div>
+          <div><dt>Cidades</dt><dd id="stCities">4</dd></div>
+        </dl>
+      </div>
+      <div class="hero-drop" id="heroDrop">
+        <div class="hero-drop-ico" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="34" height="34"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" d="M6 14h7l3-5h16l3 5h7v25H6z"/><circle cx="24" cy="26" r="7.5" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+        </div>
+        <div class="hero-drop-text">
+          <h2>Tem uma foto do produto?</h2>
+          <p>Envie a imagem e mostramos os produtos mais parecidos e onde estão mais baratos.</p>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg" data-pick>Enviar foto</button>
+        <p class="fine">Também dá para arrastar a imagem para cá ou colar com Ctrl+V.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="imgsearch" id="imgPanel" hidden aria-labelledby="imgTitle">
+    <div class="container">
+      <div class="imgsearch-box">
+        <div class="drop" id="drop">
+          <canvas id="qCanvas" hidden></canvas>
+          <div class="drop-empty" id="dropEmpty">
+            <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M6 14h7l3-5h16l3 5h7v25H6z"/><circle cx="24" cy="26" r="7.5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+            <p><b>Arraste uma foto do produto</b> ou cole com Ctrl+V</p>
+            <button type="button" class="btn btn-primary" data-pick>Escolher imagem</button>
+            <p class="hint">Funciona com print de anúncio, foto da vitrine ou imagem salva.</p>
+          </div>
+        </div>
+        <div class="img-side">
+          <div class="img-head">
+            <h2 id="imgTitle" tabindex="-1">Busca por foto</h2>
+            <button class="icon-x" id="closeImg" type="button" aria-label="Fechar busca por foto">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <p class="tip"><b>Dica:</b> arraste sobre a foto para marcar só o produto. A busca é refeita na hora.</p>
+          <div class="status" id="imgStatus" role="status"></div>
+          <button type="button" class="btn btn-primary see-results" id="seeResults" hidden>Ver produtos parecidos</button>
+          <div class="guess" id="guess" hidden>
+            <span class="lbl">Parece ser</span>
+            <div class="chips" id="guessChips"></div>
+          </div>
+          <details class="adjust">
+            <summary>Ajustar busca</summary>
+            <div class="ctrl">
+              <label for="colorW">Peso da cor <output id="colorWOut" for="colorW">10%</output></label>
+              <input id="colorW" type="range" min="0" max="60" step="5" value="10">
+              <p class="hint">Aumente para encontrar o mesmo modelo na mesma cor.</p>
+            </div>
+            <div class="ctrl">
+              <label for="minSim">Semelhança mínima <output id="minSimOut" for="minSim">25%</output></label>
+              <input id="minSim" type="range" min="0" max="90" step="5" value="25">
+            </div>
+          </details>
+          <div class="ctrl-row">
+            <button class="btn" id="resetCrop" type="button">Usar foto inteira</button>
+            <button type="button" class="btn" data-pick>Trocar foto</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout" id="resultados">
+    <aside class="filters" id="filters" aria-label="Filtros">
+      <details open>
+        <summary>
+          <span>Filtrar resultados</span>
+          <svg class="chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="fgroup">
+          <h3>Preço em US$</h3>
+          <div class="price-inputs">
+            <label class="sr-only" for="pmin">Preço mínimo</label>
+            <input id="pmin" type="number" min="0" placeholder="Mínimo" inputmode="decimal">
+            <span aria-hidden="true">–</span>
+            <label class="sr-only" for="pmax">Preço máximo</label>
+            <input id="pmax" type="number" min="0" placeholder="Máximo" inputmode="decimal">
+          </div>
+        </div>
+        <div class="fgroup">
+          <h3>Cidade</h3>
+          <div id="fCity" class="checks"></div>
+        </div>
+        <div class="fgroup">
+          <h3>Loja</h3>
+          <div id="fStore" class="checks"></div>
+          <button type="button" class="link-btn" id="fStoreMore" aria-expanded="false" aria-controls="fStore" hidden>Ver todas as lojas</button>
+        </div>
+        <div class="fgroup">
+          <label class="check"><input type="checkbox" id="fStock" checked> Só com estoque</label>
+        </div>
+        <button class="btn btn-ghost" id="clearFilters" type="button">Limpar filtros</button>
+      </details>
+    </aside>
+
+    <section class="results" aria-labelledby="resTitle">
+      <div class="res-head">
+        <div class="res-title">
+          <nav class="crumbs" aria-label="Você está em" id="crumbs"></nav>
+          <h2 id="resTitle" tabindex="-1">Ofertas em destaque</h2>
+          <p id="resSub" class="sub" aria-live="polite"></p>
+        </div>
+        <div class="sort">
+          <label for="sort">Ordenar por</label>
+          <select id="sort">
+            <option value="rel">Relevância</option>
+            <option value="price">Menor preço</option>
+            <option value="price-desc">Maior preço</option>
+            <option value="save">Maior economia</option>
+            <option value="stores">Mais lojas</option>
+          </select>
+        </div>
+      </div>
+      <div class="active-filters" id="activeFilters" hidden></div>
+      <div class="grid" id="grid">
+        <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+      </div>
+      <div class="more" id="moreWrap" hidden><button class="btn" id="moreBtn" type="button">Mostrar mais produtos</button></div>
+    </section>
+  </div>
+
+  <section class="how" id="how" aria-labelledby="howTitle">
+    <div class="container">
+      <h2 id="howTitle">Como funciona</h2>
+      <ol class="steps">
+        <li><h3>Busque pelo nome ou pela foto</h3><p>Digite em português ou espanhol, ou envie uma imagem do produto. Erros de digitação e acentos não atrapalham.</p></li>
+        <li><h3>Compare as lojas</h3><p>Veja o menor preço, a loja que vende, a cidade e quanto você economiza em relação à loja mais cara.</p></li>
+        <li><h3>Confira o histórico</h3><p>O gráfico de 26 semanas mostra se o preço de hoje está bom antes de você ir até a loja.</p></li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-text logo-text-inv">Buscar<span class="logo-py">PY</span></span>
+      <p>Comparador de preços de lojas do Paraguai, com busca por texto e por imagem.</p>
+    </div>
+    <div>
+      <h3>Cidades</h3>
+      <ul id="footCities"></ul>
+    </div>
+    <div>
+      <h3>Categorias</h3>
+      <ul class="cols2" id="footCats"></ul>
+    </div>
+  </div>
+  <div class="container footer-legal">
+    <p>Preços em dólar americano. Valores em real e guarani usam a cotação de referência indicada no topo da página.</p>
+    <p>Versão de demonstração: imagens e nomes de produtos do <a href="https://amazon-berkeley-objects.s3.amazonaws.com/index.html" target="_blank" rel="noopener">Amazon Berkeley Objects</a> (CC BY 4.0). Lojas, preços e histórico são fictícios.</p>
+  </div>
+</footer>
+
+<dialog id="pdlg" aria-labelledby="pdName">
+  <div class="pd">
+    <button class="icon-x pd-close" id="pdClose" type="button" aria-label="Fechar">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="pd-media"><img id="pdImg" alt=""></div>
+    <div class="pd-info">
+      <p class="pd-cat" id="pdCat"></p>
+      <h2 id="pdName" tabindex="-1"></h2>
+      <p class="pd-brand" id="pdBrand"></p>
+      <div class="pd-best" id="pdBest"></div>
+      <button class="btn btn-outline" id="pdSimilar" type="button">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 8h3l1.6-2.4h6.8L17 8h3v11H4z"/><circle cx="12" cy="13.2" r="3.4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        Buscar parecidos
+      </button>
+    </div>
+    <div class="pd-offers">
+      <h3>Preços nas lojas</h3>
+      <div class="table-wrap"><table id="pdTable"></table></div>
+    </div>
+    <div class="pd-hist">
+      <h3>Menor preço nas últimas 26 semanas</h3>
+      <div id="pdChart" class="chart"></div>
+    </div>
+    <div class="pd-sim">
+      <h3>Visualmente parecidos</h3>
+      <div class="sim-row" id="pdSim"></div>
+    </div>
+  </div>
+</dialog>
+
+<script src="vendor/tf.min.js"></script>
+<script src="js/vision.js"></script>
+<script src="js/search.js"></script>
+<script src="js/app.js"></script>
+<!-- ARTIFACT:END -->
+</body>
+</html>
