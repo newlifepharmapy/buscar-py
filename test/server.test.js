@@ -85,6 +85,7 @@ test("painel exige login", async () => {
   const s = await authed("GET", "/api/admin/settings");
   assert.equal(s.status, 200);
   assert.equal(s.headers.get("cache-control"), "no-store");
+  assert.deepEqual((await s.json()).storage, { writable: true, persistent: true, volume: false });
   const adm = await fetch(base + "/admin/");
   assert.match(adm.headers.get("x-robots-tag"), /noindex/);
   assert.match(adm.headers.get("content-security-policy"), /frame-ancestors 'none'/);
@@ -113,6 +114,9 @@ test("salvar publica no site, com controle de versão", async () => {
   assert.match(await (await fetch(base + "/theme.css")).text(), /--blue:#123456/);
   const stale = await authed("PUT", "/api/admin/settings", { settings: s, version: cur.version });
   assert.equal(stale.status, 409);
+  const conflict = await stale.json();
+  assert.equal(conflict.error, "O painel foi salvo em outra aba ou aparelho enquanto você editava.");
+  assert.equal(conflict.version, saved.version, "o 409 traz a versão atual para o painel");
   const cams = await (await fetch(base + "/cameras")).text();
   assert.equal((cams.match(/class="cam-tab"/g) || []).length, 1);
 });
@@ -135,6 +139,53 @@ test("corpo grande demais é recusado", async () => {
   assert.equal(r.status, 413);
 });
 
+test("corpo JSON que não é um objeto dá 400, não erro interno", async () => {
+  for (const body of [null, [], 5, "texto"]) {
+    const r = await jsonReq("POST", "/api/admin/login", body, { "X-Forwarded-For": "5.5.5.5" });
+    assert.equal(r.status, 400, "login " + JSON.stringify(body));
+    assert.equal((await r.json()).error, "JSON inválido");
+    assert.equal(r.headers.get("x-content-type-options"), "nosniff");
+  }
+  const before = await (await authed("GET", "/api/admin/settings")).json();
+  for (const body of [null, [], { settings: null }, { settings: [] }]) {
+    const r = await authed("PUT", "/api/admin/settings", body);
+    assert.equal(r.status, 400, "salvar " + JSON.stringify(body));
+  }
+  const after = await (await authed("GET", "/api/admin/settings")).json();
+  assert.equal(after.version, before.version, "nada foi gravado");
+  assert.deepEqual(after.settings, before.settings);
+});
+
+test("câmeras: link do YouTube vira player; endereço com símbolos é recusado", async () => {
+  const cur = await (await authed("GET", "/api/admin/settings")).json();
+  const keep = cur.settings.cameras.list[0];
+  cur.settings.cameras.list = [keep,
+    { name: "Ponte no YouTube", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=5s" },
+    { name: "sandbox", url: "https://a;sandbox;b.example/" }, { name: "curinga", url: "https://*.example.com/x" }];
+  const r = await authed("PUT", "/api/admin/settings", { settings: cur.settings, version: cur.version });
+  assert.equal(r.status, 200);
+  const list = (await r.json()).settings.cameras.list;
+  assert.deepEqual(list.map((c) => c.url), [keep.url, "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&playsinline=1"]);
+  const cams = await fetch(base + "/cameras");
+  const frameSrc = cams.headers.get("content-security-policy").split("; ").find((d) => d.startsWith("frame-src"));
+  assert.equal(frameSrc, "frame-src https://playerv.logicahost.com.br https://www.youtube.com");
+});
+
+test("campo inválido mantém o último valor salvo", async () => {
+  let cur = await (await authed("GET", "/api/admin/settings")).json();
+  const blue = cur.settings.brand.blue;
+  assert.notEqual(blue, "#0038a8");
+  cur.settings.brand.blue = "#12345"; // faltou um dígito
+  cur.settings.rates = { auto: false, BRL: 560, PYG: 7.95 }; // "5,60" e "7.950" lidos do jeito errado
+  const r = await authed("PUT", "/api/admin/settings", { settings: cur.settings, version: cur.version });
+  cur = await r.json();
+  assert.equal(cur.settings.brand.blue, blue);
+  assert.deepEqual(cur.settings.rates, { auto: false, BRL: 5.45, PYG: 7900 });
+  assert.match(await (await fetch(base + "/theme.css")).text(), new RegExp("--blue:" + blue));
+  cur.settings.rates.auto = true;
+  assert.equal((await authed("PUT", "/api/admin/settings", { settings: cur.settings, version: cur.version })).status, 200);
+});
+
 test("configurações sobrevivem a um reinício", async () => {
   await stop();
   await start();
@@ -144,10 +195,56 @@ test("configurações sobrevivem a um reinício", async () => {
   assert.equal((await authed("GET", "/api/admin/settings")).status, 200);
 });
 
+test("Sair encerra a sessão, inclusive num cookie copiado", async () => {
+  await login();
+  const copied = cookie;
+  await login(); // outra sessão, em outro aparelho
+  const other = cookie;
+  // sem sessão válida, "Sair" só apaga o cookie (ninguém de fora derruba o admin)
+  assert.equal((await jsonReq("POST", "/api/admin/logout", {})).status, 200);
+  assert.equal((await jsonReq("GET", "/api/admin/settings", undefined, { Cookie: copied })).status, 200);
+  const out = await jsonReq("POST", "/api/admin/logout", {}, { Cookie: copied });
+  assert.equal(out.status, 200);
+  assert.match(out.headers.get("set-cookie"), /Max-Age=0/);
+  for (const c of [copied, other]) {
+    assert.equal((await jsonReq("GET", "/api/admin/settings", undefined, { Cookie: c })).status, 401);
+    assert.deepEqual(await (await jsonReq("GET", "/api/admin/session", undefined, { Cookie: c })).json(), { enabled: true, loggedIn: false });
+  }
+  await stop();
+  await start();
+  assert.equal((await jsonReq("GET", "/api/admin/settings", undefined, { Cookie: copied })).status, 401, "continua encerrada depois de reiniciar");
+  await login();
+  assert.equal((await authed("GET", "/api/admin/settings")).status, 200, "entrar de novo funciona");
+});
+
 test("bloqueio depois de muitas senhas erradas", async () => {
   let last;
   for (let i = 0; i < 9; i++) last = await jsonReq("POST", "/api/admin/login", { password: "x" + i }, { "X-Forwarded-For": "9.9.9.9" });
   assert.equal(last.status, 429);
+  assert.equal((await last.json()).error, "Muitas senhas erradas deste aparelho. Espere 15 minutos e tente de novo.");
   const other = await jsonReq("POST", "/api/admin/login", { password: PASS }, { "X-Forwarded-For": "8.8.8.8" });
   assert.equal(other.status, 200);
+});
+
+test("CF-Connecting-IP inventado não escapa do limite por IP", async () => {
+  const codes = [];
+  for (let i = 0; i < 10; i++) {
+    const r = await jsonReq("POST", "/api/admin/login", { password: "x" + i }, { "X-Forwarded-For": "7.7.7.7", "CF-Connecting-IP": "10.0.0." + i });
+    codes.push(r.status);
+  }
+  assert.deepEqual(codes, [401, 401, 401, 401, 401, 401, 401, 401, 429, 429]);
+});
+
+// Por último: depois dele, toda resposta do login demora uns 2 s.
+test("muitas senhas erradas de vários IPs deixam o login lento, mas a senha certa entra", async () => {
+  const codes = await Promise.all(Array.from({ length: 40 }, (_, i) =>
+    jsonReq("POST", "/api/admin/login", { password: "x" }, { "X-Forwarded-For": "10.1.0." + (i + 1) }).then((r) => r.status)));
+  assert.ok(codes.every((c) => c === 401), codes.join(","));
+  let t = Date.now();
+  const ok = await jsonReq("POST", "/api/admin/login", { password: PASS }, { "X-Forwarded-For": "198.51.100.7" });
+  assert.equal(ok.status, 200);
+  assert.ok(Date.now() - t >= 1900, "resposta mais lenta durante o ataque");
+  t = Date.now();
+  const wrong = await jsonReq("POST", "/api/admin/login", { password: "errada" }, { "X-Forwarded-For": "198.51.100.8" });
+  assert.equal(wrong.status, 401, "um IP novo não é bloqueado pelos erros dos outros");
 });

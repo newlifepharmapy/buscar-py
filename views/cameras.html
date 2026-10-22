@@ -46,15 +46,13 @@
         <div class="cam-tabs" role="tablist" aria-label="Escolha a câmera">{{{cameraTabs}}}</div>
         <div class="cam-stage" id="camStage" role="tabpanel" aria-labelledby="camTab0" tabindex="-1">
           <div class="cam-cover" id="camCover">
-            <span class="cam-cover-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
-            </span>
             <p class="cam-cover-title" id="camCoverTitle"></p>
             <p class="cam-cover-msg" id="camCoverMsg">Ative o JavaScript para assistir.</p>
-            <button type="button" class="btn btn-primary btn-lg" id="camPlay" hidden>Assistir ao vivo</button>
+            <button type="button" class="btn btn-primary btn-lg cam-play" id="camPlay" hidden><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>Assistir ao vivo</button>
           </div>
         </div>
         <div class="cam-bar">
+          <p class="sr-only" id="camStatus" role="status"></p>
           <span class="cam-live" id="camLive" hidden><span class="live-dot" aria-hidden="true"></span>Ao vivo</span>
           <span class="cam-credit">{{cameras.credit}}</span>
           <span class="cam-actions">

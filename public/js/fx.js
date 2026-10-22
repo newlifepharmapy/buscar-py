@@ -15,6 +15,14 @@
   };
   var lastPoll = Date.now();
 
+  // Nome das fontes para o visitante, igual ao do servidor: "google+awesomeapi" -> "Google e AwesomeAPI".
+  var SOURCE_LABELS = { google: "Google", awesomeapi: "AwesomeAPI", "er-api": "ExchangeRate-API" };
+  function sourceLabel(source) {
+    return String(source || "").split("+").filter(Boolean).map(function (id) {
+      return Object.prototype.hasOwnProperty.call(SOURCE_LABELS, id) ? SOURCE_LABELS[id] : id;
+    }).join(" e ");
+  }
+
   function brl(v) { return "R$ " + v.toFixed(2).replace(".", ","); }
   function pyg(v) { return "₲ " + String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
 
@@ -27,9 +35,10 @@
       var d = new Date(cur.at);
       if (!isNaN(d)) when = ". Última leitura às " + d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
     }
+    var label = sourceLabel(cur.source);
     el.title = (cur.source === "manual"
       ? "Cotação de referência definida pela equipe do site"
-      : "Cotação comercial do dólar (fonte: " + (cur.source === "google" ? "Google" : cur.source) + "), atualizada a cada 5 minutos") + when;
+      : "Cotação comercial do dólar" + (label ? " (fonte: " + label + ")" : "") + ", conferida a cada 5 minutos") + when;
   }
 
   function valid(j) {

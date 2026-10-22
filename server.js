@@ -9,7 +9,7 @@ const zlib = require("zlib");
 const crypto = require("crypto");
 const { Store } = require("./lib/settings");
 const { Rates } = require("./lib/rates");
-const { Auth } = require("./lib/auth");
+const { Auth, clientIp } = require("./lib/auth");
 const R = require("./lib/render");
 const DEFAULTS = require("./lib/defaults");
 
@@ -19,6 +19,8 @@ const PROD = process.env.NODE_ENV === "production";
 const CANONICAL_HOST = (process.env.CANONICAL_HOST || "").toLowerCase(); // ex.: buscarpy.com
 // Onde ficam settings.json e a última cotação. No Railway, um volume montado é usado automaticamente.
 const DATA_DIR = path.resolve(process.env.DATA_DIR || process.env.RAILWAY_VOLUME_MOUNT_PATH || path.join(__dirname, "storage"));
+const HAS_VOLUME = Boolean(process.env.RAILWAY_VOLUME_MOUNT_PATH);
+const VOLUME_NO_WRITE = "O volume do Railway está montado, mas o servidor não tem permissão de gravar nele. Defina a variável RAILWAY_RUN_UID=0 no serviço e faça um novo deploy.";
 
 const store = new Store(DATA_DIR);
 const rates = new Rates({ dir: store.writable ? DATA_DIR : null, intervalMs: Number(process.env.RATES_INTERVAL_MS) || 5 * 60 * 1000 });
@@ -156,14 +158,7 @@ function json(res, status, obj, extra) {
 function redirect(res, to) { res.writeHead(301, { Location: to }); res.end(); }
 
 /* ---------- API ---------- */
-function clientIp(req) {
-  const cf = req.headers["cf-connecting-ip"];
-  if (cf) return String(cf).trim();
-  const xff = req.headers["x-forwarded-for"];
-  // o Railway acrescenta o IP de quem conectou no fim da lista; o começo pode ter sido inventado pelo cliente
-  if (xff) return String(xff).split(",").pop().trim();
-  return req.socket.remoteAddress || "?";
-}
+// Lê o corpo JSON. Só aceita um objeto ({...}): "null", números ou listas viram erro 400.
 function readJson(req, limit) {
   return new Promise((resolve, reject) => {
     let size = 0, tooBig = false;
@@ -176,7 +171,10 @@ function readJson(req, limit) {
     });
     req.on("end", () => {
       if (tooBig) return;
-      try { resolve(chunks.length ? JSON.parse(Buffer.concat(chunks).toString("utf8")) : {}); } catch (e) { reject(Object.assign(new Error("JSON inválido"), { status: 400 })); }
+      let v;
+      try { v = chunks.length ? JSON.parse(Buffer.concat(chunks).toString("utf8")) : {}; } catch (e) { v = null; }
+      if (!v || typeof v !== "object" || Array.isArray(v)) return reject(Object.assign(new Error("JSON inválido"), { status: 400 }));
+      resolve(v);
     });
     req.on("error", reject);
   });
@@ -190,7 +188,7 @@ function adminState() {
     version: store.version,
     savedAt: store.savedAt,
     defaults: DEFAULTS,
-    storage: { writable: store.writable, persistent: store.persistent && store.writable },
+    storage: { writable: store.writable, persistent: store.persistent && store.writable, volume: HAS_VOLUME },
     rates: { effective: rates.effective(s), ...rates.status() },
     contrast: { blue: R.contrastWithWhite(s.brand.blue), red: R.contrastWithWhite(s.brand.red) },
   };
@@ -224,9 +222,14 @@ async function api(req, res, rel, secure) {
   if (rel === "/api/admin/login" && req.method === "POST") {
     if (!auth.enabled) return json(res, 503, { error: "Painel desativado: defina a variável ADMIN_PASSWORD (mínimo de 8 caracteres) no Railway." });
     const ip = clientIp(req);
-    if (auth.blocked(ip)) return json(res, 429, { error: "Muitas tentativas erradas. Espere 15 minutos e tente de novo." });
+    const tooMany = () => json(res, 429, { error: "Muitas senhas erradas deste aparelho. Espere 15 minutos e tente de novo." });
+    if (auth.blocked(ip)) return tooMany();
     let body;
     try { body = await readJson(req, 4096); } catch (e) { return json(res, e.status || 400, { error: e.message }); }
+    // Muitas senhas erradas de vários IPs: ninguém é bloqueado (senão o dono ficaria trancado fora),
+    // mas toda resposta demora uns 2 s, o que freia quem tenta adivinhar a senha.
+    if (auth.throttled()) await sleep(2000 + Math.random() * 500);
+    if (auth.blocked(ip)) return tooMany(); // pedidos em paralelo do mesmo IP
     if (!auth.check(body.password, ip)) {
       await sleep(400 + Math.random() * 300);
       return json(res, 401, { error: "Senha incorreta." });
@@ -235,6 +238,11 @@ async function api(req, res, rel, secure) {
     return json(res, 200, { ok: true }, { "Set-Cookie": auth.cookie(auth.issue(), secure) });
   }
   if (rel === "/api/admin/logout" && req.method === "POST") {
+    // "Sair" encerra todas as sessões abertas, em qualquer aparelho (um cookie copiado também deixa de valer).
+    if (auth.verify(auth.tokenFrom(req))) {
+      auth.revokeAll();
+      console.log(`painel: saída de ${clientIp(req)} (todas as sessões encerradas)`);
+    }
     return json(res, 200, { ok: true }, { "Set-Cookie": auth.clearCookie(secure) });
   }
 
@@ -245,10 +253,11 @@ async function api(req, res, rel, secure) {
   if (rel === "/api/admin/settings" && req.method === "PUT") {
     let body;
     try { body = await readJson(req, 1200 * 1024); } catch (e) { return json(res, e.status || 400, { error: e.status === 413 ? "Conteúdo grande demais (a imagem do logo pode ter até 400 KB)." : e.message }); }
+    if (!body.settings || typeof body.settings !== "object" || Array.isArray(body.settings)) return json(res, 400, { error: "JSON inválido" });
     try {
       store.save(body.settings, body.version);
     } catch (e) {
-      if (e.code === "CONFLICT") return json(res, 409, { error: "Outra pessoa salvou alterações enquanto você editava. Recarregue para ver a versão atual.", ...adminState() });
+      if (e.code === "CONFLICT") return json(res, 409, { error: "O painel foi salvo em outra aba ou aparelho enquanto você editava.", ...adminState() });
       console.error("painel: erro ao salvar", e);
       return json(res, 500, { error: "Não foi possível gravar as alterações no disco." });
     }
@@ -309,7 +318,8 @@ async function handle(req, res) {
 const server = http.createServer((req, res) => {
   handle(req, res).catch((e) => {
     console.error(e);
-    if (!res.headersSent) { res.writeHead(500, { "Content-Type": TYPES[".txt"] }); res.end("Erro interno"); }
+    // mesmos cabeçalhos de segurança das outras respostas (nosniff, CSP, sem indexar, sem cache)
+    if (!res.headersSent) { res.writeHead(500, { ...ADMIN_HEADERS, "Content-Type": TYPES[".txt"] }); res.end("Erro interno"); }
     else res.destroy();
   });
 });
@@ -319,6 +329,7 @@ rates.start();
 server.listen(PORT, () => {
   console.log(`Buscar PY no ar na porta ${PORT}`);
   console.log(`Configurações em ${DATA_DIR} (${store.writable ? (store.persistent ? "gravável e permanente" : "gravável, mas some no próximo deploy: monte um volume") : "somente leitura"})`);
+  if (HAS_VOLUME && !store.writable) console.log(VOLUME_NO_WRITE);
   if (!auth.enabled) console.log("Painel admin desativado: defina ADMIN_PASSWORD (mínimo de 8 caracteres).");
 });
 // Encerra com calma: para de aceitar conexões e deixa as respostas em andamento terminarem.

@@ -78,19 +78,22 @@
           <button type="button" class="btn btn-outline" id="fxRefresh">Atualizar agora</button>
         </div>
         <ul class="fx-errors" id="fxErrors" hidden></ul>
+        <ul class="fx-notes" id="fxNotes" hidden></ul>
         <label class="switch">
           <input type="checkbox" data-path="rates.auto">
           <span><b>Atualizar sozinho a cada 5 minutos</b> com a cotação comercial do Google (com reservas automáticas se o Google não responder).</span>
         </label>
         <div class="fld-row">
-          <label class="fld">
-            <span>R$ por US$ 1 (manual)</span>
-            <input type="number" step="0.01" min="1" max="20" inputmode="decimal" data-path="rates.BRL" data-num>
-          </label>
-          <label class="fld">
-            <span>₲ por US$ 1 (manual)</span>
-            <input type="number" step="1" min="1000" max="20000" inputmode="numeric" data-path="rates.PYG" data-num>
-          </label>
+          <div class="fld">
+            <label for="fxBRL">R$ por US$ 1 (manual)</label>
+            <input type="text" id="fxBRL" maxlength="12" inputmode="decimal" autocomplete="off" placeholder="5,45" data-path="rates.BRL" data-check="brl" data-err="errBRL">
+            <p class="adm-error" id="errBRL" hidden></p>
+          </div>
+          <div class="fld">
+            <label for="fxPYG">₲ por US$ 1 (manual)</label>
+            <input type="text" id="fxPYG" maxlength="12" inputmode="decimal" autocomplete="off" placeholder="7.900" data-path="rates.PYG" data-check="pyg" data-err="errPYG">
+            <p class="adm-error" id="errPYG" hidden></p>
+          </div>
         </div>
         <p class="hint">Os valores manuais valem quando a atualização automática está desligada, ou enquanto o servidor ainda não conseguiu ler nenhuma cotação.</p>
       </section>
@@ -108,8 +111,11 @@
         <div class="fld">
           <span>Links</span>
           <div class="rows" id="linksList"></div>
-          <button type="button" class="btn btn-sm" id="addLink">Adicionar link</button>
-          <p class="hint">Use um caminho do próprio site (ex.: <code>/cameras</code>) ou um endereço completo (<code>https://…</code>). Marque “ao vivo” para mostrar o ponto vermelho piscando.</p>
+          <div class="rows-foot">
+            <button type="button" class="btn btn-sm" id="addLink">Adicionar link</button>
+            <span class="hint" id="linksCount"></span>
+          </div>
+          <p class="hint">Use um caminho do próprio site (ex.: <code>/cameras</code>) ou um endereço completo (<code>https://…</code>). Marque “ao vivo” para mostrar o ponto vermelho piscando. Até 6 links; com muitos links (ou textos longos) a mensagem do topo fica cortada.</p>
         </div>
       </section>
 
@@ -120,15 +126,15 @@
           <button type="button" class="btn btn-sm btn-ghost" data-reset="brand">Restaurar padrão</button>
         </div>
         <div class="fld-row">
-          <label class="fld"><span>Nome (parte azul)</span><input type="text" maxlength="24" data-path="brand.name1"></label>
-          <label class="fld"><span>Nome (parte vermelha)</span><input type="text" maxlength="12" data-path="brand.name2"></label>
+          <div class="fld"><label for="fName1">Nome — 1ª parte</label><input type="text" id="fName1" maxlength="24" data-path="brand.name1" data-check="req" data-err="errName1"><p class="adm-error" id="errName1" hidden></p></div>
+          <label class="fld"><span>Nome — 2ª parte (na cor de destaque)</span><input type="text" maxlength="12" data-path="brand.name2"></label>
         </div>
         <div class="fld-row">
           <div class="fld">
             <span>Cor principal</span>
             <div class="color-pair">
               <input type="color" data-color-for="brand.blue" aria-label="Escolher cor principal">
-              <input type="text" maxlength="7" data-path="brand.blue" aria-label="Cor principal em hexadecimal" spellcheck="false">
+              <input type="text" maxlength="7" data-path="brand.blue" data-check="hex" data-err="contrastBlue" aria-label="Cor principal em hexadecimal" spellcheck="false" autocomplete="off">
             </div>
             <p class="adm-error" id="contrastBlue" hidden></p>
           </div>
@@ -136,7 +142,7 @@
             <span>Cor de destaque</span>
             <div class="color-pair">
               <input type="color" data-color-for="brand.red" aria-label="Escolher cor de destaque">
-              <input type="text" maxlength="7" data-path="brand.red" aria-label="Cor de destaque em hexadecimal" spellcheck="false">
+              <input type="text" maxlength="7" data-path="brand.red" data-check="hex" data-err="contrastRed" aria-label="Cor de destaque em hexadecimal" spellcheck="false" autocomplete="off">
             </div>
             <p class="adm-error" id="contrastRed" hidden></p>
           </div>
@@ -145,7 +151,7 @@
           <span>Logo (opcional, no lugar do ícone da lupa)</span>
           <div class="logo-edit">
             <span class="logo-prev" id="logoPrev"></span>
-            <input type="file" id="logoFile" accept="image/png,image/jpeg,image/webp,image/svg+xml" class="sr-only">
+            <input type="file" id="logoFile" accept="image/png,image/jpeg,image/webp,image/svg+xml" class="sr-only" tabindex="-1" aria-hidden="true">
             <button type="button" class="btn btn-sm" id="logoPick">Escolher imagem</button>
             <button type="button" class="btn btn-sm btn-ghost" id="logoRemove">Usar o ícone padrão</button>
           </div>
@@ -164,24 +170,24 @@
           <button type="button" class="btn btn-sm btn-ghost" data-reset="home">Restaurar padrão</button>
         </div>
         <label class="fld"><span>Texto acima do título</span><input type="text" maxlength="80" data-path="home.eyebrow"></label>
-        <label class="fld"><span>Título</span><input type="text" maxlength="120" data-path="home.title"></label>
+        <div class="fld"><label for="fHomeTitle">Título</label><input type="text" id="fHomeTitle" maxlength="120" data-path="home.title" data-check="req" data-err="errHomeTitle"><p class="adm-error" id="errHomeTitle" hidden></p></div>
         <label class="fld"><span>Subtítulo</span><textarea rows="2" maxlength="300" data-path="home.lead"></textarea></label>
         <fieldset class="adm-group">
           <legend>Quadro “busca por foto”</legend>
-          <label class="fld"><span>Título</span><input type="text" maxlength="80" data-path="home.photoTitle"></label>
+          <div class="fld"><label for="fPhotoTitle">Título</label><input type="text" id="fPhotoTitle" maxlength="80" data-path="home.photoTitle" data-check="req" data-err="errPhotoTitle"><p class="adm-error" id="errPhotoTitle" hidden></p></div>
           <label class="fld"><span>Texto</span><input type="text" maxlength="200" data-path="home.photoText"></label>
           <div class="fld-row">
-            <label class="fld"><span>Botão</span><input type="text" maxlength="30" data-path="home.photoButton"></label>
+            <div class="fld"><label for="fPhotoButton">Botão</label><input type="text" id="fPhotoButton" maxlength="30" data-path="home.photoButton" data-check="req" data-err="errPhotoButton"><p class="adm-error" id="errPhotoButton" hidden></p></div>
             <label class="fld"><span>Observação</span><input type="text" maxlength="160" data-path="home.photoFine"></label>
           </div>
         </fieldset>
         <fieldset class="adm-group">
           <legend>“Como funciona”</legend>
-          <label class="fld"><span>Título da seção</span><input type="text" maxlength="60" data-path="home.howTitle"></label>
+          <div class="fld"><label for="fHowTitle">Título da seção</label><input type="text" id="fHowTitle" maxlength="60" data-path="home.howTitle" data-check="req" data-err="errHowTitle"><p class="adm-error" id="errHowTitle" hidden></p></div>
           <div class="steps-edit">
-            <div class="fld"><span>Passo 1</span><input type="text" maxlength="80" data-path="home.steps.0.title" aria-label="Título do passo 1"><textarea rows="2" maxlength="400" data-path="home.steps.0.text" aria-label="Texto do passo 1"></textarea></div>
-            <div class="fld"><span>Passo 2</span><input type="text" maxlength="80" data-path="home.steps.1.title" aria-label="Título do passo 2"><textarea rows="2" maxlength="400" data-path="home.steps.1.text" aria-label="Texto do passo 2"></textarea></div>
-            <div class="fld"><span>Passo 3</span><input type="text" maxlength="80" data-path="home.steps.2.title" aria-label="Título do passo 3"><textarea rows="2" maxlength="400" data-path="home.steps.2.text" aria-label="Texto do passo 3"></textarea></div>
+            <div class="fld"><span>Passo 1</span><input type="text" maxlength="80" data-path="home.steps.0.title" aria-label="Título do passo 1" data-check="req" data-err="errStep0"><p class="adm-error" id="errStep0" hidden></p><textarea rows="2" maxlength="400" data-path="home.steps.0.text" aria-label="Texto do passo 1"></textarea></div>
+            <div class="fld"><span>Passo 2</span><input type="text" maxlength="80" data-path="home.steps.1.title" aria-label="Título do passo 2" data-check="req" data-err="errStep1"><p class="adm-error" id="errStep1" hidden></p><textarea rows="2" maxlength="400" data-path="home.steps.1.text" aria-label="Texto do passo 2"></textarea></div>
+            <div class="fld"><span>Passo 3</span><input type="text" maxlength="80" data-path="home.steps.2.title" aria-label="Título do passo 3" data-check="req" data-err="errStep2"><p class="adm-error" id="errStep2" hidden></p><textarea rows="2" maxlength="400" data-path="home.steps.2.text" aria-label="Texto do passo 3"></textarea></div>
           </div>
         </fieldset>
       </section>
@@ -193,14 +199,17 @@
           <button type="button" class="btn btn-sm btn-ghost" data-reset="cameras">Restaurar padrão</button>
         </div>
         <p class="hint">Página <a href="/cameras" target="_blank" rel="noopener">/cameras</a>. Só uma câmera abre por vez, para a página continuar leve.</p>
-        <label class="fld"><span>Título</span><input type="text" maxlength="80" data-path="cameras.title"></label>
+        <div class="fld"><label for="fCamTitle">Título</label><input type="text" id="fCamTitle" maxlength="80" data-path="cameras.title" data-check="req" data-err="errCamTitle"><p class="adm-error" id="errCamTitle" hidden></p></div>
         <label class="fld"><span>Texto de abertura</span><input type="text" maxlength="300" data-path="cameras.intro"></label>
         <label class="fld"><span>Crédito das imagens</span><input type="text" maxlength="120" data-path="cameras.credit"></label>
         <div class="fld">
           <span>Câmeras</span>
           <div class="rows" id="camsList"></div>
-          <button type="button" class="btn btn-sm" id="addCam">Adicionar câmera</button>
-          <p class="hint">Cole o endereço do player da câmera (precisa começar com <code>https://</code>).</p>
+          <div class="rows-foot">
+            <button type="button" class="btn btn-sm" id="addCam">Adicionar câmera</button>
+            <span class="hint" id="camsCount"></span>
+          </div>
+          <p class="hint">Cole o endereço do player da câmera (precisa começar com <code>https://</code>). Para YouTube, cole o link normal do vídeo; ele é convertido para o player. Até 8 câmeras.</p>
         </div>
         <label class="fld"><span>Dicas (uma por linha)</span><textarea rows="4" data-path="cameras.tips" data-lines></textarea></label>
       </section>
@@ -212,8 +221,8 @@
         </div>
         <label class="fld"><span>Texto do rodapé</span><input type="text" maxlength="300" data-path="footer.about"></label>
         <label class="fld"><span>Observação sobre preços</span><input type="text" maxlength="300" data-path="footer.note"></label>
-        <label class="fld"><span>Título da página no Google e na aba do navegador</span><input type="text" maxlength="90" data-path="seo.title"></label>
-        <label class="fld"><span>Descrição no Google</span><textarea rows="2" maxlength="300" data-path="seo.description"></textarea></label>
+        <div class="fld"><label for="fSeoTitle">Título da página no Google e na aba do navegador</label><input type="text" id="fSeoTitle" maxlength="90" data-path="seo.title" data-check="req" data-err="errSeoTitle"><p class="adm-error" id="errSeoTitle" hidden></p></div>
+        <div class="fld"><label for="fSeoDesc">Descrição no Google</label><textarea id="fSeoDesc" rows="2" maxlength="300" data-path="seo.description" data-check="req" data-err="errSeoDesc"></textarea><p class="adm-error" id="errSeoDesc" hidden></p></div>
       </section>
 
       <div class="savebar" id="savebar">
@@ -228,7 +237,7 @@
 <template id="tplLink">
   <div class="row">
     <input type="text" maxlength="40" placeholder="Texto" aria-label="Texto do link" data-k="label">
-    <input type="text" maxlength="500" placeholder="/cameras ou https://…" aria-label="Endereço do link" data-k="url" spellcheck="false">
+    <input type="text" maxlength="500" placeholder="/cameras ou https://…" aria-label="Endereço do link" data-k="url" inputmode="url" autocapitalize="off" autocomplete="off" spellcheck="false">
     <label class="mini"><input type="checkbox" data-k="live"> ao vivo</label>
     <label class="mini"><input type="checkbox" data-k="newTab"> nova aba</label>
     <span class="row-tools">
@@ -236,22 +245,25 @@
       <button type="button" class="icon-btn" data-move="1" aria-label="Mover para baixo">↓</button>
       <button type="button" class="icon-btn danger" data-remove aria-label="Remover">✕</button>
     </span>
+    <p class="adm-error row-err" hidden></p>
   </div>
 </template>
 <template id="tplCam">
   <div class="row row-cam">
     <input type="text" maxlength="60" placeholder="Nome da câmera" aria-label="Nome da câmera" data-k="name">
-    <input type="url" maxlength="600" placeholder="https://…" aria-label="Endereço do player" data-k="url" spellcheck="false">
+    <input type="text" maxlength="600" placeholder="https://…" aria-label="Endereço do player" data-k="url" inputmode="url" autocapitalize="off" autocomplete="off" spellcheck="false">
     <span class="row-tools">
       <a class="icon-btn" data-test target="_blank" rel="noopener" aria-label="Abrir a câmera em outra aba">↗</a>
       <button type="button" class="icon-btn" data-move="-1" aria-label="Mover para cima">↑</button>
       <button type="button" class="icon-btn" data-move="1" aria-label="Mover para baixo">↓</button>
       <button type="button" class="icon-btn danger" data-remove aria-label="Remover">✕</button>
     </span>
+    <p class="adm-error row-err" hidden></p>
   </div>
 </template>
 
 <div class="toast" id="toast" role="status" hidden></div>
+<p class="sr-only" id="listStatus" aria-live="polite"></p>
 <script src="/admin/admin.js"></script>
 </body>
 </html>
