@@ -2,5 +2,7 @@ node_modules
 scripts
 data
 dist
+test
+storage
 .git
 *.md

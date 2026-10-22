@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Página não encontrada · Buscar PY</title>
+<meta name="theme-color" content="{{brand.blue}}">
+<title>Página não encontrada · {{brand.full}}</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="/css/app.css">
+{{{themeLink}}}
 </head>
 <body>
+{{> utilbar}}
 <header class="header">
   <div class="container header-inner">
-    <a class="logo" href="/" aria-label="Buscar PY, página inicial">
-      <img src="/favicon.svg" width="38" height="38" alt="">
-      <span class="logo-text">Buscar<span class="logo-py">PY</span></span>
-    </a>
+    {{> logo}}
   </div>
 </header>
 <main class="container notfound">
@@ -24,5 +24,6 @@
   <p class="lead">O endereço pode ter mudado. Volte para o início e busque o produto pelo nome ou pela foto.</p>
   <a class="btn btn-primary btn-lg" href="/">Ir para o início</a>
 </main>
+<script src="/js/fx.js"></script>
 </body>
 </html>

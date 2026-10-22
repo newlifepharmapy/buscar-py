@@ -1,11 +1,14 @@
 """Gera dist/artifact/index.html: a página com CSS e JS embutidos (para hospedagem estática restrita).
 Os dados, o modelo e as imagens continuam como arquivos ao lado da página."""
-import base64, json, os, re, shutil
+import base64, json, os, re, shutil, subprocess
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUB = os.path.join(ROOT, "public")
 OUT = os.path.join(ROOT, "dist", "artifact")
 
-html = open(os.path.join(PUB, "index.html"), encoding="utf8").read()
+# a página vem do modelo views/index.html, preenchida com as configurações padrão
+html = subprocess.run(["node", os.path.join(ROOT, "scripts", "render_static.js"), "index.html"], check=True, capture_output=True, text=True).stdout
+# sem servidor não há /cameras: o link da barra superior aponta para a página publicada
+html = html.replace('href="/cameras"', 'href="https://buscarpy.com/cameras" target="_blank" rel="noopener"')
 body = html.split("<!-- ARTIFACT:START -->")[1].split("<!-- ARTIFACT:END -->")[0]
 body = body.replace("</head>\n<body>\n", "")
 css = open(os.path.join(PUB, "css/app.css"), encoding="utf8").read()

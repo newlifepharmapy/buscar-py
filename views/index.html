@@ -3,48 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Compare preços de lojas do Paraguai em Ciudad del Este, Pedro Juan Caballero, Salto del Guairá e Asunción. Busque por nome ou por foto do produto.">
-<meta name="theme-color" content="#0038a8">
+<meta name="description" content="{{seo.description}}">
+<meta name="theme-color" content="{{brand.blue}}">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Buscar PY · Compare preços no Paraguai">
-<meta property="og:description" content="Busque por nome ou por foto e veja em qual loja do Paraguai o produto está mais barato.">
+<meta property="og:title" content="{{seo.title}}">
+<meta property="og:description" content="{{seo.description}}">
 <meta property="og:locale" content="pt_BR">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://buscarpy.com/">
 <!-- ARTIFACT:START -->
-<title>Buscar PY</title>
+<title>{{seo.title}}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="css/app.css">
+{{{themeLink}}}
 </head>
 <body>
 <a class="skip" href="#resultados">Pular para os resultados</a>
 
-<div class="utilbar">
-  <div class="container utilbar-inner">
-    <span class="util-msg">Preços de <b id="nStores">12 lojas</b> em Ciudad del Este, Pedro Juan Caballero, Salto del Guairá e Asunción</span>
-    <span class="fx" title="Cotação de referência usada nas conversões">
-      Cotação: US$ 1 = <b id="fxBrl">R$ 5,45</b> · <b id="fxPyg">₲ 7.900</b>
-    </span>
-  </div>
-</div>
+{{> utilbar}}
 
 <header class="header">
   <div class="container header-inner">
-    <a class="logo" href="#" id="logo" aria-label="Buscar PY, página inicial">
-      <svg class="logo-mark" viewBox="0 0 40 40" width="38" height="38" aria-hidden="true">
-        <rect width="40" height="40" rx="10" fill="#0038a8"/>
-        <circle cx="17.5" cy="17.5" r="8.5" fill="none" stroke="#fff" stroke-width="3.6"/>
-        <path d="M24 24l7.5 7.5" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-        <rect x="6" y="33" width="28" height="3" rx="1.5" fill="#d52b1e"/>
-      </svg>
-      <span class="logo-text">Buscar<span class="logo-py">PY</span></span>
-    </a>
+    {{> logo}}
     <form class="search" id="searchForm" role="search">
       <label for="q" class="sr-only">Buscar produto</label>
       <svg class="search-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      <input id="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Buscar produto, marca ou cor">
+      <input id="q" name="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Buscar produto, marca ou cor">
       <button type="button" class="cam-btn" id="camBtn" aria-pressed="false" title="Buscar por foto">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" d="M4 8h3l1.6-2.4h6.8L17 8h3v11H4z"/><circle cx="12" cy="13.2" r="3.5" fill="none" stroke="currentColor" stroke-width="1.9"/></svg>
         <span class="cam-label">Buscar por foto</span>
@@ -70,9 +56,9 @@
   <section class="hero" id="hero" aria-labelledby="heroTitle">
     <div class="container hero-inner">
       <div class="hero-copy">
-        <p class="eyebrow">Comparador de preços do Paraguai</p>
-        <h1 id="heroTitle">Encontre o menor preço antes de cruzar a ponte</h1>
-        <p class="lead">Compare o mesmo produto em várias lojas, veja o valor em dólar, real e guarani e acompanhe o histórico de preço.</p>
+        <p class="eyebrow">{{home.eyebrow}}</p>
+        <h1 id="heroTitle">{{home.title}}</h1>
+        <p class="lead">{{home.lead}}</p>
         <dl class="stats">
           <div><dt>Produtos</dt><dd id="stProducts">342</dd></div>
           <div><dt>Ofertas</dt><dd id="stOffers">1.424</dd></div>
@@ -85,11 +71,11 @@
           <svg viewBox="0 0 48 48" width="34" height="34"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" d="M6 14h7l3-5h16l3 5h7v25H6z"/><circle cx="24" cy="26" r="7.5" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
         </div>
         <div class="hero-drop-text">
-          <h2>Tem uma foto do produto?</h2>
-          <p>Envie a imagem e mostramos os produtos mais parecidos e onde estão mais baratos.</p>
+          <h2>{{home.photoTitle}}</h2>
+          <p>{{home.photoText}}</p>
         </div>
-        <button type="button" class="btn btn-primary btn-lg" data-pick>Enviar foto</button>
-        <p class="fine">Também dá para arrastar a imagem para cá ou colar com Ctrl+V.</p>
+        <button type="button" class="btn btn-primary btn-lg" data-pick>{{home.photoButton}}</button>
+        <p class="fine">{{home.photoFine}}</p>
       </div>
     </div>
   </section>
@@ -202,12 +188,8 @@
 
   <section class="how" id="how" aria-labelledby="howTitle">
     <div class="container">
-      <h2 id="howTitle">Como funciona</h2>
-      <ol class="steps">
-        <li><h3>Busque pelo nome ou pela foto</h3><p>Digite em português ou espanhol, ou envie uma imagem do produto. Erros de digitação e acentos não atrapalham.</p></li>
-        <li><h3>Compare as lojas</h3><p>Veja o menor preço, a loja que vende, a cidade e quanto você economiza em relação à loja mais cara.</p></li>
-        <li><h3>Confira o histórico</h3><p>O gráfico de 26 semanas mostra se o preço de hoje está bom antes de você ir até a loja.</p></li>
-      </ol>
+      <h2 id="howTitle">{{home.howTitle}}</h2>
+      <ol class="steps">{{{steps}}}</ol>
     </div>
   </section>
 </main>
@@ -215,8 +197,8 @@
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <span class="logo-text logo-text-inv">Buscar<span class="logo-py">PY</span></span>
-      <p>Comparador de preços de lojas do Paraguai, com busca por texto e por imagem.</p>
+      <span class="logo-text logo-text-inv"><span>{{brand.name1}}</span><span class="logo-py">{{brand.name2}}</span></span>
+      <p>{{footer.about}}</p>
     </div>
     <div>
       <h3>Cidades</h3>
@@ -228,7 +210,7 @@
     </div>
   </div>
   <div class="container footer-legal">
-    <p>Preços em dólar americano. Valores em real e guarani usam a cotação de referência indicada no topo da página.</p>
+    <p>{{footer.note}}</p>
     <p>Versão de demonstração: imagens e nomes de produtos do <a href="https://amazon-berkeley-objects.s3.amazonaws.com/index.html" target="_blank" rel="noopener">Amazon Berkeley Objects</a> (CC BY 4.0). Lojas, preços e histórico são fictícios.</p>
   </div>
 </footer>
@@ -267,6 +249,7 @@
 <script src="vendor/tf.min.js"></script>
 <script src="js/vision.js"></script>
 <script src="js/search.js"></script>
+<script src="js/fx.js"></script>
 <script src="js/app.js"></script>
 <!-- ARTIFACT:END -->
 </body>

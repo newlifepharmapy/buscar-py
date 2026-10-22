@@ -67,6 +67,12 @@
       fetchBin("data/colors.bin"),
     ]);
     D = cat; E = new Float32Array(emb); C = new Float32Array(col);
+    // cotação: a da página (atualizada pelo servidor a cada 5 minutos) vale mais que a do catálogo
+    if (window.BuscaFx) {
+      const fx = BuscaFx.get();
+      if (fx.BRL > 0 && fx.PYG > 0) D.rates = { ...D.rates, BRL: fx.BRL, PYG: fx.PYG };
+      BuscaFx.onChange((n) => { D.rates = { ...D.rates, BRL: n.BRL, PYG: n.PYG }; refreshCardPrices(); refreshProductPrices(); });
+    }
     storeById = Object.fromEntries(D.stores.map((s) => [s.id, s]));
     catById = Object.fromEntries(D.categories.map((c) => [c.id, c]));
     for (const p of D.products) {
@@ -82,9 +88,6 @@
       ],
     })));
     const cities = [...new Set(D.stores.map((s) => s.city))];
-    $("fxBrl").textContent = fmtBrl.format(D.rates.BRL);
-    $("fxPyg").textContent = "₲ " + fmtPyg.format(D.rates.PYG);
-    $("nStores").textContent = plural(D.stores.length, "loja", "lojas");
     $("stProducts").textContent = fmtInt.format(D.products.length);
     $("stOffers").textContent = fmtInt.format(D.products.reduce((a, p) => a + p.offers.length, 0));
     $("stStores").textContent = fmtInt.format(D.stores.length);
@@ -92,7 +95,11 @@
     $("footCities").innerHTML = cities.map((c) => `<li><button type="button" data-city="${esc(c)}">${esc(c)}</button></li>`).join("");
     $("footCats").innerHTML = D.categories.map((c) => `<li><button type="button" data-cat="${c.id}">${esc(c.name)}</button></li>`).join("");
     buildCatbar(); buildFilters(cities); wire();
+    // busca vinda de outra página (ex.: /cameras) pelo endereço /?q=...
+    const q0 = new URLSearchParams(location.search).get("q");
+    if (q0 && q0.trim()) { S.text = q0.trim().slice(0, 100); $("q").value = S.text; }
     render();
+    if (S.text) scrollToEl($("resultados"));
     const m = /^#p(\d+)$/.exec(location.hash);
     if (m && D.products[+m[1]]) openProduct(+m[1]);
   }
@@ -252,7 +259,7 @@
       ? `<span class="save" title="Diferença entre a loja mais cara e a mais barata">Economize ${usd(r.saveAmt)} (${Math.round(r.save * 100)}%)</span>` : "";
     const simBtn = small ? "" : `<button type="button" class="sim-btn" data-sim="${p.id}" title="Buscar parecidos" aria-label="Buscar produtos parecidos com ${esc(p.name)}">${CAM_ICON}</button>`;
     const store = storeById[r.offers[0].store];
-    return `<article class="card" data-id="${p.id}">
+    return `<article class="card" data-id="${p.id}" data-best="${r.best}">
       <div class="thumb"><img loading="lazy" src="${p.image}" alt=""></div>
       ${badge}${simBtn}
       <div class="body">
@@ -325,6 +332,27 @@
     $("pdCat").textContent = catById[p.category].name;
     $("pdName").textContent = p.name;
     $("pdBrand").textContent = [p.brand, p.color].filter(Boolean).join(" · ");
+    renderProductPrices(p);
+    const sims = rankByVector(E.subarray(id * DIM, (id + 1) * DIM), C.subarray(id * BuscaVision.COLOR_DIM, (id + 1) * BuscaVision.COLOR_DIM), S.colorW);
+    const top = [...D.products.keys()].filter((i) => i !== id).sort((a, b) => sims[b] - sims[a]).slice(0, 10);
+    $("pdSim").innerHTML = top.map((i) => {
+      const q = D.products[i];
+      const offs = q.offers.filter((o) => o.in_stock);
+      return cardHtml({ p: q, offers: offs.length ? offs : q.offers, best: q.best, save: 0, sim: sims[i] }, true);
+    }).join("");
+    $("pdSimilar").onclick = () => { $("pdlg").close(); searchSimilar(id); };
+    const dlg = $("pdlg");
+    const wasOpen = dlg.open;
+    if (!wasOpen) dlg.showModal();
+    dlg.scrollTop = 0;
+    dlg.dataset.id = id;
+    drawChart();
+    if (wasOpen) $("pdName").focus({ preventScroll: true });
+    try { history.replaceState(null, "", "#p" + id); } catch (e) { /* ignorado */ }
+  }
+
+  // Menor preço e tabela de lojas (refeitos também quando a cotação do dólar muda)
+  function renderProductPrices(p) {
     const inStock = p.offers.filter((o) => o.in_stock);
     const best = inStock[0] || p.offers[0];
     const bst = storeById[best.store];
@@ -343,22 +371,20 @@
           <td class="num">${fmtBrl.format(o.price * D.rates.BRL).replace(/R\$\s?/, "")}</td><td class="num">${pygNum(o.price)}</td>
         </tr>`;
       }).join("") + "</tbody>";
-    const sims = rankByVector(E.subarray(id * DIM, (id + 1) * DIM), C.subarray(id * BuscaVision.COLOR_DIM, (id + 1) * BuscaVision.COLOR_DIM), S.colorW);
-    const top = [...D.products.keys()].filter((i) => i !== id).sort((a, b) => sims[b] - sims[a]).slice(0, 10);
-    $("pdSim").innerHTML = top.map((i) => {
-      const q = D.products[i];
-      const offs = q.offers.filter((o) => o.in_stock);
-      return cardHtml({ p: q, offers: offs.length ? offs : q.offers, best: q.best, save: 0, sim: sims[i] }, true);
-    }).join("");
-    $("pdSimilar").onclick = () => { $("pdlg").close(); searchSimilar(id); };
+  }
+  // Cotação nova: troca só os valores em R$ e ₲ (sem redesenhar a vitrine, para não perder o foco do teclado)
+  function refreshCardPrices() {
+    document.querySelectorAll(".card[data-best] .conv").forEach((el) => {
+      const v = +el.closest(".card").dataset.best;
+      el.textContent = `${brl(v)} · ${pyg(v)}`;
+    });
+  }
+  function refreshProductPrices() {
     const dlg = $("pdlg");
-    const wasOpen = dlg.open;
-    if (!wasOpen) dlg.showModal();
-    dlg.scrollTop = 0;
-    dlg.dataset.id = id;
-    drawChart();
-    if (wasOpen) $("pdName").focus({ preventScroll: true });
-    try { history.replaceState(null, "", "#p" + id); } catch (e) { /* ignorado */ }
+    if (!dlg.open) return;
+    const p = D.products[+dlg.dataset.id];
+    renderProductPrices(p);
+    // os cards de parecidos mostram só US$; nada a refazer neles
   }
 
   function drawChart() {
@@ -384,16 +410,16 @@
     const iMin = h.indexOf(min);
     const todayIsMin = iMin === h.length - 1;
     const dots = todayIsMin
-      ? `<circle cx="${x(iMin).toFixed(1)}" cy="${y(min).toFixed(1)}" r="5.5" fill="#d52b1e" stroke="#fff" stroke-width="2"/>`
-      : `<circle cx="${x(h.length - 1).toFixed(1)}" cy="${y(last).toFixed(1)}" r="5" fill="#0038a8" stroke="#fff" stroke-width="2"/>
-         <circle cx="${x(iMin).toFixed(1)}" cy="${y(min).toFixed(1)}" r="5" fill="#d52b1e" stroke="#fff" stroke-width="2"/>`;
+      ? `<circle class="c-min" cx="${x(iMin).toFixed(1)}" cy="${y(min).toFixed(1)}" r="5.5" stroke-width="2"/>`
+      : `<circle class="c-today" cx="${x(h.length - 1).toFixed(1)}" cy="${y(last).toFixed(1)}" r="5" stroke-width="2"/>
+         <circle class="c-min" cx="${x(iMin).toFixed(1)}" cy="${y(min).toFixed(1)}" r="5" stroke-width="2"/>`;
     const caption = todayIsMin
       ? `<span class="low-pill">Hoje é o menor preço das últimas 26 semanas</span>`
       : `<p class="hint">Ponto vermelho: menor preço do período (${usd(min)}). Ponto azul: preço de hoje.</p>`;
     return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Histórico do menor preço: de ${usd(h[0])} há 26 semanas para ${usd(last)} hoje; mínimo de ${usd(min)}">
-      ${ticks.map((t) => `<line x1="${L}" x2="${W - R}" y1="${y(t).toFixed(1)}" y2="${y(t).toFixed(1)}" stroke="#e2e7ef" stroke-width="1"/><text x="${L - 8}" y="${(y(t) + 4).toFixed(1)}" text-anchor="end">${fmtUsd.format(t)}</text>`).join("")}
-      <polygon points="${x(0)},${H - B} ${pts} ${x(h.length - 1)},${H - B}" fill="#0038a8" fill-opacity="0.08"/>
-      <polyline points="${pts}" fill="none" stroke="#0038a8" stroke-width="2.2" stroke-linejoin="round"/>
+      ${ticks.map((t) => `<line class="c-grid" x1="${L}" x2="${W - R}" y1="${y(t).toFixed(1)}" y2="${y(t).toFixed(1)}" stroke-width="1"/><text x="${L - 8}" y="${(y(t) + 4).toFixed(1)}" text-anchor="end">${fmtUsd.format(t)}</text>`).join("")}
+      <polygon class="c-area" points="${x(0)},${H - B} ${pts} ${x(h.length - 1)},${H - B}"/>
+      <polyline class="c-line" points="${pts}" fill="none" stroke-width="2.2" stroke-linejoin="round"/>
       ${dots}
       <text x="${L}" y="${H - 6}">${narrow ? "26 sem. atrás" : "26 semanas atrás"}</text>
       <text x="${W - R}" y="${H - 6}" text-anchor="end">hoje · ${usd(last)}</text>
@@ -473,7 +499,7 @@
       g.fillStyle = "rgba(10, 29, 74, .5)";
       g.fillRect(0, 0, cv.width, y); g.fillRect(0, y + h, cv.width, cv.height - y - h);
       g.fillRect(0, y, x, h); g.fillRect(x + w, y, cv.width - x - w, h);
-      g.strokeStyle = "#d52b1e"; g.lineWidth = 2.5; g.setLineDash([7, 4]); g.strokeRect(x + 1, y + 1, w - 2, h - 2);
+      g.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--red").trim() || "#d52b1e"; g.lineWidth = 2.5; g.setLineDash([7, 4]); g.strokeRect(x + 1, y + 1, w - 2, h - 2);
     }
     cv.hidden = false; $("dropEmpty").hidden = true; $("drop").classList.add("has-img");
   }

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="{{cameras.intro}}">
+<meta name="theme-color" content="{{brand.blue}}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{cameras.title}} · {{brand.full}}">
+<meta property="og:description" content="{{cameras.intro}}">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://buscarpy.com/cameras">
+<title>{{cameras.title}} · {{brand.full}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/css/app.css">
+{{{themeLink}}}
+</head>
+<body>
+<a class="skip" href="#camStage">Pular para a câmera</a>
+
+{{> utilbar}}
+
+<header class="header">
+  <div class="container header-inner">
+    {{> logo}}
+    <form class="search" action="/" method="get" role="search">
+      <label for="q" class="sr-only">Buscar produto</label>
+      <svg class="search-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="q" name="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Buscar produto, marca ou cor" required>
+      <button type="submit" class="search-btn">Buscar</button>
+    </form>
+  </div>
+</header>
+
+<main class="cams">
+  <div class="container">
+    <nav class="crumbs" aria-label="Você está em"><a href="/">Início</a><span aria-hidden="true">›</span>Câmeras</nav>
+    <h1>{{cameras.title}}</h1>
+    <p class="lead">{{cameras.intro}}</p>
+
+    <div class="cams-layout">
+      <section class="cams-player" aria-label="Transmissão ao vivo">
+        <div class="cam-tabs" role="tablist" aria-label="Escolha a câmera">{{{cameraTabs}}}</div>
+        <div class="cam-stage" id="camStage" role="tabpanel" aria-labelledby="camTab0" tabindex="-1">
+          <div class="cam-cover" id="camCover">
+            <span class="cam-cover-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+            </span>
+            <p class="cam-cover-title" id="camCoverTitle"></p>
+            <p class="cam-cover-msg" id="camCoverMsg">Ative o JavaScript para assistir.</p>
+            <button type="button" class="btn btn-primary btn-lg" id="camPlay" hidden>Assistir ao vivo</button>
+          </div>
+        </div>
+        <div class="cam-bar">
+          <span class="cam-live" id="camLive" hidden><span class="live-dot" aria-hidden="true"></span>Ao vivo</span>
+          <span class="cam-credit">{{cameras.credit}}</span>
+          <span class="cam-actions">
+            <button type="button" class="btn btn-sm" id="camToggle" hidden>Pausar</button>
+            <button type="button" class="btn btn-sm" id="camFull" hidden>Tela cheia</button>
+            <a class="btn btn-sm btn-ghost" id="camOpen" href="#" target="_blank" rel="noopener" hidden>Abrir em outra aba</a>
+          </span>
+        </div>
+        <p class="hint">Para não travar o celular nem gastar dados à toa, só uma câmera fica aberta por vez. Ela pausa quando você sai da página e depois de 10 minutos.</p>
+      </section>
+
+      <aside class="cams-tips" aria-labelledby="tipsTitle">
+        <h2 id="tipsTitle">Dicas para a travessia</h2>
+        <ul>{{{cameraTips}}}</ul>
+        <a class="btn btn-outline" href="/">Comparar preços antes de ir</a>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="footer footer-mini">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-text logo-text-inv"><span>{{brand.name1}}</span><span class="logo-py">{{brand.name2}}</span></span>
+      <p>{{footer.about}}</p>
+    </div>
+  </div>
+  <div class="container footer-legal">
+    <p>{{footer.note}}</p>
+    <p>As transmissões são de terceiros e podem ficar fora do ar sem aviso.</p>
+  </div>
+</footer>
+
+<script src="/js/fx.js"></script>
+<script src="/js/cameras.js"></script>
+</body>
+</html>
