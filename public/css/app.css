@@ -376,57 +376,69 @@ tr.out td.num.main { color: var(--muted); font-weight: 600; }
 .notfound { display: grid; gap: 14px; justify-items: start; padding-block: 72px; }
 .notfound h1 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; color: var(--blue-900); }
 
-/* Câmeras ao vivo */
+/* Câmeras ao vivo: todas na mesma página, em grade (3 lado a lado no computador, uma embaixo da outra no celular) */
 .cams { padding-block: 22px 48px; }
 .cams h1 { font-size: clamp(26px, 3.4vw, 36px); font-weight: 800; color: var(--blue-900); letter-spacing: -.025em; }
 .cams .crumbs a { color: var(--blue); font-weight: 600; text-decoration: none; }
 .cams .lead { margin-top: 6px; }
-.cams-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 320px); gap: 24px; margin-top: 22px; align-items: start; }
-.cams-player { display: grid; gap: 10px; min-width: 0; }
-.cam-tabs { display: flex; flex-wrap: wrap; gap: 8px; padding: 2px; }
-.cam-tab { flex: none; max-width: 100%; text-align: left; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--white); color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; }
-.cam-tab .live-dot { box-shadow: none; }
-.cam-tab .live-dot::after { animation: none; }
-.cam-tab:hover { border-color: var(--blue); color: var(--blue); }
-.cam-tab[aria-selected="true"] { background: var(--blue); border-color: var(--blue); color: var(--white); }
-.cam-tab[aria-selected="true"] .live-dot { background: var(--white); }
+.cam-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px 20px; margin-top: 22px; }
+.cam-grid:focus { outline: none; }
+.cams-empty { padding: 28px 20px; border: 1px dashed var(--line); border-radius: var(--r-lg); color: var(--muted); text-align: center; }
+.cam-card { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.cam-name { display: flex; align-items: center; gap: 10px; min-width: 0; font-size: 17px; font-weight: 800; line-height: 1.3; color: var(--blue-900); letter-spacing: -.01em; }
+.cam-name > span:last-child { min-width: 0; overflow-wrap: anywhere; }
+.cam-name .live-dot { box-shadow: none; }
+/* ponto vermelho piscando só na câmera que está tocando; parada, ele fica cinza */
+.cam-card:not(.is-live) .cam-name .live-dot { background: #a3acbd; }
+.cam-card:not(.is-live) .cam-name .live-dot::after { animation: none; }
 /* Palco 16:9. Com a capa à mostra, ele cresce na altura se o texto e o botão não couberem (com overflow: clip, não com hidden).
    O min-width: 0 impede que ele cresça também na largura e passe da tela. */
-.cam-stage { position: relative; display: grid; min-width: 0; aspect-ratio: 16 / 9; background: var(--blue-900); border-radius: var(--r-lg); overflow: hidden; overflow: clip; }
+.cam-stage { position: relative; display: grid; min-width: 0; max-width: 100%; aspect-ratio: 16 / 9; background: var(--blue-900); border-radius: var(--r-lg); overflow: hidden; overflow: clip; }
 .cam-stage:fullscreen { border-radius: 0; aspect-ratio: auto; }
 .cam-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }
-.cam-cover { position: relative; display: grid; place-content: center; justify-items: center; gap: 10px; padding: 20px; text-align: center; color: #c8d3ea; background: radial-gradient(120% 90% at 50% 0%, var(--blue-700), var(--blue-900)); }
-.cam-cover-title { color: var(--white); font-weight: 800; font-size: 18px; }
-.cam-cover-msg { max-width: 42ch; font-size: 14px; }
+.cam-cover { position: relative; display: grid; place-content: center; justify-items: center; gap: 10px; padding: 16px; text-align: center; color: #c8d3ea; background: radial-gradient(120% 90% at 50% 0%, var(--blue-700), var(--blue-900)); }
+.cam-cover-msg { max-width: 40ch; font-size: 14px; line-height: 1.45; }
 .cam-cover .btn-primary { background: var(--red); border-color: var(--red); }
 .cam-cover .btn-primary:hover { background: var(--red-700); border-color: var(--red-700); }
+.cam-cover .btn-ghost { color: var(--white); border-color: rgba(255, 255, 255, .45); background: transparent; }
+.cam-cover .btn-ghost:hover { background: rgba(255, 255, 255, .12); color: var(--white); }
 .cam-cover :focus-visible { outline-color: var(--white); }
 .cam-play svg { flex: none; margin-left: -4px; }
-.cam-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 13px; color: var(--muted); }
-.cam-live { display: inline-flex; align-items: center; gap: 8px; color: var(--red-700); font-weight: 800; text-transform: uppercase; letter-spacing: .06em; font-size: 12px; }
-.cam-live .live-dot { box-shadow: none; }
+.cam-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; min-height: 36px; font-size: 13px; color: var(--muted); }
 .cam-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
-.cams-tips { display: grid; gap: 12px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 20px; }
+.cams-hint { margin-top: 18px; }
+.cams-tips { display: grid; gap: 12px; margin-top: 28px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 20px; }
 .cams-tips h2 { font-size: 17px; font-weight: 800; color: var(--blue-900); }
 .cams-tips ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; font-size: 14px; }
 .cams-tips li::marker { color: var(--red); }
+.cams-tips .btn { justify-self: start; }
+@media (min-width: 900px) {
+  .cam-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cam-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cam-grid.cols-1 { max-width: 880px; }
+  /* nome, vídeo e crédito em linhas comuns aos cards lado a lado: um nome em duas linhas não desalinha os vídeos */
+  .cam-grid.cols-2 .cam-card, .cam-grid.cols-3 .cam-card { grid-row: span 3; grid-template-rows: subgrid; row-gap: 10px; }
+  .cam-grid.cols-2 .cam-name, .cam-grid.cols-3 .cam-name { align-items: flex-end; }
+  /* três lado a lado: palco menor, então capa e nomes mais compactos */
+  .cam-grid.cols-3 .cam-name { font-size: 16px; }
+  .cam-grid.cols-3 .cam-cover { gap: 8px; padding: 12px; }
+  .cam-grid.cols-3 .cam-cover-msg { font-size: 13px; }
+  .cams-tips { grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 24px; }
+  .cams-tips h2 { grid-column: 1 / -1; }
+  .cams-tips ul { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; }
+}
 .footer-mini .footer-inner { grid-template-columns: minmax(0, 1fr); padding-block: 28px 16px; }
 
-@media (max-width: 960px) {
-  .cams-layout { grid-template-columns: minmax(0, 1fr); }
-}
 @media (max-width: 520px) {
   .utilbar { font-size: 12.5px; }
   .utilbar-inner { flex-wrap: wrap; justify-content: center; }
   .fx-label { display: none; }
   .fx { margin-left: 0; }
   .cams { padding-top: 14px; }
-  .cam-tabs { gap: 6px; }
-  .cam-tab { padding: 6px 12px; font-size: 13px; gap: 7px; }
-  .cam-stage { margin-inline: -16px; border-radius: 0; }
-  .cam-cover { gap: 6px; padding: 12px 16px; }
-  .cam-cover-title { font-size: 16px; }
-  .cam-cover-msg { font-size: 13.5px; line-height: 1.45; }
-  .cam-cover .btn-lg { min-height: 44px; padding: 8px 18px; }
-  .cam-actions { margin-left: 0; }
+  .cam-grid { gap: 24px; }
+  .cam-name { font-size: 16px; }
+  .cam-stage { margin-inline: -16px; max-width: none; border-radius: 0; }
+  .cam-cover { gap: 8px; padding: 12px 16px; }
+  .cam-cover-msg { font-size: 13.5px; }
+  .cam-cover .btn { min-height: 44px; }
 }

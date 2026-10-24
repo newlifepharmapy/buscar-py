@@ -60,6 +60,16 @@ test("páginas públicas", async () => {
   assert.equal(cams.status, 200);
   assert.match(cams.headers.get("content-security-policy"), /frame-src https:\/\/playerv\.logicahost\.com\.br/);
   assert.doesNotMatch(cams.headers.get("content-security-policy"), /unsafe-eval/);
+  // as 3 câmeras do iClinic juntas na página, cada uma com nome e crédito, e o link do topo na mesma janela
+  const camsHtml = await cams.text();
+  assert.equal((camsHtml.match(/class="cam-card"/g) || []).length, 3);
+  assert.ok(camsHtml.includes('class="cam-grid cols-3"'));
+  for (const [i, name] of ["Ponte da Amizade - Sentido Paraguai", "Aduana Brasileira", "Ponte da Amizade - Sentido Brasil"].entries()) {
+    assert.ok(camsHtml.includes(`id="cam${i + 1}"`) && camsHtml.includes(`<span>${name}</span></h2>`), name);
+  }
+  assert.equal((camsHtml.match(/<span class="cam-credit">Fonte: Portal da Cidade<\/span>/g) || []).length, 3);
+  assert.doesNotMatch(camsHtml, /<iframe/, "o player só é criado pelo script, quando a câmera aparece na tela");
+  assert.match(html, /<a class="util-link is-live" href="\/cameras">/, "sem target: abre na mesma janela");
   assert.match(r.headers.get("content-security-policy"), /frame-src 'none'/);
   const rates = await (await fetch(base + "/api/rates")).json();
   assert.ok(rates.BRL > 1 && rates.PYG > 1000);
@@ -118,7 +128,7 @@ test("salvar publica no site, com controle de versão", async () => {
   assert.equal(conflict.error, "O painel foi salvo em outra aba ou aparelho enquanto você editava.");
   assert.equal(conflict.version, saved.version, "o 409 traz a versão atual para o painel");
   const cams = await (await fetch(base + "/cameras")).text();
-  assert.equal((cams.match(/class="cam-tab"/g) || []).length, 1);
+  assert.equal((cams.match(/class="cam-card"/g) || []).length, 1);
 });
 
 test("logo enviado vira /brand-logo", async () => {

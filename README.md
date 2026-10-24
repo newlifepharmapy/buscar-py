@@ -43,8 +43,11 @@ atualização automática e fixar um valor manual.
 Câmeras da Ponte da Amizade (imagens do Portal da Cidade), editáveis no painel. O endereço do player
 precisa começar com `https://`. Para YouTube, cole o link normal do vídeo ou da live
 (`youtube.com/watch?v=…`, `youtube.com/live/…` ou `youtu.be/…`): o servidor converte para o player.
-Para não travar o celular, só um player fica aberto por vez, ele fecha quando a aba fica escondida e
-pausa depois de 10 minutos; com "economia de dados" ligada, só abre com um toque.
+As câmeras aparecem todas juntas, como no iClinic (3 lado a lado no computador, uma embaixo da outra
+no celular), e o link da barra superior abre a página na mesma janela. Para não travar o celular, cada
+player só é criado quando a câmera aparece na tela e é removido quando ela sai; no máximo 3 tocam ao
+mesmo tempo no computador e 2 no celular, tudo fecha quando a aba fica escondida e pausa depois de 10 minutos sem uso; com
+"economia de dados" ligada, cada câmera só abre com um toque.
 
 ## Publicar no Railway
 

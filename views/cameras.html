@@ -19,7 +19,7 @@
 {{{themeLink}}}
 </head>
 <body>
-<a class="skip" href="#camStage">Pular para a câmera</a>
+<a class="skip" href="#cams">Pular para as câmeras</a>
 
 {{> utilbar}}
 
@@ -41,35 +41,15 @@
     <h1>{{cameras.title}}</h1>
     <p class="lead">{{cameras.intro}}</p>
 
-    <div class="cams-layout">
-      <section class="cams-player" aria-label="Transmissão ao vivo">
-        <div class="cam-tabs" role="tablist" aria-label="Escolha a câmera">{{{cameraTabs}}}</div>
-        <div class="cam-stage" id="camStage" role="tabpanel" aria-labelledby="camTab0" tabindex="-1">
-          <div class="cam-cover" id="camCover">
-            <p class="cam-cover-title" id="camCoverTitle"></p>
-            <p class="cam-cover-msg" id="camCoverMsg">Ative o JavaScript para assistir.</p>
-            <button type="button" class="btn btn-primary btn-lg cam-play" id="camPlay" hidden><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>Assistir ao vivo</button>
-          </div>
-        </div>
-        <div class="cam-bar">
-          <p class="sr-only" id="camStatus" role="status"></p>
-          <span class="cam-live" id="camLive" hidden><span class="live-dot" aria-hidden="true"></span>Ao vivo</span>
-          <span class="cam-credit">{{cameras.credit}}</span>
-          <span class="cam-actions">
-            <button type="button" class="btn btn-sm" id="camToggle" hidden>Pausar</button>
-            <button type="button" class="btn btn-sm" id="camFull" hidden>Tela cheia</button>
-            <a class="btn btn-sm btn-ghost" id="camOpen" href="#" target="_blank" rel="noopener" hidden>Abrir em outra aba</a>
-          </span>
-        </div>
-        <p class="hint">Para não travar o celular nem gastar dados à toa, só uma câmera fica aberta por vez. Ela pausa quando você sai da página e depois de 10 minutos.</p>
-      </section>
+    <section class="cam-grid {{{cameraCols}}}" id="cams" aria-label="Câmeras ao vivo" tabindex="-1">{{{cameraCards}}}</section>
+    <p class="sr-only" id="camStatus" role="status"></p>
+    <p class="hint cams-hint">Para não travar o celular, cada câmera só carrega quando aparece na tela. Elas pausam quando você sai da página e depois de 10 minutos sem uso.</p>
 
-      <aside class="cams-tips" aria-labelledby="tipsTitle">
-        <h2 id="tipsTitle">Dicas para a travessia</h2>
-        <ul>{{{cameraTips}}}</ul>
-        <a class="btn btn-outline" href="/">Comparar preços antes de ir</a>
-      </aside>
-    </div>
+    <aside class="cams-tips" aria-labelledby="tipsTitle">
+      <h2 id="tipsTitle">Dicas para cruzar a ponte</h2>
+      <ul>{{{cameraTips}}}</ul>
+      <a class="btn btn-outline" href="/">Comparar preços antes de ir</a>
+    </aside>
   </div>
 </main>
 

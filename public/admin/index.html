@@ -198,10 +198,10 @@
           <h2 id="hCam">Câmeras ao vivo</h2>
           <button type="button" class="btn btn-sm btn-ghost" data-reset="cameras">Restaurar padrão</button>
         </div>
-        <p class="hint">Página <a href="/cameras" target="_blank" rel="noopener">/cameras</a>. Só uma câmera abre por vez, para a página continuar leve.</p>
+        <p class="hint">Página <a href="/cameras" target="_blank" rel="noopener">/cameras</a>. As câmeras aparecem todas juntas, e cada uma só carrega quando aparece na tela, para a página continuar leve.</p>
         <div class="fld"><label for="fCamTitle">Título</label><input type="text" id="fCamTitle" maxlength="80" data-path="cameras.title" data-check="req" data-err="errCamTitle"><p class="adm-error" id="errCamTitle" hidden></p></div>
         <label class="fld"><span>Texto de abertura</span><input type="text" maxlength="300" data-path="cameras.intro"></label>
-        <label class="fld"><span>Crédito das imagens</span><input type="text" maxlength="120" data-path="cameras.credit"></label>
+        <label class="fld"><span>Crédito das imagens (aparece embaixo de cada câmera)</span><input type="text" maxlength="120" data-path="cameras.credit"></label>
         <div class="fld">
           <span>Câmeras</span>
           <div class="rows" id="camsList"></div>
