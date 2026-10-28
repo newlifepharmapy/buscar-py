@@ -1852,7 +1852,7 @@
      "name": "Celular Apple iPhone Duo 256GB",
      "brand": "Apple",
      "breadcrumb": "Início › Categorias › Eletrônicos › Telefonia e Comunicação › Celular",
-     "image_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/modelos/celular_apple_iphone_duo_256gb_207065_f81fe8a9-bce5-4c57-bc70-7cb940992089.big.avif",
+     "image_url": "https://bucket-prod.us-ord-10.linodeobjects.com/site/media/fotos/produtos/thumbs/big/1457ef2e014db5c4430f7175f29805da13601ab0.webp",
      "a_partir_de_usd": 3050,
      "offers_claimed": 22,
      "stores_claimed": null,
@@ -2014,7 +2014,8 @@
        "variant": "Apple iPhone Duo A3447 256GB Star White (195951405445)",
        "matches": true
       }
-     ]
+     ],
+     "image_note": "A foto do modelo (fotos/modelos/..._207065_...big.avif) dá 404 no servidor de imagens do Compras Paraguai em 28/10/2026; usada a foto do anúncio da Nissei https://www.comprasparaguai.com.br/apple-iphone-duo-mk1e4lla-5g-dual-esim-256-gb-star-white__5670629/"
     }
    ],
    "not_found": []
