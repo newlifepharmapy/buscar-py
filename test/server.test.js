@@ -69,6 +69,10 @@ test("páginas públicas", async () => {
   }
   assert.equal((camsHtml.match(/<span class="cam-credit">Fonte: Portal da Cidade<\/span>/g) || []).length, 3);
   assert.doesNotMatch(camsHtml, /<iframe/, "o player só é criado pelo script, quando a câmera aparece na tela");
+  // só o play (na capa) e o tela cheia: o "Pausar" saiu a pedido do dono
+  assert.equal((camsHtml.match(/class="btn btn-primary cam-play"/g) || []).length, 3);
+  assert.equal((camsHtml.match(/class="btn btn-sm cam-full"/g) || []).length, 3);
+  assert.doesNotMatch(camsHtml, /cam-toggle|Pausar/);
   assert.match(html, /<a class="util-link is-live" href="\/cameras">/, "sem target: abre na mesma janela");
   // menu lateral do celular em todas as páginas: botão ☰ ligado ao painel, e o script dele
   const notFound = await (await fetch(base + "/nada")).text();

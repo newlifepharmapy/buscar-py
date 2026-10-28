@@ -99,7 +99,7 @@
     // busca ou categoria vinda de outra página (ex.: /cameras ou o menu lateral) pelo endereço /?q=... ou /?cat=...
     const params = new URLSearchParams(location.search);
     const q0 = params.get("q"), c0 = params.get("cat");
-    if (c0 && catById[c0]) S.cat = c0;
+    if (c0 && Object.prototype.hasOwnProperty.call(catById, c0)) S.cat = c0;
     buildCatbar(); buildFilters(cities); wire();
     if (q0 && q0.trim()) { S.text = q0.trim().slice(0, 100); $("q").value = S.text; }
     if (window.BuscaMenu) BuscaMenu.setCurrent(S.cat);
@@ -142,7 +142,16 @@
     });
     if (active) centerCat(active);
     if (window.BuscaMenu) BuscaMenu.setCurrent(S.cat);
+    catToUrl();
     render();
+  }
+  // O endereço acompanha a categoria (/?cat=...): recarregar ou compartilhar a página mostra a mesma lista.
+  function catToUrl() {
+    try {
+      const u = new URL(location.href);
+      if (S.cat) u.searchParams.set("cat", S.cat); else u.searchParams.delete("cat");
+      if (u.href !== location.href) history.replaceState(null, "", u);
+    } catch (e) { /* ignorado */ }
   }
   // Rola só a barra de categorias (nunca a página) para deixar o botão no meio
   function centerCat(btn) {
@@ -160,6 +169,7 @@
     $("catbar").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(!x.dataset.cat)));
     $("catbar").scrollLeft = 0; updateCatArrows();
     if (window.BuscaMenu) BuscaMenu.setCurrent(null);
+    catToUrl();
   }
   function clearGuess() {
     S.guessCat = null;

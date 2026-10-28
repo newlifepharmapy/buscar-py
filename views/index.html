@@ -221,9 +221,9 @@
 
 <dialog id="pdlg" aria-labelledby="pdName">
   <div class="pd">
-    <button class="icon-x pd-close" id="pdClose" type="button" aria-label="Fechar">
+    <div class="pd-bar"><button class="icon-x pd-close" id="pdClose" type="button" aria-label="Fechar">
       <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    </button>
+    </button></div>
     <div class="pd-media"><img id="pdImg" alt=""></div>
     <div class="pd-info">
       <p class="pd-cat" id="pdCat"></p>
@@ -252,11 +252,11 @@
 
 {{> menu}}
 
+<script src="js/menu.js"></script>
 <script src="vendor/tf.min.js"></script>
 <script src="js/vision.js"></script>
 <script src="js/search.js"></script>
 <script src="js/fx.js"></script>
-<script src="js/menu.js"></script>
 <script src="js/app.js"></script>
 <!-- ARTIFACT:END -->
 </body>
