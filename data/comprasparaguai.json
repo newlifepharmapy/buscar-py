@@ -4282,6 +4282,494 @@
   {
    "products": [
     {
+     "url": "https://www.comprasparaguai.com.br/shampoo-shiseido-fino-premium-touch-550ml__5096113/",
+     "name": "Shampoo Shiseido Fino Premium Touch 550ML",
+     "brand": "Shiseido",
+     "breadcrumb": null,
+     "image_url": "https://bucket-prod.us-ord-10.linodeobjects.com/site/media/fotos/produtos/thumbs/big/247f895b4e8aa6143465c8a3805a86bc9de64a21.webp",
+     "a_partir_de_usd": 13.99,
+     "offers_claimed": null,
+     "stores_claimed": null,
+     "last_listing": "2026-10-28",
+     "read_complete": true,
+     "notes": "No model page exists; all offers are single-store pages (__digits). Sources: search 'fino premium touch' (4 pages, 68 results) and 'shampoo fino premium touch' (2 pages, 27 results); all 21 matching offers verified on their own offer pages. Listing cards sometimes showed stale prices, so the offer-page prices are used: Shopping China showed 14,00 in a cached read and 17,50 on 28/10. Genove '(Atacado)' is a wholesale duplicate of Genove's retail listing, so it is marked false. Agatres (last listed 12/10/2026) shows 'Ops! Produto indisponível' and is marked false. Epic Importados, Paradise and Paris Store offer pages have no product photo (sem-imagem placeholder). Kits with shampoo plus conditioner are marked false, with prices taken from the search cards.",
+     "offers": [
+      {
+       "store_name": "Prime Shop",
+       "store_slug": "prime-shop",
+       "price_usd": 13.99,
+       "variant": "Shampoo Shiseido Fino Premium Touch – 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-shiseido-fino-premium-touch-550ml__5363562/"
+      },
+      {
+       "store_name": "Nissei",
+       "store_slug": "nissei",
+       "price_usd": 14,
+       "variant": "Shampoo Shiseido Fino Premium Touch - 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-shiseido-fino-premium-touch-550ml__5096113/"
+      },
+      {
+       "store_name": "Mega Eletrônicos",
+       "store_slug": "mega-eletronicos",
+       "price_usd": 14,
+       "variant": "Shampoo Fino Premium Touch de 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-fino-premium-touch-de-550ml__5123576/"
+      },
+      {
+       "store_name": "Mega Eletro",
+       "store_slug": "mega-eletro",
+       "price_usd": 14,
+       "variant": "Shampoo Fino Premium Touch de 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-fino-premium-touch-de-550ml__5124030/"
+      },
+      {
+       "store_name": "New Zone",
+       "store_slug": "new-zone",
+       "price_usd": 15,
+       "variant": "Fino Shampoo Premium Touch 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/fino-shampoo-premium-touch-550ml__5654226/"
+      },
+      {
+       "store_name": "Extra Shop",
+       "store_slug": "extra-shop",
+       "price_usd": 16,
+       "variant": "Fino Premium Touch Shampoo 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/fino-premium-touch-shampoo-550ml__5538941/"
+      },
+      {
+       "store_name": "Epic Importados",
+       "store_slug": "epic-importados",
+       "price_usd": 16,
+       "variant": "Shiseido Fino Premium Touch Shampoo 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shiseido-fino-premium-touch-shampoo-550ml__5439042/"
+      },
+      {
+       "store_name": "Pontocom",
+       "store_slug": "pontocom",
+       "price_usd": 17,
+       "variant": "Shampoo Shiseido Fino Premium Touch 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-shiseido-fino-premium-touch-550ml__5091512/"
+      },
+      {
+       "store_name": "Genove",
+       "store_slug": "genove",
+       "price_usd": 17,
+       "variant": "Shampoo Capilar Shiseido Fino Premium Touch - 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-capilar-shiseido-fino-premium-touch-550ml__5456143/"
+      },
+      {
+       "store_name": "Shopping China",
+       "store_slug": "shopping-china",
+       "price_usd": 17.5,
+       "variant": "Shampoo Shiseido Fino Premium Touch 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-shiseido-fino-premium-touch-550ml__5264661/"
+      },
+      {
+       "store_name": "Star Company",
+       "store_slug": "star-company",
+       "price_usd": 17.75,
+       "variant": "Shiseido Fino Premium Touch Shampoo 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shiseido-fino-premium-touch-shampoo-550ml__5387667/"
+      },
+      {
+       "store_name": "Madrid Center",
+       "store_slug": "madrid-center",
+       "price_usd": 18,
+       "variant": "Shampoo Fino Premium Touch Shampoo - 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-fino-premium-touch-shampoo-550ml__5477385/"
+      },
+      {
+       "store_name": "NGP Farma",
+       "store_slug": "ngp-farma",
+       "price_usd": 18,
+       "variant": "Shampoo Shiseido Fino Premium Touch de 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-shiseido-fino-premium-touch-de-550ml__5464708/"
+      },
+      {
+       "store_name": "Cellshop",
+       "store_slug": "cellshop",
+       "price_usd": 19,
+       "variant": "Shampoo Fino Premium Touch - 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-fino-premium-touch-550ml__5131882/"
+      },
+      {
+       "store_name": "LG Importados",
+       "store_slug": "lg-importados",
+       "price_usd": 19,
+       "variant": "Shampoo Fino Premium Touch 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-fino-premium-touch-550ml__5511846/"
+      },
+      {
+       "store_name": "Flytec Computers",
+       "store_slug": "flytec-computers",
+       "price_usd": 19,
+       "variant": "e. Fino Premium Touch Shampoo 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/e-fino-premium-touch-shampoo-550ml__5124834/"
+      },
+      {
+       "store_name": "Mobile Zone",
+       "store_slug": "mobile-zone",
+       "price_usd": 19,
+       "variant": "Shampoo Shiseido Fino Premium Touch - 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-shiseido-fino-premium-touch-550ml__5649104/"
+      },
+      {
+       "store_name": "Atlantico Shop",
+       "store_slug": "atlantico-shop",
+       "price_usd": 19,
+       "variant": "Shampoo Fino Premium Touch - 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-fino-premium-touch-550ml__5595187/"
+      },
+      {
+       "store_name": "Paradise",
+       "store_slug": "paradise",
+       "price_usd": 19,
+       "variant": "Shiseido Fino Premium Touch Shampoo 550M",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shiseido-fino-premium-touch-shampoo-550m__5646310/"
+      },
+      {
+       "store_name": "Empire Shop",
+       "store_slug": "empire-shop",
+       "price_usd": 20.99,
+       "variant": "Fino Premium Touch Shampoo 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/fino-premium-touch-shampoo-550ml__5401673/"
+      },
+      {
+       "store_name": "Paris Store",
+       "store_slug": "paris-store",
+       "price_usd": 25,
+       "variant": "Shiseido Fino Premium Touch Shampoo 550ML",
+       "matches": true,
+       "listing_url": "https://www.comprasparaguai.com.br/shiseido-fino-premium-touch-shampoo-550ml__5617659/"
+      },
+      {
+       "store_name": "Genove",
+       "store_slug": "genove",
+       "price_usd": 15,
+       "variant": "Shampoo Capilar Shiseido Fino Premium Touch - 550ML (Atacado) [wholesale duplicate listing]",
+       "matches": false,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-capilar-shiseido-fino-premium-touch-550ml-atacado__5456144/"
+      },
+      {
+       "store_name": "Agatres",
+       "store_slug": "agatres",
+       "price_usd": 17,
+       "variant": "Shampoo Shiseido Fino Premium Touch de 550ML [Ops! Produto indisponível; last listed 12/10/2026]",
+       "matches": false,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-shiseido-fino-premium-touch-de-550ml__5461404/"
+      },
+      {
+       "store_name": "Macedonia",
+       "store_slug": "macedonia",
+       "price_usd": 27.5,
+       "variant": "Fino Premium Touch Shampoo + Conditioner 550ML (kit)",
+       "matches": false,
+       "listing_url": "https://www.comprasparaguai.com.br/fino-premium-touch-shampoo-conditioner-550ml__5588797/"
+      },
+      {
+       "store_name": "Pontocom",
+       "store_slug": "pontocom",
+       "price_usd": 29,
+       "variant": "Kit Capilar Shiseido Fino Premium Touch Shampoo + Condicionador 550ML",
+       "matches": false,
+       "listing_url": "https://www.comprasparaguai.com.br/kit-capilar-shiseido-fino-premium-touch-shampoo-condicionador-550ml__5457457/"
+      },
+      {
+       "store_name": "Epic Importados",
+       "store_slug": "epic-importados",
+       "price_usd": 29,
+       "variant": "Shiseido Fino *Kit* Premium Touch Shampoo+Condicionador 550ML",
+       "matches": false,
+       "listing_url": "https://www.comprasparaguai.com.br/shiseido-fino-kit-premium-touch-shampoocondicionador-550ml__5657547/"
+      },
+      {
+       "store_name": "Intershop Importados",
+       "store_slug": "intershop-importados",
+       "price_usd": 31,
+       "variant": "Shampoo e Condicionador C.Fino Premium Touch 550ML (kit)",
+       "matches": false,
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-e-condicionador-cfino-premium-touch-550ml__5457415/"
+      },
+      {
+       "store_name": "ISS Group",
+       "store_slug": "iss-group",
+       "price_usd": 33,
+       "variant": "Shiseido Fino Premium Touch Shampoo+Cond (kit)",
+       "matches": false,
+       "listing_url": "https://www.comprasparaguai.com.br/shiseido-fino-premium-touch-shampoocond__5654793/"
+      }
+     ]
+    }
+   ],
+   "not_found": []
+  },
+  {
+   "products": [
+    {
+     "url": "https://www.comprasparaguai.com.br/acondicionador-shiseido-fino-premium-touch-550ml__5264662/",
+     "name": "Condicionador Shiseido Fino Premium Touch 550ML",
+     "brand": "Shiseido",
+     "image_url": "https://bucket-prod.us-ord-10.linodeobjects.com/site/media/fotos/produtos/thumbs/big/25d786dc064b5df1666fcb9eaeff3f1dfd24c14a.webp",
+     "a_partir_de_usd": 13.99,
+     "offers_claimed": null,
+     "stores_claimed": null,
+     "last_listing": "https://www.comprasparaguai.com.br/busca/?page=4&q=fino%20premium%20touch",
+     "read_complete": true,
+     "breadcrumb": null,
+     "notes": "No model page exists; all offers are single-store pages (__<id>). The search 'fino premium touch' shows 68 results on 4 pages (20/20/20/8), and I read all of them on both desktop and mobile. I opened every conditioner and kit offer page one by one to read title, store, price and image, because the store names and some prices on the search cards did not match the offer pages: the cards showed Agatres 14,50, Casa Americana 14,00 and Empire Shop 21,50, but the offer pages show 17,00, 17,50 and 19,99. All prices come from the offer pages. Most common size is 550ML. variant holds each offer's title verbatim. matches=false for: (a) four offers whose page shows 'Ops! Produto indisponível' (Cellshop, Agatres, Casa Americana, Eletrocell), which are the same product but out of stock, and their price is only the 'Preço atual' in the report form; (b) Genove's separate '(Atacado)' wholesale listing, since Genove's retail listing is counted; (c) shampoo+conditioner kits. store_slug is null where neither the offer page nor any listing showed a /lojas/ link for that store (Nissei, New Zone). Terra Nova's title says '550M', a typo for 550ML. The Macedonia, Epic Importados and ISS Group kit pages show only a 'sem imagem' placeholder.",
+     "offers": [
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/acondicionador-shiseido-fino-premium-touch-550ml__5363561/",
+       "store_name": "Prime Shop",
+       "store_slug": "prime-shop",
+       "price_usd": 13.99,
+       "variant": "Acondicionador Shiseido Fino Premium Touch – 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/acondicionador-shiseido-fino-premium-touch-550ml__5096114/",
+       "store_name": "Nissei",
+       "store_slug": null,
+       "price_usd": 14,
+       "variant": "Acondicionador Shiseido Fino Premium Touch - 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/condicionador-fino-premium-touch-hair-550ml__5472194/",
+       "store_name": "Atacado Connect",
+       "store_slug": "atacado-connect",
+       "price_usd": 14,
+       "variant": "Condicionador Fino Premium Touch Hair 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/condicionador-shiseido-fino-premium-touch-conditioner-550ml__5494134/",
+       "store_name": "Paradise",
+       "store_slug": "paradise",
+       "price_usd": 14,
+       "variant": "Condicionador Shiseido Fino Premium Touch Conditioner 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/fino-premium-touch-conditioner-550ml__5538940/",
+       "store_name": "Extra Shop",
+       "store_slug": "extra-shop",
+       "price_usd": 16,
+       "variant": "Fino Premium Touch Conditioner 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/cond-fino-premium-touch-550ml-476074__5512743/",
+       "store_name": "LG Importados",
+       "store_slug": "lg-importados",
+       "price_usd": 16.9,
+       "variant": "Cond Fino Premium Touch 550ML 476074",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/e-fino-premium-touch-condicionador-hidratante-550ml__5127853/",
+       "store_name": "Flytec Computers",
+       "store_slug": "flytec-computers",
+       "price_usd": 17,
+       "variant": "e. Fino Premium Touch Condicionador Hidratante 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/condicionador-shiseido-fino-premium-touch-550ml-476074__5508409/",
+       "store_name": "Atacado USA",
+       "store_slug": "atacado-usa",
+       "price_usd": 17,
+       "variant": "Fino Shiseido Premium Touch Condicionador 550ML (476074)",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/shiseido-fino-premium-touch-condicionador-550ml__5387666/",
+       "store_name": "Star Company",
+       "store_slug": "star-company",
+       "price_usd": 17.25,
+       "variant": "Shiseido Fino Premium Touch Condicionador 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/acondicionador-shiseido-fino-premium-touch-550ml__5264662/",
+       "store_name": "Shopping China",
+       "store_slug": "shopping-china",
+       "price_usd": 17.5,
+       "variant": "Acondicionador Shiseido Fino Premium Touch 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/fino-acondicionador-premium-touch-550ml__5657334/",
+       "store_name": "New Zone",
+       "store_slug": null,
+       "price_usd": 18,
+       "variant": "Fino Acondicionador Premium Touch 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/condicionador-fino-premium-touch-550ml__5663372/",
+       "store_name": "Mobile Zone",
+       "store_slug": "mobile-zone",
+       "price_usd": 18,
+       "variant": "Condicionador Fino Premium Touch - 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/acondicionador-fino-premium-touch-550ml__5637968/",
+       "store_name": "La Petisquera",
+       "store_slug": "la-petisquera",
+       "price_usd": 18,
+       "variant": "Acondicionador Fino Premium Touch - 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/condicionador-fino-premium-touch-550ml__5591062/",
+       "store_name": "Atlantico Shop",
+       "store_slug": "atlantico-shop",
+       "price_usd": 18,
+       "variant": "Condicionador Fino Premium Touch - 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/condicionador-shiseido-fino-premium-touch-de-550ml__5464691/",
+       "store_name": "NGP Farma",
+       "store_slug": "ngp-farma",
+       "price_usd": 18,
+       "variant": "Condicionador Shiseido Fino Premium Touch de 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/condicionador-capilar-shiseido-fino-premium-touch-550ml__5456145/",
+       "store_name": "Genove",
+       "store_slug": "genove",
+       "price_usd": 19,
+       "variant": "Condicionador Capilar Shiseido Fino Premium Touch - 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/condicionador-fino-premium-touch-550ml__5401670/",
+       "store_name": "Empire Shop",
+       "store_slug": "empire-shop",
+       "price_usd": 19.99,
+       "variant": "Condicionador Fino Premium Touch 550ML",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/fino-premium-touch-conditioner-550m__5621567/",
+       "store_name": "Terra Nova",
+       "store_slug": "terra-nova",
+       "price_usd": 20,
+       "variant": "Fino Premium Touch Conditioner 550M",
+       "matches": true
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/condicionador-capilar-shiseido-fino-premium-touch-550ml-atacado__5456146/",
+       "store_name": "Genove",
+       "store_slug": "genove",
+       "price_usd": 16.5,
+       "variant": "Condicionador Capilar Shiseido Fino Premium Touch - 550ML (Atacado) [wholesale listing]",
+       "matches": false
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/condicionador-fino-premium-touch-550ml__5131884/",
+       "store_name": "Cellshop",
+       "store_slug": "cellshop",
+       "price_usd": 17.5,
+       "variant": "Condicionador Fino Premium Touch - 550ML [page shows Ops! Produto indisponível]",
+       "matches": false
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/condicionador-shiseido-fino-premium-touch-de-550ml__5461401/",
+       "store_name": "Agatres",
+       "store_slug": "agatres",
+       "price_usd": 17,
+       "variant": "Condicionador Shiseido Fino Premium Touch de 550ML [page shows Ops! Produto indisponível]",
+       "matches": false
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/condicionador-fino-premium-touch-550-ml__5437450/",
+       "store_name": "Casa Americana",
+       "store_slug": "casa-americana",
+       "price_usd": 17.5,
+       "variant": "Condicionador Fino Premium Touch 550 ML [page shows Ops! Produto indisponível]",
+       "matches": false
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/condicionador-fino-premium-touch-conditioner-550-ml__5414161/",
+       "store_name": "Eletrocell",
+       "store_slug": "eletrocell",
+       "price_usd": 17,
+       "variant": "Condicionador Fino Premium Touch Conditioner 550 ML [page shows Ops! Produto indisponível]",
+       "matches": false
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/fino-premium-touch-shampoo-conditioner-550ml__5588797/",
+       "store_name": "Macedonia",
+       "store_slug": "macedonia",
+       "price_usd": 27.5,
+       "variant": "Fino Premium Touch Shampoo + Conditioner 550ML [kit]",
+       "matches": false
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/kit-capilar-shiseido-fino-premium-touch-shampoo-condicionador-550ml__5457457/",
+       "store_name": "Pontocom",
+       "store_slug": "pontocom",
+       "price_usd": 29,
+       "variant": "Kit Capilar Shiseido Fino Premium Touch Shampoo + Condicionador 550ML [kit]",
+       "matches": false
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/shiseido-fino-kit-premium-touch-shampoocondicionador-550ml__5657547/",
+       "store_name": "Epic Importados",
+       "store_slug": "epic-importados",
+       "price_usd": 29,
+       "variant": "Shiseido Fino *Kit* Premium Touch Shampoo+Condicionador 550ML [kit]",
+       "matches": false
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/shampoo-e-condicionador-cfino-premium-touch-550ml__5457415/",
+       "store_name": "Intershop Importados",
+       "store_slug": "intershop-importados",
+       "price_usd": 31,
+       "variant": "Shampoo e Condicionador C.Fino Premium Touch 550ML [kit]",
+       "matches": false
+      },
+      {
+       "listing_url": "https://www.comprasparaguai.com.br/shiseido-fino-premium-touch-shampoocond__5654793/",
+       "store_name": "ISS Group",
+       "store_slug": "iss-group",
+       "price_usd": 33,
+       "variant": "Shiseido Fino Premium Touch Shampoo+Cond [kit]",
+       "matches": false
+      }
+     ]
+    }
+   ],
+   "not_found": []
+  },
+  {
+   "products": [
+    {
      "url": "https://www.comprasparaguai.com.br/perfume-lattafa-eclaire-pistache-eau-de-parfum-unissex-100ml_63372/",
      "name": "Perfume Lattafa Eclaire Pistache Eau de Parfum Unissex 100ML",
      "brand": "Lattafa",
@@ -4890,6 +5378,632 @@
        "store_slug": null,
        "price_usd": 15,
        "variant": "Celimax Vita-A Retinol Shot Tight Booster 15ML",
+       "matches": true
+      }
+     ]
+    }
+   ],
+   "not_found": []
+  },
+  {
+   "products": [
+    {
+     "url": "https://www.comprasparaguai.com.br/drone-dji-mini-5-pro-4k_64078/",
+     "name": "Drone DJI Mini 5 Pro 4K",
+     "brand": "DJI",
+     "breadcrumb": "Início › Categorias › Lazer, Hobby & Camping › Hobby › Drone",
+     "image_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/modelos/drone_dji_mini_5_pro_4k_193173_de45fea4-eb7e-4742-92ff-b98d47683252.big.webp",
+     "a_partir_de_usd": 796,
+     "offers_claimed": 18,
+     "stores_claimed": 16,
+     "last_listing": "28 de Outubro de 2026",
+     "read_complete": true,
+     "notes": "All 18 offers read, 16 distinct stores. In WebFetch's markdown each store logo comes AFTER its offer block. I confirmed this from single-offer pages (offer 1 = Nissei, combo = Cellshop, last = Avanza) and from matching store WhatsApp numbers. Offer 5 is a combo with the Osmo Mobile 8 gimbal.",
+     "offers": [
+      {
+       "store_name": "Nissei",
+       "store_slug": "nissei",
+       "price_usd": 799,
+       "variant": "Drone Dji Mini 5 Pro (Código 145654)",
+       "matches": true
+      },
+      {
+       "store_name": "Shopping China",
+       "store_slug": "shopping-china",
+       "price_usd": 815,
+       "variant": "Drone Dji Mini 5 Pro (Código 1010193)",
+       "matches": true
+      },
+      {
+       "store_name": "Gaba Hobby",
+       "store_slug": "gaba-hobby",
+       "price_usd": 799,
+       "variant": "Drone Dji Mini 5 Pro (Código 432849)",
+       "matches": true
+      },
+      {
+       "store_name": "Cellshop",
+       "store_slug": "cellshop",
+       "price_usd": 799,
+       "variant": "Drone Dji Mini 5 Pro (Código 5345922)",
+       "matches": true
+      },
+      {
+       "store_name": "Cellshop",
+       "store_slug": "cellshop",
+       "price_usd": 895,
+       "variant": "Drone Dji Mini 5 Pro + Gimbal Osmo Mobile 8 (Código 5913039)",
+       "matches": false
+      },
+      {
+       "store_name": "Visãovip",
+       "store_slug": "visaovip",
+       "price_usd": 799,
+       "variant": "Drone Dji Mini 5 Pro (Código 54564)",
+       "matches": true
+      },
+      {
+       "store_name": "Mega Eletrônicos",
+       "store_slug": "mega-eletronicos",
+       "price_usd": 845,
+       "variant": "Drone Dji Mini 5 Pro Anatel 4K com GPS - Cinza Claro (Código 1526776)",
+       "matches": true
+      },
+      {
+       "store_name": "Intershop Importados",
+       "store_slug": "intershop-importados",
+       "price_usd": 799,
+       "variant": "Drone Dji Mini 5 Pro (Código 7690)",
+       "matches": true
+      },
+      {
+       "store_name": "Mobile Zone",
+       "store_slug": "mobile-zone",
+       "price_usd": 799,
+       "variant": "Drone Dji Mini 5 Pro 1126 (Código 1349627)",
+       "matches": true
+      },
+      {
+       "store_name": "Madrid Center",
+       "store_slug": "madrid-center",
+       "price_usd": 799,
+       "variant": "Drone Dji Mini 5 Pro - 4K - com Controle - GPS - Cinza (Código 1081435)",
+       "matches": true
+      },
+      {
+       "store_name": "Topdek Informática",
+       "store_slug": "topdek-informatica",
+       "price_usd": 829,
+       "variant": "Drone Dji Mini 5 Pro (Código 413366)",
+       "matches": true
+      },
+      {
+       "store_name": "Atacado Connect",
+       "store_slug": "atacado-connect",
+       "price_usd": 839,
+       "variant": "Drone Dji Mini 5 Pro - (Anatel) (Código 1429633)",
+       "matches": true
+      },
+      {
+       "store_name": "Atacado Connect",
+       "store_slug": "atacado-connect",
+       "price_usd": 799,
+       "variant": "Drone Dji Mini 5 Pro (Código 1273540)",
+       "matches": true
+      },
+      {
+       "store_name": "Alfatec",
+       "store_slug": "alfatec",
+       "price_usd": 839,
+       "variant": "Drone Dji Mini 5 Pro Anatel (Código 113038)",
+       "matches": true
+      },
+      {
+       "store_name": "Mega Eletro",
+       "store_slug": "mega-eletro",
+       "price_usd": 845,
+       "variant": "Drone Dji Mini 5 Pro Anatel 4K com GPS - Cinza Claro (Código 1526776)",
+       "matches": true
+      },
+      {
+       "store_name": "Matrix Importados",
+       "store_slug": "matrix-importados",
+       "price_usd": 796,
+       "variant": "Drone Dji Mini 5 Pro (46684) (Código 46684)",
+       "matches": true
+      },
+      {
+       "store_name": "Paris Store",
+       "store_slug": "paris-store",
+       "price_usd": 799,
+       "variant": "Dji Drone Mini 5 Pro (Código 6941565996091)",
+       "matches": true
+      },
+      {
+       "store_name": "Avanza",
+       "store_slug": "avanza",
+       "price_usd": 813.7,
+       "variant": "Drone Dji Mini 5 Pro (Código 383282)",
+       "matches": true
+      }
+     ]
+    },
+    {
+     "url": "https://www.comprasparaguai.com.br/sony-playstation-5-pro-2tb-digital-edition_57629/",
+     "name": "Sony Playstation 5 Pro 2TB Digital Edition",
+     "brand": "Sony",
+     "breadcrumb": "Início › Categorias › Eletrônicos › Videogame",
+     "image_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/modelos/sony_playstation_5_pro_2tb_digital_edition_182445.big.jpg",
+     "a_partir_de_usd": 1197,
+     "offers_claimed": 24,
+     "stores_claimed": 16,
+     "last_listing": "17 de Outubro de 2026",
+     "read_complete": false,
+     "notes": "Only 21 of the 24 stated offers were read. WebFetch's page text ends at about 71,100 characters, partway through offer 22 (title 'Console Sony Playstation 5 Pro Digital Edition 2TB CFI-7019 8K - Branco/Preto (CX Feia)', no price or store visible), and the offset parameter cannot get past that limit. Each store logo comes after its offer block; I checked this against store WhatsApp numbers and a search result ('...CFI-7019 2 TB Versão Digital - Branco na loja Nissei'). 'CX Feia/Caixa Feia' means a damaged box, not a refurbished unit, so those offers were kept as matches.",
+     "offers": [
+      {
+       "store_name": "Atacado Connect",
+       "store_slug": "atacado-connect",
+       "price_usd": 1210,
+       "variant": "Console Sony Playstation 5 Pro CFI-7119 4K Edição Digital 2TB SSD (Código 1312263)",
+       "matches": true
+      },
+      {
+       "store_name": "Atacado Connect",
+       "store_slug": "atacado-connect",
+       "price_usd": 1210,
+       "variant": "Console Sony Playstation 5 Pro CFI-7019 4K Edição Digital 2TB SSD (Código 1200768)",
+       "matches": true
+      },
+      {
+       "store_name": "Star Games",
+       "store_slug": "star-games",
+       "price_usd": 1210,
+       "variant": "Console Sony Playstation 5 Pro 2TB SSD 4K CFI-7119 Digital Edition (Código 190794)",
+       "matches": true
+      },
+      {
+       "store_name": "Atlantico Shop",
+       "store_slug": "atlantico-shop",
+       "price_usd": 1197,
+       "variant": "Console Sony Playstation 5 Pro Digital CFI-7019/7119 2TB SSD - White/Black (Código 458672)",
+       "matches": true
+      },
+      {
+       "store_name": "Mega Eletrônicos",
+       "store_slug": "mega-eletronicos",
+       "price_usd": 1210,
+       "variant": "Console Sony Playstation 5 Pro Digital Edition 2TB CFI-7019 8K - Branco/Preto (Código 1431162)",
+       "matches": true
+      },
+      {
+       "store_name": "Mega Eletrônicos",
+       "store_slug": "mega-eletronicos",
+       "price_usd": 1210,
+       "variant": "Console Sony Playstation 5 Pro Digital Edition 2TB CFI-7119 8K - Branco/Preto (CX Feia) (Código 1675009)",
+       "matches": true
+      },
+      {
+       "store_name": "Mega Eletrônicos",
+       "store_slug": "mega-eletronicos",
+       "price_usd": 1210,
+       "variant": "Console Sony Playstation 5 Pro Digital Edition 2TB CFI-7119 8K - Branco/Preto (Código 1649338)",
+       "matches": true
+      },
+      {
+       "store_name": "Mega Eletrônicos",
+       "store_slug": "mega-eletronicos",
+       "price_usd": 1210,
+       "variant": "Console Sony Playstation 5 Pro Digital Edition 2TB CFI-7019 8K - Branco/Preto (CX Feia) (Código 1481785)",
+       "matches": true
+      },
+      {
+       "store_name": "Paris Store",
+       "store_slug": "paris-store",
+       "price_usd": 1219,
+       "variant": "Sony CFI-7119 VJ PS5 Pro 2TB Digital 4K (Código 711719024538)",
+       "matches": true
+      },
+      {
+       "store_name": "Nissei",
+       "store_slug": "nissei",
+       "price_usd": 1220,
+       "variant": "Console Sony Playstation 5 Pro CFI-7019 2 TB Versão Digital - Branco (Código 131374)",
+       "matches": true
+      },
+      {
+       "store_name": "Nissei",
+       "store_slug": "nissei",
+       "price_usd": 1210,
+       "variant": "Console Playstation 5 Pro Digital CFI-7119 2 TB - Branco (Código 160324)",
+       "matches": true
+      },
+      {
+       "store_name": "Cellshop",
+       "store_slug": "cellshop",
+       "price_usd": 1199,
+       "variant": "Console Sony Playstation 5 Pro 4K 2TB Digital CFI-7119 - Bivolt (Caixa Feia) (Código 6071424)",
+       "matches": true
+      },
+      {
+       "store_name": "Visãovip",
+       "store_slug": "visaovip",
+       "price_usd": 1210,
+       "variant": "Console Sony Playstation 5 Pro Slim CFI-7119 B01X 2TB / Digital Edition / Bivolt - Branco (Americano) (Código 56076)",
+       "matches": true
+      },
+      {
+       "store_name": "One Click",
+       "store_slug": "one-click",
+       "price_usd": 1210,
+       "variant": "Consola Sony Playstation 5 Pro CFI-7119 2TB - White (Código 70959)",
+       "matches": true
+      },
+      {
+       "store_name": "Madrid Center",
+       "store_slug": "madrid-center",
+       "price_usd": 1200,
+       "variant": "Console Sony Playstation 5 Pro CFI-7119 - 2TB - 4K - 1 Controle - Midia Digital - Bivolt - Branco (Código 1193985)",
+       "matches": true
+      },
+      {
+       "store_name": "Topdek Informática",
+       "store_slug": "topdek-informatica",
+       "price_usd": 1220,
+       "variant": "Console Sony Playstation 5 PS5 Pro CFI-7019 4K 120HZ 2TB SSD Bivolt Digital US Branco (Código 380134)",
+       "matches": true
+      },
+      {
+       "store_name": "LG Importados",
+       "store_slug": "lg-importados",
+       "price_usd": 1240,
+       "variant": "Game PS5 Pro 2TB Eua CFI-7119 Slim Digital 4K e 8K Branco (Código 966610)",
+       "matches": true
+      },
+      {
+       "store_name": "Super Games",
+       "store_slug": "super-games",
+       "price_usd": 1220,
+       "variant": "Console Sony Playstation 5 Pro CFI-7019 8K Edição Digital 2TB SSD - Branco (Código 319201)",
+       "matches": true
+      },
+      {
+       "store_name": "Best Shop Paraguai",
+       "store_slug": "best-shop-paraguai",
+       "price_usd": 1210,
+       "variant": "Console Sony Playstation 5 Pro CFI-7119 4K Digital Edition (Código 167307)",
+       "matches": true
+      },
+      {
+       "store_name": "Mega Eletro",
+       "store_slug": "mega-eletro",
+       "price_usd": 1210,
+       "variant": "Console Sony Playstation 5 Pro Digital Edition 2TB CFI-7019 8K - Branco/Preto (Código 1431162)",
+       "matches": true
+      },
+      {
+       "store_name": "Mega Eletro",
+       "store_slug": "mega-eletro",
+       "price_usd": 1210,
+       "variant": "Console Sony Playstation 5 Pro Digital Edition 2TB CFI-7119 8K - Branco/Preto (CX Feia) (Código 1675009)",
+       "matches": true
+      }
+     ]
+    },
+    {
+     "url": "https://www.comprasparaguai.com.br/nintendo-switch-2-256gb_60892/",
+     "name": "Nintendo Switch 2 256GB",
+     "brand": "Nintendo",
+     "breadcrumb": "Início › Categorias › Eletrônicos › Videogame",
+     "image_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/modelos/nintendo_switch_2_256gb_188077_fdf0df0f-3ece-47da-be59-186533521b31.big.webp",
+     "a_partir_de_usd": 540,
+     "offers_claimed": 65,
+     "stores_claimed": 25,
+     "last_listing": "28 de Outubro de 2026",
+     "read_complete": false,
+     "notes": "Only 22 of the 65 stated offers were read. WebFetch's page text ends at about 70,800 characters, partway through offer 23 (Cellshop 'Console Nintendo Switch 2 256GB Gray + Jogo Pokemon Pokopia (Caixa Feia)', price not visible), and the offset parameter cannot get past that limit. The 'a partir de' price of US$ 540 belongs to an offer that was not read. Store attribution assumes each logo follows its offer block, which the WhatsApp numbers support. Bundles that include a game are marked matches=false.",
+     "offers": [
+      {
+       "store_name": "Atacado Connect",
+       "store_slug": "atacado-connect",
+       "price_usd": 625,
+       "variant": "Console Nintendo Switch 2 Choose Your Game Bundle 256GB Digital - Cinza (Código 1386974)",
+       "matches": false
+      },
+      {
+       "store_name": "Atacado Connect",
+       "store_slug": "atacado-connect",
+       "price_usd": 625,
+       "variant": "Console Nintendo Switch 2 Pokémon Pokopia 256GB Digital Uk - Cinza (Código 1387889)",
+       "matches": false
+      },
+      {
+       "store_name": "Atacado Connect",
+       "store_slug": "atacado-connect",
+       "price_usd": 640,
+       "variant": "Console Nintendo Switch 2 Mario Kart World 256GB Usa - Cinza (Código 1323139)",
+       "matches": false
+      },
+      {
+       "store_name": "Atacado Connect",
+       "store_slug": "atacado-connect",
+       "price_usd": 550,
+       "variant": "Console Nintendo Switch 2 256GB Usa - Cinza (Código 1323115)",
+       "matches": true
+      },
+      {
+       "store_name": "HB Import",
+       "store_slug": "hb-import",
+       "price_usd": 550,
+       "variant": "Console Nintendo Switch 2 256GB - Gray (Código 17579)",
+       "matches": true
+      },
+      {
+       "store_name": "Atlantico Shop",
+       "store_slug": "atlantico-shop",
+       "price_usd": 550,
+       "variant": "Console Nintendo Switch 2 256GB - Gray (Código 525152)",
+       "matches": true
+      },
+      {
+       "store_name": "Mega Eletrônicos",
+       "store_slug": "mega-eletronicos",
+       "price_usd": 550,
+       "variant": "Console Portátil Nintendo Switch 2 BEE-001 de 7.9\" com 256GB - Vermelho/Azul (Código 1668162)",
+       "matches": true
+      },
+      {
+       "store_name": "Mega Eletrônicos",
+       "store_slug": "mega-eletronicos",
+       "price_usd": 625,
+       "variant": "Console Portátil Nintendo Switch 2 BEE-001 de 7.9\" com 256GB - Preto (Código 1659528)",
+       "matches": true
+      },
+      {
+       "store_name": "Mega Eletrônicos",
+       "store_slug": "mega-eletronicos",
+       "price_usd": 550,
+       "variant": "Console Portátil Nintendo Switch 2 BEE-001 de 7.9\" com 256GB - Vermelho/Azul (Código 1602913)",
+       "matches": true
+      },
+      {
+       "store_name": "Paris Store",
+       "store_slug": "paris-store",
+       "price_usd": 635,
+       "variant": "Nintendo Switch VJ 2 Mario Kart HK Digittal (Código 045496321529)",
+       "matches": false
+      },
+      {
+       "store_name": "Paris Store",
+       "store_slug": "paris-store",
+       "price_usd": 620,
+       "variant": "Nintendo Switch VJ 2 Mario Kart HK Digittal (Código 45496321529)",
+       "matches": false
+      },
+      {
+       "store_name": "Paris Store",
+       "store_slug": "paris-store",
+       "price_usd": 624,
+       "variant": "Nintendo Switch 2 VJ Choose Your Game Bundle (Código 045496886639)",
+       "matches": false
+      },
+      {
+       "store_name": "Paris Store",
+       "store_slug": "paris-store",
+       "price_usd": 628,
+       "variant": "Nintendo Switch 2 VJ Choose Your Game Bundle (Código 45496886639)",
+       "matches": false
+      },
+      {
+       "store_name": "Nissei",
+       "store_slug": "nissei",
+       "price_usd": 550,
+       "variant": "Console Nintendo Switch 2 Uk/HK (Código 141594)",
+       "matches": true
+      },
+      {
+       "store_name": "Nissei",
+       "store_slug": "nissei",
+       "price_usd": 625,
+       "variant": "Console Nintendo Switch 2 + Pokémon Pokopia (Código 164397)",
+       "matches": false
+      },
+      {
+       "store_name": "Nissei",
+       "store_slug": "nissei",
+       "price_usd": 640,
+       "variant": "Console Nintendo Switch 2 Mario Kart (Código 141390)",
+       "matches": false
+      },
+      {
+       "store_name": "Nissei",
+       "store_slug": "nissei",
+       "price_usd": 625,
+       "variant": "Console Nintendo Switch 2 Choose Your Game Bundle 256 GB - Cinza Claro (Código 161489)",
+       "matches": false
+      },
+      {
+       "store_name": "Shopping China",
+       "store_slug": "shopping-china",
+       "price_usd": 550,
+       "variant": "Console Nintendo Switch 2 256GB (Código 991475)",
+       "matches": true
+      },
+      {
+       "store_name": "Cellshop",
+       "store_slug": "cellshop",
+       "price_usd": 625,
+       "variant": "Console Nintendo Switch 2 256GB Gray (Código 5858118)",
+       "matches": true
+      },
+      {
+       "store_name": "Cellshop",
+       "store_slug": "cellshop",
+       "price_usd": 649,
+       "variant": "Console Nintendo Switch 2 256GB Gray + Jogo Mario Kart World (Caixa Feia) (Código 6230333)",
+       "matches": false
+      },
+      {
+       "store_name": "Cellshop",
+       "store_slug": "cellshop",
+       "price_usd": 629,
+       "variant": "Console Nintendo Switch 2 256GB Gray + Jogo Choose One (Código 5984350)",
+       "matches": false
+      },
+      {
+       "store_name": "Cellshop",
+       "store_slug": "cellshop",
+       "price_usd": 625,
+       "variant": "Console Nintendo Switch 2 256GB Gray + Jogo Pokemon Pokopia (Código 6189570)",
+       "matches": false
+      }
+     ]
+    },
+    {
+     "url": "https://www.comprasparaguai.com.br/caixa-de-som-joog-one-hifi-jof-01-sd-usb-bluetooth-karaoke_60950/",
+     "name": "Caixa de Som Joog One HiFi JOF-01 SD / USB / Bluetooth / Karaokê",
+     "brand": "Joog",
+     "breadcrumb": "Início › Categorias › Eletrônicos › Som e Vídeo › Caixa de Som",
+     "image_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/modelos/caixa_de_som_joog_one_hifi_jof_01_sd_usb_bluetooth_karaoke_188153_4cf3c0a3-9e8f-4899-97bb-21bf41900e57.big.webp",
+     "a_partir_de_usd": 219.9,
+     "offers_claimed": 11,
+     "stores_claimed": 5,
+     "last_listing": "13 de Outubro de 2026",
+     "read_complete": true,
+     "notes": "All 11 offers read, 5 stores; the page was not cut off. Listings rated 200W and 250W are the same JOF-01 model. The Mobile Zone 'Deslacrado' (unsealed, open-box) unit is marked matches=false.",
+     "offers": [
+      {
+       "store_name": "Cellshop",
+       "store_slug": "cellshop",
+       "price_usd": 219.9,
+       "variant": "Speaker Joog One Hifi JOF-01 250WRMS Auracast Bluetooth TWS (2X Microfones) - Camuflagem (Código 5392018)",
+       "matches": true
+      },
+      {
+       "store_name": "Cellshop",
+       "store_slug": "cellshop",
+       "price_usd": 219.9,
+       "variant": "Speaker Joog One Hifi JOF-01 250WRMS Auracast Bluetooth TWS (2X Microfones) - Black Anatel (Código 6124809)",
+       "matches": true
+      },
+      {
+       "store_name": "Cellshop",
+       "store_slug": "cellshop",
+       "price_usd": 219.9,
+       "variant": "Speaker Joog One Hifi JOF-01 250WRMS Auracast Bluetooth TWS (2X Microfones) - White Anatel (Código 6087258)",
+       "matches": true
+      },
+      {
+       "store_name": "Cellshop",
+       "store_slug": "cellshop",
+       "price_usd": 219.9,
+       "variant": "Speaker Joog One Hifi JOF-01 200WRMS Auracast Bluetooth TWS (2X Microfones) - Preto (Código 5480258)",
+       "matches": true
+      },
+      {
+       "store_name": "New Zone",
+       "store_slug": "new-zone",
+       "price_usd": 219.9,
+       "variant": "Joog Speaker One Hifi JOF-01 X2 Microfono 27000MAH 250W Black (Código 331658)",
+       "matches": true
+      },
+      {
+       "store_name": "New Zone",
+       "store_slug": "new-zone",
+       "price_usd": 219.9,
+       "variant": "Joog Speaker One Hifi JOF-01 X2 Microfono 27000MAH 250W Camuflado (Código 331657)",
+       "matches": true
+      },
+      {
+       "store_name": "Mobile Zone",
+       "store_slug": "mobile-zone",
+       "price_usd": 219.9,
+       "variant": "Speaker Joog One Hifi JOF-01 X2 Micrófonos 9000MAH 200W - Black (Deslacrado) (Código 1546217)",
+       "matches": false
+      },
+      {
+       "store_name": "Victoria Store",
+       "store_slug": "victoria-store",
+       "price_usd": 219.9,
+       "variant": "Speaker / Caixa de Som Portatil Joog JOF-01 / 200W / IP67 / TWS / com 2 Microfones e Controle Remoto / Bluetooth - Preto (Código 688437)",
+       "matches": true
+      },
+      {
+       "store_name": "Victoria Store",
+       "store_slug": "victoria-store",
+       "price_usd": 219.9,
+       "variant": "Speaker Joog One Hifi JOF-01 / 200W RMS / 2 Microfones / Bluetooth - Camuflado (Código 726452)",
+       "matches": true
+      },
+      {
+       "store_name": "Roma Shopping",
+       "store_slug": "roma-shopping",
+       "price_usd": 219.9,
+       "variant": "Speaker Joog One Hifi JOF-01 200W IP67 Preto (Código 192766)",
+       "matches": true
+      },
+      {
+       "store_name": "Roma Shopping",
+       "store_slug": "roma-shopping",
+       "price_usd": 219.9,
+       "variant": "Speaker Joog One Hifi JOF-01 200W IP67 Camuflado (Código 191859)",
+       "matches": true
+      }
+     ]
+    },
+    {
+     "url": "https://www.comprasparaguai.com.br/robo-de-limpeza-xiaomi-robot-vacuum-x20-220v_53451/",
+     "name": "Robô de Limpeza Xiaomi Robot Vacuum X20+ 220V",
+     "brand": "Xiaomi",
+     "breadcrumb": "Início › Categorias › Casa & Construção › Eletrodomésticos › Robô de Limpeza",
+     "image_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/modelos/robo_de_limpeza_xiaomi_robot_vacuum_x20_220v_174792.big.jpg",
+     "a_partir_de_usd": 459.99,
+     "offers_claimed": 6,
+     "stores_claimed": 6,
+     "last_listing": "22 de Outubro de 2026",
+     "read_complete": true,
+     "notes": "All 6 offers read, 6 stores; the page was not cut off. The two 110V listings are marked matches=false because the product page is the 220V version.",
+     "offers": [
+      {
+       "store_name": "Madrid Center",
+       "store_slug": "madrid-center",
+       "price_usd": 490,
+       "variant": "Robô Aspirador de Pó Xiaomi Mi Robot Vacuum X20+ C102 BHR8124EU - 75W - Recarregável - 220V - 50/60 HZ -Branco (Código 942294)",
+       "matches": true
+      },
+      {
+       "store_name": "Nissei",
+       "store_slug": "nissei",
+       "price_usd": 490,
+       "variant": "Aspirador Xiaomi Robot Vacuum X20+ 220V - Branco (BHR9058JP) (Código 165275)",
+       "matches": true
+      },
+      {
+       "store_name": "Atacado Connect",
+       "store_slug": "atacado-connect",
+       "price_usd": 490,
+       "variant": "Robô Aspirador Xiaomi Robot Vacuum X20+ C102 BHR9058JP 110V - Branco (Código 1435047)",
+       "matches": false
+      },
+      {
+       "store_name": "Avanza",
+       "store_slug": "avanza",
+       "price_usd": 473.8,
+       "variant": "Aspirador Xiaomi Mi Robot Vacuum X20+ White 110V (BHR9058JP). (Código 398325)",
+       "matches": false
+      },
+      {
+       "store_name": "Digital Star",
+       "store_slug": "digital-star",
+       "price_usd": 460,
+       "variant": "Robo Aspirador de Po Xiaomi Mi Robot Vacuum X20+ 220V-Branco (Código 19781)",
+       "matches": true
+      },
+      {
+       "store_name": "Prime Shop",
+       "store_slug": "prime-shop",
+       "price_usd": 459.99,
+       "variant": "Robot Aspirador de Polvo Xiaomi Mi Robot Vacuum X20+ C102 BHR8124EU – 75W – Recargable – 220V – 50/60 HZ -Branco (Código 39233)",
        "matches": true
       }
      ]
@@ -7865,6 +8979,82 @@
    "specialty": "Loja de Diversos",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/paradise_165.webp",
    "notes": "Loja única. The page shows no opening hours.",
+   "page_read": true
+  },
+  {
+   "slug": "aroma-store-sa",
+   "name": "Aroma Store S.A",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 1° andar · Loja Sala 3060, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 16:00 (Horário de Brasília)",
+   "website": "https://aromastore.com.py",
+   "specialty": "Loja de Perfumes, Beleza e Bolsas",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/aroma_store_s_a_165.webp",
+   "notes": "Loja única. Desde 2016. Categories listed: Cosmético, Maquiagem.",
+   "page_read": true
+  },
+  {
+   "slug": "gaba-hobby",
+   "name": "Gaba Hobby",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este",
+    "Pedro Juan Caballero"
+   ],
+   "address": "Galeria Jebai Center, 3° andar · Loja ao lado do Atacado Games, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Galeria Jebai Center: Segunda a Sexta 07:00 - 16:00; Sábado 06:30 - 15:00. Rua Mcal. Francisco Solano López (PJC): Segunda a Sexta 08:00 - 16:30; Sábado 08:00 - 15:00 (Horário de Brasília)",
+   "website": "http://www.gabahobby.com/",
+   "specialty": "Loja de Aeromodelismo",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/gaba_hobby_4aff32f6-580f-4428-bb8e-8b24307d9128.avif",
+   "notes": "2 units. Second branch: Rua Mcal. Francisco Solano López, 1230, Pedro Juan Caballero.",
+   "page_read": true
+  },
+  {
+   "slug": "alfatec",
+   "name": "Alfatec",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Rahal, Loja 851, Marginal Norte, Ciudad del Este",
+   "hours": null,
+   "website": "https://www.grupoalfatec.com.py/",
+   "specialty": "Loja de Câmeras e Fotografia",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/alfatec_164.webp",
+   "notes": "Loja única. Opening hours not shown on the page (confirmed with a second read). Categories: Iluminação, Câmera Digital, Flash, Lente, Filmadora, Drone.",
+   "page_read": true
+  },
+  {
+   "slug": "hb-import",
+   "name": "HB Import",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 2° andar · Loja 3155/3157, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:00 (Horário de Brasília)",
+   "website": "https://hbimport.com/",
+   "specialty": "Loja de Video Games",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/hb_games_551ef903-435c-4ed3-b4e4-f6c2b077d4f7.avif",
+   "notes": "Loja única. The logo img (alt 'Logo da loja HB Import') uses file hb_games_...; the og:image/twitter:image is a different file: https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/hb_import_81121a21-49c7-4a33-bb55-cf3fd927dc2a.avif",
+   "page_read": true
+  },
+  {
+   "slug": "digital-star",
+   "name": "Digital Star",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Paris, 1° andar, Av. Luis Maria Argaña, Ciudad del Este",
+   "hours": null,
+   "website": null,
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/digital_star_80.webp",
+   "notes": "Loja única. No opening hours and no 'Site oficial' link on the page (confirmed with a second read). Contact shown only as an obfuscated email and WhatsApp https://api.whatsapp.com/send?phone=595993278477",
    "page_read": true
   }
  ]

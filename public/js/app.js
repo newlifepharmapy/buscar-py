@@ -267,7 +267,7 @@
       let sim = null;
       if (S.imgScores) {
         sim = S.imgScores[p.id];
-        if (simPct(sim) < S.minSim) continue;
+        if (sim < 0 || simPct(sim) < S.minSim) continue; // -1: produto ainda sem foto analisada
       }
       const offers = offersFor(p);
       if (!offers.length) continue;
@@ -332,7 +332,8 @@
     else if (S.stores.size === 1) { title = `Ofertas da loja ${storeById[[...S.stores][0]].name}${where}`; crumb = "Lojas"; }
     else if (where) { title = "Ofertas" + where; }
     $("resTitle").textContent = title;
-    $("crumbs").innerHTML = crumb || where ? `<button type="button" data-home>Início</button><span aria-hidden="true">›</span>${esc(crumb || "Cidades")}` : "";
+    const crumbHtml = crumb === "Lojas" ? '<a href="/lojas">Lojas</a>' : esc(crumb || "Cidades");
+    $("crumbs").innerHTML = crumb || where ? `<button type="button" data-home>Início</button><span aria-hidden="true">›</span>${crumbHtml}` : "";
     const nOff = rows.reduce((a, r) => a + r.offers.length, 0);
     $("resSub").textContent = rows.length
       ? `${plural(rows.length, "produto", "produtos")} · ${plural(nOff, "oferta", "ofertas")}${home && S.sort === "rel" ? (D.products.some((p) => p.featured) ? " · destaques primeiro" : " · maior economia entre lojas primeiro") : ""}`
@@ -509,6 +510,7 @@
     const n = D.products.length, cd = BuscaVision.COLOR_DIM;
     const out = new Float32Array(n);
     for (let i = 0; i < n; i++) {
+      if (!hasVec[i]) { out[i] = -1; continue; } // sem foto analisada: fica fora da busca por foto
       let d = 0;
       const off = i * DIM;
       for (let k = 0; k < DIM; k++) d += deep[k] * E[off + k];
@@ -557,38 +559,65 @@
       im.src = src;
     });
   }
-  let vecJob = null;
-  // Garante o vetor de todos os produtos (só baixa e calcula os que faltam). onProgress(feitos, total).
-  function ensureVectors(onProgress) {
-    const missing = D.products.filter((p) => !hasVec[p.id]);
-    if (!missing.length) return Promise.resolve();
-    if (vecJob) return vecJob;
-    vecJob = (async () => {
+  // Vetor de um produto a partir da foto dele. Foto que não abre nesta visita fica fora da busca por foto
+  // e não é tentada de novo a cada busca.
+  const vecFailed = new Set();
+  async function vectorFor(p) {
+    if (hasVec[p.id]) return true;
+    if (vecFailed.has(p.id)) return false;
+    try {
       await loadModel();
-      const cd = BuscaVision.COLOR_DIM;
-      let done = 0;
-      for (const p of missing) {
-        if (onProgress) onProgress(done, missing.length);
-        try {
-          const im = await loadImage(p.image);
-          // fundo branco por baixo (fotos com transparência ficariam com fundo preto)
-          const cv = document.createElement("canvas");
-          const k = Math.min(1, 512 / Math.max(im.naturalWidth, im.naturalHeight));
-          cv.width = Math.max(1, Math.round(im.naturalWidth * k)); cv.height = Math.max(1, Math.round(im.naturalHeight * k));
-          const g = cv.getContext("2d");
-          g.fillStyle = "#fff"; g.fillRect(0, 0, cv.width, cv.height);
-          g.drawImage(im, 0, 0, cv.width, cv.height);
-          const t = tf.browser.fromPixels(cv);
-          const d = await BuscaVision.describe(tf, model, t);
-          t.dispose();
-          E.set(d.deep, p.id * DIM); C.set(d.color, p.id * cd); hasVec[p.id] = 1;
-          saveVector(p, d);
-        } catch (e) { console.warn("sem vetor para", p.image); } // foto indisponível: fica fora da busca por foto
-        done++;
-      }
-      if (onProgress) onProgress(done, missing.length);
-    })().finally(() => { vecJob = null; });
+      const im = await loadImage(p.image);
+      // fundo branco por baixo (fotos com transparência ficariam com fundo preto)
+      const cv = document.createElement("canvas");
+      const k = Math.min(1, 512 / Math.max(im.naturalWidth, im.naturalHeight));
+      cv.width = Math.max(1, Math.round(im.naturalWidth * k)); cv.height = Math.max(1, Math.round(im.naturalHeight * k));
+      const g = cv.getContext("2d");
+      g.fillStyle = "#fff"; g.fillRect(0, 0, cv.width, cv.height);
+      g.drawImage(im, 0, 0, cv.width, cv.height);
+      const t = tf.browser.fromPixels(cv);
+      const d = await BuscaVision.describe(tf, model, t);
+      t.dispose();
+      E.set(d.deep, p.id * DIM); C.set(d.color, p.id * BuscaVision.COLOR_DIM); hasVec[p.id] = 1;
+      saveVector(p, d);
+      return true;
+    } catch (e) {
+      vecFailed.add(p.id);
+      console.warn("sem vetor para", p.image);
+      return false;
+    }
+  }
+  const needVectors = () => D.products.some((p) => !hasVec[p.id] && !vecFailed.has(p.id));
+  // Calcula, um de cada vez, os vetores que faltam. Quem chama durante o cálculo recebe o progresso também.
+  let vecJob = null, vecProgress = null;
+  const vecListeners = new Set();
+  function ensureVectors(onProgress) {
+    if (!vecJob && !needVectors()) return Promise.resolve();
+    if (onProgress) { vecListeners.add(onProgress); if (vecProgress) onProgress(...vecProgress); }
+    if (!vecJob) {
+      vecJob = (async () => {
+        const missing = D.products.filter((p) => !hasVec[p.id] && !vecFailed.has(p.id));
+        const tell = (i) => { vecProgress = [i, missing.length]; vecListeners.forEach((f) => f(i, missing.length)); };
+        await loadModel();
+        for (let i = 0; i < missing.length; i++) { tell(i); await vectorFor(missing[i]); }
+        tell(missing.length);
+      })().finally(() => { vecJob = null; vecProgress = null; vecListeners.clear(); });
+    }
     return vecJob;
+  }
+  // Busca por foto já na tela: os produtos novos entram no resultado assim que os vetores ficam prontos
+  function includeNewProducts(my, done) {
+    if (!needVectors()) return;
+    const stale = () => my !== queryId || $("imgPanel").hidden;
+    ensureVectors((i, n) => { if (!stale()) setStatus(`${done} Incluindo os produtos novos (${i} de ${n})…`, true); })
+      .then(() => {
+        if (stale()) return;
+        rescore();
+        if (!S.guessCat) updateGuesses();
+        render();
+        setStatus(done);
+      })
+      .catch(() => { if (!stale()) setStatus(done); });
   }
 
   function setStatus(msg, busy) { const s = $("imgStatus"); s.textContent = msg; s.classList.toggle("busy", !!busy); }
@@ -663,8 +692,6 @@
       if (!model) setStatus("Preparando o reconhecimento de imagem (14 MB, só na primeira vez)…", true);
       await loadModel();
       if (stale()) return;
-      await ensureVectors((i, n) => { if (!stale()) setStatus(`Preparando as fotos dos produtos novos (${i} de ${n})…`, true); });
-      if (stale()) return;
       setStatus("Analisando a imagem…", true);
       await new Promise((r) => setTimeout(r, 0));
       if (stale()) return;
@@ -678,7 +705,9 @@
       t.dispose();
       if (stale()) return;
       applyImageQuery(desc, S.cat !== cat0);
-      setStatus(Q.crop ? "Mostrando produtos parecidos com a área marcada." : "Mostrando produtos parecidos com a foto inteira.");
+      const done = Q.crop ? "Mostrando produtos parecidos com a área marcada." : "Mostrando produtos parecidos com a foto inteira.";
+      setStatus(done);
+      includeNewProducts(my, done);
     } catch (e) {
       console.error(e);
       if (!stale()) setStatus("Não foi possível analisar a imagem. Verifique sua conexão e tente de novo.");
@@ -690,39 +719,43 @@
     if (!keepCat) resetCatbar();
     rescore();
     S.sort = "rel"; $("sort").value = "rel"; S.shown = PAGE;
-    // categoria provável: votos ponderados dos 12 vizinhos mais próximos
-    const top = [...D.products.keys()].sort((a, b) => S.imgScores[b] - S.imgScores[a]).slice(0, 12);
+    updateGuesses();
+    S.text = ""; $("q").value = "";
+    render();
+  }
+  // categoria provável: votos ponderados dos 12 vizinhos mais próximos
+  function updateGuesses() {
+    const top = [...D.products.keys()].filter((i) => hasVec[i]).sort((a, b) => S.imgScores[b] - S.imgScores[a]).slice(0, 12);
     const votes = {};
     let tot = 0;
     for (const i of top) { const w = Math.pow(simPct(S.imgScores[i]), 2) + 1e-3; votes[D.products[i].category] = (votes[D.products[i].category] || 0) + w; tot += w; }
     const guesses = Object.entries(votes).sort((a, b) => b[1] - a[1]).slice(0, 3).filter(([, v]) => v / tot >= 0.1);
     $("guessChips").innerHTML = guesses.map(([c, v]) => `<button type="button" class="chip" data-cat="${c}" aria-pressed="false">${esc(catById[c].name)}<b>${Math.round(v / tot * 100)}%</b></button>`).join("");
     $("guess").hidden = !guesses.length;
-    S.text = ""; $("q").value = "";
-    render();
   }
   function rescore() { if (S.img) S.imgScores = rankByVector(S.img.deep, S.img.color, S.colorW); }
 
   async function searchSimilar(id) {
-    const my = ++queryId;
+    const my = ++queryId, p = D.products[id];
     openPanel();
-    try { await loadQueryImage(D.products[id].image); } catch (e) { setStatus(e.message); return; }
-    // produtos novos ainda sem vetor: calcula antes (só na primeira vez neste aparelho)
-    if (D.products.some((p) => !hasVec[p.id])) {
-      try {
-        if (!model) setStatus("Preparando o reconhecimento de imagem (14 MB, só na primeira vez)…", true);
-        await ensureVectors((i, n) => { if (my === queryId) setStatus(`Preparando as fotos dos produtos novos (${i} de ${n})…`, true); });
-      } catch (e) { if (my === queryId) setStatus("Não foi possível preparar a busca por foto. Verifique sua conexão e tente de novo."); return; }
+    try { await loadQueryImage(p.image); } catch (e) { setStatus(e.message); return; }
+    // produto novo ainda sem vetor neste aparelho: calcula o dele primeiro (precisa do modelo)
+    if (!hasVec[id]) {
+      if (!model) setStatus("Preparando o reconhecimento de imagem (14 MB, só na primeira vez)…", true);
+      else setStatus("Analisando a foto do produto…", true);
+      const ok = await vectorFor(p).catch(() => false);
       if (my !== queryId || $("imgPanel").hidden) return;
-      if (!hasVec[id]) { setStatus("A foto deste produto não está disponível agora. Tente de novo mais tarde."); return; }
+      if (!ok) { setStatus("A foto deste produto não está disponível agora. Tente de novo mais tarde."); return; }
     }
-    // usa o vetor já indexado: resultado imediato, sem esperar o modelo
+    // usa o vetor já pronto: resultado imediato
     applyImageQuery({
       deep: E.slice(id * DIM, (id + 1) * DIM),
       color: C.slice(id * BuscaVision.COLOR_DIM, (id + 1) * BuscaVision.COLOR_DIM),
     });
-    setStatus("Parecidos com “" + D.products[id].name.slice(0, 60) + "”. Marque uma parte da foto para refinar.");
-    loadModel().catch(() => {}); // já deixa o modelo pronto para um recorte
+    const done = "Parecidos com “" + p.name.slice(0, 60) + "”. Marque uma parte da foto para refinar.";
+    setStatus(done);
+    if (needVectors()) includeNewProducts(my, done);
+    else loadModel().catch(() => {}); // já deixa o modelo pronto para um recorte
   }
 
   function handleFile(file) {

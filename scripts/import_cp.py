@@ -79,7 +79,9 @@ def main():
     raw = json.load(open(RAW, encoding="utf8"))
     date = raw["read_at"]
     cat = json.load(open(CATALOG, encoding="utf8"))
-    # tira a importação anterior (se houver)
+    # tira a importação anterior (se houver), lembrando o id de cada produto: quem já existia fica com o
+    # mesmo id (os links /#p<id> continuam abrindo o mesmo produto)
+    prev_id = {p["source_url"]: p["id"] for p in cat["products"] if p.get("source") == "comprasparaguai"}
     base = [p for p in cat["products"] if p.get("source") != "comprasparaguai"]
     assert all(p["id"] == i for i, p in enumerate(base)), "os produtos de exemplo precisam continuar com id = posição"
     fake_stores = [s for s in cat["stores"] if not s.get("real")]
@@ -216,9 +218,9 @@ def main():
     clash = {s["id"] for s in fake_stores} & {s["id"] for s in stores}
     assert not clash, "id de loja repetido: %s" % clash
 
-    # ordem dos importados: destaques primeiro, depois por categoria
+    # ordem dos importados: os que já existiam na mesma ordem de antes; os novos depois, destaques primeiro
     order = {c: i for i, (c, _) in enumerate(NEW_CATS)}
-    products.sort(key=lambda p: (p.get("featured") or 1e9, order.get(p["category"], 99)))
+    products.sort(key=lambda p: (prev_id.get(p["source_url"], 1e9), p.get("featured") or 1e9, order.get(p["category"], 99)))
     for i, p in enumerate(products):
         p["id"] = len(base) + i
     used_cats = {p["category"] for p in products}

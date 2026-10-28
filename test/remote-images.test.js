@@ -52,12 +52,21 @@ test("imagens externas: baixa uma vez, guarda no disco e não segue redirecionam
   assert.equal(calls[0].opts.redirect, "error");
   assert.equal(a.type, "image/avif");
   assert.equal(a, b);
-  assert.deepEqual(fs.readFileSync(path.join(dir, "remote-img", "1.avif")), AVIF);
+  const saved = fs.readdirSync(path.join(dir, "remote-img"));
+  assert.equal(saved.length, 1);
+  assert.match(saved[0], /^1-[0-9a-f]{10}\.avif$/);
+  assert.deepEqual(fs.readFileSync(path.join(dir, "remote-img", saved[0])), AVIF);
   // depois de reiniciar, vem do disco sem baixar de novo
   const calls2 = [];
   const r2 = new RemoteImages({ catalog, dir, fetchImpl: fakeFetch(AVIF, calls2), log: quiet });
   assert.deepEqual((await r2.get("/img/cp/1.avif")).body, AVIF);
   assert.equal(calls2.length, 0);
+  // a importação trocou a foto (outro endereço de origem): baixa a nova em vez de servir a antiga
+  const other = { ...catalog, products: [{ image: "img/cp/1.avif", image_src: SRC.replace("x.big", "y.big") }] };
+  const calls3 = [];
+  const r3 = new RemoteImages({ catalog: other, dir, fetchImpl: fakeFetch(AVIF, calls3), log: quiet });
+  await r3.get("/img/cp/1.avif");
+  assert.equal(calls3.length, 1);
 });
 
 test("imagens externas: arquivo que não é imagem é recusado e só tenta de novo mais tarde", async () => {

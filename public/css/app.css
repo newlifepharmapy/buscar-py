@@ -238,7 +238,7 @@ img { max-width: 100%; }
 .res-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
 .res-title { min-width: 0; }
 .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
-.crumbs button { border: 0; background: none; padding: 0; color: var(--navy-400); cursor: pointer; font-size: inherit; font-weight: 600; }
+.crumbs button, .crumbs a { border: 0; background: none; padding: 0; color: var(--navy-400); cursor: pointer; font-size: inherit; font-weight: 600; }
 .crumbs span { margin: 0 6px; color: var(--slate); }
 .res-head h2 { font-size: clamp(22px, 2.6vw, 28px); font-weight: 600; color: var(--navy); }
 .sub { font-size: 14px; color: var(--muted); margin-top: 2px; }
