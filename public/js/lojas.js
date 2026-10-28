@@ -9,6 +9,7 @@
   const q = document.getElementById("storeQ"), spec = document.getElementById("storeSpec"), only = document.getElementById("storeOnly");
   const count = document.getElementById("storeCount"), none = document.getElementById("storeNone");
   const cards = Array.from(document.querySelectorAll(".store-card"));
+  if (!cards.length) return; // sem lojas cadastradas: a página já mostra o aviso e o filtro não serve para nada
   const fold = (t) => String(t).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
   const word = (n) => `${n.toLocaleString("pt-BR")} ${n === 1 ? "loja" : "lojas"}`;
   if (!cards.some((c) => !c.hasAttribute("data-has"))) only.closest("label").remove();

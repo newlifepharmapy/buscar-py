@@ -9,7 +9,7 @@ modelo e tamanho (matches=true). As fotos e logos ficam no servidor de imagens d
 servidor do site baixa cada uma uma vez (lib/remote-images.js) e serve por /img/cp/ e /img/lojas/.
 """
 import json, os, re, sys, unicodedata
-from urllib.parse import urlparse, quote_plus
+from urllib.parse import urlparse, quote_plus, parse_qsl, urlencode
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, "data", "comprasparaguai.json")
@@ -31,15 +31,20 @@ CAT_RULES = [
     (r"playstation|nintendo|switch|xbox", "games"), (r"^drone\b|\bdji\b", "drones"),
     (r"caixa de som|\bjoog\b", "caixas-som"), (r"robo|aspirador|vacuum", "eletro"),
 ]
-# palavra do tipo no começo do nome que a categoria já diz
+# palavra do tipo no começo do nome que a categoria já diz (sai do nome, mas continua valendo na busca)
 STRIP = r"^(celular|notebook|tablet|perfume)\s+"
-# destaques na página inicial, na ordem pedida (misturados para a primeira linha ter de tudo um pouco)
+KIND = {"celulares": "Celular", "notebooks": "Notebook", "tablets": "Tablet", "perfumes": "Perfume"}
+# destaques na página inicial, na ordem pedida (misturados para as três primeiras linhas terem todas as marcas)
 FEATURED = [
-    r"iphone 18 pro max", r"macbook air", r"creed aventus", r"shampoo.*fino",
-    r"iphone duo", r"macbook pro", r"initio.*oud for greatness", r"condicionador.*fino",
-    r"iphone 18 pro(?! max)", r"macbook neo", r"nishane.*hacivat", r"mascara.*fino",
-    r"medicube", r"medicube", r"medicube", r"creed", r"initio", r"nishane",
+    r"iphone 18 pro max", r"macbook air", r"shampoo.*fino", r"creed aventus",
+    r"iphone duo", r"macbook pro", r"condicionador.*fino", r"initio.*oud for greatness",
+    r"macbook neo", r"mascara.*fino", r"medicube", r"nishane.*hacivat",
+    r"medicube", r"medicube", r"creed", r"initio", r"nishane",
 ]
+# anúncio de atacado (preço para compra em quantidade): não é o preço que a loja cobra de quem compra um
+WHOLESALE = r"\(atacado\)|\bwholesale\b|\bmayorista\b"
+# marcadores de campanha e de compartilhamento que vêm no endereço do site da loja
+TRACKING = re.compile(r"^(utm_\w+|fbclid|gclid|igsh|igshid|mibextid)$", re.I)
 
 
 def norm(s):
@@ -80,8 +85,8 @@ def main():
     date = raw["read_at"]
     cat = json.load(open(CATALOG, encoding="utf8"))
     # tira a importação anterior (se houver), lembrando o id de cada produto: quem já existia fica com o
-    # mesmo id (os links /#p<id> continuam abrindo o mesmo produto)
-    prev_id = {p["source_url"]: p["id"] for p in cat["products"] if p.get("source") == "comprasparaguai"}
+    # mesmo id sempre que der (os links antigos /#p<id> continuam abrindo o mesmo produto)
+    prev_id = {p.get("key") or p["source_url"]: p["id"] for p in cat["products"] if p.get("source") == "comprasparaguai"}
     base = [p for p in cat["products"] if p.get("source") != "comprasparaguai"]
     assert all(p["id"] == i for i, p in enumerate(base)), "os produtos de exemplo precisam continuar com id = posição"
     fake_stores = [s for s in cat["stores"] if not s.get("real")]
@@ -102,9 +107,9 @@ def main():
         d["city"] = s.get("city")
         d["cities"] = s.get("cities") or []
         # o horário da página da loja vem completo (o cartão do diretório mostra só o primeiro dia)
-        for k in ("hours", "website"):
-            if s.get(k):
-                d[k] = s[k]
+        d["full_hours"] = s.get("hours")
+        if s.get("website"):
+            d["website"] = s["website"]
         for k in ("name", "logo_url", "specialty"):
             if not d.get(k) or (k == "logo_url" and not img_ok(d.get(k))):
                 d[k] = s.get(k)
@@ -134,6 +139,8 @@ def main():
             for o in rp["offers"]:
                 if not o.get("matches") or not isinstance(o.get("price_usd"), (int, float)) or o["price_usd"] <= 0:
                     continue
+                if re.search(WHOLESALE, o.get("variant") or "", re.I):
+                    continue
                 sl = (o.get("store_slug") or "").strip("/").split("/")[-1] or by_name.get(norm(o.get("store_name") or ""))
                 if not sl:  # loja que não dá para identificar com certeza: a oferta fica de fora
                     unknown.add(o.get("store_name") or "?")
@@ -162,7 +169,9 @@ def main():
             name = re.sub(r"\bMem[oó]ria\s+", "", name)
             name = re.sub(r"\bPafum\b", "Parfum", name)  # erro de digitação no título do site
             products.append({
+                "key": "cp" + m.group(1),
                 "name": name, "brand": rp.get("brand") or "", "color": "", "category": category,
+                **({"kind": KIND[category]} if category in KIND else {}),
                 "image": "img/cp/%s%s" % (m.group(1), ext_of(rp["image_url"])), "image_src": rp["image_url"],
                 # sem página do modelo (só anúncios de uma loja cada, "__<n>/"): o link leva à busca do site
                 "source": "comprasparaguai",
@@ -195,18 +204,22 @@ def main():
         cities = [c for c in dict.fromkeys([city] + list((d or {}).get("cities") or [])) if c]
         if not city and any(o["store"] == sl for p in products for o in p["offers"]):
             warn.append("loja com ofertas e sem cidade: " + sl)
-        # horário como o site mostra, sem as observações que vieram junto na leitura
-        hours = re.sub(r"[,;]?\s*same for [\w ]*?branch(es)?\b", "", (d or {}).get("hours") or "", flags=re.I)
+        # horário como a página da loja mostra, sem as observações que vieram junto na leitura (o do cartão do
+        # diretório fica de fora: ele traz só o primeiro dia e pareceria o horário da semana toda)
+        hours = re.sub(r"[,;]?\s*same for [\w ]*?branch(es)?\b", "", (d or {}).get("full_hours") or "", flags=re.I)
         hours = re.sub(r"\bBranches (\d+) and (\d+)", r"Filiais \1 e \2", hours)
         hours = re.sub(r"\bBranch (\d+)", r"Filial \1", hours)
-        hours = re.sub(r"\(\s*Horário de Brasília\s*;\s*\)", "(Horário de Brasília)", hours).strip(" ;,") or None
+        hours = re.sub(r"\(\s*Horário de Brasília\s*;\s*\)", "(Horário de Brasília)", hours)
+        hours = re.sub(r"(^|;\s*)[-–·]+\s*", r"\1", hours).strip(" ;,-–·") or None
         site = (d or {}).get("website") or None
         if site and not re.match(r"^https?://", site):
             site = "https://" + site
         if site and (urlparse(site).hostname or "").endswith("comprasparaguai.com.br"):
             site = None
-        if site:  # sem marcadores de campanha (?fbclid=..., ?utm_...)
-            site = re.sub(r"[?&](fbclid|utm_[a-z]+|gclid)=[^&#]*", "", site).rstrip("?&")
+        if site:  # sem marcadores de campanha (?fbclid=..., ?utm_..., ?igsh=...)
+            u = urlparse(site)
+            q = urlencode([kv for kv in parse_qsl(u.query, keep_blank_values=True) if not TRACKING.match(kv[0])])
+            site = u._replace(query=q).geturl()
         stores.append({
             "id": sl, "name": (d or {}).get("name") or name, "city": city, "cities": cities, "rating": None,
             "real": True, "specialty": re.sub(r"\s*\(.*\)$", "", re.sub(r"^Loja de\s+", "", ((d or {}).get("specialty") or "").strip())) or None, "hours": hours,
@@ -218,11 +231,18 @@ def main():
     clash = {s["id"] for s in fake_stores} & {s["id"] for s in stores}
     assert not clash, "id de loja repetido: %s" % clash
 
-    # ordem dos importados: os que já existiam na mesma ordem de antes; os novos depois, destaques primeiro
+    # ids dos importados (id = posição na lista, como os de exemplo): quem já existia fica com o id de antes;
+    # os novos (destaques primeiro) ocupam as vagas de quem saiu e depois entram no fim
     order = {c: i for i, (c, _) in enumerate(NEW_CATS)}
-    products.sort(key=lambda p: (prev_id.get(p["source_url"], 1e9), p.get("featured") or 1e9, order.get(p["category"], 99)))
-    for i, p in enumerate(products):
-        p["id"] = len(base) + i
+    ids = range(len(base), len(base) + len(products))
+    for p in products:
+        old = prev_id.get(p["key"], prev_id.get(p["source_url"]))
+        p["id"] = old if old in ids else None
+    taken = {p["id"] for p in products}
+    free = iter(i for i in ids if i not in taken)
+    for p in sorted((p for p in products if p["id"] is None), key=lambda p: (p.get("featured") or 1e9, order.get(p["category"], 99))):
+        p["id"] = next(free)
+    products.sort(key=lambda p: p["id"])
     used_cats = {p["category"] for p in products}
     cat["categories"] = [{"id": c, "name": nm} for c, nm in NEW_CATS if c in used_cats] + old_cats
     # lojas reais primeiro (as com mais produtos), depois as de exemplo

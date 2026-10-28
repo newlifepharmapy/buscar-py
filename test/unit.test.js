@@ -392,3 +392,28 @@ test("cotação: lê o preço de venda da filial Jebai no quadro da Bonanza Camb
   assert.equal(parseBonanza(board, "BRL"), 5.42);
   assert.ok(Number.isNaN(parseBonanza(JSON.stringify({ sucursales: [] }), "BRL")));
 });
+
+test("catálogo: importados com id = posição e código do modelo único para o link", () => {
+  const cat = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "public", "data", "catalog.json"), "utf8"));
+  cat.products.forEach((p, i) => assert.equal(p.id, i));
+  const keys = cat.products.filter((p) => p.source === "comprasparaguai").map((p) => p.key);
+  for (const k of keys) assert.match(k, /^cp\d+$/);
+  assert.equal(new Set(keys).size, keys.length);
+});
+
+test("lojas: sem lojas importadas, a página avisa uma vez e o rodapé fica com três colunas", () => {
+  const dir = tmp(), file = path.join(dir, "catalog.json");
+  const cat = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "public", "data", "catalog.json"), "utf8"));
+  fs.writeFileSync(file, JSON.stringify({ ...cat, imported: undefined, products: cat.products.filter((p) => !p.source), stores: cat.stores.filter((s) => !s.real) }));
+  const code = `const R = require(${JSON.stringify(path.join(__dirname, "..", "lib", "render"))});
+    const { sanitize } = require(${JSON.stringify(path.join(__dirname, "..", "lib", "settings"))});
+    const fx = { BRL: 5.4, PYG: 5800, source: "manual" };
+    process.stdout.write(JSON.stringify([R.render("lojas.html", sanitize({}), fx, { server: true, path: "/lojas" }), R.render("index.html", sanitize({}), fx, { server: true, path: "/" })]));`;
+  const out = require("child_process").execFileSync(process.execPath, ["-e", code], { env: { ...process.env, BUSCA_CATALOG: file } });
+  const [lojas, home] = JSON.parse(out);
+  assert.doesNotMatch(lojas, /class="store-card"/);
+  assert.match(lojas, /<ul class="store-grid" id="lojas" role="list" tabindex="-1"><\/ul>\s*<p class="cams-empty">Nenhuma loja cadastrada no momento\.<\/p>/);
+  assert.doesNotMatch(lojas, /0 lojas/);
+  assert.doesNotMatch(home, /foot-stores|id="storesStrip"/);
+  assert.match(home, /Versão de demonstração/);
+});

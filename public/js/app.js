@@ -28,6 +28,8 @@
   const pygNum = (v) => fmtPyg.format(Math.round(v * D.rates.PYG / 100) * 100);
   const pyg = (v) => "₲ " + pygNum(v);
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  // link do produto: os importados usam o código do modelo no Compras Paraguai (#cp71133), que não muda de uma importação para outra
+  const hashFor = (p) => "#" + (/^cp\d+$/.test(p.key || "") ? p.key : "p" + p.id);
   const plural = (n, one, many) => `${fmtInt.format(n)} ${n === 1 ? one : many}`;
   // Similaridade bruta para uma porcentagem legível. No catálogo, o cosseno fica em ~0,47 entre produtos sem
   // relação, ~0,67 no 10º mais parecido e ~0,80 no mais parecido; acima de 0,80 já é o mesmo modelo (100%).
@@ -96,7 +98,8 @@
       id: p.id,
       fields: [
         { text: p.name, weight: 1 }, { text: p.brand, weight: 1 }, { text: p.color, weight: 0.9 },
-        { text: catById[p.category].name, weight: 1.5 },
+        // o tipo do produto ("Celular") vale mais que a categoria de outro que só cita a palavra ("Capinhas de celular")
+        { text: p.kind || "", weight: 1.6 }, { text: catById[p.category].name, weight: 1.5 },
         { text: p.offers.map((o) => storeById[o.store].name).join(" "), weight: 0.5 },
       ],
     })));
@@ -121,8 +124,9 @@
     render();
     if (S.cat) { const b = $("catbar").querySelector('[aria-pressed="true"]'); if (b) centerCat(b); }
     if (S.text || S.cat || S.stores.size) scrollToEl($("resultados"));
-    const m = /^#p(\d+)$/.exec(location.hash);
-    if (m && D.products[+m[1]]) openProduct(+m[1]);
+    const m = /^#(?:p(\d+)|(cp\d+))$/.exec(location.hash);
+    const linked = m && (m[2] ? D.products.find((p) => p.key === m[2]) : D.products[+m[1]]);
+    if (linked) openProduct(linked.id);
   }
 
   /* ---------- Cabeçalho fixo ---------- */
@@ -278,7 +282,9 @@
       rows.push({ p, offers, best, save, saveAmt: worst - best, sim, ts: textScores ? textScores.get(p.id) : 0 });
     }
     const by = {
-      rel: S.imgScores ? (a, b) => b.sim - a.sim : S.text ? (a, b) => b.ts - a.ts || a.best - b.best
+      // empate na busca por texto: produtos com preço de loja de verdade, depois os destaques, depois o menor preço
+      rel: S.imgScores ? (a, b) => b.sim - a.sim : S.text ? (a, b) => b.ts - a.ts || !!b.p.source - !!a.p.source
+          || (a.p.featured || 1e9) - (b.p.featured || 1e9) || a.best - b.best
         // vitrine: os produtos em destaque (na ordem escolhida) e depois a maior economia entre lojas
         : (a, b) => (a.p.featured || 1e9) - (b.p.featured || 1e9) || b.save - a.save,
       price: (a, b) => a.best - b.best,
@@ -304,7 +310,7 @@
       ${badge}${simBtn}
       <div class="body">
         ${small ? "" : `<span class="cat">${esc(catById[p.category].name)}</span>`}
-        <a class="card-link name" href="#p${p.id}" data-open="${p.id}">${esc(p.name)}</a>
+        <a class="card-link name" href="${hashFor(p)}" data-open="${p.id}">${esc(p.name)}</a>
         <span class="from">a partir de</span>
         <span class="usd">${usd(r.best)}</span>
         ${save}
@@ -412,7 +418,7 @@
     dlg.dataset.id = id;
     drawChart();
     if (wasOpen) $("pdName").focus({ preventScroll: true });
-    try { history.replaceState(null, "", "#p" + id); } catch (e) { /* ignorado */ }
+    try { history.replaceState(null, "", hashFor(p)); } catch (e) { /* ignorado */ }
   }
 
   // Menor preço e tabela de lojas (refeitos também quando a cotação do dólar muda)

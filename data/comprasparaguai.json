@@ -4,6 +4,11 @@
  "notes": {
   "directory": [
    {
+    "pages_read": 13,
+    "pages_total": 13,
+    "notes": "I read all 13 pages of https://www.comprasparaguai.com.br/lojas/ (?page=1 to ?page=13). Pages 1-12 had 20 cards each and page 13 had 6, so 246 cards in total. The \"Relevância\" order is not stable between requests: the 246 cards held only 206 unique stores, because many repeated across pages (for example Diva S.A., Columbia Farmacias and Mundo Musical appeared 3 times each). The pager on pages 7 and 8 also showed 12 as the last page. To recover the stores this shuffling hid, I also read every specialty filter page linked from /lojas/ (33 specialties, 4 pages for Eletrônicos; Lingerie/Moda Íntima and Artigos para Bebê/Kids list no stores). The merged, deduplicated result is 246 unique stores, which matches the directory's card count. The specialty page counts plus Centurion and Brands Shop (directory only) also add up to 246. Only 9 stores carry the Premium badge, all on page 1: Shopping China, Elegancia Company, Flytec Computers, MultiPass, Atacado Connect, Mobile Zone, Cellshop, Visãovip and La Petisquera. hours is null where the card printed no hours line (86 stores). website is null where the card has no \"Site\" link (22 stores). Some \"Site\" links point to Instagram, Facebook or linktr.ee, and I kept them as printed. For duplicate cards I merged fields and took the non-null value, because page 9 printed fewer fields than the specialty pages (for example Mundial Electronicos, Vatekano and Monte Carlo). Prime Shop's logo came back as two different URLs. I used .../uploads/loja/prime_shop_dff8ffa4-19bb-4502-8ce2-d71d663de5fc.avif, seen twice; the other was .../fotos/lojas/prime_shop_163.webp. Data saved at /tmp/claude-0/-home-claude/bd342eaa-74f0-5ce1-921b-09e4370c5d64/scratchpad/lojas/stores.json."
+   },
+   {
     "pages_read": [
      6,
      7,
@@ -6014,667 +6019,10 @@
  ],
  "stores": [
   {
-   "name": "Avanza",
-   "slug": "avanza",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/avanza_9b7f46e0-b2e6-457b-94a8-02f8fc0a20da.avif",
-   "specialty": "Loja de Eletrônicos",
-   "hours": null,
-   "website": "https://avanzagroupshop.com/",
-   "premium": false
-  },
-  {
-   "name": "Xcell",
-   "slug": "xcell",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/xcell_8883a531-da3b-4aaf-b139-d75d2951e4ce.avif",
-   "specialty": "Loja de Celulares",
-   "hours": "Segunda a Sexta · 07:30 - 15:30",
-   "website": "https://xcell.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Mundo Musical",
-   "slug": "mundo-musical",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mundo_musical_164.webp",
-   "specialty": "Loja de Instrumentos Musicais",
-   "hours": "Segunda a Sábado · 07:30 - 16:30",
-   "website": "https://www.mundomusicalpy.com/",
-   "premium": false
-  },
-  {
-   "name": "Paris Store",
-   "slug": "paris-store",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/paris_store_67390fcf-d8b9-4370-b803-f0ff839adb77.avif",
-   "specialty": "Loja de Diversos",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Bristol S.A.",
-   "slug": "bristol-sa",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bristol_s_a_104.webp",
-   "specialty": "Loja de Departamentos",
-   "hours": null,
-   "website": "http://www.bristol.com.py/",
-   "premium": false
-  },
-  {
-   "name": "CDE Store",
-   "slug": "cde-store",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/cde_store_165.webp",
-   "specialty": "Loja de Informática",
-   "hours": null,
-   "website": "https://cdestore.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Mestre",
-   "slug": "mestre",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mestre_125.webp",
-   "specialty": "Loja de Celulares",
-   "hours": "Segunda a Sexta · 07:00 - 16:00",
-   "website": "https://www.mestreatacado.com/",
-   "premium": false
-  },
-  {
-   "name": "Prime Barber Supply",
-   "slug": "prime-barber-supply",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/prime_barber_supply_170.webp",
-   "specialty": "Loja de Itens de Barbearia",
-   "hours": "Segunda a Sábado · 06:00 - 15:30",
-   "website": "https://primebarbersupply.com/pt/home-clone-demo-portugues/",
-   "premium": false
-  },
-  {
-   "name": "NGP Farma",
-   "slug": "ngp-farma",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/ngp_farma_9246092d-3a6f-411d-ac92-5b14876a9c08.avif",
-   "specialty": "Loja de Farmácia e Suplementos",
-   "hours": null,
-   "website": "https://ngpfarma.com/",
-   "premium": false
-  },
-  {
-   "name": "iShop",
-   "slug": "ishop",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/ishop_104.webp",
-   "specialty": "Loja de Eletrônicos",
-   "hours": null,
-   "website": "https://www.ishop.com.py/home",
-   "premium": false
-  },
-  {
-   "name": "Swap Store",
-   "slug": "swap-store",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/swap_store_105.webp",
-   "specialty": "Loja de Celulares",
-   "hours": "Segunda a Sexta · 07:00 - 16:00",
-   "website": "https://instagram.com/swapstorepy",
-   "premium": false
-  },
-  {
-   "name": "Centro de Motorola",
-   "slug": "centro-de-motorola",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/centro_de_motorola_167.webp",
-   "specialty": "Loja de Eletrônicos",
-   "hours": "Segunda a Sábado · 07:00 - 16:00",
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Tropical Bike",
-   "slug": "tropical-bike",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tropical_bike_104.webp",
-   "specialty": "Loja de Bicicletas e Motos",
-   "hours": null,
-   "website": "http://www.tropicalbike.com.br/",
-   "premium": false
-  },
-  {
-   "name": "Dr Cell Atacado",
-   "slug": "dr-cell-atacado",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/dr_cell_atacado_165.webp",
-   "specialty": "Loja de Celulares",
-   "hours": null,
-   "website": "https://drcellatacado.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Point Informática",
-   "slug": "point-informatica",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/point_informatica_165.webp",
-   "specialty": "Loja de Informática",
-   "hours": "Segunda a Sábado · 07:30 - 16:30",
-   "website": "https://www.pointinformatica.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Midi Pro",
-   "slug": "midi-pro",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/midi_pro_168.webp",
-   "specialty": "Loja de Eletrônicos",
-   "hours": null,
-   "website": "http://www.midipro.store/",
-   "premium": false
-  },
-  {
-   "name": "Arsenal Sports",
-   "slug": "arsenal-sports",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/lojacompreco/arsenal_sports_249da13c-e23d-402d-aa80-5d98f3a0ee1e.avif",
-   "specialty": "Loja de Brinquedos e Auto-Serviço",
-   "hours": null,
-   "website": "https://www.arsenalsports.com/",
-   "premium": false
-  },
-  {
-   "name": "8 de Agosto",
-   "slug": "8-de-agosto",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/8_de_agosto_104.webp",
-   "specialty": "Loja de Brinquedos e Auto-Serviço",
-   "hours": "Segunda a Sábado · 06:00 - 15:30",
-   "website": "http://www.8deagosto.com/",
-   "premium": false
-  },
-  {
-   "name": "Matrix Importados",
-   "slug": "matrix-importados",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/matrix_importados_9bff379c-03bb-4ffa-a41a-168ddf885b81.avif",
-   "specialty": "Loja de Celulares",
-   "hours": null,
-   "website": "http://matriximportados.com.br",
-   "premium": false
-  },
-  {
-   "name": "New York Store",
-   "slug": "new-york-store",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/new_york_store_105.webp",
-   "specialty": "Loja de Roupas, Jóias e Bijuterias",
-   "hours": null,
-   "website": "http://www.newyorkstore.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Vertex",
-   "slug": "vertex",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/vertex_f98365c3-8785-4469-87a3-c1459533b2b0.avif",
-   "specialty": "Loja de Eletrônicos",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Farmashop Dior",
-   "slug": "farmashop-dior",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmashop_dior_157.webp",
-   "specialty": "Loja de Farmácia e Suplementos",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Farmácia Amada",
-   "slug": "farmacia-amada",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmacia_amada_104.webp",
-   "specialty": "Loja de Farmácia e Suplementos",
-   "hours": null,
-   "website": "http://www.farmaciaamada.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Home Pro Barber Supply",
-   "slug": "home-pro-barber-supply",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/home_pro_barber_supply_167.webp",
-   "specialty": "Loja de Itens de Barbearia",
-   "hours": "Segunda a Sexta · 06:00 - 15:30",
-   "website": "https://www.homepro.com.py/br/",
-   "premium": false
-  },
-  {
-   "name": "Atacado USA",
-   "slug": "atacado-usa",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/atacado_usa_168.webp",
-   "specialty": "Loja de Eletrônicos",
-   "hours": null,
-   "website": "https://atacadousa.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Setga Ferramentas",
-   "slug": "setga-ferramentas",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/setga_ferramentas_104.webp",
-   "specialty": "Loja de Ferramentas e Máquinas",
-   "hours": "Segunda a Sábado · 07:30 - 16:30",
-   "website": "https://www.facebook.com/setga",
-   "premium": false
-  },
-  {
-   "name": "Apex Company",
-   "slug": "apex-company",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/apex_company_43897f7f-1dc6-44a3-a5aa-7ce1398f98d2.avif",
-   "specialty": "Loja de Departamentos",
-   "hours": "Segunda a Sexta · 07:30 - 16:30",
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Beny Center",
-   "slug": "beny-center",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/beny_center_104.webp",
-   "specialty": "Loja de Perfumes, Beleza e Bolsas",
-   "hours": "Segunda a Sábado · 07:30 - 16:00",
-   "website": "http://www.benycenter.com/br",
-   "premium": false
-  },
-  {
-   "name": "L'uomo",
-   "slug": "luomo",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/l_uomo_103.webp",
-   "specialty": "Loja de Roupas, Jóias e Bijuterias",
-   "hours": "Segunda a Sábado · 09:00 - 21:00",
-   "website": "http://www.luomo.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Farmatitu",
-   "slug": "farmatitu",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmatitu_104.webp",
-   "specialty": "Loja de Farmácia e Suplementos",
-   "hours": "Segunda · 05:00 - 00:00",
-   "website": "http://www.farmatitu.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Bonjour Perfumeria",
-   "slug": "bonjour-perfumeria",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bonjour_perfumeria_106.webp",
-   "specialty": "Loja de Perfumes, Beleza e Bolsas",
-   "hours": "Segunda a Sexta · 07:00 - 16:00",
-   "website": "https://linktr.ee/Perfumeria.Bonjour",
-   "premium": false
-  },
-  {
-   "name": "Import Pro Gaming",
-   "slug": "import-pro-gaming",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/import_pro_gaming_4f4d9feb-ca71-4605-8278-482a1eb31ff6.avif",
-   "specialty": "Loja de Informática",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Chenson",
-   "slug": "chenson",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/chenson_104.webp",
-   "specialty": "Loja de Perfumes, Beleza e Bolsas",
-   "hours": null,
-   "website": "http://www.chenson.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Audio Music",
-   "slug": "audio-music",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/audio_music_104.webp",
-   "specialty": "Loja de Instrumentos Musicais",
-   "hours": "Segunda a Sábado · 07:30 - 16:00",
-   "website": "http://www.audiomusic.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Castelo Italiano",
-   "slug": "castelo-italiano",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/castelo_italiano_104.webp",
-   "specialty": "Loja de Casa e Construção",
-   "hours": "Segunda a Sábado · 07:00 - 17:00",
-   "website": "http://www.casteloitaliano.com/",
-   "premium": false
-  },
-  {
-   "name": "Senki Electronica",
-   "slug": "senki-electronica",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/senki_electronica_104.webp",
-   "specialty": "Loja de Home Áudio e Som Automotivo",
-   "hours": "Segunda a Sábado · 07:30 - 16:30",
-   "website": "http://www.senkielectronica.com/",
-   "premium": false
-  },
-  {
-   "name": "Casa de los Compresores",
-   "slug": "casa-de-los-compresores",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_de_los_compresores_104.webp",
-   "specialty": "Loja de Ferramentas e Máquinas",
-   "hours": "Segunda a Sexta · 07:00 - 17:00",
-   "website": "http://www.casadeloscompresores.com/",
-   "premium": false
-  },
-  {
-   "name": "Farma Next",
-   "slug": "farma-next",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/farma_next_069344e7-48d8-4803-80c5-8bac4124d7af.avif",
-   "specialty": "Loja de Farmácia e Suplementos",
-   "hours": null,
-   "website": "https://www.farmanext.com.py",
-   "premium": false
-  },
-  {
-   "name": "Farmacenter",
-   "slug": "farmacenter",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmacenter_104.webp",
-   "specialty": "Loja de Farmácia e Suplementos",
-   "hours": "Segunda · 05:00 - 00:00",
-   "website": "http://www.farmacenter.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Polo Center",
-   "slug": "polo-center",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/polo_center_165.webp",
-   "specialty": "Loja de Celulares",
-   "hours": null,
-   "website": "https://polocenter.com.py",
-   "premium": false
-  },
-  {
-   "name": "Chacomer",
-   "slug": "chacomer",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/chacomer_104.webp",
-   "specialty": "Loja de Bicicletas e Motos",
-   "hours": null,
-   "website": "http://www.chacomer.com.py/",
-   "premium": false
-  },
-  {
-   "name": "World Importados",
-   "slug": "world-importados",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/world_of_import_d619e703-dfa9-411f-9847-0b47bd185309.avif",
-   "specialty": "Loja de Diversos",
-   "hours": null,
-   "website": "https://worldofimport.com/pt",
-   "premium": false
-  },
-  {
-   "name": "Bigs",
-   "slug": "bigs",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bigs.webp",
-   "specialty": "Loja de Diversos",
-   "hours": null,
-   "website": "https://bigs.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Casa Avance",
-   "slug": "casa-avance",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_avance_104.webp",
-   "specialty": "Loja de Brinquedos e Auto-Serviço",
-   "hours": "Segunda a Sábado · 08:00 - 16:00",
-   "website": "http://www.casaavance.com/",
-   "premium": false
-  },
-  {
-   "name": "Norte Cambios",
-   "slug": "norte-cambios",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/norte_cambios_104.webp",
-   "specialty": "Loja de Casas de Câmbio",
-   "hours": null,
-   "website": "http://www.nortecambios.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Tigers del Este",
-   "slug": "tigers-del-este",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tigers_del_este_101.webp",
-   "specialty": "Loja de Eletrônicos",
-   "hours": "Segunda a Sábado · 08:00 - 17:00",
-   "website": "http://www.tigersdeleste.com/",
-   "premium": false
-  },
-  {
-   "name": "Farmácia Oliva",
-   "slug": "farmacia-oliva",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmacia_oliva_104.webp",
-   "specialty": "Loja de Farmácia e Suplementos",
-   "hours": "Segunda · 05:00 - 22:00",
-   "website": "https://www.facebook.com/farmaoliva/",
-   "premium": false
-  },
-  {
-   "name": "Class Decor",
-   "slug": "class-decor",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/class_decor_104.webp",
-   "specialty": "Loja de Casa e Construção",
-   "hours": "Segunda a Sábado · 07:00 - 16:00",
-   "website": "http://www.classdecor.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Play Box",
-   "slug": "play-box",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/play_box_163.webp",
-   "specialty": "Loja de Eletrônicos",
-   "hours": "Segunda a Sexta · 07:00 - 16:00",
-   "website": "https://playboxpy.com/",
-   "premium": false
-  },
-  {
-   "name": "Total Shop",
-   "slug": "total-shop",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/total_shop_48511dd6-89ee-4b13-b86e-9ab005bf3d6c.avif",
-   "specialty": "Loja de Diversos",
-   "hours": null,
-   "website": "https://totalshop.com.py/",
-   "premium": false
-  },
-  {
-   "name": "ASM Group",
-   "slug": "asm-group",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/asm_group_c78a221d-cebc-40e8-b61a-7c6c07b62456.avif",
-   "specialty": "Loja de Departamentos",
-   "hours": "Segunda a Sexta · 06:30 - 16:00",
-   "website": "https://asmgroup.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Direto América",
-   "slug": "direto-america",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/direto_america_140.webp",
-   "specialty": "Loja de Celulares",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Prime Shop",
-   "slug": "prime-shop",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/prime_shop_163.webp",
-   "specialty": "Loja de Eletrônicos",
-   "hours": null,
-   "website": "http://primeshop.com.py/",
-   "premium": false
-  },
-  {
-   "name": "City Cell",
-   "slug": "city-cell",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/city_cell_111.webp",
-   "specialty": "Loja de Celulares",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Columbia Farmacias",
-   "slug": "columbia-farmacias",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/columbia_farmacias_175b6954-c467-4fcd-95a1-ab20e6079e58.avif",
-   "specialty": "Loja de Farmácia e Suplementos",
-   "hours": null,
-   "website": "https://columbiafarmacias.com",
-   "premium": false
-  },
-  {
-   "name": "Diva S.A.",
-   "slug": "diva-sa",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/diva_s_a_104.webp",
-   "specialty": "Loja de Casa e Construção",
-   "hours": "Segunda a Sábado · 07:00 - 21:00",
-   "website": "https://www.facebook.com/www.diva.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Versani",
-   "slug": "versani",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/versani_104.webp",
-   "specialty": "Loja de Roupas, Jóias e Bijuterias",
-   "hours": "Segunda a Sábado · 06:00 - 15:00",
-   "website": "http://www.versani.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Vatekano",
-   "slug": "vatekano",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/vatekano_163.webp",
-   "specialty": "Loja de Instrumentos Musicais",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Pharma Slim",
-   "slug": "pharma-slim",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/pesquisa/lojacompreco/pharma_slim_205068a2-56bd-4137-92ee-1161757866e7.avif",
-   "specialty": "Loja de Farmácia e Suplementos",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Baterias Parana",
-   "slug": "baterias-parana",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/baterias_parana_104.webp",
-   "specialty": "Loja de Artigos e Serviços Automotivos",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Setga Decor",
-   "slug": "setga-decor",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/setga_decor_104.webp",
-   "specialty": "Loja de Casa e Construção",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Mundial Electronicos (Ecopower Electronicos)",
-   "slug": "mundial-electronicos-ecopower-electronicos",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mundial_electronicos_ecopower_electronicos_104.webp",
-   "specialty": "Loja de Eletrônicos",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Farmacia Santa Rita",
-   "slug": "farmacia-santa-rita",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/farmacia_santa_rita_7528de42-dbe3-4d34-b45d-23399239682e.avif",
-   "specialty": "Loja de Farmácia e Suplementos",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Bak International",
-   "slug": "bak-international",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bak_international_99.webp",
-   "specialty": "Loja de Eletrônicos",
-   "hours": null,
-   "website": "http://www.bakinternational.com/",
-   "premium": false
-  },
-  {
-   "name": "Monte Carlo",
-   "slug": "monte-carlo",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/monte_carlo_166.webp",
-   "specialty": "Loja de Câmeras e Fotografia",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Auto Serviço Brasil",
-   "slug": "auto-servico-brasil",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/auto_servico_brasil_104.webp",
-   "specialty": "Loja de Brinquedos e Auto-Serviço",
-   "hours": "-Segunda a Sábado · 07:00 - 16:00",
-   "website": "http://www.asbrasil.com.py/",
-   "premium": false
-  },
-  {
-   "name": "Maxi Cambios",
-   "slug": "maxi-cambios",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/maxi_cambios_104.webp",
-   "specialty": "Loja de Casas de Câmbio",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "La Moneda",
-   "slug": "la-moneda",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/la_moneda_104.webp",
-   "specialty": "Loja de Casas de Câmbio",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Bonanza Cambios",
-   "slug": "bonanza-cambios",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bonanza_cambios_104.webp",
-   "specialty": "Loja de Casas de Câmbio",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Cambios Alberdi",
-   "slug": "cambios-alberdi",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/cambios_alberdi_104.webp",
-   "specialty": "Loja de Casas de Câmbio",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Mercosur Cambios",
-   "slug": "mercosur-cambios",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mercosur_cambios_104.webp",
-   "specialty": "Loja de Casas de Câmbio",
-   "hours": null,
-   "website": null,
-   "premium": false
-  },
-  {
-   "name": "Money",
-   "slug": "money",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/money_99.webp",
-   "specialty": "Loja de Casas de Câmbio",
-   "hours": null,
-   "website": "http://www.money.com.py/",
-   "premium": false
-  },
-  {
-   "name": "TV Game",
-   "slug": "tv-game",
-   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tv_game_104.webp",
-   "specialty": "Loja de Video Games",
-   "hours": "Segunda a Sábado · 07:00 - 16:00",
-   "website": "http://www.tvgamepy.com/",
-   "premium": false
-  },
-  {
    "name": "Shopping China",
    "slug": "shopping-china",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/shopping_china_168.webp",
-   "specialty": "Loja de Departamentos",
+   "specialty": "Departamentos",
    "hours": "Segunda a Domingo · 07:00 - 20:00",
    "website": "https://www.shoppingchina.com.br/",
    "premium": true
@@ -6683,7 +6031,7 @@
    "name": "Elegancia Company",
    "slug": "elegancia-company",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/elegancia_company_173.webp",
-   "specialty": "Loja de Perfumes, Beleza e Bolsas",
+   "specialty": "Perfumes, Beleza e Bolsas",
    "hours": "Segunda a Sexta · 06:30 - 16:00",
    "website": "http://www.eleganciacompany.com/",
    "premium": true
@@ -6692,7 +6040,7 @@
    "name": "Flytec Computers",
    "slug": "flytec-computers",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/flytec_computers_173.webp",
-   "specialty": "Loja de Informática",
+   "specialty": "Informática",
    "hours": null,
    "website": "http://www.flytec.com.py/",
    "premium": true
@@ -6701,7 +6049,7 @@
    "name": "MultiPass",
    "slug": "multipass",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/multipass_167.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "https://multipass.com.py/",
    "premium": true
@@ -6710,7 +6058,7 @@
    "name": "Atacado Connect",
    "slug": "atacado-connect",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/atacado_connect_182.webp",
-   "specialty": "Loja de Video Games",
+   "specialty": "Video Games",
    "hours": "Segunda a Sexta · 06:00 - 16:00",
    "website": "https://www.atacadoconnect.com/",
    "premium": true
@@ -6719,7 +6067,7 @@
    "name": "Mobile Zone",
    "slug": "mobile-zone",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mobile_zone_173.webp",
-   "specialty": "Loja de Celulares",
+   "specialty": "Celulares",
    "hours": "Segunda a Sábado · 06:00 - 16:00",
    "website": "http://www.mobilezone.com.br/",
    "premium": true
@@ -6728,7 +6076,7 @@
    "name": "Cellshop",
    "slug": "cellshop",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/cellshop_173.webp",
-   "specialty": "Loja de Departamentos",
+   "specialty": "Departamentos",
    "hours": "Segunda a Sexta · 06:30 - 17:00",
    "website": "http://www.cellshop.com/",
    "premium": true
@@ -6737,7 +6085,7 @@
    "name": "Visãovip",
    "slug": "visaovip",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/visaovip_cd0e40c3-d8d3-41e9-b4e2-31511d4330bb.avif",
-   "specialty": "Loja de Informática",
+   "specialty": "Informática",
    "hours": "Segunda a Sexta · 07:00 - 16:00",
    "website": "http://www.visaovip.com/",
    "premium": true
@@ -6746,7 +6094,7 @@
    "name": "La Petisquera",
    "slug": "la-petisquera",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/la_petisquera_170.webp",
-   "specialty": "Loja de Departamentos",
+   "specialty": "Departamentos",
    "hours": "Segunda a Sábado · 06:00 - 16:30",
    "website": "https://lapetisquera.com.py/",
    "premium": true
@@ -6755,7 +6103,7 @@
    "name": "Nissei",
    "slug": "nissei",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/nissei_172.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sábado · 06:30 - 15:45",
    "website": "https://nissei.com/br/",
    "premium": false
@@ -6764,7 +6112,7 @@
    "name": "New Zone",
    "slug": "new-zone",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/new_zone_5733b933-358b-4c93-9796-25172c777419.avif",
-   "specialty": "Loja de Departamentos",
+   "specialty": "Departamentos",
    "hours": "Segunda a Sábado · 07:00 - 22:00",
    "website": "https://www.newzone.com.py/",
    "premium": false
@@ -6773,7 +6121,7 @@
    "name": "Mega Eletrônicos",
    "slug": "mega-eletronicos",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mega_eletronicos_171.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sexta · 06:30 - 16:00",
    "website": "http://www.megaeletronicos.com/",
    "premium": false
@@ -6782,7 +6130,7 @@
    "name": "Intershop Importados",
    "slug": "intershop-importados",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/intershop_importados_e8f3cec5-d25f-484a-b480-b6906bc8c6dd.avif",
-   "specialty": "Loja de Departamentos",
+   "specialty": "Departamentos",
    "hours": "Segunda a Sábado · 07:30 - 16:00",
    "website": "https://intershop.com.py/",
    "premium": false
@@ -6791,7 +6139,7 @@
    "name": "One Click",
    "slug": "one-click",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/one_click_170.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sexta · 07:00 - 15:30",
    "website": "https://oneclick.com.py/",
    "premium": false
@@ -6800,7 +6148,7 @@
    "name": "Madrid Center",
    "slug": "madrid-center",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/madrid_center_175.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sexta · 06:00 - 16:00",
    "website": "http://www.madridcenter.com/",
    "premium": false
@@ -6809,7 +6157,7 @@
    "name": "Star Company",
    "slug": "star-company",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/star_company_a3e87c44-cca9-48b1-b2db-e444d051d7a4.avif",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sexta · 07:00 - 16:00",
    "website": "https://www.starcompany-py.com/",
    "premium": false
@@ -6818,7 +6166,7 @@
    "name": "Topdek Informática",
    "slug": "topdek-informatica",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/topdek_informatica_53ae9973-7cc8-4ae5-a24b-4c85a86702d5.avif",
-   "specialty": "Loja de Informática",
+   "specialty": "Informática",
    "hours": "Segunda a Sexta · 06:30 - 15:30",
    "website": "https://topdekinformatica.com.br/",
    "premium": false
@@ -6827,7 +6175,7 @@
    "name": "Pontocom",
    "slug": "pontocom",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/pontocom_169.webp",
-   "specialty": "Loja de Perfumes, Beleza e Bolsas",
+   "specialty": "Perfumes, Beleza e Bolsas",
    "hours": "Segunda a Sexta · 07:00 - 16:00",
    "website": "http://www.pontocom.com/",
    "premium": false
@@ -6836,7 +6184,7 @@
    "name": "Agatres",
    "slug": "agatres",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/agatres_164.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "https://agatres.co/",
    "premium": false
@@ -6845,7 +6193,7 @@
    "name": "Life Beach",
    "slug": "life-beach",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/life_beach_106.webp",
-   "specialty": "Loja de Diversos",
+   "specialty": "Diversos",
    "hours": null,
    "website": "https://www.instagram.com/lifebeachbt?igsh=MTl0dHQ4Y3M4aDRhbQ%3D%3D",
    "premium": false
@@ -6854,7 +6202,7 @@
    "name": "Atlantico Shop",
    "slug": "atlantico-shop",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/atlantico_shop_173.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "https://www.atlanticoshop.com/",
    "premium": false
@@ -6863,7 +6211,7 @@
    "name": "Star Games",
    "slug": "star-games",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/star_games_170.webp",
-   "specialty": "Loja de Video Games",
+   "specialty": "Video Games",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "http://stargamespy.com/",
    "premium": false
@@ -6872,7 +6220,7 @@
    "name": "Icompy",
    "slug": "icompy",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/icompy_170.webp",
-   "specialty": "Loja de Informática",
+   "specialty": "Informática",
    "hours": "Segunda a Sexta · 06:00 - 15:00",
    "website": "http://www.icompy.com/",
    "premium": false
@@ -6881,7 +6229,7 @@
    "name": "Matrix.com",
    "slug": "matrixcom",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/matrix_com_169.webp",
-   "specialty": "Loja de Informática",
+   "specialty": "Informática",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "http://matrix.com.py/",
    "premium": false
@@ -6890,7 +6238,7 @@
    "name": "Victoria Store",
    "slug": "victoria-store",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/victoria_store_175.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sexta · 07:00 - 16:00",
    "website": "http://www.victoriastore.com.br/",
    "premium": false
@@ -6899,7 +6247,7 @@
    "name": "HB Import",
    "slug": "hb-import",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/hb_games_551ef903-435c-4ed3-b4e4-f6c2b077d4f7.avif",
-   "specialty": "Loja de Video Games",
+   "specialty": "Video Games",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "https://hbimport.com/",
    "premium": false
@@ -6908,7 +6256,7 @@
    "name": "Macedonia",
    "slug": "macedonia",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/macedonia_167.webp",
-   "specialty": "Loja de Departamentos",
+   "specialty": "Departamentos",
    "hours": "Segunda a Sábado · 06:00 - 17:00",
    "website": "https://macedonia.com.py/",
    "premium": false
@@ -6917,7 +6265,7 @@
    "name": "Atacado Collections",
    "slug": "atacado-collections",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/atacado_collections_168.webp",
-   "specialty": "Loja de Colecionáveis",
+   "specialty": "Colecionáveis",
    "hours": "Segunda a Sexta · 07:00 - 16:00",
    "website": "http://www.atacadocollections.com/",
    "premium": false
@@ -6926,7 +6274,7 @@
    "name": "Flash Importados",
    "slug": "flash-importados",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/flash_importados_180.webp",
-   "specialty": "Loja de Alimentos e Bebidas",
+   "specialty": "Alimentos e Bebidas",
    "hours": "Segunda a Sexta · 07:00 - 15:30",
    "website": "https://www.flashimportados.com/",
    "premium": false
@@ -6935,7 +6283,7 @@
    "name": "Computech",
    "slug": "computech",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/computech_165.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sexta · 07:30 - 16:00",
    "website": "http://www.computech.com.py/",
    "premium": false
@@ -6944,7 +6292,7 @@
    "name": "Alborada",
    "slug": "alborada",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/alborada_169.webp",
-   "specialty": "Loja de Informática",
+   "specialty": "Informática",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "http://www.alboradainfo.com/",
    "premium": false
@@ -6953,7 +6301,7 @@
    "name": "Pionner Shop",
    "slug": "pionner-shop",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/pionner_shop_3e86e7ef-a1e9-4c92-9114-c28ca4484fe0.avif",
-   "specialty": "Loja de Departamentos",
+   "specialty": "Departamentos",
    "hours": null,
    "website": "https://www.pionnershop.com/",
    "premium": false
@@ -6962,7 +6310,7 @@
    "name": "WB Shop",
    "slug": "wb-shop",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/wb_shop_ad4e28e3-12c9-4676-8d98-1a16883b9f64.avif",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "https://wbshop.com.py/",
    "premium": false
@@ -6971,7 +6319,7 @@
    "name": "Medical Center",
    "slug": "medical-center",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/medical_center_165.webp",
-   "specialty": "Loja de Instrumentos Médicos",
+   "specialty": "Instrumentos Médicos",
    "hours": "Segunda a Domingo · 07:30 - 20:00",
    "website": "http://www.medicalcenterpy.com/",
    "premium": false
@@ -6980,7 +6328,7 @@
    "name": "Boxi Importados",
    "slug": "boxi-importados",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/boxi_importados_ebedf547-a602-4718-855e-3e1994fc1132.avif",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "https://boxiimportados.com/",
    "premium": false
@@ -6989,7 +6337,7 @@
    "name": "LG Importados",
    "slug": "lg-importados",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/lg_importados_3.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Sexta a Sábado · 08:00 - 12:00",
    "website": "http://lgimportados.com/?fbclid=IwAR1xLZIxb-cCTV04kG6FiF8fxT4EW8Nok0_4t5DKnUHjNlazg7pQd6DPrBs",
    "premium": false
@@ -6998,7 +6346,7 @@
    "name": "Mario Cell",
    "slug": "mario-cell",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mario_cell_165.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "https://www.mariocell.com/",
    "premium": false
@@ -7007,7 +6355,7 @@
    "name": "Mundo do Celular",
    "slug": "mundo-do-celular",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mundo_do_celular_164.webp",
-   "specialty": "Loja de Celulares",
+   "specialty": "Celulares",
    "hours": "Segunda a Sábado · 07:00 - 16:30",
    "website": "http://www.mundodocelular.com/",
    "premium": false
@@ -7016,7 +6364,7 @@
    "name": "Best Shop Paraguai",
    "slug": "best-shop-paraguai",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/best_shop_paraguai_165.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "http://www.bestshop.com.py/",
    "premium": false
@@ -7025,7 +6373,7 @@
    "name": "Epic Importados",
    "slug": "epic-importados",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/epic_importados_165.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": null,
    "premium": false
@@ -7034,7 +6382,7 @@
    "name": "Tche Loco",
    "slug": "tche-loco",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tche_loco_170.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sexta · 06:30 - 16:00",
    "website": "http://www.tcheloco.com.py/",
    "premium": false
@@ -7043,7 +6391,7 @@
    "name": "TLC",
    "slug": "tlc",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tlc_165.webp",
-   "specialty": "Loja de Celulares",
+   "specialty": "Celulares",
    "hours": null,
    "website": "https://www.tlc.com.py/",
    "premium": false
@@ -7052,7 +6400,7 @@
    "name": "M1 Motor One",
    "slug": "m1-motor-one",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/m1_motor_one_187235df-68c3-4ec6-9b55-d2b7249f81bd.avif",
-   "specialty": "Loja de Artigos e Serviços Automotivos",
+   "specialty": "Artigos e Serviços Automotivos",
    "hours": "Segunda a Sexta · 08:00 - 17:00",
    "website": "http://www.m1-motors.com/",
    "premium": false
@@ -7061,7 +6409,7 @@
    "name": "Open Eletrônicos",
    "slug": "open-eletronicos",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/open_eletronicos_165.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sexta · 08:00 - 16:00",
    "website": "https://openeletronicos.com.py",
    "premium": false
@@ -7070,7 +6418,7 @@
    "name": "Prodigital",
    "slug": "prodigital",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/prodigital_165.webp",
-   "specialty": "Loja de Câmeras e Fotografia",
+   "specialty": "Câmeras e Fotografia",
    "hours": "Segunda a Sexta · 06:30 - 15:00",
    "website": "http://www.prodigital.com.py/",
    "premium": false
@@ -7079,7 +6427,7 @@
    "name": "Gaba Hobby",
    "slug": "gaba-hobby",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/gaba_hobby_4aff32f6-580f-4428-bb8e-8b24307d9128.avif",
-   "specialty": "Loja de Aeromodelismo",
+   "specialty": "Aeromodelismo",
    "hours": "Segunda a Sexta · 07:00 - 16:00",
    "website": "http://www.gabahobby.com/",
    "premium": false
@@ -7088,7 +6436,7 @@
    "name": "Infinity Sport",
    "slug": "infinity-sport",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/infinity_sport_167.webp",
-   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "specialty": "Roupas, Jóias e Bijuterias",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "https://www.infinitysport.com.py/",
    "premium": false
@@ -7097,7 +6445,7 @@
    "name": "Mini Carlos",
    "slug": "mini-carlos",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mini_carlos_167.webp",
-   "specialty": "Loja de Celulares",
+   "specialty": "Celulares",
    "hours": null,
    "website": "https://minicarlos.com.py/",
    "premium": false
@@ -7106,7 +6454,7 @@
    "name": "Genove",
    "slug": "genove",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/genove_170.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "https://www.genove.com.py/",
    "premium": false
@@ -7115,7 +6463,7 @@
    "name": "Mundo Aquático",
    "slug": "mundo-aquatico",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mundo_aquatico_104.webp",
-   "specialty": "Loja de Pesca e Náutica",
+   "specialty": "Pesca e Náutica",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "http://www.mundoaquaticopy.com.br/br",
    "premium": false
@@ -7124,7 +6472,7 @@
    "name": "Império Pneus",
    "slug": "imperio-pneus",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/imperio_pneus_104.webp",
-   "specialty": "Loja de Pneus",
+   "specialty": "Pneus",
    "hours": "Segunda a Sábado · 07:00 - 17:00",
    "website": "https://imperiopneus.com/",
    "premium": false
@@ -7133,7 +6481,7 @@
    "name": "DAC Pneus",
    "slug": "dac-pneus",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/dac_pneus_167.webp",
-   "specialty": "Loja de Pneus",
+   "specialty": "Pneus",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "https://www.dannaautocenter.com/",
    "premium": false
@@ -7142,7 +6490,7 @@
    "name": "Alfatec",
    "slug": "alfatec",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/alfatec_164.webp",
-   "specialty": "Loja de Câmeras e Fotografia",
+   "specialty": "Câmeras e Fotografia",
    "hours": null,
    "website": "https://www.grupoalfatec.com.py/",
    "premium": false
@@ -7151,7 +6499,7 @@
    "name": "MPR - Manos Pro Racing",
    "slug": "mpr-manos-pro-racing",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mpr_manos_pro_racing_168.webp",
-   "specialty": "Loja de Bicicletas e Motos",
+   "specialty": "Bicicletas e Motos",
    "hours": "Segunda a Sábado · 08:00 - 17:00",
    "website": "http://manosproracing.com/",
    "premium": false
@@ -7160,7 +6508,7 @@
    "name": "Super Games",
    "slug": "super-games",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/super_games_170.webp",
-   "specialty": "Loja de Video Games",
+   "specialty": "Video Games",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "http://www.supergames.com.py/br/",
    "premium": false
@@ -7169,7 +6517,7 @@
    "name": "Unishop Pro AV",
    "slug": "unishop-pro-av",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/unishop_pro_av_166.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sexta · 08:00 - 16:00",
    "website": "https://unishop.com.py/",
    "premium": false
@@ -7178,7 +6526,7 @@
    "name": "Rec Music",
    "slug": "rec-music",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/rec_music_165.webp",
-   "specialty": "Loja de Instrumentos Musicais",
+   "specialty": "Instrumentos Musicais",
    "hours": null,
    "website": "https://www.recmusicpy.com/home",
    "premium": false
@@ -7187,7 +6535,7 @@
    "name": "Pro Book",
    "slug": "pro-book",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/pro_book_165.webp",
-   "specialty": "Loja de Informática",
+   "specialty": "Informática",
    "hours": null,
    "website": "https://www.probook.com.py/",
    "premium": false
@@ -7196,7 +6544,7 @@
    "name": "Raio Laser",
    "slug": "raio-laser",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/raio_laser_173.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sábado · 07:30 - 16:00",
    "website": "http://www.raiolasergames.com.br/home3/",
    "premium": false
@@ -7205,7 +6553,7 @@
    "name": "Radio Nautica",
    "slug": "radio-nautica",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/radio_nautica_164.webp",
-   "specialty": "Loja de Comunicação e Segurança",
+   "specialty": "Comunicação e Segurança",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "http://www.radionautica.com/",
    "premium": false
@@ -7214,7 +6562,7 @@
    "name": "Rio Parana Importadora",
    "slug": "rio-parana-importadora",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/rio_parana_importadora_170.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "https://www.rioparana.com.py/",
    "premium": false
@@ -7223,7 +6571,7 @@
    "name": "King Parts",
    "slug": "king-parts",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/king_parts_154.webp",
-   "specialty": "Loja de Peças para Celular e Notebook",
+   "specialty": "Peças para Celular e Notebook",
    "hours": "Segunda a Sexta · 07:00 - 16:30",
    "website": "http://www.kingparts.com/",
    "premium": false
@@ -7232,7 +6580,7 @@
    "name": "Tecombras",
    "slug": "tecombras",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tecombras_162.webp",
-   "specialty": "Loja de Informática",
+   "specialty": "Informática",
    "hours": "Segunda a Sexta · 07:30 - 16:30",
    "website": "https://www.tecombras.net/",
    "premium": false
@@ -7241,7 +6589,7 @@
    "name": "Aroma Store S.A",
    "slug": "aroma-store-sa",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/aroma_store_s_a_165.webp",
-   "specialty": "Loja de Perfumes, Beleza e Bolsas",
+   "specialty": "Perfumes, Beleza e Bolsas",
    "hours": "Segunda a Sábado · 07:30 - 16:00",
    "website": "https://aromastore.com.py",
    "premium": false
@@ -7250,7 +6598,7 @@
    "name": "PNT Automotive",
    "slug": "pnt-automotive",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/pnt_automotive_165.webp",
-   "specialty": "Loja de Artigos e Serviços Automotivos",
+   "specialty": "Artigos e Serviços Automotivos",
    "hours": "Segunda a Sexta · 07:30 - 15:30",
    "website": "https://www.pnt.com.py/",
    "premium": false
@@ -7259,7 +6607,7 @@
    "name": "Casa Angela",
    "slug": "casa-angela",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_angela_104.webp",
-   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "specialty": "Roupas, Jóias e Bijuterias",
    "hours": "Segunda a Sábado · 07:30 - 16:00",
    "website": "https://www.casaangela.com.py/",
    "premium": false
@@ -7268,7 +6616,7 @@
    "name": "O.MA",
    "slug": "oma",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/o_ma_102.webp",
-   "specialty": "Loja de Peças para Celular e Notebook",
+   "specialty": "Peças para Celular e Notebook",
    "hours": null,
    "website": "http://www.omab2c.com/",
    "premium": false
@@ -7277,7 +6625,7 @@
    "name": "Mundo Digital",
    "slug": "mundo-digital",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mundo_digital_164.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "https://mundodigital.com.py",
    "premium": false
@@ -7286,7 +6634,7 @@
    "name": "Magnum Comunicação",
    "slug": "magnum-comunicacao",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/magnum_comunicacao_164.webp",
-   "specialty": "Loja de Comunicação e Segurança",
+   "specialty": "Comunicação e Segurança",
    "hours": null,
    "website": "http://www.magnumcomunicacao.com.py/",
    "premium": false
@@ -7295,7 +6643,7 @@
    "name": "Favorita",
    "slug": "favorita",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/favorita_165.webp",
-   "specialty": "Loja de Brinquedos e Auto-Serviço",
+   "specialty": "Brinquedos e Auto-Serviço",
    "hours": null,
    "website": "http://favoritapy.com.br/br",
    "premium": false
@@ -7304,7 +6652,7 @@
    "name": "Paradise",
    "slug": "paradise",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/paradise_165.webp",
-   "specialty": "Loja de Diversos",
+   "specialty": "Diversos",
    "hours": null,
    "website": "https://www.paradisevape.com.br/",
    "premium": false
@@ -7313,7 +6661,7 @@
    "name": "BNT Global",
    "slug": "bnt-global",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bnt_global_155.webp",
-   "specialty": "Loja de Diversos",
+   "specialty": "Diversos",
    "hours": null,
    "website": "https://globalparaguay.com/",
    "premium": false
@@ -7322,7 +6670,7 @@
    "name": "Giga Racing",
    "slug": "giga-racing",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/giga_racing_62004e78-5b41-4528-9729-43d05d6b7776.avif",
-   "specialty": "Loja de Bicicletas e Motos",
+   "specialty": "Bicicletas e Motos",
    "hours": "Segunda a Sábado · 08:30 - 15:00",
    "website": "http://www.gigaracing.com.py/",
    "premium": false
@@ -7331,7 +6679,7 @@
    "name": "Marktronic Comunicação",
    "slug": "marktronic-comunicacao",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/marktronic_comunicacao_165.webp",
-   "specialty": "Loja de Comunicação e Segurança",
+   "specialty": "Comunicação e Segurança",
    "hours": "Segunda a Sábado · 08:00 - 16:00",
    "website": "http://www.marktronic.com.br/",
    "premium": false
@@ -7340,7 +6688,7 @@
    "name": "Casa Americana",
    "slug": "casa-americana",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_americana_167.webp",
-   "specialty": "Loja de Departamentos",
+   "specialty": "Departamentos",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "http://www.casaamericana.com.py/?fbclid=IwAR33qbgZqvheFnEhU9rlb0UjaH1hu2oBIaiFpDWZmSfRrxPoXBI1Cablg-",
    "premium": false
@@ -7349,7 +6697,7 @@
    "name": "Renova Padel",
    "slug": "renova-padel",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/renova_padel_104.webp",
-   "specialty": "Loja de Diversos",
+   "specialty": "Diversos",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "https://renovapadel.com.py/",
    "premium": false
@@ -7358,7 +6706,7 @@
    "name": "Bess Audio & Vídeo",
    "slug": "bess-audio-video",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bess_audio_video_170.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sábado · 07:30 - 16:00",
    "website": "https://www.bessshop.com.py/",
    "premium": false
@@ -7367,7 +6715,7 @@
    "name": "MDL - Soluções em Iluminação",
    "slug": "mdl-solucoes-em-iluminacao",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mdl_solucoes_em_iluminacao_104.webp",
-   "specialty": "Loja de Casa e Construção",
+   "specialty": "Casa e Construção",
    "hours": "Segunda a Sábado · 06:00 - 15:30",
    "website": "http://www.mdl.com.py/",
    "premium": false
@@ -7376,7 +6724,7 @@
    "name": "Mega Eletro",
    "slug": "mega-eletro",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mega_eletro_167.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": "Segunda a Sábado · 06:30 - 16:00",
    "website": "http://www.megaeletro.com.py/",
    "premium": false
@@ -7385,7 +6733,7 @@
    "name": "Capacete Store",
    "slug": "capacete-store",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/capacete_store_f7079432-df9a-48ef-8349-229052348759.avif",
-   "specialty": "Loja de Bicicletas e Motos",
+   "specialty": "Bicicletas e Motos",
    "hours": null,
    "website": "https://capacetestore.com.py/",
    "premium": false
@@ -7394,7 +6742,7 @@
    "name": "Farma Fit",
    "slug": "farma-fit",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/farma_fit_472fb990-3815-4f0c-a5ad-d38a9a8ae9a9.avif",
-   "specialty": "Loja de Farmácia e Suplementos",
+   "specialty": "Farmácia e Suplementos",
    "hours": "Segunda a Sábado · 07:30 - 16:00",
    "website": "https://farma.fit",
    "premium": false
@@ -7403,7 +6751,7 @@
    "name": "Fashion House",
    "slug": "fashion-house",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/fashion_house_104.webp",
-   "specialty": "Loja de Casa e Construção",
+   "specialty": "Casa e Construção",
    "hours": "Segunda a Sábado · 08:00 - 20:00",
    "website": "https://fashionhouse.com.py/",
    "premium": false
@@ -7412,7 +6760,7 @@
    "name": "Casa da Internet",
    "slug": "casa-da-internet",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_da_internet_104.webp",
-   "specialty": "Loja de Informática",
+   "specialty": "Informática",
    "hours": "Segunda a Sábado · 06:30 - 15:30",
    "website": "http://www.casadainternet.com/",
    "premium": false
@@ -7421,7 +6769,7 @@
    "name": "Golden Time Technology",
    "slug": "golden-time-technology",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/golden_time_technology_144.webp",
-   "specialty": "Loja de Ferramentas e Máquinas",
+   "specialty": "Ferramentas e Máquinas",
    "hours": "Segunda a Sexta · 07:30 - 16:00",
    "website": "http://www.goldentime.com.py/",
    "premium": false
@@ -7430,7 +6778,7 @@
    "name": "Monalisa",
    "slug": "monalisa",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/monalisa_104.webp",
-   "specialty": "Loja de Departamentos",
+   "specialty": "Departamentos",
    "hours": "Segunda a Sábado · 07:30 - 16:30",
    "website": "http://www.monalisa.com.py/",
    "premium": false
@@ -7439,25 +6787,52 @@
    "name": "Queen Anne",
    "slug": "queen-anne",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/queen_anne_104.webp",
-   "specialty": "Loja de Departamentos",
+   "specialty": "Departamentos",
    "hours": "Segunda a Sábado · 07:30 - 18:00",
    "website": "http://www.shoppingqueenanne.com/shopping/",
+   "premium": false
+  },
+  {
+   "name": "Prime Shop",
+   "slug": "prime-shop",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/prime_shop_dff8ffa4-19bb-4502-8ce2-d71d663de5fc.avif",
+   "specialty": "Eletrônicos",
+   "hours": null,
+   "website": "http://primeshop.com.py/",
    "premium": false
   },
   {
    "name": "Casa Nippon",
    "slug": "casa-nippon",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_nippon_104.webp",
-   "specialty": "Loja de Departamentos",
+   "specialty": "Departamentos",
    "hours": "Segunda a Sábado · 08:00 - 21:00",
    "website": "http://www.casanippon.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Direto América",
+   "slug": "direto-america",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/direto_america_140.webp",
+   "specialty": "Celulares",
+   "hours": null,
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "ASM Group",
+   "slug": "asm-group",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/asm_group_c78a221d-cebc-40e8-b61a-7c6c07b62456.avif",
+   "specialty": "Departamentos",
+   "hours": "Segunda a Sexta · 06:30 - 16:00",
+   "website": "https://asmgroup.com.py/",
    "premium": false
   },
   {
    "name": "Tudo Livre",
    "slug": "tudo-livre",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tudo_livre_104.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "http://www.tudolivre.com/",
    "premium": false
@@ -7466,7 +6841,7 @@
    "name": "Babilônia",
    "slug": "babilonia",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/babilonia_b23032ae-d888-4290-9f0a-c198aad306b9.avif",
-   "specialty": "Loja de Perfumes, Beleza e Bolsas",
+   "specialty": "Perfumes, Beleza e Bolsas",
    "hours": "Segunda a Sábado · 06:30 - 15:30",
    "website": "https://babilonia.com.py/",
    "premium": false
@@ -7475,7 +6850,7 @@
    "name": "ISS Group",
    "slug": "iss-group",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/iss_group.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": null,
    "premium": false
@@ -7484,25 +6859,655 @@
    "name": "Terra Nova",
    "slug": "terra-nova",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/terra_nova_172.webp",
-   "specialty": "Loja de Perfumes, Beleza e Bolsas",
+   "specialty": "Perfumes, Beleza e Bolsas",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "http://www.shoppingterranova.com.py/",
+   "premium": false
+  },
+  {
+   "name": "City Cell",
+   "slug": "city-cell",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/city_cell_111.webp",
+   "specialty": "Celulares",
+   "hours": null,
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "Swap Store",
+   "slug": "swap-store",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/swap_store_105.webp",
+   "specialty": "Celulares",
+   "hours": "Segunda a Sexta · 07:00 - 16:00",
+   "website": "https://instagram.com/swapstorepy",
+   "premium": false
+  },
+  {
+   "name": "Mundo Musical",
+   "slug": "mundo-musical",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mundo_musical_164.webp",
+   "specialty": "Instrumentos Musicais",
+   "hours": "Segunda a Sábado · 07:30 - 16:30",
+   "website": "https://www.mundomusicalpy.com/",
    "premium": false
   },
   {
    "name": "Farmácia Brasil",
    "slug": "farmacia-brasil",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmacia_brasil_164.webp",
-   "specialty": "Loja de Farmácia e Suplementos",
+   "specialty": "Farmácia e Suplementos",
    "hours": null,
    "website": "https://www.farmaciabrasil.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Avanza",
+   "slug": "avanza",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/avanza_9b7f46e0-b2e6-457b-94a8-02f8fc0a20da.avif",
+   "specialty": "Eletrônicos",
+   "hours": null,
+   "website": "https://avanzagroupshop.com/",
+   "premium": false
+  },
+  {
+   "name": "Xcell",
+   "slug": "xcell",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/xcell_8883a531-da3b-4aaf-b139-d75d2951e4ce.avif",
+   "specialty": "Celulares",
+   "hours": "Segunda a Sexta · 07:30 - 15:30",
+   "website": "https://xcell.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Paris Store",
+   "slug": "paris-store",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/paris_store_67390fcf-d8b9-4370-b803-f0ff839adb77.avif",
+   "specialty": "Diversos",
+   "hours": null,
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "Bristol S.A.",
+   "slug": "bristol-sa",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bristol_s_a_104.webp",
+   "specialty": "Departamentos",
+   "hours": null,
+   "website": "http://www.bristol.com.py/",
+   "premium": false
+  },
+  {
+   "name": "CDE Store",
+   "slug": "cde-store",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/cde_store_165.webp",
+   "specialty": "Informática",
+   "hours": null,
+   "website": "https://cdestore.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Mestre",
+   "slug": "mestre",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mestre_125.webp",
+   "specialty": "Celulares",
+   "hours": "Segunda a Sexta · 07:00 - 16:00",
+   "website": "https://www.mestreatacado.com/",
+   "premium": false
+  },
+  {
+   "name": "Prime Barber Supply",
+   "slug": "prime-barber-supply",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/prime_barber_supply_170.webp",
+   "specialty": "Itens de Barbearia",
+   "hours": "Segunda a Sábado · 06:00 - 15:30",
+   "website": "https://primebarbersupply.com/pt/home-clone-demo-portugues/",
+   "premium": false
+  },
+  {
+   "name": "NGP Farma",
+   "slug": "ngp-farma",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/ngp_farma_9246092d-3a6f-411d-ac92-5b14876a9c08.avif",
+   "specialty": "Farmácia e Suplementos",
+   "hours": null,
+   "website": "https://ngpfarma.com/",
+   "premium": false
+  },
+  {
+   "name": "iShop",
+   "slug": "ishop",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/ishop_104.webp",
+   "specialty": "Eletrônicos",
+   "hours": null,
+   "website": "https://www.ishop.com.py/home",
+   "premium": false
+  },
+  {
+   "name": "Centro de Motorola",
+   "slug": "centro-de-motorola",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/centro_de_motorola_167.webp",
+   "specialty": "Eletrônicos",
+   "hours": "Segunda a Sábado · 07:00 - 16:00",
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "Tropical Bike",
+   "slug": "tropical-bike",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tropical_bike_104.webp",
+   "specialty": "Bicicletas e Motos",
+   "hours": null,
+   "website": "http://www.tropicalbike.com.br/",
+   "premium": false
+  },
+  {
+   "name": "Dr Cell Atacado",
+   "slug": "dr-cell-atacado",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/dr_cell_atacado_165.webp",
+   "specialty": "Celulares",
+   "hours": null,
+   "website": "https://drcellatacado.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Point Informática",
+   "slug": "point-informatica",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/point_informatica_165.webp",
+   "specialty": "Informática",
+   "hours": "Segunda a Sábado · 07:30 - 16:30",
+   "website": "https://www.pointinformatica.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Midi Pro",
+   "slug": "midi-pro",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/midi_pro_168.webp",
+   "specialty": "Eletrônicos",
+   "hours": null,
+   "website": "http://www.midipro.store/",
+   "premium": false
+  },
+  {
+   "name": "Arsenal Sports",
+   "slug": "arsenal-sports",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/lojacompreco/arsenal_sports_249da13c-e23d-402d-aa80-5d98f3a0ee1e.avif",
+   "specialty": "Brinquedos e Auto-Serviço",
+   "hours": null,
+   "website": "https://www.arsenalsports.com/",
+   "premium": false
+  },
+  {
+   "name": "8 de Agosto",
+   "slug": "8-de-agosto",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/8_de_agosto_104.webp",
+   "specialty": "Brinquedos e Auto-Serviço",
+   "hours": "Segunda a Sábado · 06:00 - 15:30",
+   "website": "http://www.8deagosto.com/",
+   "premium": false
+  },
+  {
+   "name": "Matrix Importados",
+   "slug": "matrix-importados",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/matrix_importados_9bff379c-03bb-4ffa-a41a-168ddf885b81.avif",
+   "specialty": "Celulares",
+   "hours": null,
+   "website": "http://matriximportados.com.br",
+   "premium": false
+  },
+  {
+   "name": "New York Store",
+   "slug": "new-york-store",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/new_york_store_105.webp",
+   "specialty": "Roupas, Jóias e Bijuterias",
+   "hours": null,
+   "website": "http://www.newyorkstore.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Vertex",
+   "slug": "vertex",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/vertex_f98365c3-8785-4469-87a3-c1459533b2b0.avif",
+   "specialty": "Eletrônicos",
+   "hours": null,
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "Farmashop Dior",
+   "slug": "farmashop-dior",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmashop_dior_157.webp",
+   "specialty": "Farmácia e Suplementos",
+   "hours": null,
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "Farmácia Amada",
+   "slug": "farmacia-amada",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmacia_amada_104.webp",
+   "specialty": "Farmácia e Suplementos",
+   "hours": null,
+   "website": "http://www.farmaciaamada.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Home Pro Barber Supply",
+   "slug": "home-pro-barber-supply",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/home_pro_barber_supply_167.webp",
+   "specialty": "Itens de Barbearia",
+   "hours": "Segunda a Sexta · 06:00 - 15:30",
+   "website": "https://www.homepro.com.py/br/",
+   "premium": false
+  },
+  {
+   "name": "Atacado USA",
+   "slug": "atacado-usa",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/atacado_usa_168.webp",
+   "specialty": "Eletrônicos",
+   "hours": null,
+   "website": "https://atacadousa.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Setga Ferramentas",
+   "slug": "setga-ferramentas",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/setga_ferramentas_104.webp",
+   "specialty": "Ferramentas e Máquinas",
+   "hours": "Segunda a Sábado · 07:30 - 16:30",
+   "website": "https://www.facebook.com/setga",
+   "premium": false
+  },
+  {
+   "name": "Apex Company",
+   "slug": "apex-company",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/apex_company_43897f7f-1dc6-44a3-a5aa-7ce1398f98d2.avif",
+   "specialty": "Departamentos",
+   "hours": "Segunda a Sexta · 07:30 - 16:30",
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "Beny Center",
+   "slug": "beny-center",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/beny_center_104.webp",
+   "specialty": "Perfumes, Beleza e Bolsas",
+   "hours": "Segunda a Sábado · 07:30 - 16:00",
+   "website": "http://www.benycenter.com/br",
+   "premium": false
+  },
+  {
+   "name": "L'uomo",
+   "slug": "luomo",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/l_uomo_103.webp",
+   "specialty": "Roupas, Jóias e Bijuterias",
+   "hours": "Segunda a Sábado · 09:00 - 21:00",
+   "website": "http://www.luomo.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Farmatitu",
+   "slug": "farmatitu",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmatitu_104.webp",
+   "specialty": "Farmácia e Suplementos",
+   "hours": "Segunda · 05:00 - 00:00",
+   "website": "http://www.farmatitu.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Bonjour Perfumeria",
+   "slug": "bonjour-perfumeria",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bonjour_perfumeria_106.webp",
+   "specialty": "Perfumes, Beleza e Bolsas",
+   "hours": "Segunda a Sexta · 07:00 - 16:00",
+   "website": "https://linktr.ee/Perfumeria.Bonjour",
+   "premium": false
+  },
+  {
+   "name": "Import Pro Gaming",
+   "slug": "import-pro-gaming",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/import_pro_gaming_4f4d9feb-ca71-4605-8278-482a1eb31ff6.avif",
+   "specialty": "Informática",
+   "hours": null,
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "Chenson",
+   "slug": "chenson",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/chenson_104.webp",
+   "specialty": "Perfumes, Beleza e Bolsas",
+   "hours": null,
+   "website": "http://www.chenson.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Audio Music",
+   "slug": "audio-music",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/audio_music_104.webp",
+   "specialty": "Instrumentos Musicais",
+   "hours": "Segunda a Sábado · 07:30 - 16:00",
+   "website": "http://www.audiomusic.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Castelo Italiano",
+   "slug": "castelo-italiano",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/castelo_italiano_104.webp",
+   "specialty": "Casa e Construção",
+   "hours": "Segunda a Sábado · 07:00 - 17:00",
+   "website": "http://www.casteloitaliano.com/",
+   "premium": false
+  },
+  {
+   "name": "Senki Electronica",
+   "slug": "senki-electronica",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/senki_electronica_104.webp",
+   "specialty": "Home Áudio e Som Automotivo",
+   "hours": "Segunda a Sábado · 07:30 - 16:30",
+   "website": "http://www.senkielectronica.com/",
+   "premium": false
+  },
+  {
+   "name": "Casa de los Compresores",
+   "slug": "casa-de-los-compresores",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_de_los_compresores_104.webp",
+   "specialty": "Ferramentas e Máquinas",
+   "hours": "Segunda a Sexta · 07:00 - 17:00",
+   "website": "http://www.casadeloscompresores.com/",
+   "premium": false
+  },
+  {
+   "name": "Farma Next",
+   "slug": "farma-next",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/farma_next_069344e7-48d8-4803-80c5-8bac4124d7af.avif",
+   "specialty": "Farmácia e Suplementos",
+   "hours": null,
+   "website": "https://www.farmanext.com.py",
+   "premium": false
+  },
+  {
+   "name": "Farmacenter",
+   "slug": "farmacenter",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmacenter_104.webp",
+   "specialty": "Farmácia e Suplementos",
+   "hours": "Segunda · 05:00 - 00:00",
+   "website": "http://www.farmacenter.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Polo Center",
+   "slug": "polo-center",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/polo_center_165.webp",
+   "specialty": "Celulares",
+   "hours": null,
+   "website": "https://polocenter.com.py",
+   "premium": false
+  },
+  {
+   "name": "Chacomer",
+   "slug": "chacomer",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/chacomer_104.webp",
+   "specialty": "Bicicletas e Motos",
+   "hours": null,
+   "website": "http://www.chacomer.com.py/",
+   "premium": false
+  },
+  {
+   "name": "World Importados",
+   "slug": "world-importados",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/world_of_import_d619e703-dfa9-411f-9847-0b47bd185309.avif",
+   "specialty": "Diversos",
+   "hours": null,
+   "website": "https://worldofimport.com/pt",
+   "premium": false
+  },
+  {
+   "name": "Bigs",
+   "slug": "bigs",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bigs.webp",
+   "specialty": "Diversos",
+   "hours": null,
+   "website": "https://bigs.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Casa Avance",
+   "slug": "casa-avance",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_avance_104.webp",
+   "specialty": "Brinquedos e Auto-Serviço",
+   "hours": "Segunda a Sábado · 08:00 - 16:00",
+   "website": "http://www.casaavance.com/",
+   "premium": false
+  },
+  {
+   "name": "Norte Cambios",
+   "slug": "norte-cambios",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/norte_cambios_104.webp",
+   "specialty": "Casas de Câmbio",
+   "hours": null,
+   "website": "http://www.nortecambios.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Tigers del Este",
+   "slug": "tigers-del-este",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tigers_del_este_101.webp",
+   "specialty": "Eletrônicos",
+   "hours": "Segunda a Sábado · 08:00 - 17:00",
+   "website": "http://www.tigersdeleste.com/",
+   "premium": false
+  },
+  {
+   "name": "Farmácia Oliva",
+   "slug": "farmacia-oliva",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmacia_oliva_104.webp",
+   "specialty": "Farmácia e Suplementos",
+   "hours": "Segunda · 05:00 - 22:00",
+   "website": "https://www.facebook.com/farmaoliva/",
+   "premium": false
+  },
+  {
+   "name": "Class Decor",
+   "slug": "class-decor",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/class_decor_104.webp",
+   "specialty": "Casa e Construção",
+   "hours": "Segunda a Sábado · 07:00 - 16:00",
+   "website": "http://www.classdecor.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Play Box",
+   "slug": "play-box",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/play_box_163.webp",
+   "specialty": "Eletrônicos",
+   "hours": "Segunda a Sexta · 07:00 - 16:00",
+   "website": "https://playboxpy.com/",
+   "premium": false
+  },
+  {
+   "name": "Total Shop",
+   "slug": "total-shop",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/total_shop_48511dd6-89ee-4b13-b86e-9ab005bf3d6c.avif",
+   "specialty": "Diversos",
+   "hours": null,
+   "website": "https://totalshop.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Columbia Farmacias",
+   "slug": "columbia-farmacias",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/columbia_farmacias_175b6954-c467-4fcd-95a1-ab20e6079e58.avif",
+   "specialty": "Farmácia e Suplementos",
+   "hours": null,
+   "website": "https://columbiafarmacias.com",
+   "premium": false
+  },
+  {
+   "name": "Diva S.A.",
+   "slug": "diva-sa",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/diva_s_a_104.webp",
+   "specialty": "Casa e Construção",
+   "hours": "Segunda a Sábado · 07:00 - 21:00",
+   "website": "https://www.facebook.com/www.diva.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Versani",
+   "slug": "versani",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/versani_104.webp",
+   "specialty": "Roupas, Jóias e Bijuterias",
+   "hours": "Segunda a Sábado · 06:00 - 15:00",
+   "website": "http://www.versani.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Vatekano",
+   "slug": "vatekano",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/vatekano_163.webp",
+   "specialty": "Instrumentos Musicais",
+   "hours": "Segunda a Sábado · 07:00 - 17:00",
+   "website": "https://www.vatekano.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Pharma Slim",
+   "slug": "pharma-slim",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/pesquisa/lojacompreco/pharma_slim_205068a2-56bd-4137-92ee-1161757866e7.avif",
+   "specialty": "Farmácia e Suplementos",
+   "hours": null,
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "Baterias Parana",
+   "slug": "baterias-parana",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/baterias_parana_104.webp",
+   "specialty": "Artigos e Serviços Automotivos",
+   "hours": "Segunda a Sexta · 07:00 - 18:00",
+   "website": "http://www.bateriasparana.com/",
+   "premium": false
+  },
+  {
+   "name": "Setga Decor",
+   "slug": "setga-decor",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/setga_decor_104.webp",
+   "specialty": "Casa e Construção",
+   "hours": "Segunda a Sábado · 07:30 - 16:30",
+   "website": "http://www.setgadecor.com/",
+   "premium": false
+  },
+  {
+   "name": "Mundial Electronicos (Ecopower Electronicos)",
+   "slug": "mundial-electronicos-ecopower-electronicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mundial_electronicos_ecopower_electronicos_104.webp",
+   "specialty": "Eletrônicos",
+   "hours": "Segunda a Sábado · 07:00 - 15:00",
+   "website": "https://www.facebook.com/EcopowerElectronicos",
+   "premium": false
+  },
+  {
+   "name": "Farmacia Santa Rita",
+   "slug": "farmacia-santa-rita",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/farmacia_santa_rita_7528de42-dbe3-4d34-b45d-23399239682e.avif",
+   "specialty": "Farmácia e Suplementos",
+   "hours": "Segunda a Sábado · 07:00 - 15:00",
+   "website": "https://farmaciasantaritaparaguai.com.br",
+   "premium": false
+  },
+  {
+   "name": "Bak International",
+   "slug": "bak-international",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bak_international_99.webp",
+   "specialty": "Eletrônicos",
+   "hours": null,
+   "website": "http://www.bakinternational.com/",
+   "premium": false
+  },
+  {
+   "name": "Monte Carlo",
+   "slug": "monte-carlo",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/monte_carlo_166.webp",
+   "specialty": "Câmeras e Fotografia",
+   "hours": "Segunda a Sábado · 07:00 - 16:30",
+   "website": "http://montecarlosrl.com/",
+   "premium": false
+  },
+  {
+   "name": "Auto Serviço Brasil",
+   "slug": "auto-servico-brasil",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/auto_servico_brasil_104.webp",
+   "specialty": "Brinquedos e Auto-Serviço",
+   "hours": "Segunda a Sábado · 07:00 - 16:00",
+   "website": "http://www.asbrasil.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Maxi Cambios",
+   "slug": "maxi-cambios",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/maxi_cambios_104.webp",
+   "specialty": "Casas de Câmbio",
+   "hours": "Segunda a Sexta · 07:30 - 19:30",
+   "website": "http://www.maxicambios.com.py/",
+   "premium": false
+  },
+  {
+   "name": "La Moneda",
+   "slug": "la-moneda",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/la_moneda_104.webp",
+   "specialty": "Casas de Câmbio",
+   "hours": null,
+   "website": "http://www.lamoneda.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Bonanza Cambios",
+   "slug": "bonanza-cambios",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bonanza_cambios_104.webp",
+   "specialty": "Casas de Câmbio",
+   "hours": "Segunda a Sexta · 07:30 - 16:30",
+   "website": "http://bonanzacambios.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Cambios Alberdi",
+   "slug": "cambios-alberdi",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/cambios_alberdi_104.webp",
+   "specialty": "Casas de Câmbio",
+   "hours": null,
+   "website": "http://www.cambiosalberdi.com/",
+   "premium": false
+  },
+  {
+   "name": "Mercosur Cambios",
+   "slug": "mercosur-cambios",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mercosur_cambios_104.webp",
+   "specialty": "Casas de Câmbio",
+   "hours": "Segunda a Sexta · 06:30 - 16:00",
+   "website": "http://www.mercosurcambios.com/",
+   "premium": false
+  },
+  {
+   "name": "Money",
+   "slug": "money",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/money_99.webp",
+   "specialty": "Casas de Câmbio",
+   "hours": null,
+   "website": "http://www.money.com.py/",
+   "premium": false
+  },
+  {
+   "name": "TV Game",
+   "slug": "tv-game",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tv_game_104.webp",
+   "specialty": "Video Games",
+   "hours": "Segunda a Sábado · 07:00 - 16:00",
+   "website": "http://www.tvgamepy.com/",
    "premium": false
   },
   {
    "name": "Miami Bikes",
    "slug": "miami-bikes",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/miami_bikes_104.webp",
-   "specialty": "Loja de Bicicletas e Motos",
+   "specialty": "Bicicletas e Motos",
    "hours": "Segunda a Sábado · 08:00 - 16:00",
    "website": "http://www.miamibike.com.py/",
    "premium": false
@@ -7511,7 +7516,7 @@
    "name": "Fastrax",
    "slug": "fastrax",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/fastrax_100.webp",
-   "specialty": "Loja de Informática",
+   "specialty": "Informática",
    "hours": "Segunda a Sábado · 07:30 - 18:00",
    "website": "http://www.fastrax.com.py/",
    "premium": false
@@ -7520,7 +7525,7 @@
    "name": "Casa Bella",
    "slug": "casa-bella",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_bella_104.webp",
-   "specialty": "Loja de Casa e Construção",
+   "specialty": "Casa e Construção",
    "hours": "Segunda a Sábado · 07:30 - 19:00",
    "website": "https://casa-bella-decoration-shop.negocio.site/",
    "premium": false
@@ -7529,7 +7534,7 @@
    "name": "Papelaria Cassol",
    "slug": "papelaria-cassol",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/papelaria_cassol_104.webp",
-   "specialty": "Loja de Papelaria",
+   "specialty": "Papelaria",
    "hours": "Segunda a Sábado · 07:30 - 17:00",
    "website": "http://www.cassolpapeleria.com/",
    "premium": false
@@ -7538,7 +7543,7 @@
    "name": "Mundial Câmbios",
    "slug": "mundial-cambios",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mundial_cambios_104.webp",
-   "specialty": "Loja de Casas de Câmbio",
+   "specialty": "Casas de Câmbio",
    "hours": "Segunda a Sexta · 07:00 - 16:00",
    "website": "http://www.mundialcambios.com.py/",
    "premium": false
@@ -7547,7 +7552,7 @@
    "name": "Bless Import",
    "slug": "bless-import",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bless_import_104.webp",
-   "specialty": "Loja de Departamentos",
+   "specialty": "Departamentos",
    "hours": "Segunda a Sábado · 08:00 - 18:00",
    "website": "http://www.blessimport.com/",
    "premium": false
@@ -7556,7 +7561,7 @@
    "name": "Tropical Music",
    "slug": "tropical-music",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tropical_music_169.webp",
-   "specialty": "Loja de Instrumentos Musicais",
+   "specialty": "Instrumentos Musicais",
    "hours": "Segunda a Sábado · 07:00 - 16:30",
    "website": "http://www.tropicalmusic.com.py/",
    "premium": false
@@ -7565,7 +7570,7 @@
    "name": "Dikasa",
    "slug": "dikasa",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/dikasa_102.webp",
-   "specialty": "Loja de Casa e Construção",
+   "specialty": "Casa e Construção",
    "hours": "Segunda a Sexta · 08:30 - 18:00",
    "website": "http://www.dikasa.com.py/",
    "premium": false
@@ -7574,7 +7579,7 @@
    "name": "Forli",
    "slug": "forli",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/forli_104.webp",
-   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "specialty": "Roupas, Jóias e Bijuterias",
    "hours": "Segunda a Sábado · 08:00 - 19:00",
    "website": "http://www.forli.com.py/",
    "premium": false
@@ -7583,7 +7588,7 @@
    "name": "Playcell S.A.",
    "slug": "playcell-sa",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/playcell_s_a_104.webp",
-   "specialty": "Loja de Perfumes, Beleza e Bolsas",
+   "specialty": "Perfumes, Beleza e Bolsas",
    "hours": "Segunda a Sábado · 07:00 - 16:00",
    "website": "http://www.playcellsa.com/",
    "premium": false
@@ -7592,7 +7597,7 @@
    "name": "Dp Internacional",
    "slug": "dp-internacional",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/dp_internacional_101.webp",
-   "specialty": "Loja de Brinquedos e Auto-Serviço",
+   "specialty": "Brinquedos e Auto-Serviço",
    "hours": "Segunda a Sexta · 08:00 - 17:00",
    "website": "http://www.dpinternacional.com.py/",
    "premium": false
@@ -7601,7 +7606,7 @@
    "name": "Ceteg",
    "slug": "ceteg",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/ceteg_101.webp",
-   "specialty": "Loja de Casas de Câmbio",
+   "specialty": "Casas de Câmbio",
    "hours": "Segunda a Sexta · 07:00 - 15:30",
    "website": "http://www.ceteg.com.py/",
    "premium": false
@@ -7610,7 +7615,7 @@
    "name": "FE Cambios",
    "slug": "fe-cambios",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/fe_cambios_103.webp",
-   "specialty": "Loja de Casas de Câmbio",
+   "specialty": "Casas de Câmbio",
    "hours": "Segunda a Sexta · 07:00 - 15:00",
    "website": "http://www.fecambios.com.py/",
    "premium": false
@@ -7619,7 +7624,7 @@
    "name": "Fortuna Cambios",
    "slug": "fortuna-cambios",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/fortuna_cambios_104.webp",
-   "specialty": "Loja de Casas de Câmbio",
+   "specialty": "Casas de Câmbio",
    "hours": null,
    "website": "https://www.fortunacambios.com/",
    "premium": false
@@ -7628,7 +7633,7 @@
    "name": "Fidelia",
    "slug": "fidelia",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/fidelia_102.webp",
-   "specialty": "Loja de Casa e Construção",
+   "specialty": "Casa e Construção",
    "hours": null,
    "website": "https://www.fidelia-papel.com/",
    "premium": false
@@ -7637,7 +7642,7 @@
    "name": "Hetzer",
    "slug": "hetzer",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/hetzer_100.webp",
-   "specialty": "Loja de Home Áudio e Som Automotivo",
+   "specialty": "Home Áudio e Som Automotivo",
    "hours": null,
    "website": "http://www.hetzer.com.br/",
    "premium": false
@@ -7646,7 +7651,7 @@
    "name": "Milane Yewear",
    "slug": "milane-yewear",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/milane_yewear_97.webp",
-   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "specialty": "Roupas, Jóias e Bijuterias",
    "hours": "Segunda a Sábado · 08:00 - 17:00",
    "website": "https://shopmylan.com.br/",
    "premium": false
@@ -7655,7 +7660,7 @@
    "name": "Fashion Celina",
    "slug": "fashion-celina",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/fashion_celina_104.webp",
-   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "specialty": "Roupas, Jóias e Bijuterias",
    "hours": "Segunda a Sexta · 08:00 - 17:30",
    "website": "http://www.fashioncelina.com/",
    "premium": false
@@ -7664,7 +7669,7 @@
    "name": "Cambios Triple C",
    "slug": "cambios-triple-c",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/cambios_triple_c_104.webp",
-   "specialty": "Loja de Casas de Câmbio",
+   "specialty": "Casas de Câmbio",
    "hours": "Segunda a Sexta · 08:00 - 16:00",
    "website": "http://www.cambiostriplec.com.py/",
    "premium": false
@@ -7673,7 +7678,7 @@
    "name": "Brands Shop",
    "slug": "brands-shop",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/brands_for_less_167.webp",
-   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "specialty": "Roupas, Jóias e Bijuterias",
    "hours": "Segunda a Sábado · 07:00 - 16:30",
    "website": "https://www.facebook.com/BrandsForLessPy/",
    "premium": false
@@ -7682,7 +7687,7 @@
    "name": "Av. Rodeo Biju",
    "slug": "av-rodeo-biju",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/av_rodeo_biju_104.webp",
-   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "specialty": "Roupas, Jóias e Bijuterias",
    "hours": "Segunda a Sábado · 07:30 - 17:00",
    "website": "https://www.avrodeo.com/pt-br/",
    "premium": false
@@ -7691,7 +7696,7 @@
    "name": "Mekka Store",
    "slug": "mekka-store",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/mekka_store_af129b93-232c-4f62-89d8-ebb4a7769de1.avif",
-   "specialty": "Loja de Instrumentos Musicais",
+   "specialty": "Instrumentos Musicais",
    "hours": "Segunda a Sábado · 06:30 - 17:00",
    "website": "https://www.mekka.com.py/",
    "premium": false
@@ -7700,7 +7705,7 @@
    "name": "Sampa Vapor",
    "slug": "sampa-vapor",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/sampa_vapor_117.webp",
-   "specialty": "Loja de Diversos",
+   "specialty": "Diversos",
    "hours": "Segunda a Sábado · 07:00 - 15:00",
    "website": "https://sampavapor.com.py/",
    "premium": false
@@ -7709,7 +7714,7 @@
    "name": "Abudi Cell",
    "slug": "abudi-cell",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/abudi_cell_67.webp",
-   "specialty": "Loja de Celulares",
+   "specialty": "Celulares",
    "hours": null,
    "website": null,
    "premium": false
@@ -7718,7 +7723,7 @@
    "name": "Miami Store",
    "slug": "miami-store",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/miami_store_107.webp",
-   "specialty": "Loja de Celulares",
+   "specialty": "Celulares",
    "hours": null,
    "website": "https://miamistore.com.py/",
    "premium": false
@@ -7727,7 +7732,7 @@
    "name": "Sol Cell",
    "slug": "sol-cell",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/sol_cell_101.webp",
-   "specialty": "Loja de Peças para Celular e Notebook",
+   "specialty": "Peças para Celular e Notebook",
    "hours": "Segunda a Sábado · 07:00 - 15:00",
    "website": "https://solcell888.com/",
    "premium": false
@@ -7736,7 +7741,7 @@
    "name": "Art Technology",
    "slug": "art-technology",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/art_technology_cc7b3178-5d75-42b4-8ccc-d0dd27ee5e78.avif",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": null,
    "premium": false
@@ -7745,7 +7750,7 @@
    "name": "PVNK Holding",
    "slug": "pvnk-holding",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/pvnk_holding_54748a66-7ac2-455e-92da-04d5c3a403f5.avif",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "https://www.pvnkholdingco.com/",
    "premium": false
@@ -7754,16 +7759,16 @@
    "name": "Paraguay Comunicaciones",
    "slug": "paraguay-comunicaciones",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/paraguay_comunicaciones.webp",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
-   "website": null,
+   "website": "https://paraguaycomunicaciones.com/",
    "premium": false
   },
   {
    "name": "ZM Shop",
    "slug": "zm-shop",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/zm_shop_c4d1d752-647d-4b36-b567-6d0f4b582810.avif",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": null,
    "premium": false
@@ -7772,7 +7777,7 @@
    "name": "Cell World",
    "slug": "cell-world",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/cell_world_5e3c387d-b773-428f-9b98-e899a5658cf7.avif",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "https://www.cellworldimport.com/",
    "premium": false
@@ -7781,7 +7786,7 @@
    "name": "Iluminat PY",
    "slug": "iluminat-py",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/iluminat_py_615b2858-d12a-4a2a-870f-11b374da2bd4.avif",
-   "specialty": "Loja de Áudio & Vídeo",
+   "specialty": "Áudio & Vídeo",
    "hours": "Segunda a Sexta · 09:00 - 17:00",
    "website": null,
    "premium": false
@@ -7790,7 +7795,7 @@
    "name": "Majestic Group",
    "slug": "majestic-group",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/magestic_group_84cf8c00-7977-4542-98b1-73be6d86f1a7.avif",
-   "specialty": "Loja de Departamentos",
+   "specialty": "Departamentos",
    "hours": null,
    "website": "https://majesticgroup.com.py/",
    "premium": false
@@ -7799,7 +7804,7 @@
    "name": "Vapo Shop",
    "slug": "vapo-shop",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/vapo_shop_ba6fae21-885d-40a0-a838-b3c11f3fd93a.avif",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "https://vaposhop.com.py/",
    "premium": false
@@ -7808,7 +7813,7 @@
    "name": "Orbe Import",
    "slug": "orbe-import",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/orbe_import_53e8d4fc-df62-419f-8488-57503425dea3.avif",
-   "specialty": "Loja de Departamentos",
+   "specialty": "Departamentos",
    "hours": null,
    "website": "https://orbeimport.com/",
    "premium": false
@@ -7817,7 +7822,7 @@
    "name": "Eshop Cell",
    "slug": "eshop-cell",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/eshop_cell_2278b588-6ff6-4fd3-9ca1-794512c5550e.avif",
-   "specialty": "Loja de Celulares",
+   "specialty": "Celulares",
    "hours": "Segunda a Sábado · 07:45 - 16:00",
    "website": "https://eshopcell.com",
    "premium": false
@@ -7826,7 +7831,7 @@
    "name": "Ushuaia Center",
    "slug": "ushuaia-center",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/ushuaia_center_8ff9545d-9627-4b40-8ef7-30417e9dea8e.avif",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "https://ushuaiacenter.com.py",
    "premium": false
@@ -7835,7 +7840,7 @@
    "name": "Green Valley",
    "slug": "green-valley",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/green_valley_66d8afe1-3265-4832-a218-295810509118.avif",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "https://greenvalley.com.py",
    "premium": false
@@ -7844,7 +7849,7 @@
    "name": "Centurion",
    "slug": "centurion",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/centurion_8286a7af-77ee-4d1c-b3cd-4d7f6ef24a7d.avif",
-   "specialty": "Loja de Celulares",
+   "specialty": "Celulares",
    "hours": "Segunda a Sexta · 07:00 - 17:00",
    "website": null,
    "premium": false
@@ -7853,7 +7858,7 @@
    "name": "Farmácia El Killo",
    "slug": "farmacia-el-killo",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/farmacia_el_killo_2f298b70-139a-46bc-968b-f52a2738579d.avif",
-   "specialty": "Loja de Farmácia e Suplementos",
+   "specialty": "Farmácia e Suplementos",
    "hours": "Segunda a Sábado · 07:00 - 17:00",
    "website": "https://www.elkillo.net/",
    "premium": false
@@ -7862,9 +7867,369 @@
    "name": "Originatti",
    "slug": "originatti",
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/originatti_00e1b7c5-667b-4407-aed1-fb2da65db17e.avif",
-   "specialty": "Loja de Eletrônicos",
+   "specialty": "Eletrônicos",
    "hours": null,
    "website": "https://www.originatti.com.br/",
+   "premium": false
+  },
+  {
+   "name": "GS Mall",
+   "slug": "gs-mall",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/gs_mall_165.webp",
+   "specialty": "Eletrônicos",
+   "hours": null,
+   "website": "https://gsmallpy.com/",
+   "premium": false
+  },
+  {
+   "name": "Connect Imports",
+   "slug": "connect-imports",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/connect_imports_6273eb75-9106-49c9-a2fb-fda43e54e3dc.avif",
+   "specialty": "Eletrônicos",
+   "hours": null,
+   "website": "https://connectimports.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Casa Maringá",
+   "slug": "casa-maringa",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_maringa_104.webp",
+   "specialty": "Eletrônicos",
+   "hours": "Segunda a Sábado · 08:30 - 18:00",
+   "website": "http://www.casamaringa.net/",
+   "premium": false
+  },
+  {
+   "name": "Asia Store",
+   "slug": "asia-store",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/asia_store_44163850-4b08-44b3-bdfc-ef4e01af4916.avif",
+   "specialty": "Eletrônicos",
+   "hours": null,
+   "website": "https://asiastore.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Eletrocell",
+   "slug": "eletrocell",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/eletrocell_118.webp",
+   "specialty": "Eletrônicos",
+   "hours": "Segunda a Sexta · 07:00 - 15:30",
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "Melody",
+   "slug": "melody",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/melody_167.webp",
+   "specialty": "Eletrônicos",
+   "hours": "Segunda a Sexta · 07:00 - 15:00",
+   "website": "https://melody.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Tellecon Cell",
+   "slug": "tellecon-cell",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tellecon_cell_124.webp",
+   "specialty": "Eletrônicos",
+   "hours": "Segunda a Sexta · 07:00 - 15:30",
+   "website": "https://telleconcell.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Paco Shop",
+   "slug": "paco-shop",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/paco_shop_7debda59-43d3-45db-855c-bf87addc3e0e.avif",
+   "specialty": "Eletrônicos",
+   "hours": "Segunda a Sábado · 07:00 - 16:00",
+   "website": "https://www.pacoshop.com",
+   "premium": false
+  },
+  {
+   "name": "Compu Shop",
+   "slug": "compu-shop",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/compu_shop_104.webp",
+   "specialty": "Eletrônicos",
+   "hours": "Segunda a Sábado · 08:00 - 18:00",
+   "website": "https://www.facebook.com/compushopimportados/",
+   "premium": false
+  },
+  {
+   "name": "Digital Star",
+   "slug": "digital-star",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/digital_star_80.webp",
+   "specialty": "Eletrônicos",
+   "hours": null,
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "Xiaomi Zone",
+   "slug": "xiaomi-zone",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/xiaomi_zone_1.webp",
+   "specialty": "Eletrônicos",
+   "hours": "Segunda a Sexta · 07:30 - 16:30",
+   "website": "http://www.xiaomizone.com.py",
+   "premium": false
+  },
+  {
+   "name": "Total Smart",
+   "slug": "total-smart",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/total_smart.webp",
+   "specialty": "Eletrônicos",
+   "hours": null,
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "Cell Store 360",
+   "slug": "cell-store-360",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/cell_store_360_8a8ac648-934f-4bf6-adab-580d31dec798.avif",
+   "specialty": "Eletrônicos",
+   "hours": null,
+   "website": "https://cellstore360.com.py",
+   "premium": false
+  },
+  {
+   "name": "Nico Eletrônicos",
+   "slug": "nico-eletronicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/nico_eletronicos_165.webp",
+   "specialty": "Eletrônicos",
+   "hours": "Segunda a Sexta · 07:00 - 16:00",
+   "website": "https://nicoelectronicos.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Best Quality",
+   "slug": "best-quality",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/best_quality_102.webp",
+   "specialty": "Eletrônicos",
+   "hours": "Segunda a Sábado · 06:00 - 16:00",
+   "website": "https://www.soydub.com/",
+   "premium": false
+  },
+  {
+   "name": "Twin Shop",
+   "slug": "twin-shop",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/twin_shop_6c147b50-d022-4224-b377-b5d251042bc4.avif",
+   "specialty": "Celulares",
+   "hours": "Segunda a Sexta · 08:00 - 16:00",
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "Empire Shop",
+   "slug": "empire-shop",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/empire_shop_750507ca-509f-4724-ac6d-afaae76fdaa8.avif",
+   "specialty": "Departamentos",
+   "hours": "Segunda a Sábado · 06:30 - 15:30",
+   "website": "https://www.empireshop.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Roma Shopping",
+   "slug": "roma-shopping",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/roma_shopping_167.webp",
+   "specialty": "Informática",
+   "hours": "Segunda a Sábado · 07:00 - 16:00",
+   "website": "http://www.romapy.com/",
+   "premium": false
+  },
+  {
+   "name": "Excell",
+   "slug": "excell",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/excell_104.webp",
+   "specialty": "Informática",
+   "hours": "Segunda a Sábado · 07:00 - 16:00",
+   "website": "http://www.excellinformatica.com.py/",
+   "premium": false
+  },
+  {
+   "name": "TecnoTienda",
+   "slug": "tecnotienda",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tecnotienda_165.webp",
+   "specialty": "Informática",
+   "hours": "Segunda a Sexta · 08:30 - 15:00",
+   "website": "https://tecnotienda.com.py/index.php?class=Home",
+   "premium": false
+  },
+  {
+   "name": "Setup Informática",
+   "slug": "setup-informatica",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/setup_informatica_171.webp",
+   "specialty": "Informática",
+   "hours": null,
+   "website": "https://setupinformatica.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Filipina Importados",
+   "slug": "filipina-importados",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/lojacompreco/filipina_importados_17f27ae3-a898-486d-9e89-da78125e97b8.avif",
+   "specialty": "Perfumes, Beleza e Bolsas",
+   "hours": "Segunda a Sábado · 06:00 - 16:00",
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "SAX",
+   "slug": "sax",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/sax_104.webp",
+   "specialty": "Roupas, Jóias e Bijuterias",
+   "hours": "Segunda a Sábado · 08:00 - 17:00",
+   "website": "http://www.sax.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Digital Center",
+   "slug": "digital-center",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/digital_center_167.webp",
+   "specialty": "Câmeras e Fotografia",
+   "hours": "Segunda a Sábado · 07:00 - 16:00",
+   "website": "https://digitalcenterpy.com/",
+   "premium": false
+  },
+  {
+   "name": "Dinamica",
+   "slug": "dinamica",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/dinamica_103.webp",
+   "specialty": "Casa e Construção",
+   "hours": "Segunda a Sábado · 07:00 - 19:00",
+   "website": "http://www.dinamicasa.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Farmacia Amor",
+   "slug": "farmacia-amor",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmacia_amor_104.webp",
+   "specialty": "Farmácia e Suplementos",
+   "hours": "Segunda a Sexta · 06:00 - 16:00",
+   "website": "http://www.farmaciaamorpy.com/pagina/loja",
+   "premium": false
+  },
+  {
+   "name": "Atacado Fitness",
+   "slug": "atacado-fitness",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/atacado_fitness_24b7df93-2c77-464e-8ca1-3db9609f7773.avif",
+   "specialty": "Farmácia e Suplementos",
+   "hours": "Segunda a Sábado · 06:30 - 16:00",
+   "website": null,
+   "premium": false
+  },
+  {
+   "name": "Nova Pharma",
+   "slug": "nova-pharma",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/nova_pharma_16de483d-657d-46f4-a752-8ce1d74b72ef.avif",
+   "specialty": "Farmácia e Suplementos",
+   "hours": null,
+   "website": "https://novapharmapy.com/",
+   "premium": false
+  },
+  {
+   "name": "Farma10",
+   "slug": "farma10",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/farma10_9c8a138f-8ddc-4ea7-81c4-5105b65644c3.avif",
+   "specialty": "Farmácia e Suplementos",
+   "hours": "Segunda a Sábado · 07:00 - 16:00",
+   "website": "https://farma10.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Casa el Pato",
+   "slug": "casa-el-pato",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_el_pato_104.webp",
+   "specialty": "Pesca e Náutica",
+   "hours": "Segunda a Sábado · 07:00 - 16:30",
+   "website": "http://www.casaelpato.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Casa Japon",
+   "slug": "casa-japon",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_japon_104.webp",
+   "specialty": "Pesca e Náutica",
+   "hours": "Segunda a Sábado · 07:30 - 16:30",
+   "website": "http://www.casajapon.com/",
+   "premium": false
+  },
+  {
+   "name": "Makro Sport",
+   "slug": "makro-sport",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/makro_sport.webp",
+   "specialty": "Bicicletas e Motos",
+   "hours": "Segunda a Sábado · 08:30 - 16:30",
+   "website": "http://www.makrosport.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Kaneo Adventure",
+   "slug": "kaneo-adventure",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/kaneo_adventure_104.webp",
+   "specialty": "Bicicletas e Motos",
+   "hours": "Segunda a Quinta · 08:00 - 20:30",
+   "website": "http://www.kaneoadventure.com/",
+   "premium": false
+  },
+  {
+   "name": "World Music",
+   "slug": "world-music",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/world_music_167.webp",
+   "specialty": "Instrumentos Musicais",
+   "hours": "Segunda a Sábado · 08:00 - 16:00",
+   "website": "https://worldmusic.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Ferramentas Paris",
+   "slug": "ferramentas-paris",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/ferramentas_paris_8c8ca662-b785-4dec-a71a-33ee7265d71d.avif",
+   "specialty": "Ferramentas e Máquinas",
+   "hours": "Segunda a Sábado · 08:00 - 19:00",
+   "website": "https://herramientasparis.com/",
+   "premium": false
+  },
+  {
+   "name": "Extra Shop",
+   "slug": "extra-shop",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/extra_vape_2cf27903-33d2-4e6a-8424-81fb9af44daa.avif",
+   "specialty": "Diversos",
+   "hours": null,
+   "website": "https://extrashop.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Condor",
+   "slug": "condor",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/condor_104.webp",
+   "specialty": "Diversos",
+   "hours": null,
+   "website": "http://lojacondorpy.com/",
+   "premium": false
+  },
+  {
+   "name": "Choice Importados",
+   "slug": "choice-importados",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/choice_importados_104.webp",
+   "specialty": "Diversos",
+   "hours": "Segunda a Domingo · 09:00 - 21:00",
+   "website": "https://www.instagram.com/choicecde_py/?igsh=MXBsNnU3cnViMXpwZw%3D%3D",
+   "premium": false
+  },
+  {
+   "name": "Cambios Chaco",
+   "slug": "cambios-chaco",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/cambios_chaco_104.webp",
+   "specialty": "Casas de Câmbio",
+   "hours": "Segunda a Sexta · 07:00 - 17:00",
+   "website": "http://www.cambioschaco.com.py/",
+   "premium": false
+  },
+  {
+   "name": "Pilar",
+   "slug": "pilar",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/pilar_104.webp",
+   "specialty": "Cama / Mesa / Banho",
+   "hours": "Segunda a Sexta · 07:30 - 17:30",
+   "website": "https://www.pilar.com.py/",
    "premium": false
   }
  ],
