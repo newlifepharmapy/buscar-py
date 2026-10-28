@@ -39,7 +39,7 @@
     el.title = (cur.source === "manual"
       ? "Cotação de referência definida pela equipe do site"
       : String(cur.source).split("+").indexOf("bonanza") >= 0
-      ? "Cotação de venda do dólar na Bonanza Cambios (Ciudad del Este), conferida a cada 5 minutos"
+      ? "Cotação de venda do dólar na Bonanza Cambios, filial Jebai (Ciudad del Este), conferida a cada 5 minutos"
       : "Cotação comercial do dólar" + (label ? " (fonte: " + label + ")" : "") + ", conferida a cada 5 minutos") + when;
   }
 

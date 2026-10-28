@@ -340,14 +340,14 @@ test("Store: grava, confere versão e recarrega", () => {
   assert.equal(st2.version, 1);
 });
 
-test("cotação: lê o preço de venda da Casa Matriz no quadro da Bonanza Cambios", () => {
+test("cotação: lê o preço de venda da filial Jebai no quadro da Bonanza Cambios", () => {
   const { parseBonanza } = require("../lib/rates");
   const board = JSON.stringify({ sucursales: [
     { cod: 2, cotizaciones: [{ prefix: "usa", compra: 5650, venta: 5835 }], arbitrajes: [{ prefix: "dore", compra: 5.15, venta: 5.42 }] },
     { cod: 0, cotizaciones: [{ prefix: "brasil", compra: 1080, venta: 1150 }, { prefix: "usa", compra: 5720, venta: 5830 }],
       arbitrajes: [{ prefix: "doeu", venta: 1.17 }, { prefix: "dore", compra: 5.12, venta: 5.4 }] },
   ] });
-  assert.equal(parseBonanza(board, "PYG"), 5830);
-  assert.equal(parseBonanza(board, "BRL"), 5.4);
+  assert.equal(parseBonanza(board, "PYG"), 5835);
+  assert.equal(parseBonanza(board, "BRL"), 5.42);
   assert.ok(Number.isNaN(parseBonanza(JSON.stringify({ sucursales: [] }), "BRL")));
 });
