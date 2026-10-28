@@ -9,7 +9,7 @@ modelo e tamanho (matches=true). As fotos e logos ficam no servidor de imagens d
 servidor do site baixa cada uma uma vez (lib/remote-images.js) e serve por /img/cp/ e /img/lojas/.
 """
 import html, json, os, re, sys, unicodedata
-from urllib.parse import urlparse, quote_plus, parse_qsl, urlencode
+from urllib.parse import urlparse, quote_plus
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, "data", "comprasparaguai.json")
@@ -88,7 +88,7 @@ HOURS_NOTES = [
     (r";?\s*(other branches differ|hours differ by branch)\s*$", "; as outras unidades têm outro horário"),
     (r",\s*main branch\)", ", matriz)"),
     (r",\s*([^,()]+?) branch\)", r", unidade \1)"),
-    (r"\)?,\s*(both|all) (units|branches)\s*$", ")"),  # mesmo horário em todas as unidades: não precisa dizer
+    (r"(\))?,\s*(both|all) (units|branches)\s*$", r"\1"),  # mesmo horário em todas as unidades: não precisa dizer
 ]
 
 
@@ -105,7 +105,12 @@ def main():
     cat = json.load(open(CATALOG, encoding="utf8"))
     # tira a importação anterior (se houver), lembrando o id de cada produto: quem já existia fica com o
     # mesmo id sempre que der (os links antigos /#p<id> continuam abrindo o mesmo produto)
-    prev_id = {p.get("key") or p["source_url"]: p["id"] for p in cat["products"] if p.get("source") == "comprasparaguai"}
+    prev = {}
+    for p in cat["products"]:
+        if p.get("source") == "comprasparaguai":
+            prev.setdefault(p["source_url"], p)
+            if p.get("key"):
+                prev[p["key"]] = p
     base = [p for p in cat["products"] if p.get("source") != "comprasparaguai"]
     assert all(p["id"] == i for i, p in enumerate(base)), "os produtos de exemplo precisam continuar com id = posição"
     fake_stores = [s for s in cat["stores"] if not s.get("real")]
@@ -127,9 +132,8 @@ def main():
         d["cities"] = s.get("cities") or []
         # o horário da página da loja vem completo (o cartão do diretório mostra só o primeiro dia)
         d["full_hours"] = s.get("hours")
-        if s.get("website"):
-            d["website"] = s["website"]
-        for k in ("name", "logo_url", "specialty"):
+        # o site da loja vem do cartão do diretório; o link da página às vezes é o de "Vendedores" ou contato
+        for k in ("name", "logo_url", "specialty", "website"):
             if not d.get(k) or (k == "logo_url" and not img_ok(d.get(k))):
                 d[k] = s.get(k)
     warn = []
@@ -188,7 +192,7 @@ def main():
             name = re.sub(r"\bMem[oó]ria\s+", "", name)
             name = re.sub(r"\bPafum\b", "Parfum", name)  # erro de digitação no título do site
             products.append({
-                "key": "cp" + m.group(1),
+                "key": "cp" + m.group(1), "page_url": url,
                 "name": name, "brand": rp.get("brand") or "", "color": "", "category": category,
                 **({"kind": KIND[category]} if category in KIND else {}),
                 "image": "img/cp/%s%s" % (m.group(1), ext_of(rp["image_url"])), "image_src": rp["image_url"],
@@ -239,8 +243,9 @@ def main():
             site = None
         if site:  # sem marcadores de campanha (?fbclid=..., ?utm_..., ?igsh=...)
             u = urlparse(site)
-            q = urlencode([kv for kv in parse_qsl(u.query, keep_blank_values=True) if not TRACKING.match(kv[0])])
-            site = u._replace(query=q).geturl()
+            kept = [kv for kv in u.query.split("&") if kv and not TRACKING.match(kv.split("=", 1)[0])]
+            if len(kept) != len([kv for kv in u.query.split("&") if kv]):  # o resto do endereço fica como veio
+                site = u._replace(query="&".join(kept)).geturl()
         stores.append({
             "id": sl, "name": html.unescape((d or {}).get("name") or name), "city": city, "cities": cities, "rating": None,
             "real": True, "specialty": re.sub(r"\s*\(.*\)$", "", re.sub(r"^Loja de\s+", "", html.unescape((d or {}).get("specialty") or "").strip())) or None, "hours": hours,
@@ -256,14 +261,21 @@ def main():
     # os novos (destaques primeiro) ocupam as vagas de quem saiu e depois entram no fim
     order = {c: i for i, (c, _) in enumerate(NEW_CATS)}
     ids = range(len(base), len(base) + len(products))
+    taken = set()
     for p in products:
-        old = prev_id.get(p["key"], prev_id.get(p["source_url"]))
-        p["id"] = old if old in ids else None
-    taken = {p["id"] for p in products}
+        old = prev.get(p["key"]) or prev.get(p["source_url"])
+        # produto sem página do modelo ("__<n>/"): o anúncio usado pode mudar de uma leitura para outra, mas o
+        # link #cp... continua o mesmo de antes
+        if old and old.get("key") and re.search(r"__\d+/?$", p["page_url"]):
+            p["key"] = old["key"]
+        p["id"] = old["id"] if old and old["id"] in ids and old["id"] not in taken else None
+        taken.add(p["id"])
     free = iter(i for i in ids if i not in taken)
     for p in sorted((p for p in products if p["id"] is None), key=lambda p: (p.get("featured") or 1e9, order.get(p["category"], 99))):
         p["id"] = next(free)
     products.sort(key=lambda p: p["id"])
+    for p in products:
+        del p["page_url"]
     used_cats = {p["category"] for p in products}
     cat["categories"] = [{"id": c, "name": nm} for c, nm in NEW_CATS if c in used_cats] + old_cats
     # lojas reais primeiro (as com mais produtos), depois as de exemplo

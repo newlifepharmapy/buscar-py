@@ -313,7 +313,6 @@ img { max-width: 100%; }
 #storeNone { margin-top: 24px; }
 .store-grid { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; }
 .store-grid:focus { outline: none; }
-.store-grid:empty { display: none; }
 .store-card { display: grid; grid-template-rows: auto 1fr auto; gap: 14px; padding: 18px; background: var(--white); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow-sm); scroll-margin-top: calc(var(--header-h, 0px) + 16px); }
 .store-card:target { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-100), var(--shadow-sm); }
 .store-card-logo { display: grid; place-items: center; height: 92px; border-radius: var(--r); background: var(--mist); padding: 12px; }
@@ -343,7 +342,7 @@ img { max-width: 100%; }
 /* Rodapé */
 .footer { background: var(--pattern-dark) 0 0 / 96px 96px, var(--navy); color: #c3cad8; font-size: 14px; border-top: 3px solid var(--gold); }
 .footer-inner { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.4fr); gap: 32px; padding-block: 40px 24px; }
-.footer-inner:has(> .foot-stores) { grid-template-columns: minmax(0, 1.3fr) minmax(0, .9fr) minmax(0, 1.4fr) minmax(0, 1fr); }
+.footer-inner:where(:has(> .foot-stores)) { grid-template-columns: minmax(0, 1.3fr) minmax(0, .9fr) minmax(0, 1.4fr) minmax(0, 1fr); }
 .footer ul a { color: #c3cad8; text-decoration: none; }
 .footer ul a:hover { color: var(--gold); text-decoration: underline; }
 .footer-brand { display: grid; gap: 12px; align-content: start; justify-items: start; }
