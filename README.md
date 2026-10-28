@@ -56,19 +56,20 @@ O repositório já vem com um `Dockerfile`, que o Railway usa sozinho para o bui
 1. No Railway, crie um serviço a partir deste repositório do GitHub. Em *Settings → Deploy*, defina
    **Healthcheck Path** = `/health` (timeout de 60 s) e **Restart Policy** = *On Failure*. (O Railway não
    aplica o `railway.json` em serviços novos; ele fica no repositório só para serviços antigos.)
-2. Variáveis: `ADMIN_PASSWORD` (senha do painel) e, opcional, `CANONICAL_HOST=buscarpy.com`, que redireciona
-   `www.buscarpy.com` e `http://` para `https://buscarpy.com`. Adicione também um volume (ver "Painel admin").
-3. Em *Settings → Networking*, adicione os domínios `buscarpy.com` e `www.buscarpy.com`. Para cada um, o Railway
-   mostra um registro **CNAME** (para onde apontar) e um **TXT** `_railway-verify` (prova de que o domínio é seu).
-   Crie os dois no provedor de DNS do domínio.
-   - No domínio raiz (`buscarpy.com`), o provedor precisa aceitar CNAME na raiz (CNAME flattening, ALIAS ou ANAME).
-     Cloudflare, por exemplo, aceita. Se o seu provedor não aceitar, mude os servidores DNS para a Cloudflare (grátis).
+2. Variáveis: `ADMIN_PASSWORD` (senha do painel) e `CANONICAL_HOST=www.buscarpy.com`, o endereço principal:
+   `buscarpy.com` e `http://` redirecionam para `https://www.buscarpy.com`. Adicione também um volume (ver "Painel admin").
+3. Em *Settings → Networking*, adicione o domínio `www.buscarpy.com`. O Railway mostra um registro **CNAME**
+   (para onde apontar) e um **TXT** `_railway-verify.www` (prova de que o domínio é seu). Crie os dois no DNS do domínio.
+   - O DNS do buscarpy.com fica na GoDaddy, que não aceita CNAME no domínio raiz. Por isso o site principal é o
+     `www`, e o `buscarpy.com` vai para ele pelo **Encaminhamento** da GoDaddy (para `https://www.buscarpy.com`,
+     permanente 301).
+   - Para usar o domínio raiz direto no Railway, o DNS precisa aceitar CNAME na raiz (CNAME flattening, ALIAS ou
+     ANAME), como a Cloudflare (grátis). Nesse caso, adicione `buscarpy.com` no Railway e use `CANONICAL_HOST=buscarpy.com`.
    - Na Cloudflare, use SSL/TLS no modo **Full** (não *Flexible*: com *Flexible* e `CANONICAL_HOST` ligado,
      o site entra em redirecionamento infinito). Deixe a nuvem laranja desligada até o Railway emitir o certificado.
    - Quando ligar a nuvem laranja (site passando pela Cloudflare), defina também `TRUST_CLOUDFLARE=1`, para o
      limite de senhas erradas do painel usar o IP real de quem acessa. Sem a Cloudflare na frente, não defina:
-     qualquer um poderia inventar o cabeçalho com o IP. (O endereço `*.up.railway.app` continua acessível sem
-     passar pela Cloudflare; se não usar, remova-o em *Settings → Networking*.)
+     qualquer um poderia inventar o cabeçalho com o IP.
    - O certificado HTTPS é emitido sozinho pelo Railway depois que os registros propagam.
    - O plano Trial do Railway aceita 1 domínio próprio por serviço; o Hobby aceita 2 (raiz + www).
 

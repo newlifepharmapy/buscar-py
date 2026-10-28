@@ -16,7 +16,10 @@ const DEFAULTS = require("./lib/defaults");
 const PORT = Number(process.env.PORT) || 8080;
 const ROOT = path.join(__dirname, "public");
 const PROD = process.env.NODE_ENV === "production";
-const CANONICAL_HOST = (process.env.CANONICAL_HOST || "").toLowerCase(); // ex.: buscarpy.com
+// Endereço principal do site (ex.: www.buscarpy.com). O outro (com ou sem "www.") redireciona para ele.
+const CANONICAL_HOST = (process.env.CANONICAL_HOST || "").toLowerCase().replace(/\.$/, "");
+const ALT_HOST = CANONICAL_HOST.startsWith("www.") ? CANONICAL_HOST.slice(4) : "www." + CANONICAL_HOST;
+const SITE_HOST = CANONICAL_HOST || "www.buscarpy.com"; // usado no link canônico, no sitemap e no robots.txt
 // Onde ficam settings.json e a última cotação. No Railway, um volume montado é usado automaticamente.
 const DATA_DIR = path.resolve(process.env.DATA_DIR || process.env.RAILWAY_VOLUME_MOUNT_PATH || path.join(__dirname, "storage"));
 const HAS_VOLUME = Boolean(process.env.RAILWAY_VOLUME_MOUNT_PATH);
@@ -110,7 +113,7 @@ function page(view, pagePath) {
   const key = view + "|" + pagePath;
   if (PROD && pages.has(key)) return pages.get(key);
   const s = store.get();
-  const html = R.render(view, s, rates.effective(s), { server: true, path: pagePath, host: CANONICAL_HOST || "buscarpy.com", reload: !PROD });
+  const html = R.render(view, s, rates.effective(s), { server: true, path: pagePath, host: SITE_HOST, reload: !PROD });
   const body = Buffer.from(html);
   const entry = compress({ body, type: TYPES[".html"], tag: R.hash(html) });
   pages.set(key, entry);
@@ -277,8 +280,8 @@ async function handle(req, res) {
 
   const host = hostOf(req);
   const proto = req.headers["x-forwarded-proto"];
-  // www.buscarpy.com -> buscarpy.com e http -> https (o Railway termina o TLS e informa x-forwarded-proto)
-  if (CANONICAL_HOST && (host === "www." + CANONICAL_HOST || (host === CANONICAL_HOST && proto === "http"))) {
+  // buscarpy.com <-> www.buscarpy.com e http -> https (o Railway termina o TLS e informa x-forwarded-proto)
+  if (CANONICAL_HOST && (host === ALT_HOST || (host === CANONICAL_HOST && proto === "http"))) {
     return redirect(res, `https://${CANONICAL_HOST}${req.url}`);
   }
 
@@ -297,6 +300,11 @@ async function handle(req, res) {
   }
   if (rel === "/cameras/" || rel === "/cameras.html" || rel === "/camaras") return redirect(res, "/cameras");
   if (rel === "/admin") return redirect(res, "/admin/");
+  // sitemap e robots.txt apontam para o endereço principal do site
+  if (rel === "/sitemap.xml" || rel === "/robots.txt") {
+    const text = fs.readFileSync(path.join(ROOT, rel), "utf8").replace(/https:\/\/www\.buscarpy\.com/g, `https://${SITE_HOST}`);
+    return send(req, res, generated(text, TYPES[path.extname(rel)]), { "Cache-Control": "public, max-age=3600" });
+  }
   if (rel === "/theme.css") return send(req, res, generated(R.themeCss(store.get().brand), TYPES[".css"]));
   if (rel === "/brand-logo") {
     const m = /^data:(image\/(?:png|jpeg|webp));base64,(.+)$/.exec(store.get().brand.logo || "");
