@@ -1,6 +1,6 @@
 /* Buscar PY — cotação do dólar na barra superior.
  * O servidor já entrega a página com a cotação atual; aqui ela é conferida de novo a cada minuto
- * (só com a aba visível) em /api/rates, que responde da memória do servidor sem consultar o Google.
+ * (só com a aba visível) em /api/rates, que responde da memória do servidor sem consultar a casa de câmbio.
  * Quem precisa reagir a uma cotação nova (os preços em R$ e ₲ da vitrine) usa BuscaFx.onChange. */
 (function () {
   "use strict";
@@ -16,7 +16,7 @@
   var lastPoll = Date.now();
 
   // Nome das fontes para o visitante, igual ao do servidor: "google+awesomeapi" -> "Google e AwesomeAPI".
-  var SOURCE_LABELS = { google: "Google", awesomeapi: "AwesomeAPI", "er-api": "ExchangeRate-API" };
+  var SOURCE_LABELS = { bonanza: "Bonanza Cambios", google: "Google", awesomeapi: "AwesomeAPI", "er-api": "ExchangeRate-API" };
   function sourceLabel(source) {
     return String(source || "").split("+").filter(Boolean).map(function (id) {
       return Object.prototype.hasOwnProperty.call(SOURCE_LABELS, id) ? SOURCE_LABELS[id] : id;
@@ -38,6 +38,8 @@
     var label = sourceLabel(cur.source);
     el.title = (cur.source === "manual"
       ? "Cotação de referência definida pela equipe do site"
+      : String(cur.source).split("+").indexOf("bonanza") >= 0
+      ? "Cotação de venda do dólar na Bonanza Cambios (Ciudad del Este), conferida a cada 5 minutos"
       : "Cotação comercial do dólar" + (label ? " (fonte: " + label + ")" : "") + ", conferida a cada 5 minutos") + when;
   }
 

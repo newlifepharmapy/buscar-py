@@ -71,6 +71,9 @@ img { max-width: 100%; }
 .utilbar :focus-visible { outline-color: var(--white); }
 .fx { white-space: nowrap; font-variant-numeric: tabular-nums; margin-left: auto; }
 .fx b, .util-msg b { font-weight: 700; }
+/* Bandeira de cada moeda na cotação */
+.fx-cur { display: inline-flex; align-items: center; gap: 5px; }
+.fx-flag { flex: none; width: 18px; height: 12px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255,255,255,.55); }
 /* Ponto vermelho pulsando: "ao vivo" */
 .live-dot { position: relative; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 2px var(--white); }
 .live-dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--red); opacity: 0; animation: live 1.8s ease-out infinite; }
