@@ -190,7 +190,7 @@ test("campo inválido mantém o último valor salvo", async () => {
   const r = await authed("PUT", "/api/admin/settings", { settings: cur.settings, version: cur.version });
   cur = await r.json();
   assert.equal(cur.settings.brand.blue, blue);
-  assert.deepEqual(cur.settings.rates, { auto: false, BRL: 5.45, PYG: 7900 });
+  assert.deepEqual(cur.settings.rates, { auto: false, BRL: 5.35, PYG: 5800 });
   assert.match(await (await fetch(base + "/theme.css")).text(), new RegExp("--blue:" + blue));
   cur.settings.rates.auto = true;
   assert.equal((await authed("PUT", "/api/admin/settings", { settings: cur.settings, version: cur.version })).status, 200);

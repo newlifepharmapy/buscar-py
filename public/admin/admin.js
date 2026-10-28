@@ -136,7 +136,7 @@
   }
 
   /* ---------- Números no jeito brasileiro ---------- */
-  // "5,45" para o real e "7.900" para o guarani; o servidor recebe sempre número.
+  // "5,35" para o real e "5.800" para o guarani; o servidor recebe sempre número.
   function ptNum(v, group) {
     var p = String(v).split(".");
     if (group) p[0] = p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -156,9 +156,9 @@
   }
   var NUM = {
     brl: { parse: parseBRL, min: 1, max: 20, show: function (v) { return ptNum(v, false); },
-      msg: "Digite quantos reais vale US$ 1, um valor entre 1 e 20 (ex.: 5,45)." },
+      msg: "Digite quantos reais vale US$ 1, um valor entre 1 e 20 (ex.: 5,35)." },
     pyg: { parse: parsePYG, min: 1000, max: 20000, show: function (v) { return ptNum(v, true); },
-      msg: "Digite quantos guaranis vale US$ 1, um valor entre 1.000 e 20.000 (ex.: 7.900)." },
+      msg: "Digite quantos guaranis vale US$ 1, um valor entre 1.000 e 20.000 (ex.: 5.800)." },
   };
   function numValue(kind, text) {
     var n = NUM[kind].parse(text);
