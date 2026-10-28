@@ -26,12 +26,13 @@
 
 <header class="header">
   <div class="container header-inner">
+    {{> menubtn}}
     {{> logo}}
     <form class="search" action="/" method="get" role="search">
       <label for="q" class="sr-only">Buscar produto</label>
       <svg class="search-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       <input id="q" name="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Buscar produto, marca ou cor" required>
-      <button type="submit" class="search-btn">Buscar</button>
+      <button type="submit" class="search-btn"><svg class="search-btn-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5L20 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span class="search-btn-txt">Buscar</span></button>
     </form>
   </div>
 </header>
@@ -68,7 +69,10 @@
   </div>
 </footer>
 
+{{> menu}}
+
 <script src="/js/fx.js"></script>
+<script src="/js/menu.js"></script>
 <script src="/js/cameras.js"></script>
 </body>
 </html>

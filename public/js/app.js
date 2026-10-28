@@ -96,12 +96,16 @@
     $("stCities").textContent = fmtInt.format(cities.length);
     $("footCities").innerHTML = cities.map((c) => `<li><button type="button" data-city="${esc(c)}">${esc(c)}</button></li>`).join("");
     $("footCats").innerHTML = D.categories.map((c) => `<li><button type="button" data-cat="${c.id}">${esc(c.name)}</button></li>`).join("");
+    // busca ou categoria vinda de outra página (ex.: /cameras ou o menu lateral) pelo endereço /?q=... ou /?cat=...
+    const params = new URLSearchParams(location.search);
+    const q0 = params.get("q"), c0 = params.get("cat");
+    if (c0 && Object.prototype.hasOwnProperty.call(catById, c0)) S.cat = c0;
     buildCatbar(); buildFilters(cities); wire();
-    // busca vinda de outra página (ex.: /cameras) pelo endereço /?q=...
-    const q0 = new URLSearchParams(location.search).get("q");
     if (q0 && q0.trim()) { S.text = q0.trim().slice(0, 100); $("q").value = S.text; }
+    if (window.BuscaMenu) BuscaMenu.setCurrent(S.cat);
     render();
-    if (S.text) scrollToEl($("resultados"));
+    if (S.cat) { const b = $("catbar").querySelector('[aria-pressed="true"]'); if (b) centerCat(b); }
+    if (S.text || S.cat) scrollToEl($("resultados"));
     const m = /^#p(\d+)$/.exec(location.hash);
     if (m && D.products[+m[1]]) openProduct(+m[1]);
   }
@@ -137,7 +141,17 @@
       if (on) active = x;
     });
     if (active) centerCat(active);
+    if (window.BuscaMenu) BuscaMenu.setCurrent(S.cat);
+    catToUrl();
     render();
+  }
+  // O endereço acompanha a categoria (/?cat=...): recarregar ou compartilhar a página mostra a mesma lista.
+  function catToUrl() {
+    try {
+      const u = new URL(location.href);
+      if (S.cat) u.searchParams.set("cat", S.cat); else u.searchParams.delete("cat");
+      if (u.href !== location.href) history.replaceState(null, "", u);
+    } catch (e) { /* ignorado */ }
   }
   // Rola só a barra de categorias (nunca a página) para deixar o botão no meio
   function centerCat(btn) {
@@ -154,6 +168,8 @@
     S.cat = null;
     $("catbar").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(!x.dataset.cat)));
     $("catbar").scrollLeft = 0; updateCatArrows();
+    if (window.BuscaMenu) BuscaMenu.setCurrent(null);
+    catToUrl();
   }
   function clearGuess() {
     S.guessCat = null;
@@ -258,7 +274,8 @@
     let badge = "";
     if (r.sim != null) badge = `<span class="badge-sim">${Math.round(simPct(r.sim) * 100)}% parecido</span>`;
     const save = !small && r.save >= SAVE_MIN
-      ? `<span class="save" title="Diferença entre a loja mais cara e a mais barata">Economize ${usd(r.saveAmt)} (${Math.round(r.save * 100)}%)</span>` : "";
+      // no celular o cartão é estreito: o selo mostra só a porcentagem para caber numa linha
+      ? `<span class="save" title="Diferença entre a loja mais cara e a mais barata"><span class="save-long">Economize ${usd(r.saveAmt)} (${Math.round(r.save * 100)}%)</span><span class="save-short">Economize ${Math.round(r.save * 100)}%</span></span>` : "";
     const simBtn = small ? "" : `<button type="button" class="sim-btn" data-sim="${p.id}" title="Buscar parecidos" aria-label="Buscar produtos parecidos com ${esc(p.name)}">${CAM_ICON}</button>`;
     const store = storeById[r.offers[0].store];
     return `<article class="card" data-id="${p.id}" data-best="${r.best}">
@@ -616,6 +633,16 @@
     $("catPrev").onclick = () => { const t = $("catbar"); t.scrollBy({ left: -t.clientWidth * 0.7 }); };
     $("catNext").onclick = () => { const t = $("catbar"); t.scrollBy({ left: t.clientWidth * 0.7 }); };
     $("crumbs").onclick = (e) => { if (e.target.closest("[data-home]")) goHome(); };
+    // menu lateral (celular): faz o mesmo que a barra de categorias, sem recarregar a página
+    $("menuCats").addEventListener("click", (e) => {
+      const a = e.target.closest("a[data-cat]");
+      if (!a || !window.BuscaMenu || e.button || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      setCat(a.dataset.cat);
+      BuscaMenu.close(() => {
+        if ($("resultados").getBoundingClientRect().top < headerH() + 8 || S.cat) scrollToEl($("resultados"));
+      });
+    });
     $("footCats").onclick = (e) => {
       const b = e.target.closest("[data-cat]"); if (!b) return;
       closePanel(true); S.text = ""; $("q").value = "";

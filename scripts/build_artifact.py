@@ -8,7 +8,7 @@ OUT = os.path.join(ROOT, "dist", "artifact")
 # a página vem do modelo views/index.html, preenchida com as configurações padrão
 html = subprocess.run(["node", os.path.join(ROOT, "scripts", "render_static.js"), "index.html"], check=True, capture_output=True, text=True).stdout
 # a página de câmeras vira cameras.html ao lado da página principal: o link abre na mesma janela
-html = html.replace('href="/cameras"', 'href="cameras.html"')
+html = html.replace('href="/cameras"', 'href="cameras.html"').replace('href="/?', 'href="?')
 body = html.split("<!-- ARTIFACT:START -->")[1].split("<!-- ARTIFACT:END -->")[0]
 body = body.replace("</head>\n<body>\n", "")
 css = open(os.path.join(PUB, "css/app.css"), encoding="utf8").read()
@@ -30,7 +30,7 @@ cams = cams.replace('<link rel="stylesheet" href="/css/app.css">', "<style>\n" +
 assert "/theme.css" not in cams and "/brand-logo" not in cams
 cams = re.sub(r'<script src="/([^"]+)"></script>', inline, cams)
 cams = cams.replace("<script>\n", "<script>window.BUSCA_B64 = true; window.BUSCA_DEMO = true;</script>\n<script>\n", 1)
-cams = cams.replace('href="/cameras"', 'href="cameras.html"').replace('href="/"', 'href="index.html"').replace('action="/"', 'action="index.html"')
+cams = cams.replace('href="/cameras"', 'href="cameras.html"').replace('href="/"', 'href="index.html"').replace('href="/?', 'href="index.html?').replace('action="/"', 'action="index.html"')
 assert not re.search(r'(href|src|action)="/(?!/)', cams), "caminho absoluto sobrando em cameras.html"
 open(os.path.join(OUT, "cameras.html"), "w", encoding="utf8").write(cams)
 shutil.rmtree(OUT + "/img", ignore_errors=True)

@@ -27,6 +27,7 @@
 
 <header class="header">
   <div class="container header-inner">
+    {{> menubtn}}
     {{> logo}}
     <form class="search" id="searchForm" role="search">
       <label for="q" class="sr-only">Buscar produto</label>
@@ -36,7 +37,7 @@
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" d="M4 8h3l1.6-2.4h6.8L17 8h3v11H4z"/><circle cx="12" cy="13.2" r="3.5" fill="none" stroke="currentColor" stroke-width="1.9"/></svg>
         <span class="cam-label">Buscar por foto</span>
       </button>
-      <button type="submit" class="search-btn">Buscar</button>
+      <button type="submit" class="search-btn"><svg class="search-btn-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5L20 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span class="search-btn-txt">Buscar</span></button>
     </form>
   </div>
   <nav class="catnav" aria-label="Categorias">
@@ -132,6 +133,7 @@
     <aside class="filters" id="filters" aria-label="Filtros">
       <details open>
         <summary>
+          <svg class="f-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16l-6 7v6l-4 2v-8L4 5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span>Filtrar resultados</span>
           <svg class="chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </summary>
@@ -219,9 +221,9 @@
 
 <dialog id="pdlg" aria-labelledby="pdName">
   <div class="pd">
-    <button class="icon-x pd-close" id="pdClose" type="button" aria-label="Fechar">
+    <div class="pd-bar"><button class="icon-x pd-close" id="pdClose" type="button" aria-label="Fechar">
       <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    </button>
+    </button></div>
     <div class="pd-media"><img id="pdImg" alt=""></div>
     <div class="pd-info">
       <p class="pd-cat" id="pdCat"></p>
@@ -248,6 +250,9 @@
   </div>
 </dialog>
 
+{{> menu}}
+
+<script src="js/menu.js"></script>
 <script src="vendor/tf.min.js"></script>
 <script src="js/vision.js"></script>
 <script src="js/search.js"></script>

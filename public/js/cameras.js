@@ -23,12 +23,10 @@
       msg: el.querySelector(".cam-cover-msg"),
       play: el.querySelector(".cam-play"),
       playTxt: el.querySelector(".cam-play-txt"),
-      toggle: el.querySelector(".cam-toggle"),
       full: el.querySelector(".cam-full"),
       frame: null,
       inView: false,
       want: true,        // deve tocar quando estiver na tela
-      reason: "",        // por que está parada: "user" (pausou) ou "light" (economia de dados)
       ratio: 0,          // quanto da câmera está na tela (0 a 1)
       asked: 0,          // quando a pessoa pediu esta câmera (ela tem prioridade na vaga)
       idled: false,      // estava tocando quando a página ficou 10 minutos sem uso
@@ -70,7 +68,7 @@
   function liveCount() { return cards.filter(function (c) { return c.frame; }).length; }
 
   function open(c) {
-    // o "Assistir ao vivo" fica dentro da capa, que vai sumir: o foco passa para o "Pausar"
+    // o "Assistir ao vivo" fica dentro da capa, que vai sumir: o foco passa para o "Tela cheia" (ou para o vídeo)
     var refocus = c.cover.contains(document.activeElement);
     var f = document.createElement("iframe");
     f.className = "cam-frame";
@@ -82,16 +80,15 @@
     c.stage.appendChild(f);
     c.frame = f;
     c.cover.hidden = true;
-    c.toggle.hidden = false;
     c.full.hidden = !fullscreenOk;
     c.el.classList.add("is-live");
-    if (refocus) c.toggle.focus();
+    if (refocus) (fullscreenOk ? c.full : f).focus();
     armIdle();
   }
 
   // Fecha o player (o vídeo para de baixar na hora) e mostra a capa com o motivo.
   function close(c, msg, canPlay, playLabel) {
-    var refocus = document.activeElement === c.toggle || document.activeElement === c.full;
+    var refocus = document.activeElement === c.full;
     if (c.frame) {
       if (document.fullscreenElement === c.stage) document.exitFullscreen().catch(function () {});
       c.frame.src = "about:blank";
@@ -103,7 +100,6 @@
     c.msg.textContent = msg;
     c.playTxt.textContent = playLabel || "Assistir ao vivo";
     c.play.hidden = !canPlay;
-    c.toggle.hidden = true;
     c.full.hidden = true;
     if (refocus && canPlay) c.play.focus();
   }
@@ -111,10 +107,7 @@
   // Mensagem da capa para uma câmera parada.
   function stopped(c) {
     if (c.idled) return close(c, "Pausamos depois de 10 minutos sem uso, para economizar seus dados.", true, "Continuar assistindo");
-    if (!c.want) {
-      if (c.reason === "light") return close(c, conn.saveData ? "Economia de dados ativada: toque para assistir." : "Conexão lenta: toque para assistir.", true);
-      return close(c, "Câmera pausada.", true);
-    }
+    if (!c.want) return close(c, conn.saveData ? "Economia de dados ativada: toque para assistir." : "Conexão lenta: toque para assistir.", true);
     close(c, "Abrindo a câmera…", false);
   }
 
@@ -155,18 +148,10 @@
     // "Continuar assistindo" depois da pausa por falta de uso volta com todas as que estavam tocando
     if (c.idled) cards.forEach(function (x) { x.idled = false; });
     c.want = true;
-    c.reason = "";
     c.inView = true;
     c.asked = ++asks;
     sync();
     say("Câmera ao vivo: " + c.name);
-  }
-
-  function pause(c) {
-    c.want = false;
-    c.reason = "user";
-    sync();
-    say("Câmera pausada: " + c.name);
   }
 
   // 10 minutos sem mexer na página (clique, toque, tecla ou rolagem) com alguma câmera aberta: pausa tudo.
@@ -187,12 +172,11 @@
 
   cards.forEach(function (c) {
     c.play.addEventListener("click", function () { play(c); });
-    c.toggle.addEventListener("click", function () { if (c.frame) pause(c); else play(c); });
     c.full.addEventListener("click", function () {
       if (document.fullscreenElement) document.exitFullscreen().catch(function () {});
       else c.stage.requestFullscreen().catch(function () { /* recusado pelo navegador */ });
     });
-    if (light) { c.want = false; c.reason = "light"; }
+    if (light) c.want = false;
   });
 
   // Quanto de cada câmera está na tela. Abre com metade dela visível; ao sair, espera um pouco antes de

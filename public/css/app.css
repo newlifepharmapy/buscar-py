@@ -109,16 +109,17 @@ img { max-width: 100%; }
 /* Cabeçalho */
 .header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: rgba(255, 255, 255, .96); border-bottom: 1px solid var(--line); -webkit-backdrop-filter: saturate(1.4) blur(10px); backdrop-filter: saturate(1.4) blur(10px); }
 .header-inner { display: flex; align-items: center; gap: 32px; padding-block: 14px; }
-/* Logo: símbolo "b" + "BUSCAR PY". --logo-h é a altura do símbolo; as proporções vêm da assinatura horizontal. */
-.logo { --logo-h: 30px; display: inline-flex; align-items: center; gap: calc(var(--logo-h) * .4); color: var(--navy); text-decoration: none; flex: 0 1 auto; min-width: 0; }
+/* Logo: símbolo "b" + "buscar py" (identidade v3.2). --logo-h é a altura do símbolo. O quadro do nome tem a mesma
+   altura, com as letras na metade dela e centradas no símbolo; o espaço entre os dois é o da assinatura horizontal. */
+.logo { --logo-h: 38px; display: inline-flex; align-items: center; gap: calc(var(--logo-h) * .289); color: var(--navy); text-decoration: none; flex: 0 1 auto; min-width: 0; }
 .logo-mark { display: block; flex: none; width: calc(var(--logo-h) * 116 / 154); height: var(--logo-h); }
 .logo-mark .lm-ink { fill: currentColor; }
 .logo-mark .lm-arrow { stroke: var(--gold); }
-.logo-word { display: block; flex: none; width: calc(var(--logo-h) * .813 * 624.8 / 75.1); height: calc(var(--logo-h) * .813); }
-.logo-word .lw-ink { fill: currentColor; }
-.logo-word .lw-py { fill: var(--gold); }
-/* nome trocado no painel: texto no estilo da assinatura; um nome comprido quebra em duas linhas em vez de passar da tela */
-.logo-text { min-width: 0; font-size: calc(var(--logo-h) * 1.12); line-height: 1.05; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; overflow-wrap: anywhere; }
+.logo-word { display: block; flex: none; width: calc(var(--logo-h) * 506.1 / 154); height: var(--logo-h); }
+.logo-word .lw-ink { fill: currentColor; stroke: currentColor; }
+.logo-word .lw-py { fill: var(--gold); stroke: var(--gold); }
+/* nome trocado no painel: texto em negrito e minúsculas, como a assinatura; um nome comprido quebra em duas linhas em vez de passar da tela */
+.logo-text { min-width: 0; font-size: calc(var(--logo-h) * .66); line-height: 1.05; font-weight: 700; letter-spacing: -.01em; text-transform: lowercase; overflow-wrap: anywhere; }
 .logo-py { color: var(--gold); }
 .logo-img { display: block; width: var(--logo-h); height: var(--logo-h); object-fit: contain; border-radius: 7px; }
 .logo-inv { color: var(--white); }
@@ -133,6 +134,10 @@ img { max-width: 100%; }
 .cam-btn[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--white); }
 .search-btn { flex: none; height: 40px; padding: 0 26px; border: 0; border-radius: var(--pill); background: var(--navy); color: var(--white); font-weight: 600; cursor: pointer; }
 .search-btn:hover { background: var(--navy-600); }
+.search-btn-ico { display: none; }
+/* Botão ☰ do menu lateral: só no celular, onde as categorias saem da barra e vão para o menu */
+.menu-btn { display: none; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--navy); place-items: center; cursor: pointer; }
+.menu-btn:hover { background: var(--mist); }
 
 .catnav { border-top: 1px solid var(--line); }
 .catnav-wrap { position: relative; }
@@ -210,7 +215,9 @@ img { max-width: 100%; }
 .layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 28px; align-items: start; padding-block: 32px 56px; }
 .filters { position: sticky; top: calc(var(--header-h, 150px) + 16px); align-self: start; }
 .filters details { max-height: calc(100vh - var(--header-h, 150px) - 32px); overflow: auto; border: 1px solid var(--line); border-radius: var(--r); padding: 18px; background: var(--white); }
-.filters summary { display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none; color: var(--navy); }
+.filters summary { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none; color: var(--navy); }
+.filters summary span { flex: 1; }
+.f-ico { display: none; flex: none; color: var(--navy); }
 .filters summary::-webkit-details-marker { display: none; }
 .filters .chev { transition: transform .15s; color: var(--muted); }
 .filters details[open] .chev { transform: rotate(180deg); }
@@ -253,7 +260,8 @@ img { max-width: 100%; }
 .thumb { position: relative; aspect-ratio: 1; min-height: 0; overflow: hidden; background: var(--white); border-bottom: 1px solid var(--line); max-width: 100%; --pad: 16px; }
 .thumb img { position: absolute; inset: var(--pad); width: calc(100% - 2 * var(--pad)); height: calc(100% - 2 * var(--pad)); object-fit: contain; }
 .body { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 3px; padding: 12px 14px 14px; min-width: 0; }
-.cat { font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+/* uma linha só: categorias de nome comprido não desalinham os preços dos cartões vizinhos */
+.cat { font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .name { font-size: 14px; line-height: 1.4; font-weight: 600; color: var(--ink); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.8em; }
 .from { font-size: 12px; color: var(--muted); margin-top: 8px; }
 /* o preço mostrado no cartão é o menor entre as lojas: verde, como manda o manual */
@@ -264,6 +272,7 @@ img { max-width: 100%; }
 .where > span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .where .n { flex: none; white-space: nowrap; }
 .save { justify-self: start; margin-top: 4px; font-size: 12px; font-weight: 600; color: var(--green-700); background: var(--green-100); padding: 2px 9px; border-radius: var(--pill); font-variant-numeric: tabular-nums; }
+.save-short { display: none; }
 .see-results { display: none; }
 .badge-sim { position: absolute; z-index: 2; pointer-events: none; top: 10px; left: 10px; background: var(--gold); color: var(--navy); font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: var(--pill); font-variant-numeric: tabular-nums; }
 .sim-btn { position: absolute; z-index: 3; top: 8px; right: 8px; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: var(--white); color: var(--navy); display: grid; place-items: center; cursor: pointer; opacity: 0; transition: opacity .15s; box-shadow: var(--shadow-sm); }
@@ -290,7 +299,7 @@ img { max-width: 100%; }
 .footer { background: var(--pattern-dark) 0 0 / 96px 96px, var(--navy); color: #c3cad8; font-size: 14px; border-top: 3px solid var(--gold); }
 .footer-inner { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.4fr); gap: 32px; padding-block: 40px 24px; }
 .footer-brand { display: grid; gap: 12px; align-content: start; justify-items: start; }
-.footer-brand .logo { --logo-h: 28px; }
+.footer-brand .logo { --logo-h: 36px; }
 .tagline { font-size: 11px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
 .footer h3 { color: var(--white); font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 12px; }
 .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
@@ -300,10 +309,45 @@ img { max-width: 100%; }
 .footer-legal { border-top: 1px solid rgba(255, 255, 255, .1); padding-block: 16px 28px; display: grid; gap: 4px; font-size: 12.5px; color: #a3adc2; }
 .footer-legal a { color: var(--white); }
 
+/* Menu lateral de categorias (celular): desliza da esquerda sobre a página escurecida */
+.drawer { margin: 0; inset: 0 auto 0 0; width: min(340px, calc(100vw - 48px)); max-width: none; height: 100%; max-height: none; padding: 0; border: 0; border-radius: 0 var(--r-lg) var(--r-lg) 0; background: var(--white); color: var(--ink); box-shadow: var(--shadow-float); overflow: hidden; }
+/* navegador sem <dialog> (iPhone antigo): o menu fechado não aparece solto no fim da página */
+.drawer:not([open]) { display: none; }
+.drawer::backdrop { background: rgba(7, 15, 28, .55); }
+.drawer[open] { animation: drawer-in .24s cubic-bezier(.2, .8, .2, 1); }
+.drawer[open]::backdrop { animation: fade-in .24s ease-out; }
+.drawer.is-closing { animation: drawer-out .2s ease-in forwards; }
+.drawer.is-closing::backdrop { animation: fade-out .2s ease-in forwards; }
+@keyframes drawer-in { from { transform: translateX(-100%); } }
+@keyframes drawer-out { to { transform: translateX(-100%); } }
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes fade-out { to { opacity: 0; } }
+html.menu-open { overflow: hidden; scrollbar-gutter: stable; }
+.drawer-in { display: flex; flex-direction: column; height: 100%; }
+.drawer-head { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: max(10px, env(safe-area-inset-top)) 10px 10px 20px; border-bottom: 1px solid var(--line); }
+.drawer-head .logo { --logo-h: 32px; min-width: 0; }
+.drawer-head .logo-text { font-size: 18px; }
+.drawer-head .icon-x { flex: none; width: 44px; height: 44px; color: var(--navy); }
+.drawer-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+.drawer-sec + .drawer-sec { border-top: 1px solid var(--line); margin-top: 8px; }
+.drawer-title { padding: 18px 20px 6px; font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-700); }
+.drawer-list { list-style: none; margin: 0; padding: 0; }
+.drawer-item { position: relative; display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 10px 14px 10px 20px; color: var(--ink); font-size: 15.5px; font-weight: 500; line-height: 1.3; text-decoration: none; }
+.drawer-item > span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.drawer-item:hover { background: var(--mist); color: var(--navy); }
+.drawer-item:focus-visible { outline-offset: -3px; }
+.drawer-chev { flex: none; color: var(--slate); }
+/* categoria em exibição: fundo névoa, texto azul-tinta e o traço ouro da barra de categorias */
+.drawer-item[aria-current] { background: var(--mist); color: var(--navy); font-weight: 600; }
+.drawer-item[aria-current]::before { content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 3px; border-radius: 0 3px 3px 0; background: var(--gold-600); }
+.drawer-item[aria-current] .drawer-chev { color: var(--navy); }
+.drawer-link .live-dot { flex: none; box-shadow: none; }
+
 /* Detalhe do produto */
 dialog { width: min(1000px, calc(100vw - 32px)); max-height: calc(100vh - 32px); border: 0; border-radius: var(--r-lg); padding: 0; background: var(--white); color: var(--ink); box-shadow: var(--shadow-float); }
 dialog::backdrop { background: rgba(7, 15, 28, .6); }
 .pd { position: relative; display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 24px 32px; padding: 28px; }
+.pd-bar { display: contents; }
 .pd-close { position: absolute; top: 12px; right: 12px; }
 .pd-media { position: relative; aspect-ratio: 1; overflow: hidden; border: 1px solid var(--line); border-radius: var(--r); max-width: 100%; }
 .pd-media img { position: absolute; inset: 18px; width: calc(100% - 36px); height: calc(100% - 36px); object-fit: contain; }
@@ -373,7 +417,9 @@ tr.out td.num.main { color: var(--muted); font-weight: 600; }
   .hero-drop .btn { margin-top: 0; }
   .hero-drop .fine { display: none; }
   .filters { position: static; }
-  .filters details { max-height: none; }
+  .filters details { max-height: none; padding: 12px 16px; }
+  .filters details[open] { padding-bottom: 16px; }
+  .f-ico { display: block; }
   .layout { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-block: 20px 40px; }
   .imgsearch-box { grid-template-columns: minmax(0, 1fr); }
   .steps { grid-template-columns: minmax(0, 1fr); }
@@ -381,24 +427,69 @@ tr.out td.num.main { color: var(--muted); font-weight: 600; }
   .footer-brand { grid-column: 1 / -1; }
 }
 @media (max-width: 760px) {
-  .header-inner { flex-wrap: wrap; gap: 12px; padding-block: 12px 10px; }
-  .logo { --logo-h: 26px; }
-  .logo-text { font-size: calc(var(--logo-h) * .95); letter-spacing: .06em; }
-  .search { flex-basis: 100%; height: 48px; padding-left: 14px; }
+  /* ☰ à esquerda, logo no centro da tela e a coluna da direita do mesmo tamanho do botão (o centro fica no meio) */
+  .header-inner { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px; padding-block: 8px 10px; }
+  .menu-btn { display: grid; grid-column: 1; margin-left: -6px; }
+  .header .logo { grid-column: 2; justify-self: center; --logo-h: 34px; }
+  .header .logo-text { text-align: center; }
+  /* nome trocado no painel (em texto): o símbolo fica em cima e o nome embaixo, os dois no centro,
+     mesmo quando o nome quebra em duas linhas */
+  .header .logo:has(.logo-text) { flex-direction: column; gap: 4px; --logo-h: 28px; }
+  .header .logo:has(.logo-text) .logo-text { font-size: 19px; text-wrap: balance; }
+  .search { grid-column: 1 / -1; height: 46px; padding-left: 14px; }
   .search-btn { height: 38px; padding: 0 18px; }
+  /* as categorias ficam no menu lateral */
+  .catnav { display: none; }
+  .no-drawer .menu-btn { display: none; }
+  .no-drawer .catnav { display: block; }
   .catnav-arrow { display: none !important; }
   .see-results { display: inline-flex; }
   .img-side .tip { order: 5; }
   .img-side .adjust { order: 6; }
   .img-side .ctrl-row { order: 7; }
-  .pd { grid-template-columns: minmax(0, 1fr); padding: 20px 16px; }
-  .pd-media { max-width: 260px; width: 100%; justify-self: center; }
+  .pd { grid-template-columns: minmax(0, 1fr); row-gap: 18px; padding: 16px; }
+  /* o X fica numa faixa que acompanha a rolagem: num produto com muitas lojas ele não some lá em cima,
+     e os preços passam por baixo da faixa inteira, sem ficar meio cobertos */
+  .pd-bar { position: sticky; top: 0; z-index: 3; grid-column: 1 / -1; display: flex; justify-content: flex-end; margin: -16px -16px -6px; padding: 4px 6px; background: var(--white); box-shadow: 0 1px 0 var(--line); }
+  .pd-close { position: static; width: 44px; height: 44px; }
+  .pd-media { max-width: 200px; width: 100%; justify-self: center; }
   .pd-info { padding-right: 0; }
+  .pd-info h2 { font-size: 20px; }
+  .pd-best .usd { font-size: 30px; }
+  /* "Como funciona": número ao lado do texto, cartões mais baixos */
+  .how { padding-block: 32px 36px; }
+  .how h2 { font-size: 22px; margin-bottom: 16px; }
+  .steps { gap: 12px; }
+  .steps li { grid-template-columns: 32px minmax(0, 1fr); column-gap: 14px; row-gap: 2px; padding: 16px; border-radius: var(--r); }
+  .steps li::before { grid-row: 1 / span 2; margin-bottom: 0; }
+  .steps li > * { grid-column: 2; }
+  .steps h3 { font-size: 16px; align-self: center; }
+  .steps p { font-size: 13.5px; }
 }
 @media (max-width: 520px) {
   .container { padding-inline: 16px; }
+  /* busca: botões redondos só com ícone, para o texto digitado caber */
+  .search { padding: 0 4px 0 16px; }
+  .search-ico { display: none; }
+  .search input { padding: 0 8px 0 0; }
+  .cam-btn { width: 38px; padding: 0; justify-content: center; margin-right: 4px; }
+  .search-btn { display: grid; place-items: center; width: 38px; padding: 0; }
+  .search-btn-ico { display: block; }
+  .search-btn-txt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  /* destaque inicial mais baixo e centralizado, como a logo: os produtos aparecem logo abaixo */
+  .hero-inner { padding-block: 20px 22px; gap: 16px; }
+  .hero-copy { text-align: center; }
+  .eyebrow { font-size: 11px; letter-spacing: .16em; margin-bottom: 8px; }
+  .hero h1 { font-size: clamp(22px, 6.2vw, 28px); line-height: 1.12; margin-inline: auto; }
+  .lead { font-size: 14.5px; }
+  .hero .lead { margin-inline: auto; }
+  .res-head { gap: 10px; margin-bottom: 14px; }
+  .res-head h2 { font-size: 21px; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .body { padding: 10px; }
+  .save-long { display: none; }
+  .save-short { display: inline; }
+  .cat { letter-spacing: .1em; }
   /* 19px em negrito ainda conta como "texto grande": o verde do manual tem contraste suficiente */
   .usd { font-size: 19px; }
   .where { flex-direction: column; gap: 2px; }
@@ -477,9 +568,14 @@ tr.out td.num.main { color: var(--muted); font-weight: 600; }
 }
 .footer-mini .footer-inner { grid-template-columns: minmax(0, 1fr); padding-block: 32px 16px; }
 
+/* telas bem estreitas (iPhone SE): sem o ícone, a pergunta da foto cabe em duas linhas ao lado do botão */
+@media (max-width: 360px) {
+  .hero-drop { grid-template-columns: minmax(0, 1fr) auto; }
+  .hero-drop-ico { display: none; }
+}
 @media (max-width: 520px) {
   .utilbar { font-size: 12.5px; }
-  .utilbar-inner { justify-content: center; }
+  .utilbar-inner { justify-content: center; padding-block: 6px; row-gap: 2px; }
   .fx-label { display: none; }
   .fx { margin-left: 0; }
   .cams { padding-top: 14px; }

@@ -69,7 +69,7 @@ body.adm { background: var(--mist); min-height: 100vh; }
 .pv-logo { width: 30px; height: 34px; display: grid; place-items: center; overflow: hidden; }
 .pv-logo svg { width: 26px; height: 34px; }
 .pv-logo img { width: 34px; height: 34px; object-fit: contain; border-radius: 7px; }
-.pv-name { font-weight: 500; font-size: 24px; line-height: 1; letter-spacing: .1em; text-transform: uppercase; color: var(--pv-primary, var(--navy)); }
+.pv-name { font-weight: 700; font-size: 22px; line-height: 1; letter-spacing: -.01em; text-transform: lowercase; color: var(--pv-primary, var(--navy)); }
 .pv-n2 { color: var(--pv-accent, var(--gold)); }
 .pv-btn { background: var(--pv-primary, var(--navy)); color: var(--white); font-weight: 600; padding: 8px 20px; border-radius: var(--pill); font-size: 14px; }
 .pv-tag { background: var(--pv-accent, var(--gold)); color: var(--pv-primary, var(--navy)); font-weight: 600; font-size: 12px; padding: 3px 10px; border-radius: var(--pill); }
