@@ -8,7 +8,7 @@ Cada produto importado fica com uma oferta por loja: o menor preço daquela loja
 modelo e tamanho (matches=true). As fotos e logos ficam no servidor de imagens do Compras Paraguai; o
 servidor do site baixa cada uma uma vez (lib/remote-images.js) e serve por /img/cp/ e /img/lojas/.
 """
-import json, os, re, sys, unicodedata
+import html, json, os, re, sys, unicodedata
 from urllib.parse import urlparse, quote_plus, parse_qsl, urlencode
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -78,6 +78,25 @@ def listing_date(s, fallback):
     if not m or m.group(2) not in MONTHS:
         return fallback
     return "%s-%02d-%02d" % (m.group(3), MONTHS[m.group(2)], int(m.group(1)))
+
+
+# observações que vieram junto com o horário na leitura das páginas das lojas, em português
+HOURS_NOTES = [
+    (r"\bSeg-Sáb (\d{2}:\d{2})-(\d{2}:\d{2})", r"Segunda a Sábado \1 - \2"),
+    (r"\bPJC\b", "Pedro Juan Caballero"),
+    (r"^Main branch \(([^)]*)\):\s*", r"Matriz (\1): "),
+    (r";?\s*(other branches differ|hours differ by branch)\s*$", "; as outras unidades têm outro horário"),
+    (r",\s*main branch\)", ", matriz)"),
+    (r",\s*([^,()]+?) branch\)", r", unidade \1)"),
+    (r"\)?,\s*(both|all) (units|branches)\s*$", ")"),  # mesmo horário em todas as unidades: não precisa dizer
+]
+
+
+def clean_hours(h):
+    for pat, to in HOURS_NOTES:
+        h = re.sub(pat, to, h)
+    h = h.replace("))", ")")
+    return re.sub(r"(^|;\s*)[-–·]+\s*", r"\1", h).strip(" ;,-–·")
 
 
 def main():
@@ -210,7 +229,9 @@ def main():
         hours = re.sub(r"\bBranches (\d+) and (\d+)", r"Filiais \1 e \2", hours)
         hours = re.sub(r"\bBranch (\d+)", r"Filial \1", hours)
         hours = re.sub(r"\(\s*Horário de Brasília\s*;\s*\)", "(Horário de Brasília)", hours)
-        hours = re.sub(r"(^|;\s*)[-–·]+\s*", r"\1", hours).strip(" ;,-–·") or None
+        hours = clean_hours(html.unescape(hours)) or None
+        if hours and re.search(r"\b(branch|branches|units?|differ|main|both|all|same|hours|only|shown|closed|open)\b", hours, re.I):
+            warn.append("horário com observação em inglês: %s: %s" % (sl, hours))
         site = (d or {}).get("website") or None
         if site and not re.match(r"^https?://", site):
             site = "https://" + site
@@ -221,8 +242,8 @@ def main():
             q = urlencode([kv for kv in parse_qsl(u.query, keep_blank_values=True) if not TRACKING.match(kv[0])])
             site = u._replace(query=q).geturl()
         stores.append({
-            "id": sl, "name": (d or {}).get("name") or name, "city": city, "cities": cities, "rating": None,
-            "real": True, "specialty": re.sub(r"\s*\(.*\)$", "", re.sub(r"^Loja de\s+", "", ((d or {}).get("specialty") or "").strip())) or None, "hours": hours,
+            "id": sl, "name": html.unescape((d or {}).get("name") or name), "city": city, "cities": cities, "rating": None,
+            "real": True, "specialty": re.sub(r"\s*\(.*\)$", "", re.sub(r"^Loja de\s+", "", html.unescape((d or {}).get("specialty") or "").strip())) or None, "hours": hours,
             "website": site, "premium": bool((d or {}).get("premium")),
             **({"logo": "img/lojas/%s%s" % (sl, ext_of(logo_src)), "logo_src": logo_src} if logo_src else {}),
         })

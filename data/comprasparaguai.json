@@ -9421,6 +9421,2526 @@
    "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/digital_star_80.webp",
    "notes": "Loja única. No opening hours and no 'Site oficial' link on the page (confirmed with a second read). Contact shown only as an obfuscated email and WhatsApp https://api.whatsapp.com/send?phone=595993278477",
    "page_read": true
+  },
+  {
+   "slug": "8-de-agosto",
+   "name": "8 de Agosto",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Adrián Jara, Esq/ Rubio Ñú, Ciudad del Este",
+   "hours": "Segunda a Sábado 06:00 - 15:30 (Horário de Brasília)",
+   "website": "http://www.8deagosto.com/",
+   "specialty": "Loja de Brinquedos e Auto-Serviço",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/8_de_agosto_104.webp",
+   "notes": "2 units, both Ciudad del Este; second: Av. Adrián Jara, Esquina com Luis Maria Argaña, Ciudad del Este (same hours).",
+   "page_read": true
+  },
+  {
+   "slug": "abudi-cell",
+   "name": "Abudi Cell",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 4° andar · Loja Sala 3339, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": null,
+   "website": null,
+   "specialty": "Loja de Celulares",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/abudi_cell_67.webp",
+   "notes": "Loja única. Opening hours and own website not shown on page.",
+   "page_read": true
+  },
+  {
+   "slug": "arsenal-sports",
+   "name": "Arsenal Sports",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Edifício Gloria, Av. San Blás, Ciudad del Este",
+   "hours": null,
+   "website": "https://www.arsenalsports.com/",
+   "specialty": "Loja de Brinquedos e Auto-Serviço",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/lojacompreco/arsenal_sports_249da13c-e23d-402d-aa80-5d98f3a0ee1e.avif",
+   "notes": "Loja única. Opening hours not shown. Main category: Lazer, Hobby & Camping.",
+   "page_read": true
+  },
+  {
+   "slug": "art-technology",
+   "name": "Art Technology",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Vendome, 6° andar · Loja sala 6606, Av. Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": null,
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/art_technology_cc7b3178-5d75-42b4-8ccc-d0dd27ee5e78.avif",
+   "notes": "Loja única. Opening hours and own website not shown (only WhatsApp contact).",
+   "page_read": true
+  },
+  {
+   "slug": "asia-store",
+   "name": "Asia Store",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 3° andar · Loja 2207, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": null,
+   "website": "https://asiastore.com.py/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/asia_store_44163850-4b08-44b3-bdfc-ef4e01af4916.avif",
+   "notes": "Loja única. Opening hours not shown.",
+   "page_read": true
+  },
+  {
+   "slug": "atacado-collections",
+   "name": "Atacado Collections",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Luis Maria Argaña, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:00 - 16:00; Sábado 06:30 - 15:30 (Horário de Brasília)",
+   "website": "http://www.atacadocollections.com/",
+   "specialty": "Loja de Colecionáveis",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/atacado_collections_168.webp",
+   "notes": "Loja única. Main category: Brinquedos.",
+   "page_read": true
+  },
+  {
+   "slug": "atacado-fitness",
+   "name": "Atacado Fitness",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 5° andar, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Segunda a Sábado 06:30 - 16:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Farmácia e Suplementos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/atacado_fitness_24b7df93-2c77-464e-8ca1-3db9609f7773.avif",
+   "notes": "Loja única. Own website not shown.",
+   "page_read": true
+  },
+  {
+   "slug": "audio-music",
+   "name": "Audio Music",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 1° andar · Loja 2013, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 16:00 (Horário de Brasília)",
+   "website": "http://www.audiomusic.com.py/",
+   "specialty": "Loja de Instrumentos Musicais",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/audio_music_104.webp",
+   "notes": "Loja única. Main categories: Caixa de Som, Instrumentos Musicais.",
+   "page_read": true
+  },
+  {
+   "slug": "auto-servico-brasil",
+   "name": "Auto Serviço Brasil",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este",
+    "Salto del Guairá"
+   ],
+   "address": "Shopping Mina India, Loja Av. San Blás, Av. San Blás, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:00 (Horário de Brasília)",
+   "website": "http://www.asbrasil.com.py/",
+   "specialty": "Loja de Brinquedos e Auto-Serviço",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/auto_servico_brasil_104.webp",
+   "notes": "3 units, same hours: (2) Av. Paraguay, Com esquina na Rua Cacique Canindeyu, Salto del Guairá; (3) Av. Paraguay, Em frente Posto Petrobras Centro, Salto del Guairá.",
+   "page_read": true
+  },
+  {
+   "slug": "av-rodeo-biju",
+   "name": "Av. Rodeo Biju",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Paris, 2° andar · Loja Av Doctor Luis Maria Argaña, Av. Luis Maria Argaña, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 17:00 (Horário de Brasília)",
+   "website": "https://www.avrodeo.com/pt-br/",
+   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/av_rodeo_biju_104.webp",
+   "notes": "Loja única. Main category: Jóias e Bijuterias.",
+   "page_read": true
+  },
+  {
+   "slug": "bak-international",
+   "name": "Bak International",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Vendome, 5° andar · Loja 508, Av. Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": "http://www.bakinternational.com/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bak_international_99.webp",
+   "notes": "Loja única. Opening hours not shown.",
+   "page_read": true
+  },
+  {
+   "slug": "baterias-parana",
+   "name": "Baterias Parana",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. San Blás, KM 4, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:00 - 18:00; Sábado 07:00 - 15:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Artigos e Serviços Automotivos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/baterias_parana_104.webp",
+   "notes": "Loja única. Own website not shown (only Facebook https://www.facebook.com/BateriasParanaMultimarcas and Messenger). Category also shown: Acessórios e Peças para Carro.",
+   "page_read": true
+  },
+  {
+   "slug": "beny-center",
+   "name": "Beny Center",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Vendome, 2° andar · Loja 254/256/257, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 16:00 (Horário de Brasília)",
+   "website": "http://www.benycenter.com/br/contato",
+   "specialty": "Loja de Perfumes, Beleza e Bolsas",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/beny_center_104.webp",
+   "notes": "Loja única. No link labeled 'Site oficial'; website is the store-domain link labeled 'Vendedores' (contact page). Main categories: Saúde, Beleza & Moda; Relógio.",
+   "page_read": true
+  },
+  {
+   "slug": "bess-audio-video",
+   "name": "Bess Audio & Vídeo",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Carlos Antonio López Com Av. Carlos Antonio López - Ciudad del Este",
+   "hours": "De Segunda a Sábado das 07:30 - 16:00 (Horário Brasil)",
+   "website": "https://www.bessshop.com.py/",
+   "specialty": "Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bess_audio_video_170.webp",
+   "notes": "Single unit. Page header reads 'Desde 2006' (no 'Loja de ...' line); specialty taken from category; Sobre mentions áudio profissional, home-theater, projetores e eletrônicos em geral. Website link labeled 'Site'.",
+   "page_read": true
+  },
+  {
+   "slug": "best-quality",
+   "name": "Best Quality",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. San Blás, Ciudad del Este",
+   "hours": "Segunda a Sábado 06:00 - 16:00; Domingo 07:00 - 12:00 (Horário de Brasília)",
+   "website": "https://www.soydub.com/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/best_quality_102.webp",
+   "notes": "Loja única. Main categories: Receptor, Filmadora, Projetor, Relógio.",
+   "page_read": true
+  },
+  {
+   "slug": "bless-import",
+   "name": "Bless Import",
+   "city": "Salto del Guairá",
+   "cities": [
+    "Salto del Guairá"
+   ],
+   "address": "Av. Paraguay, Con Fernando de la Mora, Salto del Guairá",
+   "hours": "Segunda a Sábado 08:00 - 18:00; Domingo 09:00 - 13:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Departamentos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bless_import_104.webp",
+   "notes": "Loja única. Own website not shown (only Instagram https://www.instagram.com/blessconcept/ and Facebook). Main categories: Roupas, Bolsa Feminina.",
+   "page_read": true
+  },
+  {
+   "slug": "bnt-global",
+   "name": "BNT Global",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Vendome, 5° andar · Loja Sala 528, Av. Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": "https://globalparaguay.com/",
+   "specialty": "Loja de Diversos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bnt_global_155.webp",
+   "notes": "Loja única. Opening hours not shown.",
+   "page_read": true
+  },
+  {
+   "slug": "bonanza-cambios",
+   "name": "Bonanza Cambios",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Vendome, Loja Sala 205, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Vendome: Segunda a Sexta 06:30 - 14:30, Sábado 06:30 - 11:30 (Horário de Brasília); other branches differ",
+   "website": null,
+   "specialty": "Loja de Casas de Câmbio",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bonanza_cambios_104.webp",
+   "notes": "5 units, all Ciudad del Este: (2) Shopping Internacional, Rua Adrian Jara - Seg a Sáb 05:30-14:00; (3) Edifício Saba, Térreo · Loja Sala 08, Av. Nanawa - Seg a Sex 07:30-16:00, Sáb 07:30-11:30; (4) Av. Adrián Jara, Com Curupayty - Seg a Sex 07:30-16:30, Sáb 07:30-12:00; (5) Galeria Jebai Center, Av. Carlos Antonio Lopez - Seg a Sáb 05:00-13:30. Own website not shown.",
+   "page_read": true
+  },
+  {
+   "slug": "bonjour-perfumeria",
+   "name": "Bonjour Perfumeria",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 3° andar, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:00 - 16:00 (Horário de Brasília)",
+   "website": "https://linktr.ee/Perfumeria.Bonjour",
+   "specialty": "Loja de Perfumes, Beleza e Bolsas",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bonjour_perfumeria_106.webp",
+   "notes": "Loja única. 'Site oficial' link is a Linktree page.",
+   "page_read": true
+  },
+  {
+   "slug": "centurion",
+   "name": "Centurion",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Monseñor Rodriguez, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:00 - 17:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Celulares",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/centurion_8286a7af-77ee-4d1c-b3cd-4d7f6ef24a7d.avif",
+   "notes": "No own website listed; only Instagram: https://www.instagram.com/centurion.group.py?stkn=ZDFuMHRhcnEyY2U%3D&utm_source=qr",
+   "page_read": true
+  },
+  {
+   "slug": "ceteg",
+   "name": "Ceteg",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Vendome, 4° andar · Loja Salas 438 e 439, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:00 - 15:30; Sábado 07:00 - 12:00 (Horário de Brasília)",
+   "website": "http://www.ceteg.com.py/",
+   "specialty": "Loja de Casas de Câmbio",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/ceteg_101.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "chacomer",
+   "name": "Chacomer",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este",
+    "Pedro Juan Caballero",
+    "Salto del Guairá"
+   ],
+   "address": "Av. Monseñor Rodriguez, KM 4,5, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:30 - 18:30; Sábado 07:30 - 13:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Bicicletas e Motos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/chacomer_104.webp",
+   "notes": "8 unidades: Av. Monseñor Rodriguez, KM 4,5, Ciudad del Este; Av. Carlos Antonio López, Com Alejo Garcia, Pedro Juan Caballero; Av. Carlos Antonio López, Com Defensores del Chaco, Pedro Juan Caballero; Av. Paraguay, Com Cerro Corá, Salto del Guairá; Av. Mariscal Lopez, 1562, Pedro Juan Caballero; Av. Julio César Riquelme, KM 7, Ciudad del Este; Av. Bernardino Caballero, 1181, Ciudad del Este; Av. Mariscal López, Km 6.200, Ciudad del Este. Hours shown only for the Av. Monseñor Rodriguez unit. 'Desde 1956'; main category 'Lazer, Hobby & Camping'. No own website, only social links (Instagram, Facebook, Twitter).",
+   "page_read": true
+  },
+  {
+   "slug": "chenson",
+   "name": "Chenson",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Rubio NU, Nº 155, Ciudad del Este",
+   "hours": null,
+   "website": "http://www.chenson.com.py/",
+   "specialty": "Loja de Perfumes, Beleza e Bolsas",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/chenson_104.webp",
+   "notes": "3 addresses: Rubio NU, Nº 155, Ciudad del Este; Rua Abay, Com Av. Adrián Jara, Ciudad del Este; Edifício Victoria, Rua Abay, Ciudad del Este. No official opening hours printed on the page.",
+   "page_read": true
+  },
+  {
+   "slug": "choice-importados",
+   "name": "Choice Importados",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lago de Salemma, 2° andar, Rua Monseñor Rodriguez, Ciudad del Este",
+   "hours": "Segunda a Domingo 09:00 - 21:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Diversos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/choice_importados_104.webp",
+   "notes": "Loja única. The 'Site oficial' link points to Instagram, not an own website: https://www.instagram.com/choicecde_py/?igsh=MXBsNnU3cnViMXpwZw%3D%3D",
+   "page_read": true
+  },
+  {
+   "slug": "class-decor",
+   "name": "Class Decor",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Box Outlet - 4° andar - Ciudad del Este",
+   "hours": "De Segunda a Sábado das 07:00 - 16:00 (Horário Brasil)",
+   "website": "http://www.classdecor.com.py/",
+   "specialty": "Casa e Construção",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/class_decor_104.webp",
+   "notes": "Single unit listed.",
+   "page_read": true
+  },
+  {
+   "slug": "columbia-farmacias",
+   "name": "Columbia Farmacias",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Adrián Jara, Ciudad del Este",
+   "hours": null,
+   "website": "https://columbiafarmacias.com",
+   "specialty": "Loja de Farmácia e Suplementos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/columbia_farmacias_175b6954-c467-4fcd-95a1-ab20e6079e58.avif",
+   "notes": "Loja única. Opening hours not listed on the page.",
+   "page_read": true
+  },
+  {
+   "slug": "compu-shop",
+   "name": "Compu Shop",
+   "city": "Pedro Juan Caballero",
+   "cities": [
+    "Pedro Juan Caballero"
+   ],
+   "address": "Av. Mariscal Lopez, 1141, Pedro Juan Caballero",
+   "hours": "Segunda a Sábado 08:00 - 18:00; Domingo 08:00 - 12:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/compu_shop_104.webp",
+   "notes": "Single unit. The 'Site oficial' link points to Facebook, not an own website: https://www.facebook.com/compushopimportados/. Main categories: Eletrônicos, Informática.",
+   "page_read": true
+  },
+  {
+   "slug": "computech",
+   "name": "Computech",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Vendome, 2° andar · Loja Sala 230, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:30 - 16:00; Sábado 07:00 - 14:00 (Horário de Brasília)",
+   "website": "http://www.computech.com.py/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/computech_165.webp",
+   "notes": "Loja única. Main categories include Notebook, Celular, TV.",
+   "page_read": true
+  },
+  {
+   "slug": "condor",
+   "name": "Condor",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Americana, 1° andar, Marginal Norte, Ciudad del Este",
+   "hours": null,
+   "website": "http://lojacondorpy.com/",
+   "specialty": "Loja de Diversos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/condor_104.webp",
+   "notes": "Loja única. Opening hours not listed on the page. Main categories: Alimentos & Bebidas, Eletrônicos, Saúde, Beleza & Moda, Relógio.",
+   "page_read": true
+  },
+  {
+   "slug": "dac-pneus",
+   "name": "DAC Pneus",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Rua Camilo Recalde, Com Concejal Aniceto Ruiz, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:00 (Horário de Brasília)",
+   "website": "https://www.dannaautocenter.com/",
+   "specialty": "Loja de Pneus",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/dac_pneus_167.webp",
+   "notes": "2 unidades: Rua Camilo Recalde, Com Concejal Aniceto Ruiz, Ciudad del Este; Av. San Blás, Km 1.5 -- Sala 525, Ciudad del Este. Same hours for both.",
+   "page_read": true
+  },
+  {
+   "slug": "digital-center",
+   "name": "Digital Center",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Americana - 1° andar - loja 1145/1146 - Ciudad del Este",
+   "hours": "De Segunda a Sábado das 07:00 - 16:00 (Horário Brasil)",
+   "website": "https://digitalcenterpy.com/",
+   "specialty": "Câmeras e Fotografia",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/digital_center_167.webp",
+   "notes": null,
+   "page_read": true
+  },
+  {
+   "slug": "dikasa",
+   "name": "Dikasa",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria San Blás, Loja 7000, Av. San Blás, Ciudad del Este",
+   "hours": "Segunda a Sexta 08:30 - 18:00 (Horário de Brasília)",
+   "website": "http://www.dikasa.com.py/index.php?route=information%2Finformation&information_id=10",
+   "specialty": "Loja de Casa e Construção",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/dikasa_102.webp",
+   "notes": "Loja única. Website link is on the store's own domain but labeled 'Vendedores'. Main category: Casa & Construção.",
+   "page_read": true
+  },
+  {
+   "slug": "dinamica",
+   "name": "Dinamica",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Paris, 1° andar, Av. Luis Maria Argaña, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 19:00; Domingo 09:00 - 19:00 (Horário de Brasília)",
+   "website": "http://www.dinamicasa.com.py/",
+   "specialty": "Loja de Casa e Construção",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/dinamica_103.webp",
+   "notes": "Loja única. Main category: Decoração.",
+   "page_read": true
+  },
+  {
+   "slug": "direto-america",
+   "name": "Direto América",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 5° andar, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": null,
+   "website": null,
+   "specialty": "Loja de Celulares",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/direto_america_140.webp",
+   "notes": "Loja única. Opening hours not listed. No own website; only a WhatsApp contact link.",
+   "page_read": true
+  },
+  {
+   "slug": "diva-sa",
+   "name": "Diva S.A.",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Del Este, 1° andar · Loja 139, Monseñor Rodriguez, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 21:00; Domingo 08:00 - 14:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Casa e Construção",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/diva_s_a_104.webp",
+   "notes": "2 unidades: Shopping Del Este, 1° andar · Loja 139, Monseñor Rodriguez, Ciudad del Este; Av. Adrián Jara, Com Carlos Antonio López, 222, Ciudad del Este. The 'Site oficial' link points to Facebook: https://www.facebook.com/www.diva.com.py/. Main category: Decoração.",
+   "page_read": true
+  },
+  {
+   "slug": "dp-internacional",
+   "name": "Dp Internacional",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. San José, Com Rua Guido Spano, Ciudad del Este",
+   "hours": "Segunda a Sexta 08:00 - 17:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Brinquedos e Auto-Serviço",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/dp_internacional_101.webp",
+   "notes": "Loja única. No own website; only social links (https://www.facebook.com/chicco.paraguay, https://m.me/chicco.paraguay). Main category: Saúde, Beleza & Moda.",
+   "page_read": true
+  },
+  {
+   "slug": "eshop-cell",
+   "name": "Eshop Cell",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Vendome, 6° andar · Loja Sala 614, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:45 - 16:00 (Horário de Brasília)",
+   "website": "https://eshopcell.com",
+   "specialty": "Loja de Celulares",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/eshop_cell_2278b588-6ff6-4fd3-9ca1-794512c5550e.avif",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "excell",
+   "name": "Excell",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 2° andar · Loja Sala 212, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:00 (Horário de Brasília)",
+   "website": "http://www.excellinformatica.com.py/",
+   "specialty": "Loja de Informática",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/excell_104.webp",
+   "notes": "2 unidades: Shopping Lai Lai Center, 2° andar · Loja Sala 212, Av. Adrian Jara, Ciudad del Este; Shopping Lai Lai Center, 4° andar · Loja Salas 406 e407, Av. Adrian Jara, Ciudad del Este. Same hours for both.",
+   "page_read": true
+  },
+  {
+   "slug": "brands-shop",
+   "name": "Brands Shop",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Monseñor Rodriguez, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:30; Domingo 07:00 - 15:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Roupas, Jóias e Bijuterias (Principais categorias: Roupas)",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/brands_for_less_167.webp",
+   "notes": "Loja única. Page says 'Desde 2015'. The 'Site oficial' button points to a Facebook page (https://www.facebook.com/BrandsForLessPy/), not a separate website, so website is null. Logo file is named brands_for_less_167.webp (the store looks related to Brands For Less). The first three fetches were rate limited; the fourth worked.",
+   "page_read": true
+  },
+  {
+   "slug": "bristol-sa",
+   "name": "Bristol S.A.",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este",
+    "Pedro Juan Caballero"
+   ],
+   "address": "Av. Nanawa, 189, Ciudad del Este",
+   "hours": null,
+   "website": null,
+   "specialty": "Loja de Departamentos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/bristol_s_a_104.webp",
+   "notes": "4 branches listed: Av. Nanawa 189 (CDE); Av. San Blás Km 3,5 (CDE); Av. Julio César Riquelme com Rua 7, Km 7 (CDE); Av. Carlos Antonio López com Iturbe (Pedro Juan Caballero). The About section says '20 agências'. The page shows no opening hours and no own website, only social profiles (instagram.com/bristolpy, facebook.com/bristolsa, YouTube, twitter.com/bristolsa_py).",
+   "page_read": true
+  },
+  {
+   "slug": "cambios-alberdi",
+   "name": "Cambios Alberdi",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este",
+    "Salto del Guairá"
+   ],
+   "address": "Av. Monseñor Rodriguez, Esquina com Pampliega, Ciudad del Este",
+   "hours": null,
+   "website": "http://www.cambiosalberdi.com/",
+   "specialty": "Loja de Casas de Câmbio (serviços de câmbio e transferência de dinheiro)",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/cambios_alberdi_104.webp",
+   "notes": "7 units: 5 in Ciudad del Este (Av. Monseñor Rodriguez esq. Pampliega; Rua Itá Ybaté; Rubio NU com Monsenhor Rodriguez; Galeria Jebai Center Loja 3009/3010, Av. Carlos Antonio Lopez; Shopping Lai Lai Center Loja 1, Av. Adrian Jara) and 2 in Salto del Guairá (Av. Paraguay com Pedro Juan Caballero; Av. Paraguay c/ Carlos Ricardo Mendes Goncalves N° 686). The page shows no opening hours.",
+   "page_read": true
+  },
+  {
+   "slug": "cambios-chaco",
+   "name": "Cambios Chaco",
+   "city": "Pedro Juan Caballero",
+   "cities": [
+    "Pedro Juan Caballero",
+    "Ciudad del Este"
+   ],
+   "address": "Av. Mariscal Lopez, Com Carlos Domínguez, Pedro Juan Caballero",
+   "hours": "Main branch (PJC, Av. Mariscal Lopez): Seg-Sáb 07:30-18:00 (Horário de Brasília); hours differ by branch",
+   "website": "http://www.cambioschaco.com.py/",
+   "specialty": "Loja de Casas de Câmbio",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/cambios_chaco_104.webp",
+   "notes": "Page says 'Desde 1992' and '14 unidades': 12 in Ciudad del Este (e.g. Av. Adrián Jara com Curupayty 860; Super Carretera Km 4; Shopping Mina India; Shopping Box Outlet; Shopping HWU) and 2 in Pedro Juan Caballero (Av. Mariscal Lopez com Carlos Domínguez, listed first; Av. Carlos Antonio López com Choferez del Chaco, Seg-Sáb 07:30-17:00). CDE branch hours vary, for example Seg-Sex 07:00-17:00 and Sáb 07:00-16:00.",
+   "page_read": true
+  },
+  {
+   "slug": "cambios-triple-c",
+   "name": "Cambios Triple C",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este",
+    "Salto del Guairá",
+    "Pedro Juan Caballero"
+   ],
+   "address": "Shopping Vendome, 3° andar · Loja Calle Piribebuy esq. Adrian Jara, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Main branch (Shopping Vendome): Segunda a Sexta 08:00 - 14:30 (Horário de Brasília); hours differ by branch",
+   "website": "http://www.cambiostriplec.com.py/",
+   "specialty": "Loja de Casas de Câmbio",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/cambios_triple_c_104.webp",
+   "notes": "Page says 'Desde 2009'. 5 units: Shopping Vendome (CDE); Av. Paraguay com Rua Fernando de la Mora (Salto del Guairá, Seg-Sex 08:00-16:00); 3 in Pedro Juan Caballero (Av. Mariscal Lopez com Rua Iturbe Nº 1704; Rua Mcal. Francisco Solano López com Rua Gral. Díaz; Rua Tenente Herrero com Rua Panchito López), with Seg-Sex 08:00-16:00/16:30 and Sáb 08:00-12:00/14:00.",
+   "page_read": true
+  },
+  {
+   "slug": "capacete-store",
+   "name": "Capacete Store",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Mini Mundo, Térreo, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": null,
+   "website": "https://capacetestore.com.py/",
+   "specialty": "Loja de Bicicletas e Motos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/capacete_store_f7079432-df9a-48ef-8349-229052348759.avif",
+   "notes": "Loja única. The page shows no opening hours.",
+   "page_read": true
+  },
+  {
+   "slug": "casa-angela",
+   "name": "Casa Angela",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 3° andar · Loja Sala 3230, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 16:00 (Horário de Brasília)",
+   "website": "https://www.casaangela.com.py/",
+   "specialty": "Loja de Roupas, Jóias e Bijuterias (roupas, tênis e acessórios esportivos)",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_angela_104.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "casa-avance",
+   "name": "Casa Avance",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Zuni, Loja 13/14, Av. Monseñor Rodriguez, Ciudad del Este",
+   "hours": "Segunda a Sábado 08:00 - 16:00 (Horário de Brasília)",
+   "website": "http://www.casaavance.com/",
+   "specialty": "Loja de Brinquedos e Auto-Serviço (Principais categorias: Eletrônicos, Brinquedos; aeromodelos e controle remoto)",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_avance_104.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "casa-bella",
+   "name": "Casa Bella",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Paris, Av. Luis Maria Argaña, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 19:00; Domingo 09:00 - 19:00 (Horário de Brasília)",
+   "website": "https://casa-bella-decoration-shop.negocio.site/",
+   "specialty": "Loja de Casa e Construção (Principal categoria: Casa & Construção)",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_bella_104.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "casa-da-internet",
+   "name": "Casa da Internet",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 4° andar · Loja Nº 420, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sábado 06:30 - 15:30 (Horário de Brasília)",
+   "website": "http://www.casadainternet.com/",
+   "specialty": "Loja de Informática (Principal categoria: Rede & Wireless; telecom FIBERHOME, D-LINK, MIKROTIK, GRANDSTREAM)",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_da_internet_104.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "casa-de-los-compresores",
+   "name": "Casa de los Compresores",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Super Carretera - Av. Mariscal Francisco Solano López, Km 4, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:00 - 17:00; Sábado 07:00 - 12:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Ferramentas e Máquinas (Principais categorias: Automotivo, Casa & Construção)",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_de_los_compresores_104.webp",
+   "notes": "The branch list says 'Loja única' (CDE). The 'Sobre' text also mentions locations in Asunción ('Av Eusebio Ayala, 3739 - Assunção' and 'Avenida Transchaco e Corrales - Mariano R. Alonzo'), but they are not in the branch list, so they were left out of cities. The page shows no own website, only social profiles and Messenger.",
+   "page_read": true
+  },
+  {
+   "slug": "casa-el-pato",
+   "name": "Casa el Pato",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Esperanza, 2° andar, Monseñor Rodriguez com Rubio NU, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:30 (Horário de Brasília)",
+   "website": "http://www.casaelpato.com.py/",
+   "specialty": "Loja de Pesca e Náutica (Principais categorias: Lazer, Hobby & Camping)",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_el_pato_104.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "casa-japon",
+   "name": "Casa Japon",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Carlos Antonio López, 241, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 16:30 (Horário de Brasília)",
+   "website": "http://www.casajapon.com/",
+   "specialty": "Loja de Pesca e Náutica (categorias: Lazer, Hobby & Camping; Pesca e Náutica)",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_japon_104.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "casa-maringa",
+   "name": "Casa Maringá",
+   "city": "Salto del Guairá",
+   "cities": [
+    "Salto del Guairá"
+   ],
+   "address": "Shopping Salto del Guairá, Av. Paraguay, Salto del Guairá",
+   "hours": "Segunda a Sábado 08:30 - 18:00; Domingo 08:30 - 13:00 (Horário de Brasília)",
+   "website": "http://www.casamaringa.net/",
+   "specialty": "Loja de Eletrônicos (Principais categorias: Eletrônicos, Informática, Perfume)",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_maringa_104.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "casa-nippon",
+   "name": "Casa Nippon",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Del Este, Monseñor Rodriguez, Ciudad del Este",
+   "hours": "Segunda a Sábado 08:00 - 21:00; Domingo 08:30 - 13:00 (Horário de Brasília)",
+   "website": "http://www.casanippon.com.py/",
+   "specialty": "Loja de Departamentos (categorias: Alimentos & Bebidas, Casa & Construção, Eletrodomésticos, Eletrônicos, Informática, Brinquedos, Pesca e Náutica)",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/casa_nippon_104.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "castelo-italiano",
+   "name": "Castelo Italiano",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Zuni, Av. Monseñor Rodriguez, Ciudad del Este",
+   "hours": "Galeria Zuni: Segunda a Sábado 07:00 - 17:00; Shopping Del Este: Segunda a Sábado 08:00 - 20:00, Domingo 09:00 - 14:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Casa e Construção (Principais categorias: Decoração, Iluminação; importador exclusivo da marca DIAMANTE)",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/castelo_italiano_104.webp",
+   "notes": "2 units, both in Ciudad del Este: Galeria Zuni and Shopping Del Este (Monseñor Rodriguez). No 'Site oficial' link on the page, so website is null. The only link to the store's own domain is the 'Vendedores' link, http://casteloitaliano.com/pagina/equipe-de-vendas.",
+   "page_read": true
+  },
+  {
+   "slug": "cde-store",
+   "name": "CDE Store",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, Av. Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": "https://cdestore.com.py/",
+   "specialty": "Loja de Informática",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/cde_store_165.webp",
+   "notes": "Loja única. The page shows no opening hours.",
+   "page_read": true
+  },
+  {
+   "slug": "cell-store-360",
+   "name": "Cell Store 360",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Edifício La Roca, 1° andar · Loja Sala 102, Av ITA YBATE / EUSEBIO AYALA, Ciudad del Este",
+   "hours": null,
+   "website": null,
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/cell_store_360_8a8ac648-934f-4bf6-adab-580d31dec798.avif",
+   "notes": "Loja única. The page shows no opening hours and no own website, only email and WhatsApp.",
+   "page_read": true
+  },
+  {
+   "slug": "cell-world",
+   "name": "Cell World",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 3° andar · Loja Sala 309, Av. Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": "https://www.cellworldimport.com/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/cell_world_5e3c387d-b773-428f-9b98-e899a5658cf7.avif",
+   "notes": "Loja única. The page shows no opening hours.",
+   "page_read": true
+  },
+  {
+   "slug": "filipina-importados",
+   "name": "Filipina Importados",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, Térreo, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Segunda a Sábado 06:00 - 16:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Perfumes, Beleza e Bolsas",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/lojacompreco/filipina_importados_17f27ae3-a898-486d-9e89-da78125e97b8.avif",
+   "notes": "Loja única. No own website listed (only WhatsApp/Google Maps links). Main categories: Alimentos & Bebidas, Alimentos, Perfumaria.",
+   "page_read": true
+  },
+  {
+   "slug": "forli",
+   "name": "Forli",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Carlos Antonio López, Com a Rua Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sábado 08:00 - 19:00 (Horário de Brasília)",
+   "website": "http://www.forli.com.py/",
+   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/forli_104.webp",
+   "notes": "2 branches: Av. Carlos Antonio López, Com a Rua Adrian Jara, Ciudad del Este; Shopping Del Este, Monseñor Rodriguez, Ciudad del Este. Same hours at both.",
+   "page_read": true
+  },
+  {
+   "slug": "fortuna-cambios",
+   "name": "Fortuna Cambios",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, Loja Avenida Monseñor Rodriguez com Abay, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": null,
+   "website": "https://www.fortunacambios.com/",
+   "specialty": "Loja de Casas de Câmbio",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/fortuna_cambios_104.webp",
+   "notes": "2 branches: Galeria Jebai Center, Loja Avenida Monseñor Rodriguez com Abay, Av. Carlos Antonio Lopez, Ciudad del Este; Galeria Jebai Center, Loja 2209, Av. Carlos Antonio Lopez, Ciudad del Este. Opening hours not shown on page.",
+   "page_read": true
+  },
+  {
+   "slug": "giga-racing",
+   "name": "Giga Racing",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lion, Av. Eusebio Ayala, Ciudad del Este",
+   "hours": "Segunda a Sábado 08:30 - 15:00 (Horário de Brasília)",
+   "website": "http://www.gigaracing.com.py/",
+   "specialty": "Loja de Bicicletas e Motos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/giga_racing_62004e78-5b41-4528-9729-43d05d6b7776.avif",
+   "notes": "Loja única. Main category: Equipamentos para Motociclismo.",
+   "page_read": true
+  },
+  {
+   "slug": "golden-time-technology",
+   "name": "Golden Time Technology",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 2° andar · Loja Sala 3157, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:30 - 16:00; Sábado 07:30 - 16:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Ferramentas e Máquinas",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/golden_time_technology_144.webp",
+   "notes": "Loja única. No own website listed; only social profiles: https://www.instagram.com/goldentimepy/ and https://www.facebook.com/goldentimepy",
+   "page_read": true
+  },
+  {
+   "slug": "green-valley",
+   "name": "Green Valley",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. San Blás, Ciudad del Este",
+   "hours": null,
+   "website": "https://greenvalley.com.py",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/green_valley_66d8afe1-3265-4832-a218-295810509118.avif",
+   "notes": "Loja única. Opening hours not shown on page. First fetch was rate limited; second fetch succeeded.",
+   "page_read": true
+  },
+  {
+   "slug": "gs-mall",
+   "name": "GS Mall",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Box Outlet, 1° andar · Loja Sala 067/068, Monseñor Rodriguez, Ciudad del Este",
+   "hours": null,
+   "website": "https://gsmallpy.com/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/gs_mall_165.webp",
+   "notes": "Loja única. Opening hours not shown on page. Main categories: GPS, Relógio.",
+   "page_read": true
+  },
+  {
+   "slug": "hetzer",
+   "name": "Hetzer",
+   "city": null,
+   "cities": [],
+   "address": null,
+   "hours": null,
+   "website": "http://www.hetzer.com.br/",
+   "specialty": "Loja de Home Áudio e Som Automotivo",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/hetzer_100.webp",
+   "notes": "Page shows no address, branch, city or opening hours (verified with a second fetch); only remote contacts (Messenger, email, Telefone: 011 97017 6498 - a Brazilian number). Main category: Central Multimídia.",
+   "page_read": true
+  },
+  {
+   "slug": "home-pro-barber-supply",
+   "name": "Home Pro Barber Supply",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Internacional, Loja 120, Rua Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sexta 06:00 - 15:30; Sábado 06:00 - 15:00 (Horário de Brasília)",
+   "website": "https://www.homepro.com.py/br/",
+   "specialty": "Loja de Itens de Barbearia",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/home_pro_barber_supply_167.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "icompy",
+   "name": "Icompy",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 4° andar, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sexta 06:00 - 15:00; Sábado 06:00 - 14:30 (Horário de Brasília)",
+   "website": "http://www.icompy.com/",
+   "specialty": "Loja de Informática",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/icompy_170.webp",
+   "notes": "Loja única. Since 1992.",
+   "page_read": true
+  },
+  {
+   "slug": "iluminat-py",
+   "name": "Iluminat PY",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Monseñor Rodriguez, Ciudad del Este",
+   "hours": "Segunda a Sexta 09:00 - 17:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Áudio & Vídeo",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/iluminat_py_615b2858-d12a-4a2a-870f-11b374da2bd4.avif",
+   "notes": "Loja única. No own website listed (only WhatsApp link).",
+   "page_read": true
+  },
+  {
+   "slug": "imperio-pneus",
+   "name": "Império Pneus",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Rua Camilo Recalde, 7000, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 17:00; Domingo 08:00 - 12:00 (Horário de Brasília)",
+   "website": "https://imperiopneus.com/",
+   "specialty": "Loja de Pneus",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/imperio_pneus_104.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "import-pro-gaming",
+   "name": "Import Pro Gaming",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Edifício Unión, 2° andar · Loja 210, Avenida Camilo Recalde Con Coronel Toledo, Ciudad del Este",
+   "hours": null,
+   "website": null,
+   "specialty": "Loja de Informática",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/import_pro_gaming_4f4d9feb-ca71-4605-8278-482a1eb31ff6.avif",
+   "notes": "Loja única. Opening hours not shown. No own website listed (only WhatsApp link).",
+   "page_read": true
+  },
+  {
+   "slug": "infinity-sport",
+   "name": "Infinity Sport",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Bonita Kim, Loja 20, Marginal Norte, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:00; Domingo 07:00 - 12:00 (Horário de Brasília)",
+   "website": "https://www.infinitysport.com.py/",
+   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/infinity_sport_167.webp",
+   "notes": "Loja única. Sports products, sneakers, clothing; main category: Tênis e Calçados.",
+   "page_read": true
+  },
+  {
+   "slug": "ishop",
+   "name": "iShop",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Paris, 2° andar, Av. Luis Maria Argaña, Ciudad del Este",
+   "hours": null,
+   "website": "https://www.ishop.com.py/home",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/ishop_104.webp",
+   "notes": "Loja única. Opening hours not shown. Main categories: Celular; Acessórios para Informática; Periféricos & Dispositivos de entrada; Computador.",
+   "page_read": true
+  },
+  {
+   "slug": "kaneo-adventure",
+   "name": "Kaneo Adventure",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Del Este, Monseñor Rodriguez, Ciudad del Este",
+   "hours": "Segunda a Quinta 08:00 - 20:30; Sexta a Sábado 07:30 - 20:30; Domingo 09:00 - 15:30 (Horário de Brasília)",
+   "website": "http://www.kaneoadventure.com/",
+   "specialty": "Loja de Bicicletas e Motos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/kaneo_adventure_104.webp",
+   "notes": "Loja única. Specialized in adventure goods; categories: Utensílios Domésticos; Lazer, Hobby & Camping.",
+   "page_read": true
+  },
+  {
+   "slug": "king-parts",
+   "name": "King Parts",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 4° andar, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:00 - 16:30; Sábado 06:00 - 15:00 (Horário de Brasília)",
+   "website": "http://www.kingparts.com/",
+   "specialty": "Loja de Peças para Celular e Notebook",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/king_parts_154.webp",
+   "notes": "Loja única. Main category: Celular.",
+   "page_read": true
+  },
+  {
+   "slug": "la-moneda",
+   "name": "La Moneda",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Monseñor Rodriguez, Com Boquerón, Ciudad del Este",
+   "hours": null,
+   "website": "http://www.lamoneda.com.py/",
+   "specialty": "Loja de Casas de Câmbio",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/la_moneda_104.webp",
+   "notes": "5 branches, all Ciudad del Este: Av. Monseñor Rodriguez, Com Boquerón; Super Carretera - Av. Mariscal Francisco Solano López, Com Monsenor Rodriguez, KM 4; Av. Adrián Jara, Com Namawa; Shopping Paris, Térreo, Av. Luis Maria Argaña; Galeria Jebai Center, Av. Carlos Antonio Lopez. No opening hours shown for any branch (verified with second fetch). Since 1989.",
+   "page_read": true
+  },
+  {
+   "slug": "life-beach",
+   "name": "Life Beach",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Cataratas, Térreo, Itá Ybaté, Ciudad del Este",
+   "hours": null,
+   "website": "https://www.instagram.com/lifebeachbt?igsh=MTl0dHQ4Y3M4aDRhbQ==",
+   "specialty": "Loja de Diversos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/life_beach_106.webp",
+   "notes": "Loja única. Opening hours not shown. The 'Site oficial' link is an Instagram profile, not a standalone website. Featured products are padel and tennis equipment.",
+   "page_read": true
+  },
+  {
+   "slug": "farma-fit",
+   "name": "Farma Fit",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 3° andar · Loja 2208, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 16:00 (Horário de Brasília)",
+   "website": "https://farma.fit",
+   "specialty": "Loja de Farmácia e Suplementos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/farma_fit_472fb990-3815-4f0c-a5ad-d38a9a8ae9a9.avif",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "farma-next",
+   "name": "Farma Next",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Adrián Jara, Ciudad del Este",
+   "hours": null,
+   "website": "https://www.farmanext.com.py",
+   "specialty": "Loja de Farmácia e Suplementos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/farma_next_069344e7-48d8-4803-80c5-8bac4124d7af.avif",
+   "notes": "Loja única. Opening hours not shown on the page.",
+   "page_read": true
+  },
+  {
+   "slug": "farma10",
+   "name": "Farma10",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Adrián Jara - Ciudad del Este",
+   "hours": "De Segunda a Sábado das 07:00 - 16:00 (Horário Brasil)",
+   "website": "https://farma10.com.py/",
+   "specialty": "Farmácia e Suplementos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/farma10_9c8a138f-8ddc-4ea7-81c4-5105b65644c3.avif",
+   "notes": "Single branch listed.",
+   "page_read": true
+  },
+  {
+   "slug": "farmacenter",
+   "name": "Farmacenter",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este",
+    "Salto del Guairá"
+   ],
+   "address": "Av. Carlos Antonio López - Ciudad del Este",
+   "hours": "Segunda das 05:00 - 00:00 (Horário Brasil)",
+   "website": "http://www.farmacenter.com.py/",
+   "specialty": "Farmácia e Suplementos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmacenter_104.webp",
+   "notes": "6 branches: Av. Carlos Antonio López - Ciudad del Este; Av. Paraguay Nº 139 - Salto del Guairá; Av. Adrián Jara - Ciudad del Este; Av. Julio César Riquelme - Ciudad del Este; Av. San José - Ciudad del Este; Av. Mariscal López - Ciudad del Este. Hours printed only as 'Segunda das 05:00 - 00:00' (no other days shown). Main category: Suplemento Alimentar.",
+   "page_read": true
+  },
+  {
+   "slug": "farmacia-amada",
+   "name": "Farmácia Amada",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. San Blás, Com Capitão Miranda, Ciudad del Este",
+   "hours": null,
+   "website": "http://www.farmaciaamada.com.py/",
+   "specialty": "Loja de Farmácia e Suplementos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmacia_amada_104.webp",
+   "notes": "6 branches, all Ciudad del Este: Av. San Blás, Com Capitão Miranda; Super Carretera - Av. Mariscal Francisco Solano López, Frente ao Centro de Salud; Super Carretera - Av. Mariscal Francisco Solano López, Frente Apamap; Av. Julio César Riquelme, Com R.I.3 Corrales · Km 7; Av. Emiliano R. Fernández, Com Capitão Miranda; Rua Coronel Toledo, Com Emiliano R. Fernandez. Opening hours not shown on the page.",
+   "page_read": true
+  },
+  {
+   "slug": "farmacia-amor",
+   "name": "Farmacia Amor",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. San Blás A cima da casa China ao lado do Banco de Fomento - Ciudad del Este",
+   "hours": "De Segunda a Sexta das 06:00 - 16:00; Domingo das 07:30 - 11:30 (Horário Brasil)",
+   "website": "http://www.farmaciaamorpy.com/pagina/loja",
+   "specialty": "Farmácia e Suplementos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmacia_amor_104.webp",
+   "notes": "Single branch. Main categories: Suplemento Alimentar, Cosmético, Perfume, Maquiagem.",
+   "page_read": true
+  },
+  {
+   "slug": "farmacia-brasil",
+   "name": "Farmácia Brasil",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Internacional, Loja n 20, Rua Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": "https://www.farmaciabrasil.com.py/",
+   "specialty": "Loja de Farmácia e Suplementos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmacia_brasil_164.webp",
+   "notes": "Loja única. Opening hours not shown on the page.",
+   "page_read": true
+  },
+  {
+   "slug": "farmacia-el-killo",
+   "name": "Farmácia El Killo",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Rua Camilo Recalde, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 17:00; Domingo 07:00 - 11:00 (Horário de Brasília)",
+   "website": "https://www.elkillo.net/",
+   "specialty": "Loja de Farmácia e Suplementos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/farmacia_el_killo_2f298b70-139a-46bc-968b-f52a2738579d.avif",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "farmacia-oliva",
+   "name": "Farmácia Oliva",
+   "city": "Salto del Guairá",
+   "cities": [
+    "Salto del Guairá"
+   ],
+   "address": "Av. General Bernardino Caballero - Salto del Guairá",
+   "hours": "Segunda das 05:00 - 22:00 (Horário Brasil)",
+   "website": null,
+   "specialty": "Farmácia e Suplementos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmacia_oliva_104.webp",
+   "notes": "The page's 'Site' link points to a Facebook page (https://www.facebook.com/farmaoliva/), not an own website, so website set null. Hours printed only for Monday ('Segunda').",
+   "page_read": true
+  },
+  {
+   "slug": "farmacia-santa-rita",
+   "name": "Farmacia Santa Rita",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Adrián Jara, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 15:00; Domingo 08:00 - 12:00 (Horário de Brasília)",
+   "website": "https://farmaciasantaritaparaguai.com.br",
+   "specialty": "Loja de Farmácia e Suplementos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/farmacia_santa_rita_7528de42-dbe3-4d34-b45d-23399239682e.avif",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "farmashop-dior",
+   "name": "Farmashop Dior",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este",
+    "Pedro Juan Caballero"
+   ],
+   "address": "Shopping Yguazu, Av. San Blás, 765, Ciudad del Este",
+   "hours": null,
+   "website": null,
+   "specialty": "Loja de Farmácia e Suplementos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmashop_dior_157.webp",
+   "notes": "3 branches: Shopping Yguazu, Av. San Blás, 765, Ciudad del Este; Galeria Uniamérica, Ita Ybate c/ Monseñor Rodriguez, Ciudad del Este; Rua José Félix Estigarribia, Pedro Juan Caballero. No opening hours and no own website on the page (only Instagram https://www.instagram.com/farmaciasdior and WhatsApp). Main category: Suplemento Alimentar.",
+   "page_read": true
+  },
+  {
+   "slug": "farmatitu",
+   "name": "Farmatitu",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Super Carretera - Av. Mariscal Francisco Solano López Km 4, Ciudad del Este",
+   "hours": "Segunda das 05:00 - 00:00; Domingo das 07:00 - 22:00 (Horário Brasil, main branch)",
+   "website": "http://www.farmatitu.com.py/",
+   "specialty": "Farmácia e Suplementos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/farmatitu_104.webp",
+   "notes": "5 branches, all Ciudad del Este: Super Carretera - Av. Mariscal Francisco Solano López Km 4 (Segunda das 05:00 - 00:00, Domingo das 07:00 - 22:00); Av. Adrián Jara Esquina com a Rua Abay (De Segunda a Sábado das 06:00 - 21:00, Domingo das 07:00 - 21:00); Av. Julio César Riquelme c/ Batollon 40 -- Km 7 (De Segunda a Sábado das 06:30 - 22:30, Domingo das 06:30 - 22:00); Av. San José Km 5,5 (Segunda das 05:00 - 00:00, Domingo das 06:00 - 22:00); Av. Monday Km 7 (De Segunda a Sábado das 06:30 - 22:30, Domingo das 07:30 - 21:30). Main category: Suplemento Alimentar.",
+   "page_read": true
+  },
+  {
+   "slug": "fashion-celina",
+   "name": "Fashion Celina",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Carlos Antonio López, Com Av. Adrian Jara, 0, Ciudad del Este",
+   "hours": "Segunda a Sexta 08:00 - 17:30; Sábado 08:00 - 14:30 (Horário de Brasília)",
+   "website": "http://www.fashioncelina.com/",
+   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/fashion_celina_104.webp",
+   "notes": "8 branches, all Ciudad del Este: Av. Carlos Antonio López, Com Av. Adrian Jara, 0; Shopping Paris, 1° andar, Av. Luis Maria Argaña; Shopping Del Este, Loja 133, Monseñor Rodriguez; Shopping Paris, 2° andar, Av. Luis Maria Argaña; Shopping Barcelona, Loja 1016, Av. Carlos Antonio Lopez; Av. San Blás, Junto ao Banco Nacional de Fomento; Av. San Blás, Com Coronel Toledo, 0; Av. Adrián Jara, Com Luis M. Argaña, 0. Main category: Saúde, Beleza & Moda. 'Desde 2005'. Page read on second retry after a rate limit.",
+   "page_read": true
+  },
+  {
+   "slug": "fashion-house",
+   "name": "Fashion House",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Paris, 1° andar, Av. Luis Maria Argaña, Ciudad del Este",
+   "hours": "Segunda a Sábado 08:00 - 20:00 (Horário de Brasília, Shopping Paris branch)",
+   "website": null,
+   "specialty": "Loja de Casa e Construção",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/fashion_house_104.webp",
+   "notes": "3 branches, all Ciudad del Este: Shopping Paris, 1° andar, Av. Luis Maria Argaña (Segunda a Sábado 08:00 - 20:00); Shopping Box Outlet, 3° andar, Monseñor Rodriguez (Segunda a Sábado 08:00 - 17:30); Galeria Zuni, Av. Monseñor Rodriguez (Segunda a Sábado 08:00 - 20:00). No own website; only Messenger, Instagram (https://www.instagram.com/fh_paraguay/) and Facebook (https://www.facebook.com/FHparaguay/). Description: perfumes, cremes, roupas esportivas, tênis, equipamentos de pesca.",
+   "page_read": true
+  },
+  {
+   "slug": "fastrax",
+   "name": "Fastrax",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Edifício Omni Center, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 18:00 (Horário de Brasília)",
+   "website": "http://www.fastrax.com.py/",
+   "specialty": "Loja de Informática",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/fastrax_100.webp",
+   "notes": "Loja única. Main category: Eletrônicos.",
+   "page_read": true
+  },
+  {
+   "slug": "favorita",
+   "name": "Favorita",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Zuni, 1° andar · Loja nº58, Av. Monseñor Rodriguez, Ciudad del Este",
+   "hours": null,
+   "website": "http://favoritapy.com.br/br",
+   "specialty": "Loja de Brinquedos e Auto-Serviço",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/favorita_165.webp",
+   "notes": "Loja única. Opening hours not shown on the page. Main category: Drone.",
+   "page_read": true
+  },
+  {
+   "slug": "fe-cambios",
+   "name": "FE Cambios",
+   "city": "Pedro Juan Caballero",
+   "cities": [
+    "Pedro Juan Caballero",
+    "Ciudad del Este"
+   ],
+   "address": "Av. Mariscal Lopez, Esq. Julia Miranda Cueto de Estigarribia, Pedro Juan Caballero",
+   "hours": "Segunda a Sexta 07:00 - 17:00; Sábado 07:30 - 12:00 (Horário de Brasília, Pedro Juan Caballero branch)",
+   "website": null,
+   "specialty": "Loja de Casas de Câmbio",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/fe_cambios_103.webp",
+   "notes": "2 branches: Av. Mariscal Lopez, Esq. Julia Miranda Cueto de Estigarribia, Pedro Juan Caballero (Segunda a Sexta 07:00 - 17:00, Sábado 07:30 - 12:00); Av. Monseñor Rodriguez, Entre Boqueron e Abay, Ciudad del Este (Segunda a Sexta 07:00 - 15:00, Sábado 07:30 - 11:30). No own website on the page.",
+   "page_read": true
+  },
+  {
+   "slug": "ferramentas-paris",
+   "name": "Ferramentas Paris",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Paris, 1° andar, Ciudad del Este",
+   "hours": "De Segunda a Sábado das 08:00 - 19:00; Domingo das 08:00 - 17:00 (Horário Brasil)",
+   "website": "https://ferramentasparis.com/",
+   "specialty": "Ferramentas e Máquinas",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/ferramentas_paris_8c8ca662-b785-4dec-a71a-33ee7265d71d.avif",
+   "notes": "Single branch. Main category: Ferramentas E Equipamentos.",
+   "page_read": true
+  },
+  {
+   "slug": "fidelia",
+   "name": "Fidelia",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Americana, Marginal Norte, Ciudad del Este",
+   "hours": null,
+   "website": null,
+   "specialty": "Loja de Casa e Construção",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/fidelia_102.webp",
+   "notes": "2 branches, both Ciudad del Este: Shopping Americana, Marginal Norte; Shopping HWU, Térreo, Av. Adrian Jara. No opening hours and no own website on the page (only Instagram https://www.instagram.com/casafidelia/ and Facebook https://www.facebook.com/casafidelia01). Main category: Decoração.",
+   "page_read": true
+  },
+  {
+   "slug": "luomo",
+   "name": "L'uomo",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este",
+    "Pedro Juan Caballero"
+   ],
+   "address": "Galeria Zuni, Loja Local 203/204, Av. Monseñor Rodriguez, Ciudad del Este | Av. Carlos Dominguez, Esquina com a Rua Tenente Herrero, Pedro Juan Caballero",
+   "hours": "Galeria Zuni (Ciudad del Este): Segunda a Sábado 09:00 - 21:00; Domingo 12:00 - 20:00. Av. Carlos Dominguez (Pedro Juan Caballero): Segunda a Sexta 08:00 - 18:00 (Horário de Brasília)",
+   "website": "http://www.luomo.com.py/",
+   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/l_uomo_103.webp",
+   "notes": "2 units. Page says 'Desde 1981'.",
+   "page_read": true
+  },
+  {
+   "slug": "m1-motor-one",
+   "name": "M1 Motor One",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Vendome, 2° andar · Loja 208 / 210 / 223 / 225, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sexta 08:00 - 17:00 (Horário de Brasília)",
+   "website": "http://www.m1-motors.com/",
+   "specialty": "Loja de Artigos e Serviços Automotivos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/m1_motor_one_187235df-68c3-4ec6-9b55-d2b7249f81bd.avif",
+   "notes": "Loja única. Specializes in automotive accessories and tuning.",
+   "page_read": true
+  },
+  {
+   "slug": "magnum-comunicacao",
+   "name": "Magnum Comunicação",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Internacional, 1° andar · Loja sala 18, Rua Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": "http://www.magnumcomunicacao.com.py/vendedores.php",
+   "specialty": "Loja de Comunicação e Segurança",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/magnum_comunicacao_164.webp",
+   "notes": "Loja única. No opening hours shown. Website link printed is a sellers page (vendedores.php) on the store's own domain. Main category: Vigilância e Segurança.",
+   "page_read": true
+  },
+  {
+   "slug": "majestic-group",
+   "name": "Majestic Group",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Cataratas, 2° andar · Loja Sala 214, Itá Ybaté, Ciudad del Este",
+   "hours": null,
+   "website": "https://majesticgroup.com.py/",
+   "specialty": "Loja de Departamentos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/magestic_group_84cf8c00-7977-4542-98b1-73be6d86f1a7.avif",
+   "notes": "Loja única. No opening hours shown.",
+   "page_read": true
+  },
+  {
+   "slug": "makro-sport",
+   "name": "Makro Sport",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Rua Camilo Recalde, 220, Ciudad del Este | Shopping Barcelona, Loja Sala 1003, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Segunda a Sábado 08:30 - 16:30 (Horário de Brasília), both units",
+   "website": "http://www.makrosport.com.py/",
+   "specialty": "Loja de Bicicletas e Motos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/makro_sport.webp",
+   "notes": "2 units.",
+   "page_read": true
+  },
+  {
+   "slug": "marktronic-comunicacao",
+   "name": "Marktronic Comunicação",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Monseñor Rodriguez, Ciudad del Este",
+   "hours": "Segunda a Sábado 08:00 - 16:00 (Horário de Brasília)",
+   "website": "http://www.marktronic.com.br/",
+   "specialty": "Loja de Comunicação e Segurança",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/marktronic_comunicacao_165.webp",
+   "notes": "Loja única; no shopping/gallery, floor or room printed.",
+   "page_read": true
+  },
+  {
+   "slug": "maxi-cambios",
+   "name": "Maxi Cambios",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. San Blás, Nº 1022, Ciudad del Este | Av. Mariscal López, Com El Trebol, Ciudad del Este",
+   "hours": "Av. San Blás: Segunda a Quinta 07:30 - 17:00; Sexta a Sábado 07:00 - 17:00; Domingo 08:30 - 13:00. Av. Mariscal López: Segunda a Sexta 07:30 - 19:30; Sábado 07:00 - 12:00 (Horário de Brasília)",
+   "website": "http://www.maxicambios.com.py/",
+   "specialty": "Loja de Casas de Câmbio",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/maxi_cambios_104.webp",
+   "notes": "2 units.",
+   "page_read": true
+  },
+  {
+   "slug": "mdl-solucoes-em-iluminacao",
+   "name": "MDL - Soluções em Iluminação",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Paris, 1° andar · Loja 67-72, Av. Luis Maria Argaña, Ciudad del Este | Shopping Box Outlet, Monseñor Rodriguez, Ciudad del Este",
+   "hours": "Segunda a Sábado 06:00 - 15:30 (Horário de Brasília), both units",
+   "website": "http://www.mdl.com.py/",
+   "specialty": "Loja de Casa e Construção",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mdl_solucoes_em_iluminacao_104.webp",
+   "notes": "2 units. Main category: Iluminação (LED lighting).",
+   "page_read": true
+  },
+  {
+   "slug": "medical-center",
+   "name": "Medical Center",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Del Este, Monseñor Rodriguez, Ciudad del Este | Galeria Uniamérica, Loja 30, Ita Ybate c/ Monseñor Rodriguez, Ciudad del Este",
+   "hours": "Segunda a Domingo 07:30 - 20:00 (Horário de Brasília), both units",
+   "website": "http://www.medicalcenterpy.com/",
+   "specialty": "Loja de Instrumentos Médicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/medical_center_165.webp",
+   "notes": "2 units. Main category: Saúde.",
+   "page_read": true
+  },
+  {
+   "slug": "mekka-store",
+   "name": "Mekka Store",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. San Blás, Ao lado do Shopping Americana, Ciudad del Este",
+   "hours": "Segunda a Sábado 06:30 - 17:00; Domingo 08:30 - 12:30 (Horário de Brasília)",
+   "website": "https://www.mekka.com.py/",
+   "specialty": "Loja de Instrumentos Musicais",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/mekka_store_af129b93-232c-4f62-89d8-ebb4a7769de1.avif",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "mercosur-cambios",
+   "name": "Mercosur Cambios",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Monseñor Rodriguez, Com Boquerón -- 712, Ciudad del Este | Super Carretera - Av. Mariscal Francisco Solano López , Km 4, Ciudad del Este",
+   "hours": "Av. Monseñor Rodriguez: Segunda a Sexta 06:30 - 16:00; Sábado 06:30 - 23:00. Super Carretera: Segunda a Sexta 07:00 - 17:00; Sábado 07:00 - 12:00 (Horário de Brasília)",
+   "website": "http://www.mercosurcambios.com/",
+   "specialty": "Loja de Casas de Câmbio",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mercosur_cambios_104.webp",
+   "notes": "2 units. Saturday 06:30 - 23:00 at the first unit is as printed on the page.",
+   "page_read": true
+  },
+  {
+   "slug": "miami-bikes",
+   "name": "Miami Bikes",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lion, Loja Sala 309, Av. Eusebio Ayala, Ciudad del Este",
+   "hours": "Segunda a Sábado 08:00 - 16:00 (Horário de Brasília)",
+   "website": "http://www.miamibike.com.py/",
+   "specialty": "Ciclismo; Equipamentos para Motociclismo",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/miami_bikes_104.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "miami-store",
+   "name": "Miami Store",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 4° andar · Loja Sala 3333, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": null,
+   "website": "https://miamistore.com.py/",
+   "specialty": "Loja de Celulares",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/miami_store_107.webp",
+   "notes": "Loja única. No opening hours shown.",
+   "page_read": true
+  },
+  {
+   "slug": "midi-pro",
+   "name": "Midi Pro",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Uniamérica, 2° andar · Loja Sala 28 e 29, Ita Ybate c/ Monseñor Rodriguez, Ciudad del Este",
+   "hours": null,
+   "website": "http://www.midipro.store/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/midi_pro_168.webp",
+   "notes": "Loja única. No opening hours shown.",
+   "page_read": true
+  },
+  {
+   "slug": "milane-yewear",
+   "name": "Milane Yewear",
+   "city": "Salto del Guairá",
+   "cities": [
+    "Salto del Guairá",
+    "Ciudad del Este"
+   ],
+   "address": "Av. Paraguay, Salto del Guairá | Galeria Jebai Center, 3° andar, Av. Carlos Antonio Lopez, Ciudad del Este | Shopping Paris, 1° andar, Av. Luis Maria Argaña, Ciudad del Este",
+   "hours": "Segunda a Sábado 08:00 - 17:00 (Horário de Brasília), all units",
+   "website": "https://shopmylan.com.br/",
+   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/milane_yewear_97.webp",
+   "notes": "3 units; first listed unit (01) is Salto del Guairá (order confirmed by a second read). Main category: Óculos.",
+   "page_read": true
+  },
+  {
+   "slug": "monalisa",
+   "name": "Monalisa",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Monseñor Rodriguez, Com Carlos Antonio López, 654, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 16:30; Domingo 08:00 - 12:00 (Horário de Brasília)",
+   "website": "http://www.monalisa.com.py/",
+   "specialty": "Loja de Departamentos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/monalisa_104.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "money",
+   "name": "Money",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Adrián Jara, Com Boquerón, Ciudad del Este",
+   "hours": null,
+   "website": "http://www.money.com.py/",
+   "specialty": "Loja de Casas de Câmbio",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/money_99.webp",
+   "notes": "Loja única. No opening hours shown.",
+   "page_read": true
+  },
+  {
+   "slug": "monte-carlo",
+   "name": "Monte Carlo",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Hijazi Center, 2° andar, Regimento Piribebury, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:30 (Horário de Brasília)",
+   "website": "http://montecarlosrl.com/content/6-nossa-equipe",
+   "specialty": "Loja de Câmeras e Fotografia",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/monte_carlo_166.webp",
+   "notes": "Loja única. The only external link printed is a team/sellers page on the store's own domain. Main categories: Fotografia, Câmera Digital.",
+   "page_read": true
+  },
+  {
+   "slug": "mpr-manos-pro-racing",
+   "name": "MPR - Manos Pro Racing",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Vendome - 4° andar - Ciudad del Este",
+   "hours": "De Segunda a Sábado das 08:00 - 17:00 (Horário Brasil)",
+   "website": "http://manosproracing.com/",
+   "specialty": "Bicicletas e Motos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mpr_manos_pro_racing_168.webp",
+   "notes": "Main category: Equipamentos para Motociclismo.",
+   "page_read": true
+  },
+  {
+   "slug": "mundial-cambios",
+   "name": "Mundial Câmbios",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este",
+    "Salto del Guairá"
+   ],
+   "address": "Shopping Vendome, Loja 109, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Shopping Vendome: Segunda a Sexta 06:30 - 15:30, Sábado 06:30 - 13:00; Galeria Jebai Center: Segunda a Sexta 06:30 - 15:30, Sábado 06:30 - 12:00; Galeria Globo: Segunda a Sexta 07:00 - 16:00, Sábado 07:00 - 12:00; Super Carretera Km 4: Segunda a Sexta 07:00 - 17:00, Sábado 07:00 - 12:00; Salto del Guairá Av. Paraguay: Segunda a Sexta 08:00 - 16:00, Sábado 08:00 - 12:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Casas de Câmbio",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mundial_cambios_104.webp",
+   "page_read": true,
+   "notes": "5 branches: Shopping Vendome, Loja 109, Av. Adrian Jara, Ciudad del Este | Galeria Jebai Center, Av. Carlos Antonio Lopez, Ciudad del Este | Galeria Globo, Av. San Blás, Ciudad del Este | Super Carretera - Av. Mariscal Francisco Solano López , Km 4, Ciudad del Este | Av. Paraguay, Com Bernardino Caballero, Salto del Guairá. No own website listed; only external link is https://twitter.com/mundialcambios. Phone (+595 61) 511-630."
+  },
+  {
+   "slug": "mundial-electronicos-ecopower-electronicos",
+   "name": "Mundial Electronicos (Ecopower Electronicos)",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Florida , 1° andar, Av. Dr.Luis Maria Argaña, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 15:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mundial_electronicos_ecopower_electronicos_104.webp",
+   "page_read": true,
+   "notes": "Loja única. No own website listed; only social profiles https://www.instagram.com/ecopowerelectronicos/ and https://www.facebook.com/EcopowerElectronicos."
+  },
+  {
+   "slug": "mundo-aquatico",
+   "name": "Mundo Aquático",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Antonio, Térreo, Av. Rubio Nu, 120, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:00 (Horário de Brasília)",
+   "website": "http://www.mundoaquaticopy.com.br/br",
+   "specialty": "Loja de Pesca e Náutica",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mundo_aquatico_104.webp",
+   "page_read": true,
+   "notes": "Loja única. Header label is 'Loja de Pesca e Náutica'; main product category listed is 'Aquarismo'."
+  },
+  {
+   "slug": "mundo-digital",
+   "name": "Mundo Digital",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 2° andar · Loja 3153, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": null,
+   "website": "https://mundodigital.com.py",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mundo_digital_164.webp",
+   "page_read": true,
+   "notes": "Opening hours not shown on page. Description: computer products store focused on notebook and phone accessories."
+  },
+  {
+   "slug": "mundo-musical",
+   "name": "Mundo Musical",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. San Blás, 112, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 16:30 (Horário de Brasília)",
+   "website": "https://www.mundomusicalpy.com/",
+   "specialty": "Loja de Instrumentos Musicais",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/mundo_musical_164.webp",
+   "page_read": true,
+   "notes": "Loja única. Description also mentions professional audio, lighting and party/event decoration and sound."
+  },
+  {
+   "slug": "new-york-store",
+   "name": "New York Store",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Jardín, 1° andar, Av. San Blas, 7000, Ciudad del Este",
+   "hours": null,
+   "website": "http://www.newyorkstore.com.py/",
+   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/new_york_store_105.webp",
+   "page_read": true,
+   "notes": "Loja única. Opening hours not shown on page. Listed product categories: Roupas, Tênis e Calçados."
+  },
+  {
+   "slug": "nico-eletronicos",
+   "name": "Nico Eletrônicos",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 5° andar · Loja 608/609, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:00 - 16:00; Sábado 07:00 - 12:00 (Horário de Brasília)",
+   "website": "https://nicoelectronicos.com.py/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/nico_eletronicos_165.webp",
+   "page_read": true,
+   "notes": "Loja única."
+  },
+  {
+   "slug": "norte-cambios",
+   "name": "Norte Cambios",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este",
+    "Pedro Juan Caballero",
+    "Salto del Guairá"
+   ],
+   "address": "Rua Curupayty, Entre Av. Adrián Jara e Rua Pai Perez, Ciudad del Este",
+   "hours": null,
+   "website": "http://www.nortecambios.com.py/",
+   "specialty": "Loja de Casas de Câmbio",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/norte_cambios_104.webp",
+   "page_read": true,
+   "notes": "4 branches: Rua Curupayty, Entre Av. Adrián Jara e Rua Pai Perez, Ciudad del Este | Av. Carlos Antonio López, 1747, entre Iturbe com Carlos Dominguez, Pedro Juan Caballero | Av. Dr. Francia, E Mariscal López, Pedro Juan Caballero | Av. Paraguay, E / Domingo Robledo e Pablo VI, Salto del Guairá. No opening hours shown for any branch (confirmed on second read). First fetch attempts were rate limited; succeeded on retry."
+  },
+  {
+   "slug": "oma",
+   "name": "O.MA",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Adrián Jara, 3213, Ciudad del Este",
+   "hours": null,
+   "website": null,
+   "specialty": "Loja de Peças para Celular e Notebook",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/o_ma_102.webp",
+   "page_read": true,
+   "notes": "Loja única. Opening hours not shown. No homepage listed; only external links are a price-list XML (http://omab2c.com/xml/cp.xml) and Facebook (https://www.facebook.com/OMA-GROUP-1487740144862375/?fref=ts)."
+  },
+  {
+   "slug": "originatti",
+   "name": "Originatti",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 4° andar · Loja Sala 411, Av. Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": "https://www.originatti.com.br/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/originatti_00e1b7c5-667b-4407-aed1-fb2da65db17e.avif",
+   "page_read": true,
+   "notes": "Loja única. Opening hours not shown. Description highlights sale of iPhones and electric scooters."
+  },
+  {
+   "slug": "paco-shop",
+   "name": "Paco Shop",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Edifício Aguapey, Térreo, Avenida Camilo Recalde, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:00 (Horário de Brasília)",
+   "website": "https://www.pacoshop.com",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/paco_shop_7debda59-43d3-45db-855c-bf87addc3e0e.avif",
+   "page_read": true,
+   "notes": "Loja única."
+  },
+  {
+   "slug": "papelaria-cassol",
+   "name": "Papelaria Cassol",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. San Blás, 9055, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 17:00 (Horário de Brasília), both branches",
+   "website": "http://www.cassolpapeleria.com/",
+   "specialty": "Loja de Papelaria",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/papelaria_cassol_104.webp",
+   "page_read": true,
+   "notes": "2 branches: Av. San Blás, 9055, Ciudad del Este | Shopping Mirage, Loja Sala 24, Av. Pampliega com Adrian Jara, Ciudad del Este. Initial fetches rate limited; succeeded on retry."
+  },
+  {
+   "slug": "pilar",
+   "name": "Pilar",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Mariscal López, Super Rodovia Km. 4, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:30 - 17:30; Sábado 08:00 - 13:00 (Horário de Brasília)",
+   "website": "https://www.pilar.com.py/",
+   "specialty": "Loja de Cama / Mesa / Banho",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/pilar_104.webp",
+   "page_read": true,
+   "notes": "Loja única."
+  },
+  {
+   "slug": "play-box",
+   "name": "Play Box",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Vendome, 4° andar · Loja 4408, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:00 - 16:00; Sábado 07:00 - 14:00 (Horário de Brasília)",
+   "website": "https://playboxpy.com/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/play_box_163.webp",
+   "page_read": true,
+   "notes": "Loja única."
+  },
+  {
+   "slug": "playcell-sa",
+   "name": "Playcell S.A.",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 1° andar · Loja 121/122, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:00 (Horário de Brasília)",
+   "website": "http://www.playcellsa.com/vendedores",
+   "specialty": "Loja de Perfumes, Beleza e Bolsas",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/playcell_s_a_104.webp",
+   "page_read": true,
+   "notes": "Loja única. Main categories listed: Utensílios Domésticos, Brinquedos, Cosmético, Perfume, Shampoo e Condicionador, Eletrônicos de Uso Pessoal."
+  },
+  {
+   "slug": "pnt-automotive",
+   "name": "PNT Automotive",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Vendome, 3° andar · Loja Sala 325, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:30 - 15:30; Sábado 07:30 - 14:30 (Horário de Brasília)",
+   "website": "https://www.pnt.com.py/",
+   "specialty": "Loja de Artigos e Serviços Automotivos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/pnt_automotive_165.webp",
+   "page_read": true,
+   "notes": "Loja única. Main category listed: Central Multimídia."
+  },
+  {
+   "slug": "point-informatica",
+   "name": "Point Informática",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 4° andar · Loja 408, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 16:30 (Horário de Brasília)",
+   "website": "https://www.pointinformatica.com.py/",
+   "specialty": "Loja de Informática",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/point_informatica_165.webp",
+   "page_read": true,
+   "notes": "Loja única."
+  },
+  {
+   "slug": "polo-center",
+   "name": "Polo Center",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 4° andar · Loja Sala 413, Av. Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": "https://polocenter.com.py",
+   "specialty": "Loja de Celulares",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/polo_center_165.webp",
+   "page_read": true,
+   "notes": "Loja única. Opening hours not shown on page."
+  },
+  {
+   "slug": "prime-barber-supply",
+   "name": "Prime Barber Supply",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 3° andar · Loja N° 313, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sábado 06:00 - 15:30 (Horário de Brasília)",
+   "website": "https://primebarbersupply.com/pt/home-clone-demo-portugues/",
+   "specialty": "Loja de Itens de Barbearia",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/prime_barber_supply_170.webp",
+   "page_read": true,
+   "notes": "Loja única."
+  },
+  {
+   "slug": "tigers-del-este",
+   "name": "Tigers del Este",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Hijazi Center, 5° andar · Loja Sala 516, Regimento Piribebury, Ciudad del Este",
+   "hours": "Segunda a Sábado 08:00 - 17:00 (Horário de Brasília)",
+   "website": "http://www.tigersdeleste.com/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tigers_del_este_101.webp",
+   "notes": "Loja única. Main categories: Filmadora, Periféricos & Dispositivos de entrada, Fone de Ouvido / Headset, Rede & Wireless, Projetor, Depilador.",
+   "page_read": true
+  },
+  {
+   "slug": "tlc",
+   "name": "TLC",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 5° andar · Loja 516, Av. Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": "https://www.tlc.com.py/",
+   "specialty": "Loja de Celulares",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tlc_165.webp",
+   "notes": "Loja única. Opening hours not shown on page.",
+   "page_read": true
+  },
+  {
+   "slug": "total-smart",
+   "name": "Total Smart",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 3° andar · Loja Sala 315, Av. Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": null,
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/total_smart.webp",
+   "notes": "Loja única. Opening hours and own website not shown on page.",
+   "page_read": true
+  },
+  {
+   "slug": "tropical-bike",
+   "name": "Tropical Bike",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping HWU, Loja Sala 8, Av. Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": "http://www.tropicalbike.com.br/",
+   "specialty": "Loja de Bicicletas e Motos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tropical_bike_104.webp",
+   "notes": "Loja única. Opening hours not shown on page.",
+   "page_read": true
+  },
+  {
+   "slug": "tropical-music",
+   "name": "Tropical Music",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping King Fong, Loja Salas 102 e 103, Marginal Norte, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:30 (Horário de Brasília)",
+   "website": "http://www.tropicalmusic.com.py/",
+   "specialty": "Loja de Instrumentos Musicais",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tropical_music_169.webp",
+   "notes": "Loja única. Main categories: Iluminação, Caixa de Som, Instrumentos Musicais.",
+   "page_read": true
+  },
+  {
+   "slug": "tudo-livre",
+   "name": "Tudo Livre",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Mina India, Loja 110, Av. San Blás, Ciudad del Este",
+   "hours": null,
+   "website": "http://www.tudolivre.com/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tudo_livre_104.webp",
+   "notes": "3 branches, all Ciudad del Este: (1) Shopping Mina India, Loja 110, Av. San Blás; (2) Shopping Vendome, 2° andar · Loja 330, Av. Adrian Jara; (3) Shopping Internacional, Rua Adrian Jara. Opening hours not shown on page.",
+   "page_read": true
+  },
+  {
+   "slug": "tv-game",
+   "name": "TV Game",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Vendome, 2° andar · Loja Salas 233 e 234, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:00 (Horário de Brasília)",
+   "website": "http://www.tvgamepy.com/",
+   "specialty": "Loja de Video Games",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tv_game_104.webp",
+   "notes": "Loja única. Desde 1990; Distribuidora no atacado e varejo. Main categories: TV, Videogame, Acessórios para Informática, Periféricos & Dispositivos de entrada, Pendrive, Brinquedos.",
+   "page_read": true
+  },
+  {
+   "slug": "unishop-pro-av",
+   "name": "Unishop Pro AV",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Del Este - loja 108 - Ciudad del Este",
+   "hours": "De Segunda a Sexta das 08:00 - 16:00; Sábado das 08:00 - 13:00 (Horário Brasil)",
+   "website": "https://unishop.com.py/",
+   "specialty": "Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/unishop_pro_av_166.webp",
+   "notes": "Single branch listed; no street address shown. Main categories: Eletrônicos, Projetor.",
+   "page_read": true
+  },
+  {
+   "slug": "vapo-shop",
+   "name": "Vapo Shop",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Uniamerica, 3° andar, Rua Regimento Peribebuy, Ciudad del Este",
+   "hours": null,
+   "website": "https://vaposhop.com.py/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/vapo_shop_91728a58-a4a5-45d8-95f8-fd3e0957a48b.avif",
+   "notes": "Loja única. Opening hours not shown on page.",
+   "page_read": true
+  },
+  {
+   "slug": "vatekano",
+   "name": "Vatekano",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. San Blás, 112, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 17:00 (Horário de Brasília)",
+   "website": "https://www.vatekano.com.py/",
+   "specialty": "Loja de Instrumentos Musicais",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/vatekano_163.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "versani",
+   "name": "Versani",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Uniamérica, 2° andar, loja Sala 6, Ciudad del Este",
+   "hours": "De Segunda a Sábado das 06:00 - 15:00 (Horário Brasil)",
+   "website": "http://www.versani.com.py/",
+   "specialty": "Roupas, Jóias e Bijuterias",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/versani_104.webp",
+   "notes": "4 branches, all Ciudad del Este: (1) Galeria Uniamérica, 2° andar, loja Sala 6 - Seg a Sáb 06:00-15:00; (2) Rubio NU, com Adrián Jara - Seg a Sáb 06:00-15:00; (3) Shopping Paris - Seg a Sáb 07:00-19:00; (4) Galeria Santo Domingo - Seg a Sex 06:00-15:00. Main category listed: Roupas.",
+   "page_read": true
+  },
+  {
+   "slug": "vertex",
+   "name": "Vertex",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Edifício Nabil Center, Térreo · Loja Sala 02, Regimento Piribebuy, Ciudad del Este",
+   "hours": null,
+   "website": null,
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/vertex_f98365c3-8785-4469-87a3-c1459533b2b0.avif",
+   "notes": "Loja única. Opening hours and own website not shown on page (only WhatsApp link).",
+   "page_read": true
+  },
+  {
+   "slug": "wb-shop",
+   "name": "WB Shop",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Brasil Center, 2° andar, Av. San Blás, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:00 (Horário de Brasília)",
+   "website": "https://wbshop.com.py/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/wb_shop_ad4e28e3-12c9-4676-8d98-1a16883b9f64.avif",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "world-music",
+   "name": "World Music",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 2° andar · Loja 2103, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Segunda a Sábado 08:00 - 16:00 (Horário de Brasília)",
+   "website": "https://worldmusic.com.py/",
+   "specialty": "Loja de Instrumentos Musicais",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/world_music_167.webp",
+   "notes": "Loja única. Main categories: Caixa de Som, Equipamentos para DJ, Mesa de Som, Instrumentos Musicais.",
+   "page_read": true
+  },
+  {
+   "slug": "xiaomi-zone",
+   "name": "Xiaomi Zone",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Luis Maria Argaña, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:30 - 16:30; Sábado 07:30 - 15:30 (Horário de Brasília)",
+   "website": "http://www.xiaomizone.com.py",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/xiaomi_zone_1.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "pro-book",
+   "name": "Pro Book",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 3° andar, Av. Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": "https://www.probook.com.py/",
+   "specialty": "Loja de Informática",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/pro_book_165.webp",
+   "notes": "Loja única. Opening hours not shown on the page.",
+   "page_read": true
+  },
+  {
+   "slug": "prodigital",
+   "name": "Prodigital",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 3° andar · Loja 2211/2212, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Segunda a Sexta 06:30 - 15:00 (Horário de Brasília)",
+   "website": "http://www.prodigital.com.py/",
+   "specialty": "Loja de Câmeras e Fotografia",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/prodigital_165.webp",
+   "notes": "Loja única. Main categories: Câmera Digital, Filmadora.",
+   "page_read": true
+  },
+  {
+   "slug": "pvnk-holding",
+   "name": "PVNK Holding",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Vendome, 6° andar · Loja Sala 633, Av. Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": "https://www.pvnkholdingco.com/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/uploads/loja/pvnk_holding_54748a66-7ac2-455e-92da-04d5c3a403f5.avif",
+   "notes": "Loja única. Opening hours not shown on the page. Featured products are Ignite V500 vapes.",
+   "page_read": true
+  },
+  {
+   "slug": "queen-anne",
+   "name": "Queen Anne",
+   "city": "Salto del Guairá",
+   "cities": [
+    "Salto del Guairá"
+   ],
+   "address": "Av. Paraguay, Salto del Guairá",
+   "hours": "Segunda a Sábado 07:30 - 18:00 (Horário de Brasília)",
+   "website": "http://www.shoppingqueenanne.com/shopping/",
+   "specialty": "Loja de Departamentos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/queen_anne_104.webp",
+   "notes": "Loja única. Main categories: Automotivo, Celular, Informática, Pesca e Náutica, Perfume, Óculos, Relógio.",
+   "page_read": true
+  },
+  {
+   "slug": "radio-nautica",
+   "name": "Radio Nautica",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Internacional, 1° andar, Rua Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:00 (Horário de Brasília)",
+   "website": "http://www.radionautica.com/",
+   "specialty": "Loja de Comunicação e Segurança",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/radio_nautica_164.webp",
+   "notes": "Loja única. Main categories: Automotivo, Eletrônicos; About text describes nautical sector.",
+   "page_read": true
+  },
+  {
+   "slug": "raio-laser",
+   "name": "Raio Laser",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 4° andar · Loja Salas 412, 413, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 16:00 (Horário de Brasília)",
+   "website": "http://www.raiolasergames.com.br/home3/",
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/raio_laser_173.webp",
+   "notes": "Loja única. About text: games market, consoles, parts and accessories.",
+   "page_read": true
+  },
+  {
+   "slug": "rec-music",
+   "name": "Rec Music",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Mina India, Térreo - loja 1ª loja - Ciudad del Este",
+   "hours": null,
+   "website": "https://www.recmusicpy.com/home",
+   "specialty": "Instrumentos Musicais",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/rec_music_165.webp",
+   "notes": "Opening hours not shown on the page (older page layout).",
+   "page_read": true
+  },
+  {
+   "slug": "renova-padel",
+   "name": "Renova Padel",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Rua Nanawa, Loja Com Monseñor Rodriguez, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 16:00 (Horário de Brasília)",
+   "website": "https://renovapadel.com.py/",
+   "specialty": "Loja de Diversos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/renova_padel_104.webp",
+   "notes": "Loja única. Featured products are padel equipment.",
+   "page_read": true
+  },
+  {
+   "slug": "rio-parana-importadora",
+   "name": "Rio Parana Importadora",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Rua Regimento Piribebuy, Ciudad del Este",
+   "hours": null,
+   "website": null,
+   "specialty": "Loja de Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/rio_parana_importadora_170.webp",
+   "notes": "Loja única. No hours shown. No 'Site oficial' link; only a 'Vendedores' link to http://www.atacadorioparana.com.br/contato and Facebook https://www.facebook.com/rioparanaimportadora. About text says it specializes in ar condicionado.",
+   "page_read": true
+  },
+  {
+   "slug": "sampa-vapor",
+   "name": "Sampa Vapor",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Alfonso I, 2° andar · Loja Sala 04, Av San Blas KM 1, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 15:00 (Horário de Brasília)",
+   "website": null,
+   "specialty": "Loja de Diversos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/sampa_vapor_117.webp",
+   "notes": "Loja única. No own website listed; only Instagram https://www.instagram.com/sampavaporoficial/ and Facebook. Featured products are vapes.",
+   "page_read": true
+  },
+  {
+   "slug": "sax",
+   "name": "SAX",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. San Blás, Ciudad del Este",
+   "hours": "Segunda a Sábado 08:00 - 17:00; Domingo 08:00 - 16:00 (Horário de Brasília)",
+   "website": "http://www.sax.com.py/",
+   "specialty": "Loja de Roupas, Jóias e Bijuterias",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/sax_104.webp",
+   "notes": "Endereço section lists 'Loja única' in Ciudad del Este. The About text also mentions an Asunción store at Paseo la Galería Shopping (opened October 2016), but it is not listed as a branch with an address.",
+   "page_read": true
+  },
+  {
+   "slug": "senki-electronica",
+   "name": "Senki Electronica",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Monseñor Rodriguez, Nº 805, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:30 - 16:30 (Horário de Brasília)",
+   "website": "http://www.senkielectronica.com/",
+   "specialty": "Loja de Home Áudio e Som Automotivo",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/senki_electronica_104.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "setga-decor",
+   "name": "Setga Decor",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este",
+    "Salto del Guairá"
+   ],
+   "address": "Shopping Parana Center, Av. Adrián Jara, Ciudad del Este",
+   "hours": "Shopping Parana Center: Segunda a Sábado 07:30 - 16:30; Shopping Internacional: Segunda a Sábado 07:30 - 16:30; Shopping Salto del Guairá: Segunda a Sábado 09:00 - 17:00, Domingo 09:00 - 12:00 (Horário de Brasília)",
+   "website": "http://www.setgadecor.com/",
+   "specialty": "Loja de Casa e Construção",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/setga_decor_104.webp",
+   "notes": "3 branches: Shopping Parana Center, Av. Adrián Jara, Ciudad del Este; Shopping Internacional, 1° andar, Rua Adrian Jara, Ciudad del Este; Shopping Salto del Guairá, Av. Paraguay, Salto del Guairá.",
+   "page_read": true
+  },
+  {
+   "slug": "setga-ferramentas",
+   "name": "Setga Ferramentas",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Av. Adrián Jara - Ciudad del Este",
+   "hours": "De Segunda a Sábado das 07:30 - 16:30 (Horário Brasil)",
+   "website": null,
+   "specialty": "Ferramentas e Máquinas",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/setga_ferramentas_104.webp",
+   "notes": "The only 'Site' link points to Facebook (https://www.facebook.com/setga), so no own website. Principal category: Ferramentas E Equipamentos.",
+   "page_read": true
+  },
+  {
+   "slug": "setup-informatica",
+   "name": "Setup Informática",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 3° andar, Av. Adrian Jara, Ciudad del Este",
+   "hours": null,
+   "website": "https://setupinformatica.com.py/",
+   "specialty": "Loja de Informática",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/setup_informatica_171.webp",
+   "notes": "Loja única. Opening hours not shown on the page.",
+   "page_read": true
+  },
+  {
+   "slug": "sol-cell",
+   "name": "Sol Cell",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center, 2° andar · Loja Numero 3167, Av. Carlos Antonio Lopez, Ciudad del Este",
+   "hours": "Segunda a Sábado 07:00 - 15:00 (Horário de Brasília)",
+   "website": "https://solcell888.com/",
+   "specialty": "Loja de Peças para Celular e Notebook",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/sol_cell_101.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "tche-loco",
+   "name": "Tche Loco",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Galeria Jebai Center - 2° andar - Ciudad del Este",
+   "hours": "De Segunda a Sexta das 06:30 - 16:00 | Sábado das 06:00 - 16:00 (Horário de Brasília)",
+   "website": "http://www.tcheloco.com.py/",
+   "specialty": "Eletrônicos",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tche_loco_170.webp",
+   "notes": "Main categories include Som e Vídeo Automotivo, Central Multimídia, Ar Condicionado, TV, Celular, Câmera Digital, Informática, Tablet, Drone.",
+   "page_read": true
+  },
+  {
+   "slug": "tecnotienda",
+   "name": "TecnoTienda",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Shopping Lai Lai Center, 1° andar · Loja Sala 118, Av. Adrian Jara, Ciudad del Este",
+   "hours": "Segunda a Sexta 08:30 - 15:00; Sábado 08:30 - 11:00 (Horário de Brasília)",
+   "website": "https://tecnotienda.com.py/index.php?class=Home",
+   "specialty": "Loja de Informática",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tecnotienda_165.webp",
+   "notes": "Loja única.",
+   "page_read": true
+  },
+  {
+   "slug": "tecombras",
+   "name": "Tecombras",
+   "city": "Ciudad del Este",
+   "cities": [
+    "Ciudad del Este"
+   ],
+   "address": "Edificio penta, 4° andar · Loja 291, Calle boqueron, Ciudad del Este",
+   "hours": "Segunda a Sexta 07:30 - 16:30 (Horário de Brasília)",
+   "website": "https://www.tecombras.net/",
+   "specialty": "Loja de Informática",
+   "logo_url": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/lojas/tecombras_162.webp",
+   "notes": "Loja única. 'Desde 1998'. Main categories: Eletrodomésticos, Informática, Notebook, Drone.",
+   "page_read": true
   }
  ]
 }
