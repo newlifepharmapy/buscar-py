@@ -329,7 +329,7 @@
     $("hero").hidden = !(home && $("imgPanel").hidden);
     $("how").hidden = !home;
     const strip = $("storesStrip");
-    if (strip) strip.hidden = !home;
+    if (strip) strip.hidden = $("hero").hidden;
     let title = "Ofertas em destaque", crumb = "";
     const where = S.cities.size === 1 ? ` em ${[...S.cities][0]}` : "";
     if (S.imgScores) { title = "Produtos parecidos com a sua foto"; crumb = "Busca por foto"; }
@@ -782,6 +782,23 @@
   /* ---------- Eventos ---------- */
   function wire() {
     trackHeader();
+    // carrossel de logos: botão para parar e continuar (com "reduzir movimento" ligado ele já fica parado)
+    const sp = $("stripPause"), track = document.querySelector(".strip-track");
+    // a mesma velocidade com poucas ou muitas lojas: 3 segundos por logo
+    if (track) {
+      track.style.animationDuration = track.querySelector(".strip").children.length * 3 + "s";
+      // o Tab rolou a faixa até a logo com foco; saindo dela, o carrossel recomeça do início
+      const view = track.parentElement;
+      view.addEventListener("focusout", (e) => { if (!view.contains(e.relatedTarget)) view.scrollLeft = 0; });
+      view.addEventListener("focusin", (e) => e.target.scrollIntoView({ block: "nearest", inline: "nearest" }));
+    }
+    if (sp && !reduceMotion()) {
+      sp.hidden = false;
+      sp.addEventListener("click", () => {
+        const on = $("storesStrip").classList.toggle("is-paused");
+        sp.querySelector("span").textContent = on ? "Continuar" : "Pausar";
+      });
+    }
     // foto que não carregou (ex.: a loja tirou do ar): no lugar do ícone quebrado, um quadro neutro
     document.addEventListener("error", (e) => {
       const im = e.target;

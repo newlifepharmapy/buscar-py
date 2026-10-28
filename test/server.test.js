@@ -108,6 +108,12 @@ test("lojas: página com as lojas reais, faixa de logos na página inicial e ata
   const home = await (await fetch(base + "/")).text();
   assert.match(home, /<section class="stores-strip" id="storesStrip"/);
   assert.ok((home.match(/class="strip-logo"/g) || []).length >= 6);
+  // carrossel logo abaixo do banner e antes dos produtos; a segunda volta da lista fica fora do Tab e do leitor de tela
+  assert.ok(home.indexOf('id="hero"') < home.indexOf('id="storesStrip"') && home.indexOf('id="storesStrip"') < home.indexOf('id="resultados"'));
+  const [first, copy] = home.match(/<ul class="strip[^"]*" role="list"[^>]*>.*?<\/ul>/gs);
+  assert.match(copy, /^<ul class="strip strip-copy" role="list" aria-hidden="true">/);
+  assert.equal((copy.match(/tabindex="-1"/g) || []).length, (first.match(/class="strip-logo"/g) || []).length);
+  assert.doesNotMatch(first, /tabindex/);
   assert.match(home, /<a class="util-link" href="\/lojas">Lojas<\/a>/);
   assert.match(home, /Compras Paraguai<\/a>, consultados em/);
   // endereços parecidos levam para a página certa; imagem fora da lista não existe

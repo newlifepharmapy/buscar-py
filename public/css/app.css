@@ -48,6 +48,8 @@
 [hidden] { display: none !important; }
 html { scroll-behavior: smooth; scroll-padding-top: var(--header-h, 150px); }
 @media (prefers-reduced-motion: reduce) { html, .catnav-track { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+/* sem animação: a faixa de logos vira uma fileira que se arrasta para o lado */
+@media (prefers-reduced-motion: reduce) { .strip-view { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } .strip-copy, .strip-pause { display: none; } }
 body { margin: 0; background: var(--mist); color: var(--ink); font: 15px/1.55 var(--f-ui); font-optical-sizing: auto; -webkit-font-smoothing: antialiased; }
 h1, h2, h3 { margin: 0; text-wrap: balance; letter-spacing: -.02em; }
 p { margin: 0; }
@@ -289,14 +291,31 @@ img { max-width: 100%; }
 .more { text-align: center; margin-top: 24px; }
 
 /* Como funciona */
-/* Faixa de logos das lojas (página inicial), como a do Compras Paraguai */
-.stores-strip { padding-block: 8px 44px; }
+/* Faixa de logos das lojas (página inicial, logo abaixo do banner), como a do Compras Paraguai: uma fileira
+   andando da direita para a esquerda, que para com o mouse em cima, com o foco do teclado ou no botão Pausar */
+.stores-strip { padding-block: 24px 0; }
 .strip-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
 .strip-head h2 { font-size: 22px; font-weight: 600; color: var(--navy); letter-spacing: -.02em; }
 .strip-all { display: inline-flex; align-items: center; gap: 2px; color: var(--navy-400); font-weight: 600; font-size: 14px; text-decoration: none; white-space: nowrap; }
 .strip-all:hover { text-decoration: underline; }
 .strip-chev { color: currentColor; }
-.strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.strip-tools { display: flex; align-items: center; gap: 14px; }
+.strip-pause { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px 5px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); color: var(--navy); font-size: 13px; font-weight: 600; cursor: pointer; }
+.strip-pause[hidden] { display: none; }
+.strip-pause:hover { border-color: var(--navy-400); }
+.strip-pause .i-play, .is-paused .strip-pause .i-pause { display: none; }
+.is-paused .strip-pause .i-play { display: inline; }
+.strip-view { overflow: hidden; margin: -6px; padding: 6px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 32px, #000 calc(100% - 32px), transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 32px, #000 calc(100% - 32px), transparent); }
+.strip-track { display: flex; width: max-content; animation: strip-move 72s linear infinite; }
+.stores-strip:hover .strip-track, .stores-strip.is-paused .strip-track { animation-play-state: paused; }
+/* com o Tab nas logos a faixa volta ao começo e para: a logo com foco fica inteira à vista */
+.strip-view { scroll-padding-inline: 38px; }
+.strip-view:focus-within .strip-track { animation: none; }
+@keyframes strip-move { to { transform: translateX(-50%); } }
+.strip { list-style: none; margin: 0; padding: 0 12px 0 0; display: flex; gap: 12px; }
+.strip li { flex: none; width: 168px; }
 .strip-logo { display: grid; place-items: center; height: 84px; padding: 12px 16px; background: var(--white); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow-sm); transition: border-color .15s, box-shadow .15s, transform .15s; }
 .strip-logo:hover { border-color: var(--gold); box-shadow: var(--shadow); transform: translateY(-1px); }
 .strip-logo img { display: block; max-width: 100%; max-height: 56px; width: auto; height: auto; object-fit: contain; }
@@ -473,7 +492,6 @@ tr.out td.num.main { color: var(--muted); font-weight: 600; }
   .imgsearch-box { grid-template-columns: minmax(0, 1fr); }
   .steps { grid-template-columns: minmax(0, 1fr); }
   .footer-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .footer-brand { grid-column: 1 / -1; }
 }
 @media (max-width: 760px) {
@@ -517,11 +535,13 @@ tr.out td.num.main { color: var(--muted); font-weight: 600; }
   .steps p { font-size: 13.5px; }
 }
 @media (max-width: 520px) {
-  /* no celular: 6 logos em 3 colunas (o "Ver todas as lojas" leva às outras) */
-  .stores-strip { padding-block: 0 32px; }
+  .stores-strip { padding-block: 18px 0; }
   .strip-head h2 { font-size: 19px; }
-  .strip { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-  .strip li:nth-child(n+7) { display: none; }
+  .strip-tools { gap: 10px; }
+  .strip-pause span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .strip-pause { padding: 6px; }
+  .strip { gap: 8px; padding-right: 8px; }
+  .strip li { width: 120px; }
   .strip-logo { height: 64px; padding: 8px 10px; }
   .strip-logo img { max-height: 44px; }
   .pd-offers .store-logo { display: none; }
