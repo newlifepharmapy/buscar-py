@@ -99,7 +99,11 @@ def main():
         d = directory.setdefault(s["slug"], {"slug": s["slug"]})
         d["city"] = s.get("city")
         d["cities"] = s.get("cities") or []
-        for k in ("name", "logo_url", "hours", "website", "specialty"):
+        # o horário da página da loja vem completo (o cartão do diretório mostra só o primeiro dia)
+        for k in ("hours", "website"):
+            if s.get(k):
+                d[k] = s[k]
+        for k in ("name", "logo_url", "specialty"):
             if not d.get(k) or (k == "logo_url" and not img_ok(d.get(k))):
                 d[k] = s.get(k)
     warn = []
