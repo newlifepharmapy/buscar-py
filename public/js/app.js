@@ -14,7 +14,7 @@
     guessCat: null,   // categoria escolhida nos chips "Parece ser"
     colorW: 0.10, minSim: 0.25,
   };
-  let D, E, C, textIndex, storeById, catById, model = null, modelLoading = null;
+  let D, E, C, hasVec, textIndex, storeById, catById, model = null, modelLoading = null;
   let queryId = 0;  // invalida análises de imagem antigas quando o usuário muda de ideia
 
   const fmtUsd = new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -68,15 +68,26 @@
       fetchBin("data/embeddings.bin"),
       fetchBin("data/colors.bin"),
     ]);
-    D = cat; E = new Float32Array(emb); C = new Float32Array(col);
+    D = cat;
+    // Vetores de imagem: o arquivo cobre o catálogo indexado no build. Os produtos que vieram depois
+    // (os importados do Compras Paraguai) ganham o vetor no navegador, na primeira busca por foto.
+    const n = D.products.length, cd = BuscaVision.COLOR_DIM;
+    const nVec = Math.min(n, emb.byteLength / 4 / DIM, col.byteLength / 4 / cd);
+    E = new Float32Array(n * DIM); E.set(new Float32Array(emb, 0, nVec * DIM));
+    C = new Float32Array(n * cd); C.set(new Float32Array(col, 0, nVec * cd));
+    hasVec = new Uint8Array(n); hasVec.fill(1, 0, nVec);
+    loadCachedVectors();
     // cotação: a da página (atualizada pelo servidor a cada 5 minutos) vale mais que a do catálogo
     if (window.BuscaFx) {
       const fx = BuscaFx.get();
       if (fx.BRL > 0 && fx.PYG > 0) D.rates = { ...D.rates, BRL: fx.BRL, PYG: fx.PYG };
       BuscaFx.onChange((n) => { D.rates = { ...D.rates, BRL: n.BRL, PYG: n.PYG }; refreshCardPrices(); refreshProductPrices(); });
     }
+    // só as lojas com ofertas (o catálogo traz também as do diretório, para a página /lojas)
+    const sellers = new Set(D.products.flatMap((p) => p.offers.map((o) => o.store)));
+    D.stores = D.stores.filter((s) => sellers.has(s.id));
     storeById = Object.fromEntries(D.stores.map((s) => [s.id, s]));
-    catById = Object.fromEntries(D.categories.map((c) => [c.id, c]));
+    catById =Object.fromEntries(D.categories.map((c) => [c.id, c]));
     for (const p of D.products) {
       const avail = p.offers.filter((o) => o.in_stock);
       p.best = (avail[0] || p.offers[0]).price;
@@ -89,7 +100,10 @@
         { text: p.offers.map((o) => storeById[o.store].name).join(" "), weight: 0.5 },
       ],
     })));
-    const cities = [...new Set(D.stores.map((s) => s.city))];
+    // cidades da que tem mais lojas para a que tem menos
+    const nCity = new Map();
+    for (const st of D.stores) for (const c of cityList(st)) nCity.set(c, (nCity.get(c) || 0) + 1);
+    const cities = [...nCity.keys()].sort((a, b) => nCity.get(b) - nCity.get(a));
     $("stProducts").textContent = fmtInt.format(D.products.length);
     $("stOffers").textContent = fmtInt.format(D.products.reduce((a, p) => a + p.offers.length, 0));
     $("stStores").textContent = fmtInt.format(D.stores.length);
@@ -98,14 +112,15 @@
     $("footCats").innerHTML = D.categories.map((c) => `<li><button type="button" data-cat="${c.id}">${esc(c.name)}</button></li>`).join("");
     // busca ou categoria vinda de outra página (ex.: /cameras ou o menu lateral) pelo endereço /?q=... ou /?cat=...
     const params = new URLSearchParams(location.search);
-    const q0 = params.get("q"), c0 = params.get("cat");
+    const q0 = params.get("q"), c0 = params.get("cat"), l0 = params.get("loja");
     if (c0 && Object.prototype.hasOwnProperty.call(catById, c0)) S.cat = c0;
-    buildCatbar(); buildFilters(cities); wire();
+    if (l0 && Object.prototype.hasOwnProperty.call(storeById, l0)) S.stores.add(l0);
+    buildCatbar(); buildFilters(cities); syncFilterInputs(); wire();
     if (q0 && q0.trim()) { S.text = q0.trim().slice(0, 100); $("q").value = S.text; }
     if (window.BuscaMenu) BuscaMenu.setCurrent(S.cat);
     render();
     if (S.cat) { const b = $("catbar").querySelector('[aria-pressed="true"]'); if (b) centerCat(b); }
-    if (S.text || S.cat) scrollToEl($("resultados"));
+    if (S.text || S.cat || S.stores.size) scrollToEl($("resultados"));
     const m = /^#p(\d+)$/.exec(location.hash);
     if (m && D.products[+m[1]]) openProduct(+m[1]);
   }
@@ -142,15 +157,16 @@
     });
     if (active) centerCat(active);
     if (window.BuscaMenu) BuscaMenu.setCurrent(S.cat);
-    stateToUrl();
     render();
   }
-  // O endereço acompanha a busca e a categoria (/?q=...&cat=...): recarregar ou compartilhar a página mostra a mesma lista.
+  // O endereço acompanha a busca, a categoria e a loja (/?q=...&cat=...&loja=...): recarregar ou
+  // compartilhar a página mostra a mesma lista. Chamado a cada render().
   function stateToUrl() {
     try {
       const u = new URL(location.href);
       if (S.text) u.searchParams.set("q", S.text); else u.searchParams.delete("q");
       if (S.cat) u.searchParams.set("cat", S.cat); else u.searchParams.delete("cat");
+      if (S.stores.size === 1) u.searchParams.set("loja", [...S.stores][0]); else u.searchParams.delete("loja");
       if (u.href !== location.href) history.replaceState(null, "", u);
     } catch (e) { /* ignorado */ }
   }
@@ -170,7 +186,6 @@
     $("catbar").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(!x.dataset.cat)));
     $("catbar").scrollLeft = 0; updateCatArrows();
     if (window.BuscaMenu) BuscaMenu.setCurrent(null);
-    stateToUrl();
   }
   function clearGuess() {
     S.guessCat = null;
@@ -185,6 +200,8 @@
     const more = $("fStoreMore");
     more.hidden = D.stores.length <= FEW;
     const label = () => (more.textContent = more.getAttribute("aria-expanded") === "true" ? "Ver menos lojas" : `Ver todas as lojas (${D.stores.length})`);
+    // loja escolhida pelo endereço (/?loja=...) que fica entre as escondidas: a lista já abre inteira
+    if (D.stores.some((s, i) => i >= FEW && S.stores.has(s.id))) { more.setAttribute("aria-expanded", "true"); $("fStore").classList.add("all"); }
     label();
     more.onclick = () => {
       const open = more.getAttribute("aria-expanded") !== "true";
@@ -218,7 +235,7 @@
       const st = storeById[o.store];
       if (S.stock && !o.in_stock) return false;
       if (S.stores.size && !S.stores.has(o.store)) return false;
-      if (S.cities.size && !S.cities.has(st.city)) return false;
+      if (S.cities.size && !cityList(st).some((c) => S.cities.has(c))) return false;
       return true;
     });
   }
@@ -261,7 +278,9 @@
       rows.push({ p, offers, best, save, saveAmt: worst - best, sim, ts: textScores ? textScores.get(p.id) : 0 });
     }
     const by = {
-      rel: S.imgScores ? (a, b) => b.sim - a.sim : S.text ? (a, b) => b.ts - a.ts || a.best - b.best : (a, b) => b.save - a.save,
+      rel: S.imgScores ? (a, b) => b.sim - a.sim : S.text ? (a, b) => b.ts - a.ts || a.best - b.best
+        // vitrine: os produtos em destaque (na ordem escolhida) e depois a maior economia entre lojas
+        : (a, b) => (a.p.featured || 1e9) - (b.p.featured || 1e9) || b.save - a.save,
       price: (a, b) => a.best - b.best,
       "price-desc": (a, b) => b.best - a.best,
       save: (a, b) => b.save - a.save,
@@ -274,6 +293,7 @@
     const p = r.p;
     let badge = "";
     if (r.sim != null) badge = `<span class="badge-sim">${Math.round(simPct(r.sim) * 100)}% parecido</span>`;
+    else if (p.featured && !small) badge = '<span class="badge-sim badge-feat">Destaque</span>';
     const save = !small && r.save >= SAVE_MIN
       // no celular o cartão é estreito: o selo mostra só a porcentagem para caber numa linha
       ? `<span class="save" title="Diferença entre a loja mais cara e a mais barata"><span class="save-long">Economize ${usd(r.saveAmt)} (${Math.round(r.save * 100)}%)</span><span class="save-short">Economize ${Math.round(r.save * 100)}%</span></span>` : "";
@@ -297,21 +317,25 @@
   function isHome() { return !S.text && !S.cat && !S.imgScores; }
 
   function render() {
+    stateToUrl();
     const rows = compute();
     const home = isHome();
     $("hero").hidden = !(home && $("imgPanel").hidden);
     $("how").hidden = !home;
+    const strip = $("storesStrip");
+    if (strip) strip.hidden = !home;
     let title = "Ofertas em destaque", crumb = "";
     const where = S.cities.size === 1 ? ` em ${[...S.cities][0]}` : "";
     if (S.imgScores) { title = "Produtos parecidos com a sua foto"; crumb = "Busca por foto"; }
     else if (S.text) { title = `Resultados para “${S.text}”`; crumb = "Busca"; }
     else if (S.cat) { title = catById[S.cat].name + where; crumb = "Categorias"; }
+    else if (S.stores.size === 1) { title = `Ofertas da loja ${storeById[[...S.stores][0]].name}${where}`; crumb = "Lojas"; }
     else if (where) { title = "Ofertas" + where; }
     $("resTitle").textContent = title;
     $("crumbs").innerHTML = crumb || where ? `<button type="button" data-home>Início</button><span aria-hidden="true">›</span>${esc(crumb || "Cidades")}` : "";
     const nOff = rows.reduce((a, r) => a + r.offers.length, 0);
     $("resSub").textContent = rows.length
-      ? `${plural(rows.length, "produto", "produtos")} · ${plural(nOff, "oferta", "ofertas")}${home && S.sort === "rel" ? " · maior economia entre lojas primeiro" : ""}`
+      ? `${plural(rows.length, "produto", "produtos")} · ${plural(nOff, "oferta", "ofertas")}${home && S.sort === "rel" ? (D.products.some((p) => p.featured) ? " · destaques primeiro" : " · maior economia entre lojas primeiro") : ""}`
       : "";
     $("sort").options[0].textContent = S.imgScores ? "Semelhança" : "Relevância";
     renderActiveFilters();
@@ -353,13 +377,32 @@
     $("pdName").textContent = p.name;
     $("pdBrand").textContent = [p.brand, p.color].filter(Boolean).join(" · ");
     renderProductPrices(p);
-    const sims = rankByVector(E.subarray(id * DIM, (id + 1) * DIM), C.subarray(id * BuscaVision.COLOR_DIM, (id + 1) * BuscaVision.COLOR_DIM), S.colorW);
-    const top = [...D.products.keys()].filter((i) => i !== id).sort((a, b) => sims[b] - sims[a]).slice(0, 10);
+    // Parecidos pela foto quando o produto já tem vetor; senão, outros da mesma categoria (mais perto no preço)
+    let top, sims = null;
+    if (hasVec[id]) {
+      sims = rankByVector(E.subarray(id * DIM, (id + 1) * DIM), C.subarray(id * BuscaVision.COLOR_DIM, (id + 1) * BuscaVision.COLOR_DIM), S.colorW);
+      top = [...D.products.keys()].filter((i) => i !== id && hasVec[i]).sort((a, b) => sims[b] - sims[a]).slice(0, 10);
+    } else {
+      top = [...D.products.keys()].filter((i) => i !== id && D.products[i].category === p.category)
+        .sort((a, b) => Math.abs(D.products[a].best - p.best) - Math.abs(D.products[b].best - p.best)).slice(0, 10);
+    }
+    $("pdSimTitle").textContent = sims ? "Visualmente parecidos" : `Mais em ${catById[p.category].name}`;
+    $("pdSimWrap").hidden = !top.length;
     $("pdSim").innerHTML = top.map((i) => {
       const q = D.products[i];
       const offs = q.offers.filter((o) => o.in_stock);
-      return cardHtml({ p: q, offers: offs.length ? offs : q.offers, best: q.best, save: 0, sim: sims[i] }, true);
+      return cardHtml({ p: q, offers: offs.length ? offs : q.offers, best: q.best, save: 0, sim: sims ? sims[i] : null }, true);
     }).join("");
+    // de onde vieram os preços (produtos importados): a data da leitura
+    const src = p.source === "comprasparaguai" && D.imported && D.imported.date;
+    $("pdSource").hidden = !src;
+    if (src) {
+      const total = p.source_offers > p.offers.length ? ` O Compras Paraguai lista ${plural(p.source_offers, "oferta", "ofertas")} deste produto; aqui estão as de ${plural(p.offers.length, "loja", "lojas")}.` : "";
+      const link = /^https:\/\/www\.comprasparaguai\.com\.br\//.test(p.source_url || "") ? ` <a href="${esc(p.source_url)}" target="_blank" rel="noopener nofollow">Ver no Compras Paraguai</a>` : "";
+      $("pdSource").innerHTML = `Preços consultados em ${src.slice(8, 10)}/${src.slice(5, 7)}/${src.slice(0, 4)} no Compras Paraguai.${esc(total)} Confirme com a loja antes de ir.${link}`;
+    }
+    // histórico só para quem tem (os produtos importados começam sem)
+    $("pdHist").hidden = !(p.history && p.history.length > 1);
     $("pdSimilar").onclick = () => { $("pdlg").close(); searchSimilar(id); };
     const dlg = $("pdlg");
     const wasOpen = dlg.open;
@@ -376,21 +419,35 @@
     const inStock = p.offers.filter((o) => o.in_stock);
     const best = inStock[0] || p.offers[0];
     const bst = storeById[best.store];
-    $("pdBest").innerHTML = `<small>Menor preço em <b>${esc(bst.name)}</b> · ${esc(bst.city)}</small>
+    $("pdBest").innerHTML = `<small>Menor preço em <b>${esc(bst.name)}</b>${cityText(bst) ? " · " + esc(cityText(bst)) : ""}</small>
       <span class="usd">${usd(best.price)}</span><span class="conv">${brl(best.price)} · ${pyg(best.price)}</span>`;
     $("pdTable").innerHTML = `<thead><tr><th>Loja</th><th>Situação</th><th class="num">${cur("us", "US$")}</th><th class="num">${cur("br", "R$")}</th><th class="num">${cur("py", "₲")}</th></tr></thead><tbody>` +
       [...inStock, ...p.offers.filter((o) => !o.in_stock)].map((o) => {
         const st = storeById[o.store];
         const isBest = o === best;
-        const upd = o.updated_days_ago === 0 ? "hoje" : `há ${plural(o.updated_days_ago, "dia", "dias")}`;
+        const upd = updatedText(o);
         const pill = o.in_stock ? (isBest ? '<span class="pill pill-best">Melhor preço</span>' : '<span class="pill pill-ok">Em estoque</span>') : '<span class="pill pill-out">Sem estoque</span>';
         return `<tr class="${isBest ? "best" : o.in_stock ? "" : "out"}">
-          <td><div class="store-name">${esc(st.name)}</div><div class="store-meta">${esc(st.city)} · <span class="stars">★ ${st.rating.toFixed(1).replace(".", ",")}</span></div><div class="mob store-meta">atualizado ${upd}</div></td>
+          <td><div class="store-cell">${st.logo ? `<img class="store-logo" src="${esc(st.logo)}" alt="" loading="lazy" width="36" height="36">` : ""}<div><div class="store-name">${st.logo ? `<a href="/lojas#${esc(st.id)}">${esc(st.name)}</a>` : esc(st.name)}</div><div class="store-meta">${[esc(cityText(st)), st.rating ? `<span class="stars">★ ${st.rating.toFixed(1).replace(".", ",")}</span>` : ""].filter(Boolean).join(" · ")}</div><div class="mob store-meta">atualizado ${upd}</div></div></div></td>
           <td>${pill}<div class="store-meta">atualizado ${upd}</div></td>
           <td class="num main">${fmtUsd.format(o.price)}<div class="mob store-meta">${brl(o.price)} · ${pyg(o.price)}</div><div class="mob">${pill}</div></td>
           <td class="num">${fmtBrl.format(o.price * D.rates.BRL).replace(/R\$\s?/, "")}</td><td class="num">${pygNum(o.price)}</td>
         </tr>`;
       }).join("") + "</tbody>";
+  }
+  // Cidades da loja: as reais podem ter filiais em mais de uma (a primeira é a do endereço principal)
+  function cityList(st) { return st.cities && st.cities.length ? st.cities : st.city ? [st.city] : []; }
+  function cityText(st) { const l = cityList(st); return l.length > 1 ? `${l[0]} e mais ${plural(l.length - 1, "cidade", "cidades")}` : l[0] || ""; }
+  // "hoje", "há 3 dias" ou "em 28/10": as ofertas importadas têm a data da leitura; as de exemplo, os dias
+  function updatedText(o) {
+    let days = o.updated_days_ago;
+    if (o.updated) {
+      const t = Date.parse(o.updated + "T12:00:00");
+      days = isNaN(t) ? null : Math.max(0, Math.round((Date.now() - t) / 864e5));
+      if (days != null && days > 6) return "em " + o.updated.slice(8, 10) + "/" + o.updated.slice(5, 7);
+    }
+    if (days == null) return "";
+    return days === 0 ? "hoje" : `há ${plural(days, "dia", "dias")}`;
   }
   // Cotação nova: troca só os valores em R$ e ₲ (sem redesenhar a vitrine, para não perder o foco do teclado)
   function refreshCardPrices() {
@@ -412,6 +469,7 @@
     if (!dlg.open) return;
     const p = D.products[+dlg.dataset.id];
     const box = $("pdChart");
+    if (!(p.history && p.history.length > 1)) { box.innerHTML = ""; return; }
     box.innerHTML = sparkline(p.history, Math.max(260, box.clientWidth || 600));
   }
 
@@ -459,6 +517,78 @@
       out[i] = (1 - w) * d + w * (0.45 + 0.55 * c);
     }
     return out;
+  }
+
+  // Vetores dos produtos que não estavam no índice do build: calculados aqui com o mesmo modelo da busca,
+  // a partir da foto do produto (servida pelo próprio site), e guardados no aparelho para a próxima visita.
+  const VEC_KEY = "bp-vec1:";
+  function vecKey(p) { return VEC_KEY + (p.image_src || p.image); }
+  function loadCachedVectors() {
+    const cd = BuscaVision.COLOR_DIM;
+    for (const p of D.products) {
+      if (hasVec[p.id]) continue;
+      let raw = null;
+      try { raw = localStorage.getItem(vecKey(p)); } catch (e) { return; }
+      if (!raw) continue;
+      try {
+        const bin = atob(raw), u8 = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+        const f = new Float32Array(u8.buffer);
+        if (f.length !== DIM + cd) continue;
+        E.set(f.subarray(0, DIM), p.id * DIM); C.set(f.subarray(DIM), p.id * cd); hasVec[p.id] = 1;
+      } catch (e) { /* ignorado */ }
+    }
+  }
+  function saveVector(p, d) {
+    try {
+      const f = new Float32Array(DIM + BuscaVision.COLOR_DIM);
+      f.set(d.deep, 0); f.set(d.color, DIM);
+      const u8 = new Uint8Array(f.buffer);
+      let bin = "";
+      for (let i = 0; i < u8.length; i += 8192) bin += String.fromCharCode.apply(null, u8.subarray(i, i + 8192));
+      localStorage.setItem(vecKey(p), btoa(bin));
+    } catch (e) { /* sem espaço ou bloqueado: calcula de novo na próxima visita */ }
+  }
+  function loadImage(src) {
+    return new Promise((resolve, reject) => {
+      const im = new Image();
+      im.onload = () => resolve(im);
+      im.onerror = () => reject(new Error(src));
+      im.src = src;
+    });
+  }
+  let vecJob = null;
+  // Garante o vetor de todos os produtos (só baixa e calcula os que faltam). onProgress(feitos, total).
+  function ensureVectors(onProgress) {
+    const missing = D.products.filter((p) => !hasVec[p.id]);
+    if (!missing.length) return Promise.resolve();
+    if (vecJob) return vecJob;
+    vecJob = (async () => {
+      await loadModel();
+      const cd = BuscaVision.COLOR_DIM;
+      let done = 0;
+      for (const p of missing) {
+        if (onProgress) onProgress(done, missing.length);
+        try {
+          const im = await loadImage(p.image);
+          // fundo branco por baixo (fotos com transparência ficariam com fundo preto)
+          const cv = document.createElement("canvas");
+          const k = Math.min(1, 512 / Math.max(im.naturalWidth, im.naturalHeight));
+          cv.width = Math.max(1, Math.round(im.naturalWidth * k)); cv.height = Math.max(1, Math.round(im.naturalHeight * k));
+          const g = cv.getContext("2d");
+          g.fillStyle = "#fff"; g.fillRect(0, 0, cv.width, cv.height);
+          g.drawImage(im, 0, 0, cv.width, cv.height);
+          const t = tf.browser.fromPixels(cv);
+          const d = await BuscaVision.describe(tf, model, t);
+          t.dispose();
+          E.set(d.deep, p.id * DIM); C.set(d.color, p.id * cd); hasVec[p.id] = 1;
+          saveVector(p, d);
+        } catch (e) { console.warn("sem vetor para", p.image); } // foto indisponível: fica fora da busca por foto
+        done++;
+      }
+      if (onProgress) onProgress(done, missing.length);
+    })().finally(() => { vecJob = null; });
+    return vecJob;
   }
 
   function setStatus(msg, busy) { const s = $("imgStatus"); s.textContent = msg; s.classList.toggle("busy", !!busy); }
@@ -533,6 +663,8 @@
       if (!model) setStatus("Preparando o reconhecimento de imagem (14 MB, só na primeira vez)…", true);
       await loadModel();
       if (stale()) return;
+      await ensureVectors((i, n) => { if (!stale()) setStatus(`Preparando as fotos dos produtos novos (${i} de ${n})…`, true); });
+      if (stale()) return;
       setStatus("Analisando a imagem…", true);
       await new Promise((r) => setTimeout(r, 0));
       if (stale()) return;
@@ -567,15 +699,23 @@
     $("guessChips").innerHTML = guesses.map(([c, v]) => `<button type="button" class="chip" data-cat="${c}" aria-pressed="false">${esc(catById[c].name)}<b>${Math.round(v / tot * 100)}%</b></button>`).join("");
     $("guess").hidden = !guesses.length;
     S.text = ""; $("q").value = "";
-    stateToUrl();
     render();
   }
   function rescore() { if (S.img) S.imgScores = rankByVector(S.img.deep, S.img.color, S.colorW); }
 
   async function searchSimilar(id) {
-    queryId++;
+    const my = ++queryId;
     openPanel();
     try { await loadQueryImage(D.products[id].image); } catch (e) { setStatus(e.message); return; }
+    // produtos novos ainda sem vetor: calcula antes (só na primeira vez neste aparelho)
+    if (D.products.some((p) => !hasVec[p.id])) {
+      try {
+        if (!model) setStatus("Preparando o reconhecimento de imagem (14 MB, só na primeira vez)…", true);
+        await ensureVectors((i, n) => { if (my === queryId) setStatus(`Preparando as fotos dos produtos novos (${i} de ${n})…`, true); });
+      } catch (e) { if (my === queryId) setStatus("Não foi possível preparar a busca por foto. Verifique sua conexão e tente de novo."); return; }
+      if (my !== queryId || $("imgPanel").hidden) return;
+      if (!hasVec[id]) { setStatus("A foto deste produto não está disponível agora. Tente de novo mais tarde."); return; }
+    }
     // usa o vetor já indexado: resultado imediato, sem esperar o modelo
     applyImageQuery({
       deep: E.slice(id * DIM, (id + 1) * DIM),
@@ -603,12 +743,23 @@
   /* ---------- Eventos ---------- */
   function wire() {
     trackHeader();
+    // foto que não carregou (ex.: a loja tirou do ar): no lugar do ícone quebrado, um quadro neutro
+    document.addEventListener("error", (e) => {
+      const im = e.target;
+      if (im.tagName !== "IMG") return;
+      const box = im.closest(".thumb, .pd-media");
+      if (box) box.classList.add("img-off");
+      else if (im.classList.contains("store-logo")) im.hidden = true;
+    }, true);
+    document.addEventListener("load", (e) => {
+      const box = e.target.tagName === "IMG" && e.target.closest(".img-off");
+      if (box) box.classList.remove("img-off");
+    }, true);
     const applyText = () => {
       const t = $("q").value.trim();
       if (t === S.text) return;
       S.text = t; S.shown = PAGE;
       if (S.text && !$("imgPanel").hidden) closePanel(true); // texto novo começa uma busca nova (e cancela a análise)
-      stateToUrl();
       render();
     };
     $("searchForm").onsubmit = (e) => { e.preventDefault(); applyText(); scrollToEl($("resultados")); };

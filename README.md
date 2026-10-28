@@ -98,9 +98,21 @@ Entre vizinhos do próprio catálogo, 80% dos 5 mais parecidos são da mesma cat
 ## Dados
 
 - `public/data/catalog.json`: produtos, lojas, ofertas, histórico e cotação.
-- Imagens e nomes vêm do dataset **Amazon Berkeley Objects** (CC BY 4.0).
-  **Lojas, preços e histórico são fictícios**, gerados por `scripts/make_catalog.py`.
-- `public/data/embeddings.bin` e `colors.bin`: índice visual, gerado por `npm run indexar`.
+- **Produtos de exemplo** (ids 0 a 341): imagens e nomes do dataset **Amazon Berkeley Objects** (CC BY 4.0);
+  as lojas, os preços e o histórico deles são fictícios, gerados por `scripts/make_catalog.py`.
+- **Produtos e lojas reais**: lidos no [Compras Paraguai](https://www.comprasparaguai.com.br/) e guardados
+  como foram lidos em `data/comprasparaguai.json` (data da leitura em `read_at`). `npm run importar`
+  (`scripts/import_cp.py`) junta ao catálogo uma oferta por loja (o menor preço daquele modelo e tamanho),
+  as lojas com logo, especialidade e horário, e marca os destaques da página inicial (`featured`).
+  Rodar de novo troca a importação anterior; depois de `npm run catalogo`, rode `npm run importar` outra vez.
+  - As fotos e logos ficam no servidor de imagens do Compras Paraguai. O servidor do site baixa cada uma uma
+    vez (só os endereços que estão no catálogo), guarda em `DATA_DIR/remote-img` e serve por `/img/cp/` e
+    `/img/lojas/` (`lib/remote-images.js`). No Railway isso acontece logo depois de subir; o log mostra
+    `imagens externas: X de N prontas`. `REMOTE_IMAGES_WARM=0` desliga esse aquecimento.
+  - A busca por foto calcula a assinatura visual desses produtos no navegador, na primeira busca, e guarda no
+    próprio navegador (os de exemplo já vêm em `embeddings.bin`).
+  - Páginas: `/lojas` (uma ficha por loja) e `/?loja=<id>` (os produtos de uma loja).
+- `public/data/embeddings.bin` e `colors.bin`: índice visual dos produtos de exemplo, gerado por `npm run indexar`.
 
 Para usar dados reais, troque `make_catalog.py` por coletores de cada loja (feed/API ou scraping
 autorizado) gerando o mesmo formato de `catalog.json`, e rode `npm run indexar`.
@@ -117,11 +129,11 @@ autorizado) gerando o mesmo formato de `catalog.json`, e rode `npm run indexar`.
 
 ```
 server.js          servidor de produção (Railway): páginas, painel, cotação
-lib/               configurações (padrões e validação), login, cotação, montagem das páginas
-views/             modelos das páginas (início, câmeras, 404) e partes comuns
+lib/               configurações (padrões e validação), login, cotação, montagem das páginas, imagens externas
+views/             modelos das páginas (início, câmeras, lojas, 404) e partes comuns
 public/            arquivos do site (css/, js/, admin/, data/, model/, img/, vendor/tf.min.js)
 test/              testes (npm test)
-scripts/           select_products.py, make_catalog.py, build_index.js, build_artifact.py
+scripts/           select_products.py, make_catalog.py, import_cp.py, build_index.js, build_artifact.py
                    (scripts/package.json tem as dependências de indexação: npm run indexar)
 ```
 

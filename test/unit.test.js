@@ -119,7 +119,7 @@ test("render: dica da cotação com o nome das fontes", () => {
 
 test("render: todas as páginas sem marcadores sobrando", () => {
   const s = sanitize({});
-  for (const v of ["index.html", "cameras.html", "404.html"]) {
+  for (const v of ["index.html", "cameras.html", "lojas.html", "404.html"]) {
     const html = R.render(v, s, { BRL: 5.45, PYG: 7900, source: "manual", at: "" }, { server: true, path: "/" });
     assert.ok(!/\{\{|\}\}/.test(html), v);
   }

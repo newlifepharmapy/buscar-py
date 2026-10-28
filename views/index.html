@@ -189,6 +189,8 @@
     </section>
   </div>
 
+  {{{storeStrip}}}
+
   <section class="how" id="how" aria-labelledby="howTitle">
     <div class="container">
       <h2 id="howTitle">{{home.howTitle}}</h2>
@@ -212,10 +214,11 @@
       <h3>Categorias</h3>
       <ul class="cols2" id="footCats"></ul>
     </div>
+    {{{footStores}}}
   </div>
   <div class="container footer-legal">
     <p>{{footer.note}}</p>
-    <p>Versão de demonstração: imagens e nomes de produtos do <a href="https://amazon-berkeley-objects.s3.amazonaws.com/index.html" target="_blank" rel="noopener">Amazon Berkeley Objects</a> (CC BY 4.0). Lojas, preços e histórico são fictícios.</p>
+    <p>{{{dataNote}}}</p>
   </div>
 </footer>
 
@@ -238,13 +241,14 @@
     <div class="pd-offers">
       <h3>Preços nas lojas</h3>
       <div class="table-wrap"><table id="pdTable"></table></div>
+      <p class="pd-source" id="pdSource" hidden></p>
     </div>
-    <div class="pd-hist">
+    <div class="pd-hist" id="pdHist">
       <h3>Menor preço nas últimas 26 semanas</h3>
       <div id="pdChart" class="chart"></div>
     </div>
-    <div class="pd-sim">
-      <h3>Visualmente parecidos</h3>
+    <div class="pd-sim" id="pdSimWrap">
+      <h3 id="pdSimTitle">Visualmente parecidos</h3>
       <div class="sim-row" id="pdSim"></div>
     </div>
   </div>

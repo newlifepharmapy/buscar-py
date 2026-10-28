@@ -16,7 +16,7 @@ function freePort() {
 }
 async function start() {
   child = spawn(process.execPath, [path.join(__dirname, "..", "server.js")], {
-    env: { ...process.env, PORT: String(port), DATA_DIR: dir, ADMIN_PASSWORD: PASS, RATES_INTERVAL_MS: "3600000", NODE_ENV: "production" },
+    env: { ...process.env, PORT: String(port), DATA_DIR: dir, ADMIN_PASSWORD: PASS, RATES_INTERVAL_MS: "3600000", NODE_ENV: "production", REMOTE_IMAGES_WARM: "0" },
     stdio: ["ignore", "pipe", "pipe"],
   });
   for (let i = 0; i < 100; i++) {
@@ -85,6 +85,37 @@ test("páginas públicas", async () => {
   assert.match(r.headers.get("content-security-policy"), /frame-src 'none'/);
   const rates = await (await fetch(base + "/api/rates")).json();
   assert.ok(rates.BRL > 1 && rates.PYG > 1000);
+});
+
+test("lojas: página com as lojas reais, faixa de logos na página inicial e atalho no topo", async () => {
+  const cat = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "public", "data", "catalog.json"), "utf8"));
+  const real = cat.stores.filter((s) => s.real && s.logo);
+  assert.ok(real.length >= 10, "catálogo com as lojas importadas do Compras Paraguai");
+  const r = await fetch(base + "/lojas");
+  assert.equal(r.status, 200);
+  const html = await r.text();
+  assert.ok(html.includes("<title>Lojas · Buscar PY"));
+  assert.equal((html.match(/<li class="store-card" id="/g) || []).length, real.length);
+  for (const s of real.slice(0, 5)) {
+    assert.ok(html.includes(`<li class="store-card" id="${s.id}" data-name="`), s.id);
+    assert.ok(html.includes(`href="/?loja=${encodeURIComponent(s.id)}"`), s.id);
+    assert.ok(html.includes(`src="/${s.logo}"`), s.id);
+  }
+  assert.doesNotMatch(html, /href="https?:\/\/[^"]*comprasparaguai[^"]*" class/, "o botão do site é da loja, não do Compras Paraguai");
+  assert.match(html, /consultados em \d{2}\/\d{2}\/\d{4} no Compras Paraguai/);
+  assert.match(html, /<select id="storeSpec"><option value="">Todos os tipos de loja<\/option><option value="/);
+  assert.match(html, /<script src="\/js\/lojas\.js"><\/script>/);
+  const home = await (await fetch(base + "/")).text();
+  assert.match(home, /<section class="stores-strip" id="storesStrip"/);
+  assert.ok((home.match(/class="strip-logo"/g) || []).length >= 6);
+  assert.match(home, /<a class="util-link" href="\/lojas">Lojas<\/a>/);
+  assert.match(home, /Compras Paraguai<\/a>, consultados em/);
+  // endereços parecidos levam para a página certa; imagem fora da lista não existe
+  const slash = await fetch(base + "/lojas/", { redirect: "manual" });
+  assert.equal(slash.status, 301);
+  assert.equal(slash.headers.get("location"), "/lojas");
+  assert.equal((await fetch(base + "/img/cp/nao-existe.avif")).status, 404);
+  assert.equal((await fetch(base + "/img/lojas/..%2F..%2Fserver.js")).status, 404);
 });
 
 test("caminhos fora de public/ não vazam", async () => {

@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node server.js",
     "catalogo": "python3 scripts/make_catalog.py",
+    "importar": "python3 scripts/import_cp.py",
     "indexar": "npm --prefix scripts install && node scripts/build_index.js",
     "artifact": "python3 scripts/build_artifact.py",
     "test": "node --test test/*.test.js"

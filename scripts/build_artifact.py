@@ -5,8 +5,21 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUB = os.path.join(ROOT, "public")
 OUT = os.path.join(ROOT, "dist", "artifact")
 
+cat = json.load(open(os.path.join(PUB, "data/catalog.json"), encoding="utf8"))
+# a demonstração fica só com os produtos de exemplo: as fotos e logos importadas do Compras Paraguai
+# vêm pelo servidor do site, que a hospedagem estática não tem
+cat["products"] = [p for p in cat["products"] if not p.get("image_src")]
+cat["stores"] = [s for s in cat["stores"] if not s.get("real")]
+cat.pop("imported", None)
+used = {c for p in cat["products"] for c in [p["category"]]}
+cat["categories"] = [c for c in cat["categories"] if c["id"] in used]
+os.makedirs(OUT, exist_ok=True)
+DEMO_CAT = os.path.join(OUT, "catalog.demo.json")
+json.dump(cat, open(DEMO_CAT, "w", encoding="utf8"), ensure_ascii=False)
+ENV = dict(os.environ, BUSCA_CATALOG=DEMO_CAT)
+
 # a página vem do modelo views/index.html, preenchida com as configurações padrão
-html = subprocess.run(["node", os.path.join(ROOT, "scripts", "render_static.js"), "index.html"], check=True, capture_output=True, text=True).stdout
+html = subprocess.run(["node", os.path.join(ROOT, "scripts", "render_static.js"), "index.html"], check=True, capture_output=True, text=True, env=ENV).stdout
 # a página de câmeras vira cameras.html ao lado da página principal: o link abre na mesma janela
 html = html.replace('href="/cameras"', 'href="cameras.html"').replace('href="/?', 'href="?')
 body = html.split("<!-- ARTIFACT:START -->")[1].split("<!-- ARTIFACT:END -->")[0]
@@ -24,7 +37,7 @@ open(os.path.join(OUT, "index.html"), "w", encoding="utf8").write(body)
 
 # cameras.html: página completa (a hospedagem só embrulha a página principal), com CSS e JS embutidos.
 # A demonstração não pode abrir vídeos de outros sites (window.BUSCA_DEMO): cada câmera explica isso.
-cams = subprocess.run(["node", os.path.join(ROOT, "scripts", "render_static.js"), "cameras.html", "/cameras"], check=True, capture_output=True, text=True).stdout
+cams = subprocess.run(["node", os.path.join(ROOT, "scripts", "render_static.js"), "cameras.html", "/cameras"], check=True, capture_output=True, text=True, env=ENV).stdout
 cams = re.sub(r'<link rel="(icon|apple-touch-icon|canonical)"[^>]*>\n', "", cams)
 cams = cams.replace('<link rel="stylesheet" href="/css/app.css">', "<style>\n" + css + "</style>")
 assert "/theme.css" not in cams and "/brand-logo" not in cams
@@ -42,9 +55,9 @@ for rel in ["data/embeddings.bin", "data/colors.bin"] + ["model/group1-shard%dof
     open(src + ".b64.txt", "w").write(base64.b64encode(open(src, "rb").read()).decode())
     os.remove(src)
 # imagens embutidas no catálogo (data URI) para publicar poucos arquivos
-cat = json.load(open(os.path.join(PUB, "data/catalog.json"), encoding="utf8"))
 for p in cat["products"]:
     raw = open(os.path.join(PUB, p["image"]), "rb").read()
     p["image"] = "data:image/jpeg;base64," + base64.b64encode(raw).decode()
 json.dump(cat, open(os.path.join(OUT, "data/catalog.json"), "w", encoding="utf8"), ensure_ascii=False, separators=(",", ":"))
+os.remove(DEMO_CAT)
 print("ok", os.path.getsize(os.path.join(OUT, "index.html")) // 1024, "KB +", os.path.getsize(os.path.join(OUT, "cameras.html")) // 1024, "KB")

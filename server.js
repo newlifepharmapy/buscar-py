@@ -11,6 +11,7 @@ const { Store } = require("./lib/settings");
 const { Rates } = require("./lib/rates");
 const { Auth, clientIp } = require("./lib/auth");
 const R = require("./lib/render");
+const { RemoteImages } = require("./lib/remote-images");
 const DEFAULTS = require("./lib/defaults");
 
 const PORT = Number(process.env.PORT) || 8080;
@@ -27,12 +28,16 @@ const VOLUME_NO_WRITE = "O volume do Railway está montado, mas o servidor não 
 
 const store = new Store(DATA_DIR);
 const rates = new Rates({ dir: store.writable ? DATA_DIR : null, intervalMs: Number(process.env.RATES_INTERVAL_MS) || 5 * 60 * 1000 });
+// fotos e logos que vêm de fora (catálogo importado): baixadas uma vez e guardadas no volume
+let catalog = {};
+try { catalog = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "catalog.json"), "utf8")); } catch (e) { console.error("catálogo ilegível", e.message); }
+const remote = new RemoteImages({ catalog, dir: store.writable ? DATA_DIR : null });
 const auth = new Auth({ password: process.env.ADMIN_PASSWORD, secret: process.env.SESSION_SECRET, dir: store.writable ? DATA_DIR : null });
 
 const TYPES = {
   ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8", ".svg": "image/svg+xml", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
-  ".png": "image/png", ".webp": "image/webp", ".ico": "image/x-icon", ".txt": "text/plain; charset=utf-8",
+  ".png": "image/png", ".webp": "image/webp", ".avif": "image/avif", ".ico": "image/x-icon", ".txt": "text/plain; charset=utf-8",
   ".xml": "application/xml; charset=utf-8", ".bin": "application/octet-stream", "": "application/octet-stream",
 };
 // Binários (pesos do modelo, vetores) quase não comprimem: não vale gastar CPU com eles.
@@ -299,6 +304,16 @@ async function handle(req, res) {
     return send(req, res, page("cameras.html", "/cameras"), { "Content-Security-Policy": csp({ frames }) });
   }
   if (rel === "/cameras/" || rel === "/cameras.html" || rel === "/camaras") return redirect(res, "/cameras");
+  if (rel === "/lojas") return send(req, res, page("lojas.html", "/lojas"));
+  if (rel === "/lojas/" || rel === "/lojas.html") return redirect(res, "/lojas");
+  if (remote.has(rel)) {
+    try {
+      return send(req, res, await remote.get(rel), { "Cache-Control": "public, max-age=604800" });
+    } catch (e) {
+      res.writeHead(502, { ...SECURITY, "Content-Type": TYPES[".txt"], "Cache-Control": "no-store" });
+      return res.end("Imagem indisponível no momento");
+    }
+  }
   if (rel === "/admin") return redirect(res, "/admin/");
   // sitemap e robots.txt apontam para o endereço principal do site
   if (rel === "/sitemap.xml" || rel === "/robots.txt") {
@@ -339,6 +354,8 @@ server.listen(PORT, () => {
   console.log(`Configurações em ${DATA_DIR} (${store.writable ? (store.persistent ? "gravável e permanente" : "gravável, mas some no próximo deploy: monte um volume") : "somente leitura"})`);
   if (HAS_VOLUME && !store.writable) console.log(VOLUME_NO_WRITE);
   if (!auth.enabled) console.log("Painel admin desativado: defina ADMIN_PASSWORD (mínimo de 8 caracteres).");
+  // em produção, já deixa as fotos e logos externas no disco (uma de cada vez, sem pressa)
+  if (PROD && process.env.REMOTE_IMAGES_WARM !== "0") remote.warm().catch(() => {});
 });
 // Encerra com calma: para de aceitar conexões e deixa as respostas em andamento terminarem.
 process.on("SIGTERM", () => {
