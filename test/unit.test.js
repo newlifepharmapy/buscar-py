@@ -416,4 +416,8 @@ test("lojas: sem lojas importadas, a página avisa uma vez e o rodapé fica com 
   assert.doesNotMatch(lojas, /0 lojas/);
   assert.doesNotMatch(home, /foot-stores|id="storesStrip"/);
   assert.match(home, /Versão de demonstração/);
+  // os números do topo da página inicial vêm do catálogo (antes do app.js rodar já estão certos)
+  const demo = cat.products.filter((p) => !p.source);
+  assert.match(home, new RegExp(`<dd id="stProducts">${demo.length}</dd>`));
+  assert.match(home, new RegExp(`<dd id="stStores">${new Set(demo.flatMap((p) => p.offers.map((o) => o.store))).size}</dd>`));
 });
