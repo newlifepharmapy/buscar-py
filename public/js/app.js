@@ -142,13 +142,14 @@
     });
     if (active) centerCat(active);
     if (window.BuscaMenu) BuscaMenu.setCurrent(S.cat);
-    catToUrl();
+    stateToUrl();
     render();
   }
-  // O endereço acompanha a categoria (/?cat=...): recarregar ou compartilhar a página mostra a mesma lista.
-  function catToUrl() {
+  // O endereço acompanha a busca e a categoria (/?q=...&cat=...): recarregar ou compartilhar a página mostra a mesma lista.
+  function stateToUrl() {
     try {
       const u = new URL(location.href);
+      if (S.text) u.searchParams.set("q", S.text); else u.searchParams.delete("q");
       if (S.cat) u.searchParams.set("cat", S.cat); else u.searchParams.delete("cat");
       if (u.href !== location.href) history.replaceState(null, "", u);
     } catch (e) { /* ignorado */ }
@@ -169,7 +170,7 @@
     $("catbar").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(!x.dataset.cat)));
     $("catbar").scrollLeft = 0; updateCatArrows();
     if (window.BuscaMenu) BuscaMenu.setCurrent(null);
-    catToUrl();
+    stateToUrl();
   }
   function clearGuess() {
     S.guessCat = null;
@@ -566,6 +567,7 @@
     $("guessChips").innerHTML = guesses.map(([c, v]) => `<button type="button" class="chip" data-cat="${c}" aria-pressed="false">${esc(catById[c].name)}<b>${Math.round(v / tot * 100)}%</b></button>`).join("");
     $("guess").hidden = !guesses.length;
     S.text = ""; $("q").value = "";
+    stateToUrl();
     render();
   }
   function rescore() { if (S.img) S.imgScores = rankByVector(S.img.deep, S.img.color, S.colorW); }
@@ -606,6 +608,7 @@
       if (t === S.text) return;
       S.text = t; S.shown = PAGE;
       if (S.text && !$("imgPanel").hidden) closePanel(true); // texto novo começa uma busca nova (e cancela a análise)
+      stateToUrl();
       render();
     };
     $("searchForm").onsubmit = (e) => { e.preventDefault(); applyText(); scrollToEl($("resultados")); };

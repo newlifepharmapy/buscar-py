@@ -27,6 +27,7 @@
   function open() {
     if (dlg.open) return;
     if (closing) finish(); // o painel fechou sem esperar a animação: encerra aquele fechamento
+    root.classList.toggle("menu-gutter", window.innerWidth > root.clientWidth); // a página tinha barra de rolagem
     dlg.showModal();
     root.classList.add("menu-open");
     btn.setAttribute("aria-expanded", "true");

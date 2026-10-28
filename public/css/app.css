@@ -322,7 +322,9 @@ img { max-width: 100%; }
 @keyframes drawer-out { to { transform: translateX(-100%); } }
 @keyframes fade-in { from { opacity: 0; } }
 @keyframes fade-out { to { opacity: 0; } }
-html.menu-open { overflow: hidden; scrollbar-gutter: stable; }
+html.menu-open { overflow: hidden; }
+/* travar a rolagem tira a barra de rolagem do computador: o espaço dela fica reservado e a página não pula */
+html.menu-open.menu-gutter { scrollbar-gutter: stable; }
 .drawer-in { display: flex; flex-direction: column; height: 100%; }
 .drawer-head { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: max(10px, env(safe-area-inset-top)) 10px 10px 20px; border-bottom: 1px solid var(--line); }
 .drawer-head .logo { --logo-h: 32px; min-width: 0; }

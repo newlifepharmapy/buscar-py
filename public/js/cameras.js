@@ -88,7 +88,8 @@
 
   // Fecha o player (o vídeo para de baixar na hora) e mostra a capa com o motivo.
   function close(c, msg, canPlay, playLabel) {
-    var refocus = document.activeElement === c.full;
+    // o foco estava no "Tela cheia" ou dentro do vídeo (que vai sumir): passa para o botão da capa
+    var refocus = document.activeElement === c.full || (!!c.frame && document.activeElement === c.frame);
     if (c.frame) {
       if (document.fullscreenElement === c.stage) document.exitFullscreen().catch(function () {});
       c.frame.src = "about:blank";
