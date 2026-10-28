@@ -4,18 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="{{seo.description}}">
-<meta name="theme-color" content="{{brand.blue}}">
+<meta name="theme-color" content="{{brand.primary}}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{seo.title}}">
 <meta property="og:description" content="{{seo.description}}">
 <meta property="og:locale" content="pt_BR">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="canonical" href="{{page.canonical}}">
 <!-- ARTIFACT:START -->
 <title>{{seo.title}}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap">
 <link rel="stylesheet" href="css/app.css">
 {{{themeLink}}}
 </head>
@@ -197,7 +198,8 @@
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <span class="logo-text logo-text-inv"><span>{{brand.name1}}</span><span class="logo-py">{{brand.name2}}</span></span>
+      <span class="logo logo-inv" role="img" aria-label="{{brand.full}}">{{{logoMark}}}{{{logoWord}}}</span>
+      <p class="tagline">O menor preço do Paraguai</p>
       <p>{{footer.about}}</p>
     </div>
     <div>

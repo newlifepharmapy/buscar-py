@@ -111,7 +111,7 @@ test("salvar publica no site, com controle de versão", async () => {
   const cur = await (await authed("GET", "/api/admin/settings")).json();
   const s = cur.settings;
   s.home.title = 'Título <novo> & "teste"';
-  s.brand.blue = "#123456";
+  s.brand.primary = "#123456";
   s.topbar.links.push({ label: "iClinic", url: "https://iclinicpy.com/cameras", live: false, newTab: true });
   s.cameras.list = s.cameras.list.slice(0, 1);
   const r = await authed("PUT", "/api/admin/settings", { settings: s, version: cur.version }, { Origin: base });
@@ -121,7 +121,7 @@ test("salvar publica no site, com controle de versão", async () => {
   const html = await (await fetch(base + "/")).text();
   assert.ok(html.includes("Título &lt;novo&gt; &amp; &quot;teste&quot;"));
   assert.ok(html.includes('href="https://iclinicpy.com/cameras" target="_blank" rel="noopener"'));
-  assert.match(await (await fetch(base + "/theme.css")).text(), /--blue:#123456/);
+  assert.match(await (await fetch(base + "/theme.css")).text(), /--navy:#123456/);
   const stale = await authed("PUT", "/api/admin/settings", { settings: s, version: cur.version });
   assert.equal(stale.status, 409);
   const conflict = await stale.json();
@@ -183,15 +183,15 @@ test("câmeras: link do YouTube vira player; endereço com símbolos é recusado
 
 test("campo inválido mantém o último valor salvo", async () => {
   let cur = await (await authed("GET", "/api/admin/settings")).json();
-  const blue = cur.settings.brand.blue;
-  assert.notEqual(blue, "#0038a8");
-  cur.settings.brand.blue = "#12345"; // faltou um dígito
+  const primary = cur.settings.brand.primary;
+  assert.notEqual(primary, "#0c1a2e");
+  cur.settings.brand.primary = "#12345"; // faltou um dígito
   cur.settings.rates = { auto: false, BRL: 560, PYG: 7.95 }; // "5,60" e "7.950" lidos do jeito errado
   const r = await authed("PUT", "/api/admin/settings", { settings: cur.settings, version: cur.version });
   cur = await r.json();
-  assert.equal(cur.settings.brand.blue, blue);
+  assert.equal(cur.settings.brand.primary, primary);
   assert.deepEqual(cur.settings.rates, { auto: false, BRL: 5.35, PYG: 5800 });
-  assert.match(await (await fetch(base + "/theme.css")).text(), new RegExp("--blue:" + blue));
+  assert.match(await (await fetch(base + "/theme.css")).text(), new RegExp("--navy:" + primary));
   cur.settings.rates.auto = true;
   assert.equal((await authed("PUT", "/api/admin/settings", { settings: cur.settings, version: cur.version })).status, 200);
 });
