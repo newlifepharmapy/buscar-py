@@ -25,7 +25,7 @@ open(os.path.join(OUT, "index.html"), "w", encoding="utf8").write(body)
 # cameras.html: página completa (a hospedagem só embrulha a página principal), com CSS e JS embutidos.
 # A demonstração não pode abrir vídeos de outros sites (window.BUSCA_DEMO): cada câmera explica isso.
 cams = subprocess.run(["node", os.path.join(ROOT, "scripts", "render_static.js"), "cameras.html", "/cameras"], check=True, capture_output=True, text=True).stdout
-cams = re.sub(r'<link rel="(icon|canonical)"[^>]*>\n', "", cams)
+cams = re.sub(r'<link rel="(icon|apple-touch-icon|canonical)"[^>]*>\n', "", cams)
 cams = cams.replace('<link rel="stylesheet" href="/css/app.css">', "<style>\n" + css + "</style>")
 assert "/theme.css" not in cams and "/brand-logo" not in cams
 cams = re.sub(r'<script src="/([^"]+)"></script>', inline, cams)

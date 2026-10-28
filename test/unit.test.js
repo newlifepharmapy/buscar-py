@@ -57,9 +57,14 @@ test("câmeras: link normal do YouTube vira o player", () => {
 });
 
 test("sanitize: cores, números e limites", () => {
-  const s = sanitize({ brand: { blue: "red", red: "#ABCDEF" }, rates: { BRL: "5,1", PYG: 99 }, home: { title: "x".repeat(500), steps: [{ title: "" }] } });
-  assert.equal(s.brand.blue, DEFAULTS.brand.blue);
-  assert.equal(s.brand.red, "#abcdef");
+  const s = sanitize({ brand: { primary: "red", accent: "#ABCDEF" }, rates: { BRL: "5,1", PYG: 99 }, home: { title: "x".repeat(500), steps: [{ title: "" }] } });
+  assert.equal(s.brand.primary, DEFAULTS.brand.primary);
+  assert.equal(s.brand.accent, "#abcdef");
+  // as cores da identidade anterior (azul e vermelho) não valem mais: ficam as da identidade v3
+  const old = sanitize({ brand: { blue: "#0038a8", red: "#d52b1e" } });
+  assert.equal(old.brand.primary, "#0c1a2e");
+  assert.equal(old.brand.accent, "#c9a961");
+  assert.ok(!("blue" in old.brand) && !("red" in old.brand));
   assert.equal(s.rates.BRL, 5.1);
   assert.equal(s.rates.PYG, DEFAULTS.rates.PYG);
   assert.equal(s.home.title.length, 120);
@@ -120,14 +125,35 @@ test("render: todas as páginas sem marcadores sobrando", () => {
   }
 });
 
+test("logo: nome padrão usa a assinatura desenhada; outro nome vai em texto", () => {
+  const ctx = (brand) => R.context({ ...sanitize({}), brand: { ...sanitize({}).brand, ...brand } }, { BRL: 5.4, PYG: 5800, source: "manual" });
+  assert.match(ctx({}).raw.logoWord, /^<svg class="logo-word"/);
+  assert.match(ctx({ name1: "BUSCAR", name2: "py" }).raw.logoWord, /^<svg class="logo-word"/);
+  const t = ctx({ name1: "Compras <b>", name2: "PY" }).raw.logoWord;
+  assert.equal(t, '<span class="logo-text"><span>Compras &lt;b&gt;</span> <span class="logo-py">PY</span></span>');
+  assert.equal(ctx({ name1: "Loja", name2: "" }).raw.logoWord, '<span class="logo-text"><span>Loja</span></span>');
+});
+
 test("tema: cores derivadas", () => {
-  assert.ok(!R.themeCss({ blue: "#0038a8", red: "#d52b1e" }).includes("--blue"), "cores padrão não sobrescrevem app.css");
-  const css = R.themeCss({ blue: "#123456", red: "#d52b1e" });
-  assert.match(css, /--blue:#123456/);
-  assert.match(css, /--blue-700:#0e2943/);
-  assert.ok(!css.includes("--red"));
-  assert.ok(R.contrastWithWhite("#0038a8") > 4.5);
+  assert.ok(!R.themeCss(DEFAULTS.brand).includes("--"), "cores padrão não sobrescrevem app.css");
+  const css = R.themeCss({ primary: "#123456", accent: DEFAULTS.brand.accent });
+  assert.match(css, /--navy:#123456/);
+  assert.match(css, /--navy-900:#0b1f34/);
+  assert.ok(!css.includes("--gold"));
+  const gold = R.themeCss({ primary: DEFAULTS.brand.primary, accent: "#e0b84c" });
+  assert.match(gold, /--gold:#e0b84c/);
+  assert.match(gold, /--gold-100:#f9f1db/);
+  assert.ok(!gold.includes("--navy"));
+  assert.ok(R.contrastWithWhite(DEFAULTS.brand.primary) > 4.5);
   assert.ok(R.contrastWithWhite("#ffff00") < 4.5);
+  assert.ok(R.contrast(DEFAULTS.brand.primary, DEFAULTS.brand.accent) > 4.5, "ouro sobre azul-tinta é legível");
+  // tons derivados que viram texto pequeno ficam legíveis mesmo com cores claras escolhidas no painel
+  const v = (css, name) => new RegExp(`--${name}:(#[0-9a-f]{6})`).exec(css)[1];
+  const light = R.themeCss({ primary: "#2f6fd0", accent: "#e6c36a" });
+  assert.ok(R.contrast(v(light, "navy-400"), "#f6f5f1") >= 4.5, "links sobre a névoa");
+  assert.ok(R.contrast(v(light, "navy-600"), "#ffffff") >= 4.5, "texto branco no botão sob o mouse");
+  assert.ok(R.contrast(v(light, "gold-700"), "#e4f5eb") >= 4.5, "texto pequeno em ouro");
+  assert.ok(R.contrast(v(R.themeCss({ primary: "#0c1a2e", accent: "#ffd700" }), "gold-700"), "#e4f5eb") >= 4.5);
 });
 
 test("Google: lê data-last-price da moeda certa", () => {
@@ -299,16 +325,16 @@ test("login: Sair encerra todas as sessões, mesmo depois de reiniciar", () => {
 
 test("Store: campo inválido mantém o último valor salvo, não o padrão", () => {
   const st = new Store(tmp());
-  st.save({ brand: { blue: "#114477" }, rates: { auto: false, BRL: 5.8, PYG: 7950 }, home: { title: "Meu título" } }, 0);
+  st.save({ brand: { primary: "#114477" }, rates: { auto: false, BRL: 5.8, PYG: 7950 }, home: { title: "Meu título" } }, 0);
   const saved = st.get();
-  st.save({ ...saved, brand: { ...saved.brand, blue: "#11447" }, rates: { auto: false, BRL: 560, PYG: "7.950" }, home: { ...saved.home, title: "" } }, 1);
-  assert.equal(st.get().brand.blue, "#114477");
+  st.save({ ...saved, brand: { ...saved.brand, primary: "#11447" }, rates: { auto: false, BRL: 560, PYG: "7.950" }, home: { ...saved.home, title: "" } }, 1);
+  assert.equal(st.get().brand.primary, "#114477");
   assert.equal(st.get().rates.BRL, 5.8);
   assert.equal(st.get().rates.PYG, 7950);
   assert.equal(st.get().home.title, "Meu título", "campo obrigatório vazio fica com o último valor");
   // "Restaurar padrão": o painel manda os valores padrão de forma explícita
   st.save({ ...st.get(), brand: { ...DEFAULTS.brand } }, 2);
-  assert.equal(st.get().brand.blue, DEFAULTS.brand.blue);
+  assert.equal(st.get().brand.primary, DEFAULTS.brand.primary);
 });
 
 test("Store: avisa que o disco é temporário no Railway sem volume", () => {

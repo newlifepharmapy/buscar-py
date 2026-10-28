@@ -22,6 +22,8 @@
   const fmtInt = new Intl.NumberFormat("pt-BR");
   const fmtPyg = new Intl.NumberFormat("es-PY", { maximumFractionDigits: 0 });
   const usd = (v) => "US$ " + fmtUsd.format(v);
+  // símbolo da moeda com a bandeira na frente (a bandeira é enfeite: o símbolo já diz a moeda)
+  const cur = (flag, sym) => `<span class="cur"><span class="flag flag-${flag}" aria-hidden="true"></span>${sym}</span>`;
   const brl = (v) => fmtBrl.format(v * D.rates.BRL);
   const pygNum = (v) => fmtPyg.format(Math.round(v * D.rates.PYG / 100) * 100);
   const pyg = (v) => "₲ " + pygNum(v);
@@ -358,7 +360,7 @@
     const bst = storeById[best.store];
     $("pdBest").innerHTML = `<small>Menor preço em <b>${esc(bst.name)}</b> · ${esc(bst.city)}</small>
       <span class="usd">${usd(best.price)}</span><span class="conv">${brl(best.price)} · ${pyg(best.price)}</span>`;
-    $("pdTable").innerHTML = `<thead><tr><th>Loja</th><th>Situação</th><th class="num">US$</th><th class="num">R$</th><th class="num">₲</th></tr></thead><tbody>` +
+    $("pdTable").innerHTML = `<thead><tr><th>Loja</th><th>Situação</th><th class="num">${cur("us", "US$")}</th><th class="num">${cur("br", "R$")}</th><th class="num">${cur("py", "₲")}</th></tr></thead><tbody>` +
       [...inStock, ...p.offers.filter((o) => !o.in_stock)].map((o) => {
         const st = storeById[o.store];
         const isBest = o === best;
@@ -415,7 +417,7 @@
          <circle class="c-min" cx="${x(iMin).toFixed(1)}" cy="${y(min).toFixed(1)}" r="5" stroke-width="2"/>`;
     const caption = todayIsMin
       ? `<span class="low-pill">Hoje é o menor preço das últimas 26 semanas</span>`
-      : `<p class="hint">Ponto vermelho: menor preço do período (${usd(min)}). Ponto azul: preço de hoje.</p>`;
+      : `<p class="hint">Ponto verde: menor preço do período (${usd(min)}). Ponto azul-escuro: preço de hoje.</p>`;
     return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Histórico do menor preço: de ${usd(h[0])} há 26 semanas para ${usd(last)} hoje; mínimo de ${usd(min)}">
       ${ticks.map((t) => `<line class="c-grid" x1="${L}" x2="${W - R}" y1="${y(t).toFixed(1)}" y2="${y(t).toFixed(1)}" stroke-width="1"/><text x="${L - 8}" y="${(y(t) + 4).toFixed(1)}" text-anchor="end">${fmtUsd.format(t)}</text>`).join("")}
       <polygon class="c-area" points="${x(0)},${H - B} ${pts} ${x(h.length - 1)},${H - B}"/>
@@ -496,10 +498,10 @@
     const c = Q.drag ? Q.drag : Q.crop;
     if (c) {
       const [x, y, w, h] = norm(c).map((v) => v * Q.scale);
-      g.fillStyle = "rgba(10, 29, 74, .5)";
+      g.fillStyle = "rgba(7, 15, 28, .5)";
       g.fillRect(0, 0, cv.width, y); g.fillRect(0, y + h, cv.width, cv.height - y - h);
       g.fillRect(0, y, x, h); g.fillRect(x + w, y, cv.width - x - w, h);
-      g.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--red").trim() || "#d52b1e"; g.lineWidth = 2.5; g.setLineDash([7, 4]); g.strokeRect(x + 1, y + 1, w - 2, h - 2);
+      g.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--gold-600").trim() || "#a98a45"; g.lineWidth = 2.5; g.setLineDash([7, 4]); g.strokeRect(x + 1, y + 1, w - 2, h - 2);
     }
     cv.hidden = false; $("dropEmpty").hidden = true; $("drop").classList.add("has-img");
   }

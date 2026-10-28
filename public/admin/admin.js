@@ -267,17 +267,33 @@
     });
     return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
   }
-  var CONTRAST_FOR = { "brand.blue": "botões e a barra superior", "brand.red": "os destaques" };
+  function contrast(a, b) {
+    var x = luminance(a), y = luminance(b);
+    return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05);
+  }
+  // arredonda para baixo: 4,49 aparece como "4,4:1", nunca como o mínimo recomendado
+  function ratioText(r) { return (Math.floor(r * 10) / 10).toFixed(1).replace(".", ",") + ":1"; }
   // Devolve [erro, observação] de um campo simples.
   function fieldProblem(el) {
     var kind = el.getAttribute("data-check"), v = el.value.trim();
     if (NUM[kind]) return [numValue(kind, v) == null ? NUM[kind].msg : "", ""];
     // vazio, o servidor manteria o texto anterior sem avisar
     if (kind === "req") return [v ? "" : "Este campo não pode ficar vazio.", ""];
-    if (!isHex(v)) return ["Cor inválida: use o formato #RRGGBB (ex.: #0038a8) ou escolha a cor no quadrado ao lado.", ""];
-    var ratio = 1.05 / (luminance(v) + 0.05);
-    return ["", ratio >= 4.5 ? "" : "Texto branco sobre esta cor fica difícil de ler (contraste " + ratio.toFixed(1).replace(".", ",") +
-      ":1; o recomendado é pelo menos 4,5:1). Escolha um tom mais escuro para " + CONTRAST_FOR[el.getAttribute("data-path")] + "."];
+    if (!isHex(v)) return ["Cor inválida: use o formato #RRGGBB (ex.: #0c1a2e) ou escolha a cor no quadrado ao lado.", ""];
+    // A cor principal leva texto branco (botões, barra da cotação, rodapé) e é a cor dos títulos sobre o
+    // fundo névoa (#f6f5f1). Conferir contra a névoa cobre os dois casos: o branco contrasta ainda mais.
+    // A de destaque leva texto na cor principal (selos e botões sobre o fundo escuro) e aparece sobre ela
+    // no "PY" e na seta do símbolo.
+    if (el.getAttribute("data-path") === "brand.primary") {
+      var light = contrast(v, "#f6f5f1");
+      return ["", light >= 4.5 ? "" : "Esta cor fica difícil de ler nos botões, na barra superior, no rodapé e nos títulos (contraste " +
+        ratioText(light) + " com o fundo claro do site; o recomendado é pelo menos 4,5:1). Escolha um tom mais escuro."];
+    }
+    var main = form.querySelector('[data-path="brand.primary"]').value.trim();
+    if (!isHex(main)) main = state.settings.brand.primary;
+    var pair = contrast(v, main);
+    return ["", pair >= 4.5 ? "" : "Esta cor fica pouco visível junto da cor principal (contraste " + ratioText(pair) +
+      "; o recomendado é pelo menos 4,5:1). Escolha um tom mais claro para os destaques."];
   }
   // O erro aparece quando a pessoa sai do campo (data-seen) ou tenta salvar; some assim que o valor fica certo.
   function paint(inputs, box, problems) {
@@ -432,25 +448,17 @@
   }
 
   /* ---------- Cores, logo e prévia ---------- */
-  function mix(hex, to, t) {
-    var a = hex.match(/[0-9a-f]{2}/gi).map(function (x) { return parseInt(x, 16); });
-    var b = to.match(/[0-9a-f]{2}/gi).map(function (x) { return parseInt(x, 16); });
-    return "#" + a.map(function (v, i) { return Math.round(v + (b[i] - v) * t).toString(16).padStart(2, "0"); }).join("");
-  }
-  // O mesmo ícone da lupa do site, pintado com as cores escolhidas (variáveis --pv-blue e --pv-red).
-  var LOGO_SVG = '<svg class="logo-mark" viewBox="0 0 40 40" width="38" height="38" aria-hidden="true">' +
-    '<rect class="lm-bg" width="40" height="40" rx="10"/>' +
-    '<circle cx="17.5" cy="17.5" r="8.5" fill="none" stroke="#fff" stroke-width="3.6"/>' +
-    '<path d="M24 24l7.5 7.5" stroke="#fff" stroke-width="4" stroke-linecap="round"/>' +
-    '<rect class="lm-bar" x="6" y="33" width="28" height="3" rx="1.5"/></svg>';
+  // O mesmo símbolo "b" do site, pintado com as cores escolhidas (variáveis --pv-primary e --pv-accent).
+  var LOGO_SVG = '<svg class="logo-mark" viewBox="48 24 116 154" aria-hidden="true">' +
+    '<path class="lm-ink" d="M48,30a6,6 0 0 1 6,-6h20a6,6 0 0 1 6,6v148H48Z"/><circle class="lm-ink" cx="108" cy="122" r="56"/>' +
+    '<path class="lm-arrow" d="M91,116L112,134L133,116" fill="none" stroke-width="13.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   function renderBrand() {
     var s = collect();
-    var blue = isHex(s.brand.blue) ? s.brand.blue : state.settings.brand.blue;
-    var red = isHex(s.brand.red) ? s.brand.red : state.settings.brand.red;
+    var primary = isHex(s.brand.primary) ? s.brand.primary : state.settings.brand.primary;
+    var accent = isHex(s.brand.accent) ? s.brand.accent : state.settings.brand.accent;
     var sec = $("visual"), pv = $("brandPreview");
-    sec.style.setProperty("--pv-blue", blue);
-    sec.style.setProperty("--pv-red", red);
-    sec.style.setProperty("--pv-red-50", mix(red, "#ffffff", 0.92));
+    sec.style.setProperty("--pv-primary", primary);
+    sec.style.setProperty("--pv-accent", accent);
     pv.querySelector(".pv-n1").textContent = s.brand.name1;
     pv.querySelector(".pv-n2").textContent = s.brand.name2;
     [pv.querySelector(".pv-logo"), $("logoPrev")].forEach(function (box) {
@@ -492,12 +500,21 @@
   var SRC = { google: "Google", awesomeapi: "AwesomeAPI", "er-api": "ExchangeRate-API", manual: "valor manual" };
   function srcName(s) { return String(s || "").split("+").map(function (x) { return SRC[x] || x; }).join(" e "); }
   var CUR = { BRL: { name: "Real" }, PYG: { name: "Guarani" } };
+  // Valor com a bandeira da moeda na frente (a bandeira é enfeite: o símbolo já diz a moeda).
+  function curNode(flag, text) {
+    var box = document.createElement("span"), f = document.createElement("span");
+    box.className = "cur";
+    f.className = "flag flag-" + flag;
+    f.setAttribute("aria-hidden", "true");
+    box.append(f, text);
+    return box;
+  }
 
   function renderRates() {
     var r = state.rates, e = r.effective, st = r.state || {}, errs = r.errors || {};
     var curs = Object.keys(CUR), missing = curs.filter(function (c) { return !st[c]; });
     var next = r.nextRun ? " · próxima às " + hhmm(r.nextRun) : "";
-    $("fxNow").textContent = "US$ 1 = " + brl(e.BRL) + " · " + pyg(e.PYG);
+    $("fxNow").replaceChildren(curNode("us", "US$ 1 ="), " ", curNode("br", brl(e.BRL)), " ", curNode("py", pyg(e.PYG)));
     var info;
     if (!e.auto) info = "Valor manual (a atualização automática está desligada).";
     else if (missing.length === curs.length || e.source === "manual") info = "Ainda sem leitura automática: usando o valor manual." + (r.nextRun ? " Próxima tentativa às " + hhmm(r.nextRun) + "." : "");
@@ -565,7 +582,7 @@
   form.addEventListener("input", function (e) {
     var cf = e.target.getAttribute("data-color-for");
     if (cf) form.querySelector('[data-path="' + cf + '"]').value = e.target.value;
-    if (e.target.matches('[data-path="brand.blue"], [data-path="brand.red"]') && isHex(e.target.value)) {
+    if (e.target.matches('[data-path="brand.primary"], [data-path="brand.accent"]') && isHex(e.target.value)) {
       form.querySelector('[data-color-for="' + e.target.getAttribute("data-path") + '"]').value = e.target.value.trim().toLowerCase();
     }
     if (e.target.closest("#visual")) renderBrand();

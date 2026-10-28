@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Painel · Buscar PY</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap">
 <link rel="stylesheet" href="/css/app.css">
 <link rel="stylesheet" href="/admin/admin.css">
 </head>
@@ -85,12 +85,12 @@
         </label>
         <div class="fld-row">
           <div class="fld">
-            <label for="fxBRL">R$ por US$ 1 (manual)</label>
+            <label for="fxBRL"><span class="flag flag-br" aria-hidden="true"></span> R$ por US$ 1 (manual)</label>
             <input type="text" id="fxBRL" maxlength="12" inputmode="decimal" autocomplete="off" placeholder="5,35" data-path="rates.BRL" data-check="brl" data-err="errBRL">
             <p class="adm-error" id="errBRL" hidden></p>
           </div>
           <div class="fld">
-            <label for="fxPYG">₲ por US$ 1 (manual)</label>
+            <label for="fxPYG"><span class="flag flag-py" aria-hidden="true"></span> ₲ por US$ 1 (manual)</label>
             <input type="text" id="fxPYG" maxlength="12" inputmode="decimal" autocomplete="off" placeholder="5.800" data-path="rates.PYG" data-check="pyg" data-err="errPYG">
             <p class="adm-error" id="errPYG" hidden></p>
           </div>
@@ -133,33 +133,33 @@
           <div class="fld">
             <span>Cor principal</span>
             <div class="color-pair">
-              <input type="color" data-color-for="brand.blue" aria-label="Escolher cor principal">
-              <input type="text" maxlength="7" data-path="brand.blue" data-check="hex" data-err="contrastBlue" aria-label="Cor principal em hexadecimal" spellcheck="false" autocomplete="off">
+              <input type="color" data-color-for="brand.primary" aria-label="Escolher cor principal">
+              <input type="text" maxlength="7" data-path="brand.primary" data-check="hex" data-err="contrastPrimary" aria-label="Cor principal em hexadecimal" spellcheck="false" autocomplete="off">
             </div>
-            <p class="adm-error" id="contrastBlue" hidden></p>
+            <p class="adm-error" id="contrastPrimary" hidden></p>
           </div>
           <div class="fld">
             <span>Cor de destaque</span>
             <div class="color-pair">
-              <input type="color" data-color-for="brand.red" aria-label="Escolher cor de destaque">
-              <input type="text" maxlength="7" data-path="brand.red" data-check="hex" data-err="contrastRed" aria-label="Cor de destaque em hexadecimal" spellcheck="false" autocomplete="off">
+              <input type="color" data-color-for="brand.accent" aria-label="Escolher cor de destaque">
+              <input type="text" maxlength="7" data-path="brand.accent" data-check="hex" data-err="contrastAccent" aria-label="Cor de destaque em hexadecimal" spellcheck="false" autocomplete="off">
             </div>
-            <p class="adm-error" id="contrastRed" hidden></p>
+            <p class="adm-error" id="contrastAccent" hidden></p>
           </div>
         </div>
         <div class="fld">
-          <span>Logo (opcional, no lugar do ícone da lupa)</span>
+          <span>Logo (opcional, no lugar do símbolo “b”)</span>
           <div class="logo-edit">
             <span class="logo-prev" id="logoPrev"></span>
             <input type="file" id="logoFile" accept="image/png,image/jpeg,image/webp,image/svg+xml" class="sr-only" tabindex="-1" aria-hidden="true">
             <button type="button" class="btn btn-sm" id="logoPick">Escolher imagem</button>
-            <button type="button" class="btn btn-sm btn-ghost" id="logoRemove">Usar o ícone padrão</button>
+            <button type="button" class="btn btn-sm btn-ghost" id="logoRemove">Usar o símbolo padrão</button>
           </div>
           <p class="hint">A imagem é reduzida para 256 × 256 pixels. Prefira um ícone quadrado com fundo.</p>
         </div>
         <div class="preview-bar" id="brandPreview" aria-hidden="true">
-          <span class="pv-logo"></span><span class="pv-name"><span class="pv-n1"></span><span class="pv-n2"></span></span>
-          <span class="pv-btn">Buscar</span><span class="pv-tag">Economize US$ 12,30</span>
+          <span class="pv-logo"></span><span class="pv-name"><span class="pv-n1"></span> <span class="pv-n2"></span></span>
+          <span class="pv-btn">Buscar</span><span class="pv-tag">85% parecido</span>
         </div>
       </section>
 

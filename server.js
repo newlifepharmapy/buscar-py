@@ -193,7 +193,7 @@ function adminState() {
     defaults: DEFAULTS,
     storage: { writable: store.writable, persistent: store.persistent && store.writable, volume: HAS_VOLUME },
     rates: { effective: rates.effective(s), ...rates.status() },
-    contrast: { blue: R.contrastWithWhite(s.brand.blue), red: R.contrastWithWhite(s.brand.red) },
+    contrast: { primary: R.contrastWithWhite(s.brand.primary), accent: R.contrast(s.brand.primary, s.brand.accent) },
   };
 }
 
