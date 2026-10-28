@@ -646,6 +646,7 @@
     const panel = $("imgPanel"), wasHidden = panel.hidden;
     panel.hidden = false; $("camBtn").setAttribute("aria-pressed", "true");
     $("hero").hidden = true;
+    if ($("storesStrip")) $("storesStrip").hidden = true; // a faixa de logos some junto com o banner
     const top = panel.getBoundingClientRect().top;
     if (wasHidden || top < headerH() - 4 || top > window.innerHeight * 0.5) scrollToEl(panel);
     $("imgTitle").focus({ preventScroll: true });
@@ -790,7 +791,7 @@
       // o Tab rolou a faixa até a logo com foco; saindo dela, o carrossel recomeça do início
       const view = track.parentElement;
       view.addEventListener("focusout", (e) => { if (!view.contains(e.relatedTarget)) view.scrollLeft = 0; });
-      view.addEventListener("focusin", (e) => e.target.scrollIntoView({ block: "nearest", inline: "nearest" }));
+      view.addEventListener("focusin", (e) => { if (e.target.matches(":focus-visible")) e.target.scrollIntoView({ block: "nearest", inline: "nearest" }); });
     }
     if (sp && !reduceMotion()) {
       sp.hidden = false;
