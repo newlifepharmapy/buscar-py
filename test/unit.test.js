@@ -134,6 +134,21 @@ test("logo: nome padrão usa a assinatura desenhada; outro nome vai em texto", (
   assert.equal(ctx({ name1: "Loja", name2: "" }).raw.logoWord, '<span class="logo-text"><span>Loja</span></span>');
 });
 
+test("menu lateral: todas as categorias do catálogo, cada uma com link próprio", () => {
+  const s = sanitize({});
+  const cats = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "public", "data", "catalog.json"), "utf8")).categories;
+  const home = R.context(s, { BRL: 5.4, PYG: 5800, source: "manual" }, { path: "/" }).raw;
+  assert.equal((home.catMenu.match(/<li>/g) || []).length, cats.length + 1, "Todas + uma por categoria");
+  assert.match(home.catMenu, /^<li><a class="drawer-item" href="\/" data-cat="" aria-current="true"><span>Todas as categorias<\/span>/);
+  for (const c of cats) assert.ok(home.catMenu.includes(`href="/?cat=${encodeURIComponent(c.id)}" data-cat="${c.id}"><span>${c.name}</span>`), c.id);
+  // fora da página inicial nenhuma categoria aparece como a atual; o link das câmeras sim
+  const cams = R.context(s, { BRL: 5.4, PYG: 5800, source: "manual" }, { path: "/cameras" }).raw;
+  assert.doesNotMatch(cams.catMenu, /aria-current/);
+  assert.match(cams.menuLinks, /<a class="drawer-item drawer-link" href="\/cameras" aria-current="page"><span class="live-dot"/);
+  // sem links na barra superior, a seção "Atalhos" some
+  assert.equal(R.context({ ...s, topbar: { ...s.topbar, links: [] } }, { BRL: 5.4, PYG: 5800, source: "manual" }).raw.menuLinks, "");
+});
+
 test("tema: cores derivadas", () => {
   assert.ok(!R.themeCss(DEFAULTS.brand).includes("--"), "cores padrão não sobrescrevem app.css");
   const css = R.themeCss({ primary: "#123456", accent: DEFAULTS.brand.accent });

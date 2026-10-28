@@ -1,0 +1,17 @@
+<dialog class="drawer" id="menu" aria-labelledby="menuTitle">
+  <div class="drawer-in">
+    <div class="drawer-head">
+      <span class="logo" aria-hidden="true">{{{logoMark}}}{{{logoWord}}}</span>
+      <button type="button" class="icon-x" id="menuClose" aria-label="Fechar menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="drawer-body">
+      <nav class="drawer-sec" aria-labelledby="menuTitle">
+        <h2 class="drawer-title" id="menuTitle">Categorias</h2>
+        <ul class="drawer-list" id="menuCats">{{{catMenu}}}</ul>
+      </nav>
+      {{{menuLinks}}}
+    </div>
+  </div>
+</dialog>

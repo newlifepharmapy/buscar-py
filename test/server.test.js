@@ -70,6 +70,14 @@ test("páginas públicas", async () => {
   assert.equal((camsHtml.match(/<span class="cam-credit">Fonte: Portal da Cidade<\/span>/g) || []).length, 3);
   assert.doesNotMatch(camsHtml, /<iframe/, "o player só é criado pelo script, quando a câmera aparece na tela");
   assert.match(html, /<a class="util-link is-live" href="\/cameras">/, "sem target: abre na mesma janela");
+  // menu lateral do celular em todas as páginas: botão ☰ ligado ao painel, e o script dele
+  const notFound = await (await fetch(base + "/nada")).text();
+  for (const [name, page] of [["início", html], ["câmeras", camsHtml], ["404", notFound]]) {
+    assert.match(page, /<button type="button" class="menu-btn" id="menuBtn" aria-haspopup="dialog" aria-controls="menu" aria-expanded="false"/, name);
+    assert.match(page, /<dialog class="drawer" id="menu" aria-labelledby="menuTitle">/, name);
+    assert.match(page, /href="\/\?cat=mochilas" data-cat="mochilas"/, name);
+    assert.match(page, /<script src="\/?js\/menu\.js"><\/script>/, name);
+  }
   assert.match(r.headers.get("content-security-policy"), /frame-src 'none'/);
   const rates = await (await fetch(base + "/api/rates")).json();
   assert.ok(rates.BRL > 1 && rates.PYG > 1000);
